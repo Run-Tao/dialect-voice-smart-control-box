@@ -1,0 +1,192 @@
+{
+  "generated": "2026-11-01",
+  "built_by": "scripts/build_selective_gate.py",
+  "args": {
+    "raw_cache": "D:\\Run_Tao\\DialectVoice_Research\\data\\real_domain_testset\\selective_raw.npz",
+    "pool_size": 500,
+    "pool_seed": 0,
+    "pool_dtype": "float16",
+    "k": 5,
+    "target_risk": 0.1,
+    "xfit_folds": 2,
+    "xfit_seeds": "0,1,2",
+    "fallback_threshold": 0.945,
+    "fallback_mode": "single",
+    "out_dir": "D:\\Run_Tao\\DialectVoice_Research\\data\\models",
+    "report": "D:\\Run_Tao\\DialectVoice_Engineering\\docs\\selective_gate.json",
+    "dry_run": false
+  },
+  "pool": {
+    "shape": [
+      500,
+      256
+    ],
+    "dtype_note": "float16 往返（标定与评估都用往返后的数值）",
+    "n_by_class": {
+      "ALL_OFF": 84,
+      "CURTAIN_CLOSE": 83,
+      "CURTAIN_OPEN": 83,
+      "LIGHT_OFF": 83,
+      "LIGHT_ON": 84,
+      "STATUS_ALL": 83
+    },
+    "source_indices_sha256": "a89188a0102b34c6",
+    "bytes_in_memory_f32": 512000
+  },
+  "groups": {
+    "pool": 1981,
+    "syn_known": 440,
+    "syn_unknown": 72,
+    "real": 2637
+  },
+  "deployed_fit": {
+    "thresholds": {
+      "maxprob": 0.309193,
+      "ood": -0.022306
+    },
+    "real_far": 0.0812,
+    "real_ci95": [
+      0.0713,
+      0.0922
+    ],
+    "real_accepted": 214,
+    "real_n": 2637,
+    "dangerous_rate": 0.0212,
+    "dangerous_ci95": [
+      0.0164,
+      0.0275
+    ],
+    "dangerous_accepted": 56,
+    "benign_rate": 0.0599,
+    "syn_coverage": 0.8205,
+    "false_accept_by_command": {
+      "STATUS_ALL": 158,
+      "ALL_OFF": 54,
+      "LIGHT_OFF": 2
+    }
+  },
+  "crossfit": {
+    "n_folds": 2,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "n_distinct_thresholds": 1,
+    "threshold_modes": [
+      {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "count": 6
+      }
+    ],
+    "pooled_far_mean": 0.0812,
+    "pooled_far_min": 0.0812,
+    "pooled_far_max": 0.0812,
+    "pos_coverage_mean": 0.8205,
+    "pos_coverage_min": 0.8205,
+    "folds": [
+      {
+        "seed": 0,
+        "fold": 0,
+        "reachable": true,
+        "n_calib": 1318,
+        "n_eval": 1319,
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "eval_accepted": 111,
+        "eval_far": 0.0842,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0781
+      },
+      {
+        "seed": 0,
+        "fold": 1,
+        "reachable": true,
+        "n_calib": 1319,
+        "n_eval": 1318,
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "eval_accepted": 103,
+        "eval_far": 0.0781,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0842
+      },
+      {
+        "seed": 1,
+        "fold": 0,
+        "reachable": true,
+        "n_calib": 1318,
+        "n_eval": 1319,
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "eval_accepted": 99,
+        "eval_far": 0.0751,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0873
+      },
+      {
+        "seed": 1,
+        "fold": 1,
+        "reachable": true,
+        "n_calib": 1319,
+        "n_eval": 1318,
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "eval_accepted": 115,
+        "eval_far": 0.0873,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0751
+      },
+      {
+        "seed": 2,
+        "fold": 0,
+        "reachable": true,
+        "n_calib": 1318,
+        "n_eval": 1319,
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "eval_accepted": 99,
+        "eval_far": 0.0751,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0873
+      },
+      {
+        "seed": 2,
+        "fold": 1,
+        "reachable": true,
+        "n_calib": 1319,
+        "n_eval": 1318,
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022306
+        },
+        "eval_accepted": 115,
+        "eval_far": 0.0873,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0751
+      }
+    ]
+  },
+  "meets_target": true,
+  "problems": [],
+  "written": {
+    "pool": "D:\\Run_Tao\\DialectVoice_Research\\data\\models\\v3_knn_pool.npz",
+    "pool_sha256": "73a2b24900139a95cb8e4ea1c1804a48c8b0442ec9e84cfe33e89825f1073ae4",
+    "pool_bytes": 282514,
+    "gate": "D:\\Run_Tao\\DialectVoice_Research\\data\\models\\v3_selective_gate.json",
+    "gate_sha256": "df3db94cc4e7afcc34b142b4ffee8faf394d8338623c78832dedabf9cd3f0cb1"
+  }
+}

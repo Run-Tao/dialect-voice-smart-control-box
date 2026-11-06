@@ -1,0 +1,15 @@
+{
+  "format": "v3_thresholds/2.0-vad",
+  "selected_threshold": 0.945,
+  "score": "max_prob",
+  "temperature": 0.5,
+  "selected_on": "validation (VAD-trimmed) + unknown calibration (VAD-trimmed)",
+  "known_coverage_on_validation": 0.8114,
+  "unknown_false_accept_rate_on_calibration": 0.1389,
+  "n_known_val": 440,
+  "n_unknown_calibration": 36,
+  "min_known_coverage_target": 0.8,
+  "target_far": 0.15,
+  "feasible": true,
+  "note": "阈值仅在验证集与未知校准集上选择；测试集未参与。覆盖率与误接受率存在取舍，工作点由 min-coverage / target-far 两个业务约束确定。"
+}

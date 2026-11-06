@@ -1,0 +1,16 @@
+# 方言智控盒 第三阶段（v3 / v3.1）依赖
+#
+# 运行推理/演示（纯 numpy，见 src/v3_model.py + src/v3_cnn_numpy.py）：
+numpy>=1.21
+
+# 训练（scripts/train_v3_model.py，PyTorch CPU；推理不需要 torch）：
+torch>=2.0
+
+# E1 v2 基线 DTW 加速（scripts/run_v3_experiments.py；缺失时会回退到
+# 纯 Python DTW，耗时从分钟级升到小时级，不建议）：
+numba>=0.57
+
+# 报告/交付材料生成（可选，非运行时依赖）：
+# python-docx>=1.1
+# python-pptx>=0.6
+# matplotlib>=3.5

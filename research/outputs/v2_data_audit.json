@@ -1,0 +1,4431 @@
+{
+  "generated_at": "2026-10-19T13:35:06",
+  "counts": {
+    "total_rows": 600,
+    "usable_rows": 600,
+    "excluded_rows": 0,
+    "v1_legacy_yue": 120,
+    "v2_new": 480,
+    "by_command_all": {
+      "LIGHT_ON": 100,
+      "LIGHT_OFF": 100,
+      "CURTAIN_OPEN": 100,
+      "CURTAIN_CLOSE": 100,
+      "ALL_OFF": 100,
+      "STATUS_ALL": 100
+    },
+    "by_command_usable": {
+      "LIGHT_ON": 100,
+      "LIGHT_OFF": 100,
+      "CURTAIN_OPEN": 100,
+      "CURTAIN_CLOSE": 100,
+      "ALL_OFF": 100,
+      "STATUS_ALL": 100
+    },
+    "by_voice_usable": {
+      "canto-tts-default": 30,
+      "edge-zh-HK-HiuGaaiNeural": 204,
+      "edge-zh-HK-HiuMaanNeural": 204,
+      "edge-zh-HK-WanLungNeural": 162
+    },
+    "by_engine_usable": {
+      "canto_tts": 30,
+      "edge_tts": 570
+    },
+    "by_condition_usable": {
+      "legacy": 120,
+      "rate_slow": 90,
+      "text_morphology": 390
+    },
+    "by_register_usable": {
+      "short_direct": 181,
+      "colloquial": 125,
+      "polite": 120,
+      "question": 114,
+      "correction": 60
+    },
+    "num_expression_groups": 174
+  },
+  "quality": {
+    "excluded_details": [],
+    "flagged": []
+  },
+  "duplicates": {
+    "exact_duplicate_removed": [],
+    "num_exact_duplicate_removed": 0,
+    "acoustic_near_duplicate": {
+      "within_expression_total_pairs": 978,
+      "within_expression_top": [
+        {
+          "cosine": 0.999302,
+          "a": "LIGHT_ON_01_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_01",
+          "group_b": "LIGHT_ON_01"
+        },
+        {
+          "cosine": 0.999261,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.999221,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_CLOSE_05"
+        },
+        {
+          "cosine": 0.999087,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_05"
+        },
+        {
+          "cosine": 0.999044,
+          "a": "CURTAIN_CLOSE_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_CLOSE_polite_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_CLOSE_09"
+        },
+        {
+          "cosine": 0.999039,
+          "a": "CURTAIN_OPEN_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_09",
+          "group_b": "CURTAIN_OPEN_09"
+        },
+        {
+          "cosine": 0.999029,
+          "a": "LIGHT_ON_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_09",
+          "group_b": "LIGHT_ON_09"
+        },
+        {
+          "cosine": 0.999016,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_CLOSE_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_CLOSE_05"
+        },
+        {
+          "cosine": 0.99898,
+          "a": "CURTAIN_OPEN_02_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_02",
+          "group_b": "CURTAIN_OPEN_02"
+        },
+        {
+          "cosine": 0.99891,
+          "a": "CURTAIN_CLOSE_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_CLOSE_09"
+        },
+        {
+          "cosine": 0.998871,
+          "a": "LIGHT_OFF_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_OFF_polite_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_OFF_09"
+        },
+        {
+          "cosine": 0.998716,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.998642,
+          "a": "STATUS_ALL_08_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "STATUS_ALL_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_08",
+          "group_b": "STATUS_ALL_08"
+        },
+        {
+          "cosine": 0.998607,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.998543,
+          "a": "ALL_OFF_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "ALL_OFF_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_05",
+          "group_b": "ALL_OFF_05"
+        },
+        {
+          "cosine": 0.998444,
+          "a": "LIGHT_OFF_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_OFF_09"
+        },
+        {
+          "cosine": 0.998286,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_05"
+        },
+        {
+          "cosine": 0.998279,
+          "a": "CURTAIN_OPEN_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_polite_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_09",
+          "group_b": "CURTAIN_OPEN_09"
+        },
+        {
+          "cosine": 0.997982,
+          "a": "LIGHT_ON_01_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_ON_direct_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_01",
+          "group_b": "LIGHT_ON_01"
+        },
+        {
+          "cosine": 0.997981,
+          "a": "LIGHT_OFF_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_OFF_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_05",
+          "group_b": "LIGHT_OFF_05"
+        },
+        {
+          "cosine": 0.997954,
+          "a": "STATUS_ALL_01_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "STATUS_ALL_direct_zh-HK-HiuMaanNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_01",
+          "group_b": "STATUS_ALL_01"
+        },
+        {
+          "cosine": 0.997888,
+          "a": "STATUS_ALL_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "STATUS_ALL_colloquial_zh-HK-WanLungNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_05",
+          "group_b": "STATUS_ALL_05"
+        },
+        {
+          "cosine": 0.997628,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_CLOSE_05"
+        },
+        {
+          "cosine": 0.997612,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.99759,
+          "a": "CURTAIN_CLOSE_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_polite_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_CLOSE_09"
+        },
+        {
+          "cosine": 0.997588,
+          "a": "STATUS_ALL_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "STATUS_ALL_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_05",
+          "group_b": "STATUS_ALL_05"
+        },
+        {
+          "cosine": 0.997471,
+          "a": "STATUS_ALL_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "STATUS_ALL_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_05",
+          "group_b": "STATUS_ALL_05"
+        },
+        {
+          "cosine": 0.997445,
+          "a": "ALL_OFF_02_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "ALL_OFF_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_02",
+          "group_b": "ALL_OFF_02"
+        },
+        {
+          "cosine": 0.997433,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_ON_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.997254,
+          "a": "LIGHT_ON_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_ON_polite_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_09",
+          "group_b": "LIGHT_ON_09"
+        },
+        {
+          "cosine": 0.997141,
+          "a": "STATUS_ALL_01_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "STATUS_ALL_direct_zh-HK-WanLungNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_01",
+          "group_b": "STATUS_ALL_01"
+        },
+        {
+          "cosine": 0.996859,
+          "a": "STATUS_ALL_08_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "STATUS_ALL_polite_zh-HK-WanLungNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_08",
+          "group_b": "STATUS_ALL_08"
+        },
+        {
+          "cosine": 0.996594,
+          "a": "CURTAIN_CLOSE_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_question_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_10",
+          "group_b": "CURTAIN_CLOSE_10"
+        },
+        {
+          "cosine": 0.996533,
+          "a": "ALL_OFF_02_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "ALL_OFF_direct_zh-HK-WanLungNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_02",
+          "group_b": "ALL_OFF_02"
+        },
+        {
+          "cosine": 0.996499,
+          "a": "CURTAIN_OPEN_02_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_direct_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_02",
+          "group_b": "CURTAIN_OPEN_02"
+        },
+        {
+          "cosine": 0.996424,
+          "a": "LIGHT_OFF_01_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_OFF_direct_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_01",
+          "group_b": "LIGHT_OFF_01"
+        },
+        {
+          "cosine": 0.996341,
+          "a": "STATUS_ALL_08_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "STATUS_ALL_polite_zh-HK-HiuMaanNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_08",
+          "group_b": "STATUS_ALL_08"
+        },
+        {
+          "cosine": 0.99634,
+          "a": "LIGHT_OFF_01_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_OFF_direct_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_01",
+          "group_b": "LIGHT_OFF_01"
+        },
+        {
+          "cosine": 0.99602,
+          "a": "CURTAIN_OPEN_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_OPEN_polite_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_09",
+          "group_b": "CURTAIN_OPEN_09"
+        },
+        {
+          "cosine": 0.99591,
+          "a": "ALL_OFF_08_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "ALL_OFF_polite_zh-HK-WanLungNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_08",
+          "group_b": "ALL_OFF_08"
+        },
+        {
+          "cosine": 0.99553,
+          "a": "ALL_OFF_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "ALL_OFF_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_05",
+          "group_b": "ALL_OFF_05"
+        },
+        {
+          "cosine": 0.995192,
+          "a": "ALL_OFF_08_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "ALL_OFF_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_08",
+          "group_b": "ALL_OFF_08"
+        },
+        {
+          "cosine": 0.994811,
+          "a": "LIGHT_OFF_01_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_OFF_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_01",
+          "group_b": "LIGHT_OFF_01"
+        },
+        {
+          "cosine": 0.994401,
+          "a": "STATUS_ALL_01_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "STATUS_ALL_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_01",
+          "group_b": "STATUS_ALL_01"
+        },
+        {
+          "cosine": 0.994324,
+          "a": "LIGHT_OFF_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_OFF_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_05",
+          "group_b": "LIGHT_OFF_05"
+        },
+        {
+          "cosine": 0.994212,
+          "a": "ALL_OFF_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "ALL_OFF_colloquial_zh-HK-WanLungNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_05",
+          "group_b": "ALL_OFF_05"
+        },
+        {
+          "cosine": 0.994129,
+          "a": "LIGHT_ON_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_ON_polite_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_09",
+          "group_b": "LIGHT_ON_09"
+        },
+        {
+          "cosine": 0.993896,
+          "a": "CURTAIN_OPEN_02_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_OPEN_direct_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_02",
+          "group_b": "CURTAIN_OPEN_02"
+        },
+        {
+          "cosine": 0.993669,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_05"
+        },
+        {
+          "cosine": 0.992302,
+          "a": "LIGHT_OFF_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_OFF_colloquial_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_05",
+          "group_b": "LIGHT_OFF_05"
+        },
+        {
+          "cosine": 0.992269,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_ON_colloquial_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.99159,
+          "a": "LIGHT_ON_01_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_ON_direct_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_01",
+          "group_b": "LIGHT_ON_01"
+        },
+        {
+          "cosine": 0.990702,
+          "a": "LIGHT_OFF_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_OFF_question_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_10",
+          "group_b": "LIGHT_OFF_10"
+        },
+        {
+          "cosine": 0.98891,
+          "a": "LIGHT_ON_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_question_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_10",
+          "group_b": "LIGHT_ON_10"
+        },
+        {
+          "cosine": 0.985568,
+          "a": "ALL_OFF_08_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "ALL_OFF_polite_zh-HK-HiuMaanNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_08",
+          "group_b": "ALL_OFF_08"
+        },
+        {
+          "cosine": 0.985024,
+          "a": "ALL_OFF_02_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "ALL_OFF_direct_zh-HK-HiuMaanNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_02",
+          "group_b": "ALL_OFF_02"
+        },
+        {
+          "cosine": 0.983089,
+          "a": "LIGHT_OFF_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_OFF_polite_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_OFF_09"
+        },
+        {
+          "cosine": 0.978748,
+          "a": "STATUS_ALL_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "STATUS_ALL_question_zh-HK-WanLungNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_10",
+          "group_b": "STATUS_ALL_10"
+        },
+        {
+          "cosine": 0.974182,
+          "a": "ALL_OFF_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "ALL_OFF_question_zh-HK-WanLungNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_10",
+          "group_b": "ALL_OFF_10"
+        },
+        {
+          "cosine": 0.973112,
+          "a": "CURTAIN_OPEN_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_10",
+          "group_b": "CURTAIN_OPEN_10"
+        },
+        {
+          "cosine": 0.972141,
+          "a": "LIGHT_ON_10_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_ON_question_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_10",
+          "group_b": "LIGHT_ON_10"
+        },
+        {
+          "cosine": 0.971596,
+          "a": "CURTAIN_OPEN_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_question_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_10",
+          "group_b": "CURTAIN_OPEN_10"
+        },
+        {
+          "cosine": 0.967069,
+          "a": "CURTAIN_CLOSE_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_10",
+          "group_b": "CURTAIN_CLOSE_10"
+        },
+        {
+          "cosine": 0.965743,
+          "a": "STATUS_ALL_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "STATUS_ALL_question_zh-HK-HiuGaaiNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_10",
+          "group_b": "STATUS_ALL_10"
+        },
+        {
+          "cosine": 0.963486,
+          "a": "ALL_OFF_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "ALL_OFF_question_zh-HK-HiuGaaiNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_10",
+          "group_b": "ALL_OFF_10"
+        },
+        {
+          "cosine": 0.959775,
+          "a": "CURTAIN_CLOSE_06_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_CLOSE_06_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_06",
+          "group_b": "CURTAIN_CLOSE_06"
+        },
+        {
+          "cosine": 0.959425,
+          "a": "STATUS_ALL_10_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "STATUS_ALL_question_zh-HK-HiuMaanNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_10",
+          "group_b": "STATUS_ALL_10"
+        },
+        {
+          "cosine": 0.951858,
+          "a": "LIGHT_OFF_03_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_03_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_03",
+          "group_b": "LIGHT_OFF_03"
+        },
+        {
+          "cosine": 0.948121,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_ON_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.947484,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_ON_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.946798,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_ON_colloquial_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.945254,
+          "a": "CURTAIN_OPEN_10_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_OPEN_question_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_10",
+          "group_b": "CURTAIN_OPEN_10"
+        },
+        {
+          "cosine": 0.945199,
+          "a": "ALL_OFF_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "ALL_OFF_01_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_01",
+          "group_b": "ALL_OFF_01"
+        },
+        {
+          "cosine": 0.944481,
+          "a": "LIGHT_ON_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_ON_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_19",
+          "group_b": "LIGHT_ON_19"
+        },
+        {
+          "cosine": 0.942677,
+          "a": "LIGHT_OFF_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_10",
+          "group_b": "LIGHT_OFF_10"
+        },
+        {
+          "cosine": 0.942158,
+          "a": "LIGHT_ON_colloquial_zh-HK-HiuMaanNeural",
+          "b": "LIGHT_ON_colloquial_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_05"
+        },
+        {
+          "cosine": 0.941143,
+          "a": "ALL_OFF_04_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "ALL_OFF_04_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_04",
+          "group_b": "ALL_OFF_04"
+        },
+        {
+          "cosine": 0.939203,
+          "a": "CURTAIN_CLOSE_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_01_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_01",
+          "group_b": "CURTAIN_CLOSE_01"
+        },
+        {
+          "cosine": 0.93725,
+          "a": "LIGHT_OFF_10_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "LIGHT_OFF_question_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_10",
+          "group_b": "LIGHT_OFF_10"
+        },
+        {
+          "cosine": 0.935721,
+          "a": "ALL_OFF_10_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "ALL_OFF_question_zh-HK-HiuMaanNeural",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_10",
+          "group_b": "ALL_OFF_10"
+        },
+        {
+          "cosine": 0.935671,
+          "a": "LIGHT_OFF_04_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_04_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_04",
+          "group_b": "LIGHT_OFF_04"
+        },
+        {
+          "cosine": 0.934775,
+          "a": "CURTAIN_CLOSE_03_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_03_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_03",
+          "group_b": "CURTAIN_CLOSE_03"
+        },
+        {
+          "cosine": 0.933753,
+          "a": "ALL_OFF_04_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "ALL_OFF_04_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_04",
+          "group_b": "ALL_OFF_04"
+        },
+        {
+          "cosine": 0.933021,
+          "a": "CURTAIN_CLOSE_10_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_CLOSE_question_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_10",
+          "group_b": "CURTAIN_CLOSE_10"
+        },
+        {
+          "cosine": 0.93255,
+          "a": "LIGHT_OFF_07_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_OFF_07_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_07",
+          "group_b": "LIGHT_OFF_07"
+        },
+        {
+          "cosine": 0.930165,
+          "a": "LIGHT_OFF_23_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_23_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_23",
+          "group_b": "LIGHT_OFF_23"
+        },
+        {
+          "cosine": 0.92936,
+          "a": "LIGHT_OFF_colloquial_zh-HK-HiuMaanNeural",
+          "b": "LIGHT_OFF_colloquial_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_05",
+          "group_b": "LIGHT_OFF_05"
+        },
+        {
+          "cosine": 0.927935,
+          "a": "CURTAIN_CLOSE_15_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_CLOSE_15_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_15",
+          "group_b": "CURTAIN_CLOSE_15"
+        },
+        {
+          "cosine": 0.927157,
+          "a": "LIGHT_ON_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_ON_question_zh-HK-WanLungNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_10",
+          "group_b": "LIGHT_ON_10"
+        },
+        {
+          "cosine": 0.927117,
+          "a": "CURTAIN_CLOSE_direct_zh-HK-HiuGaaiNeural",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.926432,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.926037,
+          "a": "CURTAIN_CLOSE_22_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_22_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_22",
+          "group_b": "CURTAIN_CLOSE_22"
+        },
+        {
+          "cosine": 0.925874,
+          "a": "LIGHT_ON_18_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_ON_18_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_18",
+          "group_b": "LIGHT_ON_18"
+        },
+        {
+          "cosine": 0.924204,
+          "a": "STATUS_ALL_01_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "STATUS_ALL_direct_zh-HK-HiuMaanNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_01",
+          "group_b": "STATUS_ALL_01"
+        },
+        {
+          "cosine": 0.923165,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.922809,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_02_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.922153,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.918927,
+          "a": "CURTAIN_CLOSE_16_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_CLOSE_16_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_16",
+          "group_b": "CURTAIN_CLOSE_16"
+        },
+        {
+          "cosine": 0.917665,
+          "a": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+          "b": "CURTAIN_CLOSE_direct_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_CLOSE_02"
+        },
+        {
+          "cosine": 0.917645,
+          "a": "STATUS_ALL_direct_zh-HK-HiuMaanNeural",
+          "b": "STATUS_ALL_direct_zh-HK-WanLungNeural",
+          "command_a": "STATUS_ALL",
+          "command_b": "STATUS_ALL",
+          "group_a": "STATUS_ALL_01",
+          "group_b": "STATUS_ALL_01"
+        }
+      ],
+      "within_expression_note": "同一表达的不同声学变体，高相似属预期，用于确认分组正确性。",
+      "cross_expression_total_pairs": 178722,
+      "cross_expression_top": [
+        {
+          "cosine": 0.992304,
+          "a": "LIGHT_ON_06_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_ON_24_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_06",
+          "group_b": "LIGHT_ON_24",
+          "same_command": true
+        },
+        {
+          "cosine": 0.991986,
+          "a": "CURTAIN_OPEN_08_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_17_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_08",
+          "group_b": "CURTAIN_OPEN_17",
+          "same_command": true
+        },
+        {
+          "cosine": 0.988224,
+          "a": "CURTAIN_CLOSE_13_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_13_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_13",
+          "group_b": "CURTAIN_OPEN_13",
+          "same_command": false
+        },
+        {
+          "cosine": 0.987162,
+          "a": "LIGHT_ON_06_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_ON_24_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_06",
+          "group_b": "LIGHT_ON_24",
+          "same_command": true
+        },
+        {
+          "cosine": 0.986087,
+          "a": "CURTAIN_CLOSE_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_20_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_CLOSE_20",
+          "same_command": true
+        },
+        {
+          "cosine": 0.984488,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_07_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_CLOSE_07",
+          "same_command": true
+        },
+        {
+          "cosine": 0.984071,
+          "a": "CURTAIN_CLOSE_20_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_20_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_20",
+          "group_b": "CURTAIN_OPEN_20",
+          "same_command": false
+        },
+        {
+          "cosine": 0.983522,
+          "a": "CURTAIN_CLOSE_20_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_CLOSE_polite_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_20",
+          "group_b": "CURTAIN_CLOSE_09",
+          "same_command": true
+        },
+        {
+          "cosine": 0.983175,
+          "a": "LIGHT_OFF_18_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_23_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_18",
+          "group_b": "LIGHT_OFF_23",
+          "same_command": true
+        },
+        {
+          "cosine": 0.983148,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.983097,
+          "a": "LIGHT_OFF_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_19",
+          "group_b": "LIGHT_OFF_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.982162,
+          "a": "CURTAIN_CLOSE_07_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_07",
+          "group_b": "CURTAIN_CLOSE_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.981718,
+          "a": "LIGHT_OFF_20_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_20",
+          "group_b": "LIGHT_OFF_09",
+          "same_command": true
+        },
+        {
+          "cosine": 0.981576,
+          "a": "LIGHT_OFF_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_OFF_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_05",
+          "group_b": "LIGHT_OFF_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.981395,
+          "a": "CURTAIN_OPEN_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_19",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.980547,
+          "a": "CURTAIN_CLOSE_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_10",
+          "group_b": "CURTAIN_OPEN_11",
+          "same_command": false
+        },
+        {
+          "cosine": 0.979999,
+          "a": "LIGHT_OFF_08_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_OFF_17_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_08",
+          "group_b": "LIGHT_OFF_17",
+          "same_command": true
+        },
+        {
+          "cosine": 0.978894,
+          "a": "CURTAIN_CLOSE_13_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_13_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_13",
+          "group_b": "CURTAIN_OPEN_13",
+          "same_command": false
+        },
+        {
+          "cosine": 0.978893,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_CLOSE_07_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_CLOSE_07",
+          "same_command": true
+        },
+        {
+          "cosine": 0.978716,
+          "a": "CURTAIN_OPEN_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_19",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.97826,
+          "a": "CURTAIN_CLOSE_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_20_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_OPEN_20",
+          "same_command": false
+        },
+        {
+          "cosine": 0.977134,
+          "a": "CURTAIN_CLOSE_polite_zh-HK-WanLungNeural",
+          "b": "CURTAIN_OPEN_20_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_OPEN_20",
+          "same_command": false
+        },
+        {
+          "cosine": 0.976844,
+          "a": "CURTAIN_CLOSE_06_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_06",
+          "group_b": "CURTAIN_CLOSE_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.97599,
+          "a": "CURTAIN_CLOSE_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_10",
+          "group_b": "CURTAIN_OPEN_11",
+          "same_command": false
+        },
+        {
+          "cosine": 0.975648,
+          "a": "LIGHT_OFF_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_OFF_20_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_OFF_20",
+          "same_command": true
+        },
+        {
+          "cosine": 0.975436,
+          "a": "CURTAIN_CLOSE_18_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_24_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_18",
+          "group_b": "CURTAIN_CLOSE_24",
+          "same_command": true
+        },
+        {
+          "cosine": 0.974145,
+          "a": "CURTAIN_CLOSE_13_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_13_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_13",
+          "group_b": "CURTAIN_OPEN_13",
+          "same_command": false
+        },
+        {
+          "cosine": 0.973184,
+          "a": "CURTAIN_CLOSE_07_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_07",
+          "group_b": "CURTAIN_CLOSE_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.972193,
+          "a": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.972088,
+          "a": "CURTAIN_OPEN_10_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_10",
+          "group_b": "CURTAIN_OPEN_11",
+          "same_command": true
+        },
+        {
+          "cosine": 0.972004,
+          "a": "CURTAIN_OPEN_06_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_06",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.971448,
+          "a": "CURTAIN_OPEN_07_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_07",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.971236,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_06_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_06",
+          "same_command": true
+        },
+        {
+          "cosine": 0.971104,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_06_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_06",
+          "same_command": true
+        },
+        {
+          "cosine": 0.970974,
+          "a": "CURTAIN_OPEN_03_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_direct_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_03",
+          "group_b": "CURTAIN_OPEN_02",
+          "same_command": true
+        },
+        {
+          "cosine": 0.970626,
+          "a": "CURTAIN_OPEN_03_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_18_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_03",
+          "group_b": "CURTAIN_OPEN_18",
+          "same_command": true
+        },
+        {
+          "cosine": 0.970297,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.969474,
+          "a": "CURTAIN_OPEN_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_question_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_11",
+          "group_b": "CURTAIN_OPEN_10",
+          "same_command": true
+        },
+        {
+          "cosine": 0.96944,
+          "a": "ALL_OFF_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "ALL_OFF_24_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_16",
+          "group_b": "ALL_OFF_24",
+          "same_command": true
+        },
+        {
+          "cosine": 0.9689,
+          "a": "CURTAIN_CLOSE_question_zh-HK-HiuGaaiNeural",
+          "b": "CURTAIN_OPEN_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_10",
+          "group_b": "CURTAIN_OPEN_11",
+          "same_command": false
+        },
+        {
+          "cosine": 0.968872,
+          "a": "LIGHT_OFF_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "LIGHT_OFF_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_05",
+          "group_b": "LIGHT_OFF_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.968763,
+          "a": "CURTAIN_CLOSE_20_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_20_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_20",
+          "group_b": "CURTAIN_OPEN_20",
+          "same_command": false
+        },
+        {
+          "cosine": 0.968746,
+          "a": "CURTAIN_CLOSE_16_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_16_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_16",
+          "group_b": "CURTAIN_OPEN_16",
+          "same_command": false
+        },
+        {
+          "cosine": 0.968464,
+          "a": "CURTAIN_OPEN_07_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_07",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.968355,
+          "a": "LIGHT_OFF_25_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_ON_polite_zh-HK-HiuMaanNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_25",
+          "group_b": "LIGHT_ON_09",
+          "same_command": false
+        },
+        {
+          "cosine": 0.968339,
+          "a": "CURTAIN_OPEN_10_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_10",
+          "group_b": "CURTAIN_OPEN_11",
+          "same_command": true
+        },
+        {
+          "cosine": 0.968331,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.967943,
+          "a": "LIGHT_ON_18_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_ON_23_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_18",
+          "group_b": "LIGHT_ON_23",
+          "same_command": true
+        },
+        {
+          "cosine": 0.967451,
+          "a": "CURTAIN_CLOSE_08_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_CLOSE_17_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_08",
+          "group_b": "CURTAIN_CLOSE_17",
+          "same_command": true
+        },
+        {
+          "cosine": 0.966248,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.966205,
+          "a": "CURTAIN_OPEN_06_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_06",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": true
+        },
+        {
+          "cosine": 0.966089,
+          "a": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+          "b": "CURTAIN_OPEN_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.965997,
+          "a": "CURTAIN_CLOSE_06_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_06",
+          "group_b": "CURTAIN_CLOSE_16",
+          "same_command": true
+        },
+        {
+          "cosine": 0.965994,
+          "a": "LIGHT_ON_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_20_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_09",
+          "group_b": "LIGHT_ON_20",
+          "same_command": true
+        },
+        {
+          "cosine": 0.965798,
+          "a": "ALL_OFF_16_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "ALL_OFF_18_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_16",
+          "group_b": "ALL_OFF_18",
+          "same_command": true
+        },
+        {
+          "cosine": 0.965518,
+          "a": "CURTAIN_OPEN_07_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_07",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.965495,
+          "a": "CURTAIN_CLOSE_16_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_16_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_16",
+          "group_b": "CURTAIN_OPEN_16",
+          "same_command": false
+        },
+        {
+          "cosine": 0.965155,
+          "a": "CURTAIN_CLOSE_27_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_27_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_27",
+          "group_b": "CURTAIN_OPEN_27",
+          "same_command": false
+        },
+        {
+          "cosine": 0.964728,
+          "a": "ALL_OFF_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "ALL_OFF_18_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "ALL_OFF",
+          "group_a": "ALL_OFF_16",
+          "group_b": "ALL_OFF_18",
+          "same_command": true
+        },
+        {
+          "cosine": 0.964643,
+          "a": "LIGHT_OFF_25_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_ON_20_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_25",
+          "group_b": "LIGHT_ON_20",
+          "same_command": false
+        },
+        {
+          "cosine": 0.964238,
+          "a": "CURTAIN_CLOSE_07_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_07",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": false
+        },
+        {
+          "cosine": 0.964222,
+          "a": "LIGHT_OFF_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_ON_09",
+          "same_command": false
+        },
+        {
+          "cosine": 0.964146,
+          "a": "CURTAIN_CLOSE_08_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_08_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_08",
+          "group_b": "CURTAIN_OPEN_08",
+          "same_command": false
+        },
+        {
+          "cosine": 0.963966,
+          "a": "CURTAIN_CLOSE_08_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_08_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_08",
+          "group_b": "CURTAIN_OPEN_08",
+          "same_command": false
+        },
+        {
+          "cosine": 0.963767,
+          "a": "CURTAIN_CLOSE_08_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_CLOSE_17_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_08",
+          "group_b": "CURTAIN_CLOSE_17",
+          "same_command": true
+        },
+        {
+          "cosine": 0.962836,
+          "a": "LIGHT_OFF_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_ON_09",
+          "same_command": false
+        },
+        {
+          "cosine": 0.962596,
+          "a": "CURTAIN_CLOSE_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_16",
+          "group_b": "CURTAIN_OPEN_16",
+          "same_command": false
+        },
+        {
+          "cosine": 0.962461,
+          "a": "CURTAIN_CLOSE_28_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_OPEN_28_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_28",
+          "group_b": "CURTAIN_OPEN_28",
+          "same_command": false
+        },
+        {
+          "cosine": 0.962433,
+          "a": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+          "b": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_ON_09",
+          "same_command": false
+        },
+        {
+          "cosine": 0.962181,
+          "a": "CURTAIN_CLOSE_08_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_17_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_08",
+          "group_b": "CURTAIN_CLOSE_17",
+          "same_command": true
+        },
+        {
+          "cosine": 0.961962,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961782,
+          "a": "CURTAIN_CLOSE_colloquial_zh-HK-HiuMaanNeural",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961708,
+          "a": "CURTAIN_CLOSE_18_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_18_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_18",
+          "group_b": "CURTAIN_OPEN_18",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961436,
+          "a": "CURTAIN_CLOSE_07_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_07",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961426,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961388,
+          "a": "CURTAIN_CLOSE_colloquial_zh-HK-HiuMaanNeural",
+          "b": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961365,
+          "a": "LIGHT_OFF_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "LIGHT_ON_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_11",
+          "group_b": "LIGHT_ON_11",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961206,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuMaanNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961131,
+          "a": "CURTAIN_CLOSE_17_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_OPEN_17_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_17",
+          "group_b": "CURTAIN_OPEN_17",
+          "same_command": false
+        },
+        {
+          "cosine": 0.961115,
+          "a": "CURTAIN_CLOSE_02_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_03_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_OPEN_03",
+          "same_command": false
+        },
+        {
+          "cosine": 0.960884,
+          "a": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+          "b": "CURTAIN_OPEN_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_19",
+          "same_command": false
+        },
+        {
+          "cosine": 0.960581,
+          "a": "LIGHT_OFF_06_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_24_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_06",
+          "group_b": "LIGHT_OFF_24",
+          "same_command": true
+        },
+        {
+          "cosine": 0.96049,
+          "a": "CURTAIN_CLOSE_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_CLOSE_20_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_09",
+          "group_b": "CURTAIN_CLOSE_20",
+          "same_command": true
+        },
+        {
+          "cosine": 0.960429,
+          "a": "CURTAIN_CLOSE_direct_zh-HK-WanLungNeural",
+          "b": "CURTAIN_OPEN_03_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_02",
+          "group_b": "CURTAIN_OPEN_03",
+          "same_command": false
+        },
+        {
+          "cosine": 0.960389,
+          "a": "LIGHT_ON_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "LIGHT_ON_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_05",
+          "group_b": "LIGHT_ON_16",
+          "same_command": true
+        },
+        {
+          "cosine": 0.96033,
+          "a": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+          "b": "LIGHT_ON_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_09",
+          "group_b": "LIGHT_ON_09",
+          "same_command": false
+        },
+        {
+          "cosine": 0.960091,
+          "a": "LIGHT_OFF_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_ON_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_11",
+          "group_b": "LIGHT_ON_11",
+          "same_command": false
+        },
+        {
+          "cosine": 0.959978,
+          "a": "LIGHT_ON_20_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+          "command_a": "LIGHT_ON",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_ON_20",
+          "group_b": "LIGHT_ON_09",
+          "same_command": true
+        },
+        {
+          "cosine": 0.959945,
+          "a": "LIGHT_OFF_03_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "LIGHT_ON_01_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_03",
+          "group_b": "LIGHT_ON_01",
+          "same_command": false
+        },
+        {
+          "cosine": 0.959728,
+          "a": "LIGHT_OFF_18_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_OFF_23_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_OFF",
+          "group_a": "LIGHT_OFF_18",
+          "group_b": "LIGHT_OFF_23",
+          "same_command": true
+        },
+        {
+          "cosine": 0.959704,
+          "a": "CURTAIN_OPEN_29_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "LIGHT_OFF_25_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "LIGHT_OFF",
+          "group_a": "CURTAIN_OPEN_29",
+          "group_b": "LIGHT_OFF_25",
+          "same_command": false
+        },
+        {
+          "cosine": 0.959602,
+          "a": "LIGHT_OFF_25_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "LIGHT_ON_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+          "command_a": "LIGHT_OFF",
+          "command_b": "LIGHT_ON",
+          "group_a": "LIGHT_OFF_25",
+          "group_b": "LIGHT_ON_09",
+          "same_command": false
+        },
+        {
+          "cosine": 0.95956,
+          "a": "CURTAIN_CLOSE_22_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_CLOSE_29_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_22",
+          "group_b": "CURTAIN_CLOSE_29",
+          "same_command": true
+        },
+        {
+          "cosine": 0.959046,
+          "a": "ALL_OFF_07_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "b": "CURTAIN_CLOSE_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+          "command_a": "ALL_OFF",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "ALL_OFF_07",
+          "group_b": "CURTAIN_CLOSE_19",
+          "same_command": false
+        },
+        {
+          "cosine": 0.95869,
+          "a": "CURTAIN_OPEN_02_edge_tts_zh-HK-WanLungNeural_slow_00",
+          "b": "CURTAIN_OPEN_03_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_02",
+          "group_b": "CURTAIN_OPEN_03",
+          "same_command": true
+        },
+        {
+          "cosine": 0.958607,
+          "a": "CURTAIN_OPEN_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+          "b": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_11",
+          "group_b": "CURTAIN_OPEN_10",
+          "same_command": true
+        },
+        {
+          "cosine": 0.958567,
+          "a": "CURTAIN_CLOSE_colloquial_zh-HK-HiuGaaiNeural",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.958194,
+          "a": "CURTAIN_CLOSE_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_CLOSE_05",
+          "group_b": "CURTAIN_OPEN_05",
+          "same_command": false
+        },
+        {
+          "cosine": 0.958073,
+          "a": "CURTAIN_CLOSE_16_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "b": "CURTAIN_CLOSE_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_CLOSE",
+          "command_b": "CURTAIN_CLOSE",
+          "group_a": "CURTAIN_CLOSE_16",
+          "group_b": "CURTAIN_CLOSE_19",
+          "same_command": true
+        },
+        {
+          "cosine": 0.957675,
+          "a": "CURTAIN_OPEN_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+          "b": "CURTAIN_OPEN_07_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+          "command_a": "CURTAIN_OPEN",
+          "command_b": "CURTAIN_OPEN",
+          "group_a": "CURTAIN_OPEN_05",
+          "group_b": "CURTAIN_OPEN_07",
+          "same_command": true
+        }
+      ],
+      "cross_expression_note": "不同表达之间的声学相似度；高相似说明不同意图在声学上易混，是识别错误的结构性来源。仅报告，不自动删除。",
+      "cross_expression_high_sim_count_gt_0_99": 2
+    }
+  },
+  "expression_group_merge": {
+    "n_merged_text_keys": 30,
+    "n_rows_changed": 120,
+    "merged_examples": [
+      {
+        "command": "LIGHT_ON",
+        "normalized_text": "开灯",
+        "group_ids": [
+          "LIGHT_ON_01",
+          "LIGHT_ON_short_direct"
+        ]
+      },
+      {
+        "command": "LIGHT_ON",
+        "normalized_text": "幫我开灯",
+        "group_ids": [
+          "LIGHT_ON_05",
+          "LIGHT_ON_colloquial"
+        ]
+      },
+      {
+        "command": "LIGHT_ON",
+        "normalized_text": "唔該幫我开灯",
+        "group_ids": [
+          "LIGHT_ON_09",
+          "LIGHT_ON_polite"
+        ]
+      },
+      {
+        "command": "LIGHT_ON",
+        "normalized_text": "可唔可以开灯",
+        "group_ids": [
+          "LIGHT_ON_10",
+          "LIGHT_ON_question"
+        ]
+      },
+      {
+        "command": "LIGHT_ON",
+        "normalized_text": "唔係熄灯係开灯",
+        "group_ids": [
+          "LIGHT_ON_14",
+          "LIGHT_ON_correction"
+        ]
+      },
+      {
+        "command": "LIGHT_OFF",
+        "normalized_text": "熄灯",
+        "group_ids": [
+          "LIGHT_OFF_01",
+          "LIGHT_OFF_short_direct"
+        ]
+      },
+      {
+        "command": "LIGHT_OFF",
+        "normalized_text": "幫我熄灯",
+        "group_ids": [
+          "LIGHT_OFF_05",
+          "LIGHT_OFF_colloquial"
+        ]
+      },
+      {
+        "command": "LIGHT_OFF",
+        "normalized_text": "唔該幫我熄灯",
+        "group_ids": [
+          "LIGHT_OFF_09",
+          "LIGHT_OFF_polite"
+        ]
+      },
+      {
+        "command": "LIGHT_OFF",
+        "normalized_text": "可唔可以熄灯",
+        "group_ids": [
+          "LIGHT_OFF_10",
+          "LIGHT_OFF_question"
+        ]
+      },
+      {
+        "command": "LIGHT_OFF",
+        "normalized_text": "唔係开灯係熄灯",
+        "group_ids": [
+          "LIGHT_OFF_14",
+          "LIGHT_OFF_correction"
+        ]
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "normalized_text": "打开窗帘",
+        "group_ids": [
+          "CURTAIN_OPEN_02",
+          "CURTAIN_OPEN_short_direct"
+        ]
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "normalized_text": "幫我拉开窗帘",
+        "group_ids": [
+          "CURTAIN_OPEN_05",
+          "CURTAIN_OPEN_colloquial"
+        ]
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "normalized_text": "唔該幫我打开窗帘",
+        "group_ids": [
+          "CURTAIN_OPEN_09",
+          "CURTAIN_OPEN_polite"
+        ]
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "normalized_text": "可唔可以打开窗帘",
+        "group_ids": [
+          "CURTAIN_OPEN_10",
+          "CURTAIN_OPEN_question"
+        ]
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "normalized_text": "唔係拉埋窗帘係打开窗帘",
+        "group_ids": [
+          "CURTAIN_OPEN_14",
+          "CURTAIN_OPEN_correction"
+        ]
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "normalized_text": "拉埋窗帘",
+        "group_ids": [
+          "CURTAIN_CLOSE_02",
+          "CURTAIN_CLOSE_short_direct"
+        ]
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "normalized_text": "幫我拉埋窗帘",
+        "group_ids": [
+          "CURTAIN_CLOSE_05",
+          "CURTAIN_CLOSE_colloquial"
+        ]
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "normalized_text": "唔該幫我拉埋窗帘",
+        "group_ids": [
+          "CURTAIN_CLOSE_09",
+          "CURTAIN_CLOSE_polite"
+        ]
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "normalized_text": "可唔可以拉埋窗帘",
+        "group_ids": [
+          "CURTAIN_CLOSE_10",
+          "CURTAIN_CLOSE_question"
+        ]
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "normalized_text": "唔係打开窗帘係拉埋窗帘",
+        "group_ids": [
+          "CURTAIN_CLOSE_14",
+          "CURTAIN_CLOSE_correction"
+        ]
+      }
+    ],
+    "note": "合并依据为规范化文本（去标点、繁简统一）；合并后同文本样本不会跨子集。"
+  },
+  "text_near_duplicates": {
+    "total_pairs": 234,
+    "pairs": [
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫我熄燈",
+        "b": "唔該幫我熄燈先",
+        "jaccard": 0.833,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "幫我拉開窗簾先",
+        "jaccard": 0.833,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "幫我拉埋窗簾先",
+        "jaccard": 0.833,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "幫我熄燈先",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "請打開窗簾",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "拉開窗簾啦",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開返窗簾",
+        "b": "開返窗簾啦",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "拉埋窗簾啦",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "拉埋窗簾先",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒",
+        "b": "全部熄晒先",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒",
+        "b": "全部熄晒佢",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒",
+        "b": "全部熄晒啦",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "全部關晒啊",
+        "jaccard": 0.75,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該幫我打開窗簾",
+        "b": "幫我打開窗簾",
+        "jaccard": 0.714,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫手拉開窗簾",
+        "b": "唔該幫手拉開窗簾",
+        "jaccard": 0.714,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "唔該幫我拉埋窗簾",
+        "jaccard": 0.714,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫手拉埋窗簾",
+        "b": "唔該幫手拉埋窗簾",
+        "jaccard": 0.714,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "開窗簾",
+        "jaccard": 0.667,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "拉開窗簾",
+        "jaccard": 0.667,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "開窗簾啊",
+        "jaccard": 0.667,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "關窗簾",
+        "b": "關窗簾啊",
+        "jaccard": 0.667,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈先",
+        "b": "唔該幫我熄燈先",
+        "jaccard": 0.667,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我關窗簾",
+        "b": "唔該幫我關窗簾",
+        "jaccard": 0.667,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾先",
+        "b": "幫我拉埋窗簾先",
+        "jaccard": 0.667,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "STATUS_ALL",
+        "a": "而家咩狀態",
+        "b": "睇下而家咩狀態",
+        "jaccard": 0.667,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔係熄燈，係開燈",
+        "b": "唔係熄燈係開返燈",
+        "jaccard": 0.625,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔係開燈，係熄燈",
+        "b": "唔係開燈係熄返燈",
+        "jaccard": 0.625,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "STATUS_ALL",
+        "a": "睇下而家咩狀態",
+        "b": "講下而家咩狀態啦",
+        "jaccard": 0.625,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾啦",
+        "b": "拉埋窗簾先",
+        "jaccard": 0.6,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒先",
+        "b": "全部熄晒佢",
+        "jaccard": 0.6,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒先",
+        "b": "全部熄晒啦",
+        "jaccard": 0.6,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒佢",
+        "b": "全部熄晒啦",
+        "jaccard": 0.6,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "唔該幫我開燈",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "燈開住先",
+        "b": "唔該燈開住先",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫手開燈",
+        "b": "唔該幫手開燈",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "唔該幫我熄燈",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我閂燈",
+        "b": "唔該幫我閂燈",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫手熄燈",
+        "b": "唔該幫手熄燈",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "幫我打開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "幫手打開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "拉開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "唔該拉開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "而家拉開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "幫手拉開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開返窗簾",
+        "b": "唔該開返窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "可唔可以拉開窗簾",
+        "b": "可唔可以幫我拉開窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "幫我拉埋窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "幫手拉埋窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "唔該拉埋窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "而家拉埋窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "可唔可以拉埋窗簾？",
+        "b": "可唔可以幫我拉埋窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾啦",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "請拉埋窗簾",
+        "b": "拉埋窗簾先",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒",
+        "b": "幫手全部熄晒",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "而家全部關晒",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "我想全部關晒",
+        "jaccard": 0.6,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該幫我開燈",
+        "b": "唔該幫我開着燈",
+        "jaccard": 0.571,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "可唔可以開燈？",
+        "b": "可唔可以開返燈",
+        "jaccard": 0.571,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "可唔可以熄燈？",
+        "b": "可唔可以熄返燈",
+        "jaccard": 0.571,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "可唔可以打開窗簾？",
+        "b": "可唔可以拉開窗簾",
+        "jaccard": 0.556,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該幫我拉埋窗簾",
+        "b": "唔該幫手拉埋窗簾",
+        "jaccard": 0.556,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "拉開窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "可唔可以開燈？",
+        "b": "可唔可以幫我開燈",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開返燈",
+        "b": "幫我開返燈",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "可唔可以熄燈？",
+        "b": "可唔可以幫我熄燈",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄返燈",
+        "b": "幫我熄返燈",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄返燈",
+        "b": "而家熄返燈",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "開窗簾啊",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "我想開窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "拉開窗簾啦",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "請打開窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "開窗簾啊",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我打開窗簾",
+        "b": "請打開窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫手打開窗簾",
+        "b": "請打開窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該拉開窗簾",
+        "b": "唔該幫手拉開窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該幫我拉埋窗簾",
+        "b": "唔該拉埋窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "關窗簾",
+        "b": "幫我關窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "關窗簾",
+        "b": "我想關窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "關窗簾",
+        "b": "幫手關窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "閂窗簾",
+        "b": "唔該閂窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫手拉埋窗簾",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該拉埋窗簾",
+        "b": "唔該幫手拉埋窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該拉埋窗簾",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "而家拉埋窗簾",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.5,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該幫我拉埋窗簾",
+        "b": "唔該幫我關窗簾",
+        "jaccard": 0.444,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "可唔可以拉埋窗簾？",
+        "b": "可唔可以關窗簾",
+        "jaccard": 0.444,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該幫我開燈",
+        "b": "唔該幫手開燈",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫我熄燈",
+        "b": "唔該幫手熄燈",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫我熄燈",
+        "b": "唔該幫我閂燈",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "幫我打開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "幫手拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我打開窗簾",
+        "b": "幫手打開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫手打開窗簾",
+        "b": "幫手拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "幫手拉埋窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "唔該拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "而家拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該拉開窗簾",
+        "b": "而家拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該拉開窗簾",
+        "b": "幫手拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "而家拉開窗簾",
+        "b": "幫手拉開窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "唔該拉埋窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "而家拉埋窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫手拉埋窗簾",
+        "b": "唔該拉埋窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫手拉埋窗簾",
+        "b": "而家拉埋窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該拉埋窗簾",
+        "b": "而家拉埋窗簾",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "而家全部關晒",
+        "b": "我想全部關晒",
+        "jaccard": 0.429,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "幫我開返燈",
+        "jaccard": 0.4,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "幫我開盞燈",
+        "jaccard": 0.4,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "幫我熄返燈",
+        "jaccard": 0.4,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "而家熄燈",
+        "b": "而家熄返燈",
+        "jaccard": 0.4,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "拉返埋窗簾",
+        "jaccard": 0.4,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "我想開窗簾",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "拉開窗簾啦",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該幫我打開窗簾",
+        "b": "唔該幫手拉開窗簾",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "我想開窗簾",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "請打開窗簾",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾啦",
+        "b": "開窗簾啊",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "請全部關閉",
+        "jaccard": 0.4,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫手熄燈",
+        "b": "唔該幫我熄燈先",
+        "jaccard": 0.375,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫我閂燈",
+        "b": "唔該幫我熄燈先",
+        "jaccard": 0.375,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我打開窗簾",
+        "b": "幫我拉開窗簾先",
+        "jaccard": 0.375,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫手拉開窗簾",
+        "b": "幫我拉開窗簾先",
+        "jaccard": 0.375,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫手拉埋窗簾",
+        "b": "幫我拉埋窗簾先",
+        "jaccard": 0.375,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該幫我打開窗簾",
+        "b": "唔該幫我拉開個窗簾",
+        "jaccard": 0.364,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該幫手拉開窗簾",
+        "b": "唔該幫我拉開個窗簾",
+        "jaccard": 0.364,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開返燈",
+        "b": "幫我開盞燈",
+        "jaccard": 0.333,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開燈啦",
+        "b": "開燈啊",
+        "jaccard": 0.333,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄燈啦",
+        "b": "熄燈啊",
+        "jaccard": 0.333,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "關窗簾",
+        "b": "閂窗簾",
+        "jaccard": 0.333,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我關窗簾",
+        "b": "幫手關窗簾",
+        "jaccard": 0.333,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "幫我開著個燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該幫我開燈",
+        "b": "唔該開燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該開燈",
+        "b": "唔該幫手開燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "而家開燈",
+        "b": "而家開返燈啦",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開燈啦",
+        "b": "請開燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "請開燈",
+        "b": "開燈啊",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫我熄燈",
+        "b": "唔該熄燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄返燈",
+        "b": "幫我熄燈先",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄返燈",
+        "b": "而家熄返燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該熄燈",
+        "b": "唔該幫手熄燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄燈啦",
+        "b": "請熄燈",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "請熄燈",
+        "b": "熄燈啊",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "我想開窗簾",
+        "b": "請打開窗簾",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾啦",
+        "b": "開返窗簾啦",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉返埋窗簾",
+        "b": "拉埋窗簾啦",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉返埋窗簾",
+        "b": "請拉埋窗簾",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉返埋窗簾",
+        "b": "拉埋窗簾先",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我關窗簾",
+        "b": "我想關窗簾",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "我想關窗簾",
+        "b": "幫手關窗簾",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "唔該熄晒佢",
+        "b": "全部熄晒佢",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "STATUS_ALL",
+        "a": "設備點樣",
+        "b": "設備狀態點樣",
+        "jaccard": 0.333,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開返燈",
+        "b": "幫我開著個燈",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開著個燈",
+        "b": "幫我開盞燈",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "我想開窗簾",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我打開窗簾",
+        "b": "我想開窗簾",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫我拉埋窗簾",
+        "b": "幫我關窗簾",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "幫手拉埋窗簾",
+        "b": "幫手關窗簾",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "唔該拉埋窗簾",
+        "b": "唔該閂窗簾",
+        "jaccard": 0.286,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄燈啦",
+        "b": "熄燈先啦",
+        "jaccard": 0.25,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "開返窗簾",
+        "jaccard": 0.25,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "請開燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該開燈",
+        "b": "請開燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "我想開燈",
+        "b": "請開燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "而家開燈",
+        "b": "請開燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫手開燈",
+        "b": "請開燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "請熄燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該熄燈",
+        "b": "請熄燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "我想熄燈",
+        "b": "請熄燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "而家熄燈",
+        "b": "請熄燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫手熄燈",
+        "b": "請熄燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該幫手熄燈",
+        "b": "唔該幫我閂燈",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄燈啊",
+        "b": "熄燈先啦",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我拉開窗簾",
+        "b": "幫手打開窗簾",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "幫我打開窗簾",
+        "b": "幫手拉開窗簾",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "唔該拉開窗簾",
+        "b": "唔該開返窗簾",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "關窗簾",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "拉埋窗簾",
+        "b": "閂窗簾",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_CLOSE",
+        "a": "閂窗簾",
+        "b": "關窗簾啊",
+        "jaccard": 0.25,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該幫手開燈",
+        "b": "唔該幫我開着燈",
+        "jaccard": 0.222,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "幫手開燈",
+        "jaccard": 0.2,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "幫我閂燈",
+        "jaccard": 0.2,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "幫手熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒",
+        "b": "全部關晒",
+        "jaccard": 0.2,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "唔該開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "我想開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "而家開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該開燈",
+        "b": "我想開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該開燈",
+        "b": "而家開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "唔該開燈",
+        "b": "幫手開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "我想開燈",
+        "b": "而家開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "我想開燈",
+        "b": "幫手開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "而家開燈",
+        "b": "幫手開燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "唔該熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "我想熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄燈",
+        "b": "而家熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該熄燈",
+        "b": "我想熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該熄燈",
+        "b": "而家熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "唔該熄燈",
+        "b": "幫手熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "我想熄燈",
+        "b": "而家熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "我想熄燈",
+        "b": "幫手熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "而家熄燈",
+        "b": "幫手熄燈",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "打開窗簾",
+        "b": "開返窗簾",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾",
+        "b": "開返窗簾啦",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "拉開窗簾",
+        "b": "開返窗簾",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開返窗簾",
+        "b": "開窗簾啊",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "STATUS_ALL",
+        "a": "睇下而家咩狀態",
+        "b": "睇睇而家啲狀態",
+        "jaccard": 0.2,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開燈",
+        "b": "幫我燈開住",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄返燈",
+        "b": "幫我閂燈",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我閂燈",
+        "b": "幫我熄燈先",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫手熄燈",
+        "b": "幫我熄燈先",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "CURTAIN_OPEN",
+        "a": "開窗簾啊",
+        "b": "開返窗簾啦",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒",
+        "b": "全部關晒啊",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "全部熄晒先",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "全部熄晒佢",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒",
+        "b": "全部熄晒啦",
+        "jaccard": 0.167,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒先",
+        "b": "全部關晒啊",
+        "jaccard": 0.143,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部熄晒佢",
+        "b": "全部關晒啊",
+        "jaccard": 0.143,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "全部關晒啊",
+        "b": "全部熄晒啦",
+        "jaccard": 0.143,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "ALL_OFF",
+        "a": "幫我全部閂晒",
+        "b": "幫手全部熄晒",
+        "jaccard": 0.111,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開返燈",
+        "b": "開著燈",
+        "jaccard": 0.0,
+        "edit_distance": 1,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開返燈",
+        "b": "開燈啦",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開返燈",
+        "b": "請開燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開返燈",
+        "b": "開燈啊",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開著燈",
+        "b": "開燈啦",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開著燈",
+        "b": "請開燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "開著燈",
+        "b": "開燈啊",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫我開返燈",
+        "b": "幫手開燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_ON",
+        "a": "幫手開燈",
+        "b": "幫我開盞燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄返燈",
+        "b": "熄燈啦",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄返燈",
+        "b": "請熄燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "熄返燈",
+        "b": "熄燈啊",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我熄返燈",
+        "b": "幫手熄燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      },
+      {
+        "command": "LIGHT_OFF",
+        "a": "幫我閂燈",
+        "b": "幫手熄燈",
+        "jaccard": 0.0,
+        "edit_distance": 2,
+        "auto_merged": false,
+        "note": "疑似近义表达；未自动合并，仅供人工复核"
+      }
+    ],
+    "note": "仅供人工复核，未自动合并或删除。"
+  },
+  "track_a": {
+    "split": {
+      "split_file": "D:\\Run_Tao\\DialectVoice_Research\\data\\splits\\track_a_expression_split.csv",
+      "sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34",
+      "seed": 42,
+      "train_ratio": 0.7,
+      "val_ratio": 0.15,
+      "protocol": "轨道A 未见表达：按 expression_group_id 分层划分",
+      "note": "该文件的 sha256 记录在此；实验只读取该文件，不重新划分。"
+    },
+    "subset_stats": {
+      "train": {
+        "n_samples": 397,
+        "n_groups": 114,
+        "by_command": {
+          "LIGHT_ON": 69,
+          "LIGHT_OFF": 67,
+          "CURTAIN_OPEN": 60,
+          "CURTAIN_CLOSE": 73,
+          "ALL_OFF": 59,
+          "STATUS_ALL": 69
+        },
+        "by_register": {
+          "short_direct": 134,
+          "colloquial": 83,
+          "question": 70,
+          "correction": 34,
+          "polite": 76
+        },
+        "by_voice": {
+          "canto-tts-default": 21,
+          "edge-zh-HK-HiuGaaiNeural": 135,
+          "edge-zh-HK-HiuMaanNeural": 135,
+          "edge-zh-HK-WanLungNeural": 106
+        },
+        "by_condition": {
+          "legacy": 84,
+          "rate_slow": 63,
+          "text_morphology": 250
+        }
+      },
+      "val": {
+        "n_samples": 92,
+        "n_groups": 29,
+        "by_command": {
+          "LIGHT_ON": 10,
+          "LIGHT_OFF": 19,
+          "CURTAIN_OPEN": 18,
+          "CURTAIN_CLOSE": 14,
+          "ALL_OFF": 18,
+          "STATUS_ALL": 13
+        },
+        "by_register": {
+          "colloquial": 21,
+          "question": 26,
+          "short_direct": 30,
+          "polite": 15
+        },
+        "by_voice": {
+          "canto-tts-default": 3,
+          "edge-zh-HK-HiuGaaiNeural": 32,
+          "edge-zh-HK-HiuMaanNeural": 32,
+          "edge-zh-HK-WanLungNeural": 25
+        },
+        "by_condition": {
+          "legacy": 12,
+          "text_morphology": 71,
+          "rate_slow": 9
+        }
+      },
+      "test": {
+        "n_samples": 111,
+        "n_groups": 31,
+        "by_command": {
+          "LIGHT_ON": 21,
+          "LIGHT_OFF": 14,
+          "CURTAIN_OPEN": 22,
+          "CURTAIN_CLOSE": 13,
+          "ALL_OFF": 23,
+          "STATUS_ALL": 18
+        },
+        "by_register": {
+          "polite": 29,
+          "correction": 26,
+          "colloquial": 21,
+          "short_direct": 17,
+          "question": 18
+        },
+        "by_voice": {
+          "canto-tts-default": 6,
+          "edge-zh-HK-HiuGaaiNeural": 37,
+          "edge-zh-HK-HiuMaanNeural": 37,
+          "edge-zh-HK-WanLungNeural": 31
+        },
+        "by_condition": {
+          "legacy": 24,
+          "text_morphology": 69,
+          "rate_slow": 18
+        }
+      }
+    },
+    "leakage": {
+      "group_overlap_train_val": 0,
+      "group_overlap_train_test": 0,
+      "group_overlap_val_test": 0,
+      "normalized_text_overlap_train_test": 0,
+      "normalized_text_overlap_train_val": 0,
+      "utterance_overlap_train_test": 0,
+      "sha256_overlap_train_test": 0
+    }
+  },
+  "track_b": {
+    "protocol": "轨道B 未见音色（辅助）：留一音色。canto-tts 只有单一音色，作为测试音色时训练集仍有 3 个 edge 音色，反之训练集只剩 2 个音色，因此仅报告 edge 三音色留一结果；样本量小，属辅助证据。",
+    "independent_voice_count": 4,
+    "edge_voices": [
+      "edge-zh-HK-HiuGaaiNeural",
+      "edge-zh-HK-HiuMaanNeural",
+      "edge-zh-HK-WanLungNeural"
+    ],
+    "canto_voice": "canto-tts-default",
+    "leave_one_voice_out": {
+      "edge-zh-HK-HiuGaaiNeural": {
+        "train_samples": 396,
+        "test_samples": 204,
+        "test_groups": 174,
+        "test_groups_also_in_train": 174,
+        "test_by_command": {
+          "LIGHT_ON": 34,
+          "LIGHT_OFF": 34,
+          "CURTAIN_OPEN": 34,
+          "CURTAIN_CLOSE": 34,
+          "ALL_OFF": 34,
+          "STATUS_ALL": 34
+        },
+        "train_voices": [
+          "canto-tts-default",
+          "edge-zh-HK-HiuMaanNeural",
+          "edge-zh-HK-WanLungNeural"
+        ]
+      },
+      "edge-zh-HK-HiuMaanNeural": {
+        "train_samples": 396,
+        "test_samples": 204,
+        "test_groups": 174,
+        "test_groups_also_in_train": 174,
+        "test_by_command": {
+          "LIGHT_ON": 34,
+          "LIGHT_OFF": 34,
+          "CURTAIN_OPEN": 34,
+          "CURTAIN_CLOSE": 34,
+          "ALL_OFF": 34,
+          "STATUS_ALL": 34
+        },
+        "train_voices": [
+          "canto-tts-default",
+          "edge-zh-HK-HiuGaaiNeural",
+          "edge-zh-HK-WanLungNeural"
+        ]
+      },
+      "edge-zh-HK-WanLungNeural": {
+        "train_samples": 438,
+        "test_samples": 162,
+        "test_groups": 132,
+        "test_groups_also_in_train": 132,
+        "test_by_command": {
+          "LIGHT_ON": 27,
+          "LIGHT_OFF": 27,
+          "CURTAIN_OPEN": 27,
+          "CURTAIN_CLOSE": 27,
+          "ALL_OFF": 27,
+          "STATUS_ALL": 27
+        },
+        "train_voices": [
+          "canto-tts-default",
+          "edge-zh-HK-HiuGaaiNeural",
+          "edge-zh-HK-HiuMaanNeural"
+        ]
+      }
+    }
+  },
+  "manifest": {
+    "path": "data\\tts_corpus\\manifest_yue_v2.csv",
+    "sha256": "e89f3a0066859053c83ab5688e2aa886623590048e6742d7db7ae31ca51f3da7"
+  }
+}

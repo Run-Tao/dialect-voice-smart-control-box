@@ -1,0 +1,320 @@
+{
+  "note": "synthetic TTS; personalized enrollment scenario; same speaker used for enrollment and test, not speaker-independent",
+  "enroll_expressions": [
+    "direct",
+    "polite"
+  ],
+  "test_expression": "correction",
+  "per_speaker": {
+    "canto-tts-default": {
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    "zh-HK-HiuGaaiNeural": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "zh-HK-HiuMaanNeural": {
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.7777777777777777,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "zh-HK-WanLungNeural": {
+      "accuracy": 0.6666666666666666,
+      "macro_f1": 0.5555555555555555,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "overall": {
+    "accuracy": 0.625,
+    "macro_f1": 0.6218253968253968,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        2,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        2
+      ]
+    ]
+  }
+}

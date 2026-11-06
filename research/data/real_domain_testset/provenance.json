@@ -1,0 +1,60 @@
+{
+  "built": "2026-10-31",
+  "split": "real_test",
+  "sample_rate": 16000,
+  "vad_kwargs": {
+    "frame_ms": 30,
+    "energy_margin_db": 9,
+    "min_speech_ms": 200,
+    "min_silence_ms": 400,
+    "pre_roll_ms": 300,
+    "max_utterance_ms": 4000
+  },
+  "filters": {
+    "min_ms": 200.0,
+    "max_ms": 15000.0,
+    "min_rms_db": -120.0,
+    "clip_peak": 0.999,
+    "max_clip_ratio": 0.01,
+    "drop_clipped": false,
+    "max_file_sec": 1800.0,
+    "text_filter": true,
+    "exclude_phrases": [
+      "開燈",
+      "熄燈",
+      "關燈",
+      "关灯",
+      "着燈",
+      "開窗簾",
+      "打開窗簾",
+      "拉埋窗簾",
+      "拉開窗簾",
+      "關窗簾",
+      "閂窗簾",
+      "全部閂",
+      "全部熄",
+      "全部關",
+      "設備狀態"
+    ]
+  },
+  "selection_note": "默认不按响度/时长/削波挑样本，只剔除解不出来的和 VAD 判无语音的；挑样本会把「真实但难听」的负样本剔掉，导致 FAR 偏低。QC 数值全部写进 manifest，需要时在评估侧切片。",
+  "dry_run": false,
+  "sources": {
+    "fleurs_yue": {
+      "path": "D:\\Run_Tao\\DialectVoice_Research\\data\\corpora\\fleurs_yue\\test",
+      "license": "CC BY 4.0 - FLEURS google/fleurs, yue_hant_hk test split, arXiv:2205.12446; 需署名，可改作/再分发",
+      "transcripts": "D:/Run_Tao/DialectVoice_Research/data/corpora/fleurs_yue/test.tsv",
+      "files_scanned": 819,
+      "files_with_speech": 819,
+      "segments": 2744
+    }
+  },
+  "segments": 2744,
+  "total_duration_s": 7807.8,
+  "segments_with_device_hint": 13,
+  "segments_text_verified": 2744,
+  "excluded": {
+    "too_short": 20
+  },
+  "usage": "仅用于拒识测试 / 硬负样本挖掘 / 域差距度量，不用于命令正样本训练"
+}

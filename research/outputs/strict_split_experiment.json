@@ -1,0 +1,155 @@
+{
+  "note": "strict split: speaker(s) and expression template both held out; synthetic TTS; tiny test set",
+  "sizes": {
+    "train": 36,
+    "val": 6,
+    "test": 6
+  },
+  "train_speakers": [
+    "zh-HK-HiuGaaiNeural",
+    "zh-HK-HiuMaanNeural"
+  ],
+  "val_speakers": [
+    "zh-HK-WanLungNeural"
+  ],
+  "test_speakers": [
+    "canto-tts-default"
+  ],
+  "train_expressions": [
+    "colloquial",
+    "direct",
+    "polite"
+  ],
+  "val_expressions": [
+    "question"
+  ],
+  "test_expressions": [
+    "correction"
+  ],
+  "val": {
+    "accuracy": 0.6666666666666666,
+    "macro_f1": 0.5555555555555555,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.16666666666666666,
+    "macro_f1": 0.06666666666666667,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "val_mean_confidence": 0.3346197448824366,
+  "test_mean_confidence": 0.3476439250268501
+}

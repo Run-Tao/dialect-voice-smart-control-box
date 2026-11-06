@@ -1,0 +1,500 @@
+{
+  "generated_at": "2026-10-21T15:01:50",
+  "protocol": "v3.1 correction 语域增量：18 条新 correction 表达（每类 3 条，仅进 train），3 音色 edge-tts baseline + 离线 rate_slow_18；不修改 v3 冻结文件。",
+  "motivation": "v3 训练集 correction 覆盖不足（train 132 组中仅 6 个 correction 组），v3 CNN 在 test 总体 0.913、6 个 correction 测试组（98 条）仅 0.622，两个窗帘 correction 组 100% 判反。本增量只补训练集语域覆盖，测试集 6 条 correction 文本未参与训练。",
+  "frozen_v3_check": {
+    "data/tts_corpus/manifest_yue_v3.csv": {
+      "recorded_sha256": "fb2da56e82825e611c30bba5288462006a47969c38f147b39ad52b72b47315e0",
+      "now_sha256": "fb2da56e82825e611c30bba5288462006a47969c38f147b39ad52b72b47315e0",
+      "unchanged": true
+    },
+    "data/splits/track_a_expression_split_v3.csv": {
+      "recorded_sha256": "15c057bfdad69ed8833fb4b06f2a3f027c7d9f3a224a380b13c57d897de882dd",
+      "now_sha256": "15c057bfdad69ed8833fb4b06f2a3f027c7d9f3a224a380b13c57d897de882dd",
+      "unchanged": true
+    },
+    "data/splits/track_a_expression_split.csv": {
+      "recorded_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34",
+      "now_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34",
+      "unchanged": true
+    }
+  },
+  "counts": {
+    "total_rows": 2904,
+    "v3_rows": 2796,
+    "v3_1_added_rows": 108,
+    "num_expression_groups": 210,
+    "by_command": {
+      "LIGHT_ON": 484,
+      "LIGHT_OFF": 484,
+      "CURTAIN_OPEN": 484,
+      "CURTAIN_CLOSE": 484,
+      "ALL_OFF": 484,
+      "STATUS_ALL": 484
+    },
+    "v3_1_by_condition": {
+      "baseline": 54,
+      "rate_slow_18": 54
+    },
+    "v3_1_by_voice": {
+      "edge-zh-HK-HiuGaaiNeural": 36,
+      "edge-zh-HK-HiuMaanNeural": 36,
+      "edge-zh-HK-WanLungNeural": 36
+    },
+    "v3_1_by_split": {
+      "train": 108
+    },
+    "by_split": {
+      "train": 1981,
+      "val": 440,
+      "test": 483
+    },
+    "correction_rows_by_split": {
+      "test": 98,
+      "train": 214
+    },
+    "correction_groups_by_split": {
+      "train": 24,
+      "val": 0,
+      "test": 6
+    }
+  },
+  "generation": {
+    "log": "outputs/v3_1_generation_log.csv",
+    "log_rows": 108,
+    "by_stage_status": {
+      "augment_v31|ok": 54,
+      "tts_new_expr_v31|ok": 54
+    },
+    "failed_or_excluded": [],
+    "baseline_ok": 54,
+    "augment_ok": 54
+  },
+  "quality": {
+    "by_status": {
+      "ok": 2904
+    },
+    "v3_1_all_ok": true,
+    "flagged": []
+  },
+  "duplicates": {
+    "sha256_duplicates": 0,
+    "v3_1_vs_v3_sha256_overlap": 0,
+    "v3_1_condition_key_duplicates": 0
+  },
+  "leakage": {
+    "expression_group_id_train_val": 0,
+    "expression_group_id_train_test": 0,
+    "expression_group_id_val_test": 0,
+    "text_norm_train_val": 0,
+    "text_norm_train_test": 0,
+    "text_norm_val_test": 0,
+    "sha256_train_val": 0,
+    "sha256_train_test": 0,
+    "sha256_val_test": 0,
+    "utterance_id_train_val": 0,
+    "utterance_id_train_test": 0,
+    "utterance_id_val_test": 0
+  },
+  "leakage_zero": true,
+  "split": {
+    "path": "data/splits/track_a_expression_split_v3_1.csv",
+    "sha256": "97a9eef8041ca7272ec26fcfdad33e01729df2947adcb3f405a1baceb7409620",
+    "n_groups": 210,
+    "by_subset": {
+      "train": 150,
+      "val": 29,
+      "test": 31
+    },
+    "new_groups_all_train": true,
+    "new_groups": [
+      "ALL_OFF_NC01",
+      "ALL_OFF_NC02",
+      "ALL_OFF_NC03",
+      "CURTAIN_CLOSE_NC01",
+      "CURTAIN_CLOSE_NC02",
+      "CURTAIN_CLOSE_NC03",
+      "CURTAIN_OPEN_NC01",
+      "CURTAIN_OPEN_NC02",
+      "CURTAIN_OPEN_NC03",
+      "LIGHT_OFF_NC01",
+      "LIGHT_OFF_NC02",
+      "LIGHT_OFF_NC03",
+      "LIGHT_ON_NC01",
+      "LIGHT_ON_NC02",
+      "LIGHT_ON_NC03",
+      "STATUS_ALL_NC01",
+      "STATUS_ALL_NC02",
+      "STATUS_ALL_NC03"
+    ],
+    "inherited_from": "data/splits/track_a_expression_split_v3.csv",
+    "v3_split_sha256": "15c057bfdad69ed8833fb4b06f2a3f027c7d9f3a224a380b13c57d897de882dd"
+  },
+  "correction_text_similarity": {
+    "metric": "normalized text (去标点/繁简统一) 的 2-gram Jaccard",
+    "threshold": 0.5,
+    "binary_test_correction_texts": {
+      "ALL_OFF": "唔係淨係熄燈係全部熄晒",
+      "CURTAIN_CLOSE": "唔係拉開係拉埋",
+      "CURTAIN_OPEN": "唔係拉埋窗簾係打開窗簾",
+      "LIGHT_OFF": "唔係開燈係熄返燈",
+      "LIGHT_ON": "唔係熄燈係開返燈",
+      "STATUS_ALL": "唔係只講燈係講晒所有嘢"
+    },
+    "max_jaccard_overall": 0.4444,
+    "violations_ge_threshold": 0,
+    "per_expression": [
+      {
+        "expression_id": "ALL_OFF_NC01",
+        "command": "ALL_OFF",
+        "text": "唔係淨係熄燈，全部都要關",
+        "text_norm": "唔係净係熄灯全部都要关",
+        "max_jaccard_vs_test_correction": 0.4286,
+        "closest_test_correction": "ALL_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.4286,
+          "CURTAIN_CLOSE": 0.0714,
+          "CURTAIN_OPEN": 0.0556,
+          "LIGHT_OFF": 0.1333,
+          "LIGHT_ON": 0.2143,
+          "STATUS_ALL": 0.0526
+        }
+      },
+      {
+        "expression_id": "ALL_OFF_NC02",
+        "command": "ALL_OFF",
+        "text": "唔好只關燈，全部熄晒佢",
+        "text_norm": "唔好只关灯全部熄晒佢",
+        "max_jaccard_vs_test_correction": 0.1875,
+        "closest_test_correction": "ALL_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.1875,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.0,
+          "LIGHT_OFF": 0.0,
+          "LIGHT_ON": 0.0,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "ALL_OFF_NC03",
+        "command": "ALL_OFF",
+        "text": "熄燈唔夠，全部關晒",
+        "text_norm": "熄灯唔夠全部关晒",
+        "max_jaccard_vs_test_correction": 0.1333,
+        "closest_test_correction": "ALL_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.1333,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.0,
+          "LIGHT_OFF": 0.0,
+          "LIGHT_ON": 0.0769,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "CURTAIN_CLOSE_NC01",
+        "command": "CURTAIN_CLOSE",
+        "text": "唔係打開係要拉埋",
+        "text_norm": "唔係打开係要拉埋",
+        "max_jaccard_vs_test_correction": 0.3333,
+        "closest_test_correction": "CURTAIN_CLOSE",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0625,
+          "CURTAIN_CLOSE": 0.3333,
+          "CURTAIN_OPEN": 0.3333,
+          "LIGHT_OFF": 0.0769,
+          "LIGHT_ON": 0.0769,
+          "STATUS_ALL": 0.0625
+        }
+      },
+      {
+        "expression_id": "CURTAIN_CLOSE_NC02",
+        "command": "CURTAIN_CLOSE",
+        "text": "唔好開窗簾，關埋窗簾先",
+        "text_norm": "唔好开窗帘关埋窗帘先",
+        "max_jaccard_vs_test_correction": 0.2143,
+        "closest_test_correction": "CURTAIN_OPEN",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.2143,
+          "LIGHT_OFF": 0.0,
+          "LIGHT_ON": 0.0,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "CURTAIN_CLOSE_NC03",
+        "command": "CURTAIN_CLOSE",
+        "text": "打開咗先唔係，拉埋佢",
+        "text_norm": "打开咗先唔係拉埋佢",
+        "max_jaccard_vs_test_correction": 0.3077,
+        "closest_test_correction": "CURTAIN_OPEN",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0588,
+          "CURTAIN_CLOSE": 0.3,
+          "CURTAIN_OPEN": 0.3077,
+          "LIGHT_OFF": 0.0714,
+          "LIGHT_ON": 0.0714,
+          "STATUS_ALL": 0.0588
+        }
+      },
+      {
+        "expression_id": "CURTAIN_OPEN_NC01",
+        "command": "CURTAIN_OPEN",
+        "text": "唔係拉埋係要打開",
+        "text_norm": "唔係拉埋係要打开",
+        "max_jaccard_vs_test_correction": 0.3333,
+        "closest_test_correction": "CURTAIN_CLOSE",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0625,
+          "CURTAIN_CLOSE": 0.3333,
+          "CURTAIN_OPEN": 0.3333,
+          "LIGHT_OFF": 0.0769,
+          "LIGHT_ON": 0.0769,
+          "STATUS_ALL": 0.0625
+        }
+      },
+      {
+        "expression_id": "CURTAIN_OPEN_NC02",
+        "command": "CURTAIN_OPEN",
+        "text": "唔好關窗簾，打開窗簾先",
+        "text_norm": "唔好关窗帘打开窗帘先",
+        "max_jaccard_vs_test_correction": 0.2143,
+        "closest_test_correction": "CURTAIN_OPEN",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.2143,
+          "LIGHT_OFF": 0.0,
+          "LIGHT_ON": 0.0,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "CURTAIN_OPEN_NC03",
+        "command": "CURTAIN_OPEN",
+        "text": "拉埋咗先唔係，拉開佢",
+        "text_norm": "拉埋咗先唔係拉开佢",
+        "max_jaccard_vs_test_correction": 0.4444,
+        "closest_test_correction": "CURTAIN_CLOSE",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0588,
+          "CURTAIN_CLOSE": 0.4444,
+          "CURTAIN_OPEN": 0.2143,
+          "LIGHT_OFF": 0.0714,
+          "LIGHT_ON": 0.0714,
+          "STATUS_ALL": 0.0588
+        }
+      },
+      {
+        "expression_id": "LIGHT_OFF_NC01",
+        "command": "LIGHT_OFF",
+        "text": "唔係開燈係要熄燈",
+        "text_norm": "唔係开灯係要熄灯",
+        "max_jaccard_vs_test_correction": 0.4,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.2143,
+          "CURTAIN_CLOSE": 0.0909,
+          "CURTAIN_OPEN": 0.0667,
+          "LIGHT_OFF": 0.4,
+          "LIGHT_ON": 0.4,
+          "STATUS_ALL": 0.1333
+        }
+      },
+      {
+        "expression_id": "LIGHT_OFF_NC02",
+        "command": "LIGHT_OFF",
+        "text": "唔好開燈，熄燈先",
+        "text_norm": "唔好开灯熄灯先",
+        "max_jaccard_vs_test_correction": 0.0833,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0667,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.0,
+          "LIGHT_OFF": 0.0833,
+          "LIGHT_ON": 0.0833,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "LIGHT_OFF_NC03",
+        "command": "LIGHT_OFF",
+        "text": "開咗先唔係，熄返燈",
+        "text_norm": "开咗先唔係熄返灯",
+        "max_jaccard_vs_test_correction": 0.4,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.1333,
+          "CURTAIN_CLOSE": 0.0909,
+          "CURTAIN_OPEN": 0.0667,
+          "LIGHT_OFF": 0.4,
+          "LIGHT_ON": 0.2727,
+          "STATUS_ALL": 0.0625
+        }
+      },
+      {
+        "expression_id": "LIGHT_ON_NC01",
+        "command": "LIGHT_ON",
+        "text": "唔係熄燈係要開燈",
+        "text_norm": "唔係熄灯係要开灯",
+        "max_jaccard_vs_test_correction": 0.4,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.3077,
+          "CURTAIN_CLOSE": 0.0909,
+          "CURTAIN_OPEN": 0.0667,
+          "LIGHT_OFF": 0.4,
+          "LIGHT_ON": 0.4,
+          "STATUS_ALL": 0.1333
+        }
+      },
+      {
+        "expression_id": "LIGHT_ON_NC02",
+        "command": "LIGHT_ON",
+        "text": "唔好熄燈，開燈先",
+        "text_norm": "唔好熄灯开灯先",
+        "max_jaccard_vs_test_correction": 0.0833,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0667,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.0,
+          "LIGHT_OFF": 0.0833,
+          "LIGHT_ON": 0.0833,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "LIGHT_ON_NC03",
+        "command": "LIGHT_ON",
+        "text": "熄咗先唔係，開返燈",
+        "text_norm": "熄咗先唔係开返灯",
+        "max_jaccard_vs_test_correction": 0.4,
+        "closest_test_correction": "LIGHT_ON",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0625,
+          "CURTAIN_CLOSE": 0.0909,
+          "CURTAIN_OPEN": 0.0667,
+          "LIGHT_OFF": 0.2727,
+          "LIGHT_ON": 0.4,
+          "STATUS_ALL": 0.0625
+        }
+      },
+      {
+        "expression_id": "STATUS_ALL_NC01",
+        "command": "STATUS_ALL",
+        "text": "唔係開燈，係問下狀態",
+        "text_norm": "唔係开灯係问下状态",
+        "max_jaccard_vs_test_correction": 0.3636,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.125,
+          "CURTAIN_CLOSE": 0.0833,
+          "CURTAIN_OPEN": 0.0625,
+          "LIGHT_OFF": 0.3636,
+          "LIGHT_ON": 0.25,
+          "STATUS_ALL": 0.125
+        }
+      },
+      {
+        "expression_id": "STATUS_ALL_NC02",
+        "command": "STATUS_ALL",
+        "text": "唔好熄燈，講下設備狀態",
+        "text_norm": "唔好熄灯讲下设备状态",
+        "max_jaccard_vs_test_correction": 0.0667,
+        "closest_test_correction": "LIGHT_ON",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.0556,
+          "CURTAIN_CLOSE": 0.0,
+          "CURTAIN_OPEN": 0.0,
+          "LIGHT_OFF": 0.0,
+          "LIGHT_ON": 0.0667,
+          "STATUS_ALL": 0.0
+        }
+      },
+      {
+        "expression_id": "STATUS_ALL_NC03",
+        "command": "STATUS_ALL",
+        "text": "唔係叫我開燈，係查狀態",
+        "text_norm": "唔係叫我开灯係查状态",
+        "max_jaccard_vs_test_correction": 0.2308,
+        "closest_test_correction": "LIGHT_OFF",
+        "jaccard_by_test_correction": {
+          "ALL_OFF": 0.1176,
+          "CURTAIN_CLOSE": 0.0769,
+          "CURTAIN_OPEN": 0.0588,
+          "LIGHT_OFF": 0.2308,
+          "LIGHT_ON": 0.1429,
+          "STATUS_ALL": 0.1176
+        }
+      }
+    ],
+    "new_texts_duplicated_in_v3_library": []
+  },
+  "v3_1_library": {
+    "path": "data/corpus/yue_expression_library_v3_1.csv",
+    "sha256": "d755809f847b2ef1b6c379a8eb570de8834c2221795ab31a72a0a13d5ac65851",
+    "n_rows": 210,
+    "n_new_correction": 18,
+    "note": "relative to v3 library: +18 correction 表达；174+18+18=210"
+  },
+  "limitations": [
+    "全部为合成 TTS / 合成变换音频，非真人粤语；RULE_REVIEWED + 书面自然度审查，未做母语者听测。",
+    "rate_slow_18 由 baseline 离线 WSOLA 变换得到，与 baseline 高度相关，不是独立 TTS 采样。",
+    "新增 18 条为训练集语域覆盖修复；测试集 6 条 correction 文本未参与训练，与新增文本的 2-gram Jaccard 均 <0.5。",
+    "部分新增文本与 train 已有 correction 文本同语域近似（如 LIGHT_ON_NC01 与 LIGHT_ON_14 Jaccard≈0.625），属于训练集内部冗余，不构成测试泄漏。"
+  ],
+  "manifest": {
+    "path": "data/tts_corpus/manifest_yue_v3_1.csv",
+    "sha256": "eb9b60140047f2bfb2eb9fed834f94e55648d645e9e7ee0b5572a0139916aa02",
+    "n_rows": 2904,
+    "fields": [
+      "utterance_id",
+      "audio_path",
+      "speaker_id",
+      "dialect",
+      "command",
+      "language",
+      "text",
+      "expression_type",
+      "semantic_pair_id",
+      "source",
+      "is_synthetic",
+      "duration",
+      "sample_rate",
+      "split_group",
+      "text_verified_by",
+      "quality_flags",
+      "notes",
+      "expression_group_id",
+      "tts_engine",
+      "voice_id",
+      "voice_identity",
+      "rate_percent",
+      "pitch",
+      "volume",
+      "condition",
+      "source_text",
+      "quality_status",
+      "quality_reasons",
+      "generation_batch",
+      "channels",
+      "sha256",
+      "register",
+      "split",
+      "group_alias",
+      "condition_detail",
+      "generation_method",
+      "augment_from",
+      "augment_params",
+      "text_norm",
+      "split_source",
+      "data_version"
+    ]
+  },
+  "elapsed_sec": 1.15
+}

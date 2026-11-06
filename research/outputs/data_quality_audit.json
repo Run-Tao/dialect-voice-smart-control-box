@@ -1,0 +1,1336 @@
+{
+  "counts": {
+    "manifest_rows": 180,
+    "actual_files": 180,
+    "languages": {
+      "cmn": 60,
+      "yue": 120
+    },
+    "sources": {
+      "edge_tts_mandarin": 60,
+      "canto_tts": 30,
+      "edge_tts_canto": 90
+    },
+    "commands": {
+      "LIGHT_ON": 30,
+      "LIGHT_OFF": 30,
+      "CURTAIN_OPEN": 30,
+      "CURTAIN_CLOSE": 30,
+      "ALL_OFF": 30,
+      "STATUS_ALL": 30
+    },
+    "expressions": {
+      "direct": 36,
+      "colloquial": 36,
+      "polite": 36,
+      "question": 36,
+      "correction": 36
+    },
+    "speakers": {
+      "zh-CN-XiaoxiaoNeural": 30,
+      "zh-CN-YunxiNeural": 30,
+      "canto-tts-default": 30,
+      "zh-HK-HiuGaaiNeural": 30,
+      "zh-HK-HiuMaanNeural": 30,
+      "zh-HK-WanLungNeural": 30
+    }
+  },
+  "audio": {
+    "sample_rates": {
+      "16000": 180
+    },
+    "duration_min": 1.2,
+    "duration_max": 4.64,
+    "empty_files": 0,
+    "very_short_files": 0,
+    "very_long_files": 0,
+    "high_silence_files": 0,
+    "clipping_files": 0
+  },
+  "exact_duplicate_hashes": {},
+  "duplicate_text_speaker_source_groups": 0,
+  "near_duplicate_pairs_same_text_cos_gt_0_999": [
+    {
+      "text": "开灯",
+      "a": "LIGHT_ON_direct_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_ON_direct_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "開燈",
+      "a": "LIGHT_ON_direct_canto-tts-default",
+      "b": "LIGHT_ON_direct_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "開燈",
+      "a": "LIGHT_ON_direct_canto-tts-default",
+      "b": "LIGHT_ON_direct_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "開燈",
+      "a": "LIGHT_ON_direct_canto-tts-default",
+      "b": "LIGHT_ON_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "開燈",
+      "a": "LIGHT_ON_direct_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "開燈",
+      "a": "LIGHT_ON_direct_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "開燈",
+      "a": "LIGHT_ON_direct_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_ON_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "把灯打开",
+      "a": "LIGHT_ON_colloquial_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_ON_colloquial_zh-CN-YunxiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我開燈",
+      "a": "LIGHT_ON_colloquial_canto-tts-default",
+      "b": "LIGHT_ON_colloquial_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我開燈",
+      "a": "LIGHT_ON_colloquial_canto-tts-default",
+      "b": "LIGHT_ON_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我開燈",
+      "a": "LIGHT_ON_colloquial_canto-tts-default",
+      "b": "LIGHT_ON_colloquial_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我開燈",
+      "a": "LIGHT_ON_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "幫我開燈",
+      "a": "LIGHT_ON_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我開燈",
+      "a": "LIGHT_ON_colloquial_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_ON_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "麻烦开一下灯",
+      "a": "LIGHT_ON_polite_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_ON_polite_zh-CN-YunxiNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "唔該幫我開燈",
+      "a": "LIGHT_ON_polite_canto-tts-default",
+      "b": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該幫我開燈",
+      "a": "LIGHT_ON_polite_canto-tts-default",
+      "b": "LIGHT_ON_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該幫我開燈",
+      "a": "LIGHT_ON_polite_canto-tts-default",
+      "b": "LIGHT_ON_polite_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "唔該幫我開燈",
+      "a": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該幫我開燈",
+      "a": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我開燈",
+      "a": "LIGHT_ON_polite_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_ON_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "能不能开灯？",
+      "a": "LIGHT_ON_question_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_ON_question_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以開燈？",
+      "a": "LIGHT_ON_question_canto-tts-default",
+      "b": "LIGHT_ON_question_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以開燈？",
+      "a": "LIGHT_ON_question_canto-tts-default",
+      "b": "LIGHT_ON_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以開燈？",
+      "a": "LIGHT_ON_question_canto-tts-default",
+      "b": "LIGHT_ON_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以開燈？",
+      "a": "LIGHT_ON_question_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以開燈？",
+      "a": "LIGHT_ON_question_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以開燈？",
+      "a": "LIGHT_ON_question_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_ON_question_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "不是关灯，是开灯",
+      "a": "LIGHT_ON_correction_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_ON_correction_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係熄燈，係開燈",
+      "a": "LIGHT_ON_correction_canto-tts-default",
+      "b": "LIGHT_ON_correction_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係熄燈，係開燈",
+      "a": "LIGHT_ON_correction_canto-tts-default",
+      "b": "LIGHT_ON_correction_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔係熄燈，係開燈",
+      "a": "LIGHT_ON_correction_canto-tts-default",
+      "b": "LIGHT_ON_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係熄燈，係開燈",
+      "a": "LIGHT_ON_correction_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係熄燈，係開燈",
+      "a": "LIGHT_ON_correction_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_ON_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係熄燈，係開燈",
+      "a": "LIGHT_ON_correction_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_ON_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "关灯",
+      "a": "LIGHT_OFF_direct_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_OFF_direct_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "熄燈",
+      "a": "LIGHT_OFF_direct_canto-tts-default",
+      "b": "LIGHT_OFF_direct_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "熄燈",
+      "a": "LIGHT_OFF_direct_canto-tts-default",
+      "b": "LIGHT_OFF_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "熄燈",
+      "a": "LIGHT_OFF_direct_canto-tts-default",
+      "b": "LIGHT_OFF_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "熄燈",
+      "a": "LIGHT_OFF_direct_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "熄燈",
+      "a": "LIGHT_OFF_direct_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_direct_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "熄燈",
+      "a": "LIGHT_OFF_direct_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_OFF_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "把灯关掉",
+      "a": "LIGHT_OFF_colloquial_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_OFF_colloquial_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我熄燈",
+      "a": "LIGHT_OFF_colloquial_canto-tts-default",
+      "b": "LIGHT_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我熄燈",
+      "a": "LIGHT_OFF_colloquial_canto-tts-default",
+      "b": "LIGHT_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我熄燈",
+      "a": "LIGHT_OFF_colloquial_canto-tts-default",
+      "b": "LIGHT_OFF_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我熄燈",
+      "a": "LIGHT_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我熄燈",
+      "a": "LIGHT_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_colloquial_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我熄燈",
+      "a": "LIGHT_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_OFF_colloquial_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "请关一下灯",
+      "a": "LIGHT_OFF_polite_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_OFF_polite_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我熄燈",
+      "a": "LIGHT_OFF_polite_canto-tts-default",
+      "b": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我熄燈",
+      "a": "LIGHT_OFF_polite_canto-tts-default",
+      "b": "LIGHT_OFF_polite_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔該幫我熄燈",
+      "a": "LIGHT_OFF_polite_canto-tts-default",
+      "b": "LIGHT_OFF_polite_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔該幫我熄燈",
+      "a": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_polite_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔該幫我熄燈",
+      "a": "LIGHT_OFF_polite_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我熄燈",
+      "a": "LIGHT_OFF_polite_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_OFF_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "灯能关一下吗？",
+      "a": "LIGHT_OFF_question_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_OFF_question_zh-CN-YunxiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "可唔可以熄燈？",
+      "a": "LIGHT_OFF_question_canto-tts-default",
+      "b": "LIGHT_OFF_question_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以熄燈？",
+      "a": "LIGHT_OFF_question_canto-tts-default",
+      "b": "LIGHT_OFF_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以熄燈？",
+      "a": "LIGHT_OFF_question_canto-tts-default",
+      "b": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以熄燈？",
+      "a": "LIGHT_OFF_question_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以熄燈？",
+      "a": "LIGHT_OFF_question_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以熄燈？",
+      "a": "LIGHT_OFF_question_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "不是开灯，是关灯",
+      "a": "LIGHT_OFF_correction_zh-CN-XiaoxiaoNeural",
+      "b": "LIGHT_OFF_correction_zh-CN-YunxiNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔係開燈，係熄燈",
+      "a": "LIGHT_OFF_correction_canto-tts-default",
+      "b": "LIGHT_OFF_correction_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係開燈，係熄燈",
+      "a": "LIGHT_OFF_correction_canto-tts-default",
+      "b": "LIGHT_OFF_correction_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係開燈，係熄燈",
+      "a": "LIGHT_OFF_correction_canto-tts-default",
+      "b": "LIGHT_OFF_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係開燈，係熄燈",
+      "a": "LIGHT_OFF_correction_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係開燈，係熄燈",
+      "a": "LIGHT_OFF_correction_zh-HK-HiuGaaiNeural",
+      "b": "LIGHT_OFF_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係開燈，係熄燈",
+      "a": "LIGHT_OFF_correction_zh-HK-HiuMaanNeural",
+      "b": "LIGHT_OFF_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "开窗帘",
+      "a": "CURTAIN_OPEN_direct_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_OPEN_direct_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "打開窗簾",
+      "a": "CURTAIN_OPEN_direct_canto-tts-default",
+      "b": "CURTAIN_OPEN_direct_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "打開窗簾",
+      "a": "CURTAIN_OPEN_direct_canto-tts-default",
+      "b": "CURTAIN_OPEN_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "打開窗簾",
+      "a": "CURTAIN_OPEN_direct_canto-tts-default",
+      "b": "CURTAIN_OPEN_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "打開窗簾",
+      "a": "CURTAIN_OPEN_direct_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "打開窗簾",
+      "a": "CURTAIN_OPEN_direct_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_direct_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "打開窗簾",
+      "a": "CURTAIN_OPEN_direct_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_OPEN_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "把窗帘拉开",
+      "a": "CURTAIN_OPEN_colloquial_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_OPEN_colloquial_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉開窗簾",
+      "a": "CURTAIN_OPEN_colloquial_canto-tts-default",
+      "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉開窗簾",
+      "a": "CURTAIN_OPEN_colloquial_canto-tts-default",
+      "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉開窗簾",
+      "a": "CURTAIN_OPEN_colloquial_canto-tts-default",
+      "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉開窗簾",
+      "a": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉開窗簾",
+      "a": "CURTAIN_OPEN_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "幫我拉開窗簾",
+      "a": "CURTAIN_OPEN_colloquial_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_OPEN_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "麻烦打开窗帘",
+      "a": "CURTAIN_OPEN_polite_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_OPEN_polite_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我打開窗簾",
+      "a": "CURTAIN_OPEN_polite_canto-tts-default",
+      "b": "CURTAIN_OPEN_polite_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我打開窗簾",
+      "a": "CURTAIN_OPEN_polite_canto-tts-default",
+      "b": "CURTAIN_OPEN_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我打開窗簾",
+      "a": "CURTAIN_OPEN_polite_canto-tts-default",
+      "b": "CURTAIN_OPEN_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我打開窗簾",
+      "a": "CURTAIN_OPEN_polite_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該幫我打開窗簾",
+      "a": "CURTAIN_OPEN_polite_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該幫我打開窗簾",
+      "a": "CURTAIN_OPEN_polite_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_OPEN_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "窗帘能打开吗？",
+      "a": "CURTAIN_OPEN_question_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_OPEN_question_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以打開窗簾？",
+      "a": "CURTAIN_OPEN_question_canto-tts-default",
+      "b": "CURTAIN_OPEN_question_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "可唔可以打開窗簾？",
+      "a": "CURTAIN_OPEN_question_canto-tts-default",
+      "b": "CURTAIN_OPEN_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以打開窗簾？",
+      "a": "CURTAIN_OPEN_question_canto-tts-default",
+      "b": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "可唔可以打開窗簾？",
+      "a": "CURTAIN_OPEN_question_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以打開窗簾？",
+      "a": "CURTAIN_OPEN_question_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "可唔可以打開窗簾？",
+      "a": "CURTAIN_OPEN_question_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "不是关窗帘，是开窗帘",
+      "a": "CURTAIN_OPEN_correction_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_OPEN_correction_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係拉埋窗簾，係打開窗簾",
+      "a": "CURTAIN_OPEN_correction_canto-tts-default",
+      "b": "CURTAIN_OPEN_correction_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係拉埋窗簾，係打開窗簾",
+      "a": "CURTAIN_OPEN_correction_canto-tts-default",
+      "b": "CURTAIN_OPEN_correction_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係拉埋窗簾，係打開窗簾",
+      "a": "CURTAIN_OPEN_correction_canto-tts-default",
+      "b": "CURTAIN_OPEN_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係拉埋窗簾，係打開窗簾",
+      "a": "CURTAIN_OPEN_correction_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係拉埋窗簾，係打開窗簾",
+      "a": "CURTAIN_OPEN_correction_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_OPEN_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係拉埋窗簾，係打開窗簾",
+      "a": "CURTAIN_OPEN_correction_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_OPEN_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "关窗帘",
+      "a": "CURTAIN_CLOSE_direct_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_CLOSE_direct_zh-CN-YunxiNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "拉埋窗簾",
+      "a": "CURTAIN_CLOSE_direct_canto-tts-default",
+      "b": "CURTAIN_CLOSE_direct_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "拉埋窗簾",
+      "a": "CURTAIN_CLOSE_direct_canto-tts-default",
+      "b": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "拉埋窗簾",
+      "a": "CURTAIN_CLOSE_direct_canto-tts-default",
+      "b": "CURTAIN_CLOSE_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "拉埋窗簾",
+      "a": "CURTAIN_CLOSE_direct_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "拉埋窗簾",
+      "a": "CURTAIN_CLOSE_direct_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "拉埋窗簾",
+      "a": "CURTAIN_CLOSE_direct_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_CLOSE_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "把窗帘拉上",
+      "a": "CURTAIN_CLOSE_colloquial_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_CLOSE_colloquial_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_colloquial_canto-tts-default",
+      "b": "CURTAIN_CLOSE_colloquial_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_colloquial_canto-tts-default",
+      "b": "CURTAIN_CLOSE_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_colloquial_canto-tts-default",
+      "b": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_colloquial_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_CLOSE_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "请关一下窗帘",
+      "a": "CURTAIN_CLOSE_polite_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_CLOSE_polite_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_polite_canto-tts-default",
+      "b": "CURTAIN_CLOSE_polite_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "唔該幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_polite_canto-tts-default",
+      "b": "CURTAIN_CLOSE_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_polite_canto-tts-default",
+      "b": "CURTAIN_CLOSE_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_polite_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_polite_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該幫我拉埋窗簾",
+      "a": "CURTAIN_CLOSE_polite_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_CLOSE_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "窗帘能拉上吗？",
+      "a": "CURTAIN_CLOSE_question_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_CLOSE_question_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以拉埋窗簾？",
+      "a": "CURTAIN_CLOSE_question_canto-tts-default",
+      "b": "CURTAIN_CLOSE_question_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以拉埋窗簾？",
+      "a": "CURTAIN_CLOSE_question_canto-tts-default",
+      "b": "CURTAIN_CLOSE_question_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "可唔可以拉埋窗簾？",
+      "a": "CURTAIN_CLOSE_question_canto-tts-default",
+      "b": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以拉埋窗簾？",
+      "a": "CURTAIN_CLOSE_question_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_question_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "可唔可以拉埋窗簾？",
+      "a": "CURTAIN_CLOSE_question_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以拉埋窗簾？",
+      "a": "CURTAIN_CLOSE_question_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "不是开窗帘，是关窗帘",
+      "a": "CURTAIN_CLOSE_correction_zh-CN-XiaoxiaoNeural",
+      "b": "CURTAIN_CLOSE_correction_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係打開窗簾，係拉埋窗簾",
+      "a": "CURTAIN_CLOSE_correction_canto-tts-default",
+      "b": "CURTAIN_CLOSE_correction_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係打開窗簾，係拉埋窗簾",
+      "a": "CURTAIN_CLOSE_correction_canto-tts-default",
+      "b": "CURTAIN_CLOSE_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係打開窗簾，係拉埋窗簾",
+      "a": "CURTAIN_CLOSE_correction_canto-tts-default",
+      "b": "CURTAIN_CLOSE_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "唔係打開窗簾，係拉埋窗簾",
+      "a": "CURTAIN_CLOSE_correction_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "唔係打開窗簾，係拉埋窗簾",
+      "a": "CURTAIN_CLOSE_correction_zh-HK-HiuGaaiNeural",
+      "b": "CURTAIN_CLOSE_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係打開窗簾，係拉埋窗簾",
+      "a": "CURTAIN_CLOSE_correction_zh-HK-HiuMaanNeural",
+      "b": "CURTAIN_CLOSE_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "全部关闭",
+      "a": "ALL_OFF_direct_zh-CN-XiaoxiaoNeural",
+      "b": "ALL_OFF_direct_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "全部熄晒",
+      "a": "ALL_OFF_direct_canto-tts-default",
+      "b": "ALL_OFF_direct_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "全部熄晒",
+      "a": "ALL_OFF_direct_canto-tts-default",
+      "b": "ALL_OFF_direct_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "全部熄晒",
+      "a": "ALL_OFF_direct_canto-tts-default",
+      "b": "ALL_OFF_direct_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "全部熄晒",
+      "a": "ALL_OFF_direct_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "全部熄晒",
+      "a": "ALL_OFF_direct_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "全部熄晒",
+      "a": "ALL_OFF_direct_zh-HK-HiuMaanNeural",
+      "b": "ALL_OFF_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "把所有设备都关掉",
+      "a": "ALL_OFF_colloquial_zh-CN-XiaoxiaoNeural",
+      "b": "ALL_OFF_colloquial_zh-CN-YunxiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我全部閂晒",
+      "a": "ALL_OFF_colloquial_canto-tts-default",
+      "b": "ALL_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "幫我全部閂晒",
+      "a": "ALL_OFF_colloquial_canto-tts-default",
+      "b": "ALL_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我全部閂晒",
+      "a": "ALL_OFF_colloquial_canto-tts-default",
+      "b": "ALL_OFF_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我全部閂晒",
+      "a": "ALL_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "幫我全部閂晒",
+      "a": "ALL_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "幫我全部閂晒",
+      "a": "ALL_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "b": "ALL_OFF_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "麻烦全部关闭",
+      "a": "ALL_OFF_polite_zh-CN-XiaoxiaoNeural",
+      "b": "ALL_OFF_polite_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該全部關掉",
+      "a": "ALL_OFF_polite_canto-tts-default",
+      "b": "ALL_OFF_polite_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該全部關掉",
+      "a": "ALL_OFF_polite_canto-tts-default",
+      "b": "ALL_OFF_polite_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔該全部關掉",
+      "a": "ALL_OFF_polite_canto-tts-default",
+      "b": "ALL_OFF_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該全部關掉",
+      "a": "ALL_OFF_polite_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該全部關掉",
+      "a": "ALL_OFF_polite_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該全部關掉",
+      "a": "ALL_OFF_polite_zh-HK-HiuMaanNeural",
+      "b": "ALL_OFF_polite_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "能不能全部关掉？",
+      "a": "ALL_OFF_question_zh-CN-XiaoxiaoNeural",
+      "b": "ALL_OFF_question_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以全部熄晒？",
+      "a": "ALL_OFF_question_canto-tts-default",
+      "b": "ALL_OFF_question_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以全部熄晒？",
+      "a": "ALL_OFF_question_canto-tts-default",
+      "b": "ALL_OFF_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以全部熄晒？",
+      "a": "ALL_OFF_question_canto-tts-default",
+      "b": "ALL_OFF_question_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以全部熄晒？",
+      "a": "ALL_OFF_question_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "可唔可以全部熄晒？",
+      "a": "ALL_OFF_question_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_question_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "可唔可以全部熄晒？",
+      "a": "ALL_OFF_question_zh-HK-HiuMaanNeural",
+      "b": "ALL_OFF_question_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "不是只关灯，是全部关闭",
+      "a": "ALL_OFF_correction_zh-CN-XiaoxiaoNeural",
+      "b": "ALL_OFF_correction_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係淨係熄燈，係全部熄晒",
+      "a": "ALL_OFF_correction_canto-tts-default",
+      "b": "ALL_OFF_correction_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係淨係熄燈，係全部熄晒",
+      "a": "ALL_OFF_correction_canto-tts-default",
+      "b": "ALL_OFF_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係淨係熄燈，係全部熄晒",
+      "a": "ALL_OFF_correction_canto-tts-default",
+      "b": "ALL_OFF_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係淨係熄燈，係全部熄晒",
+      "a": "ALL_OFF_correction_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_correction_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係淨係熄燈，係全部熄晒",
+      "a": "ALL_OFF_correction_zh-HK-HiuGaaiNeural",
+      "b": "ALL_OFF_correction_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係淨係熄燈，係全部熄晒",
+      "a": "ALL_OFF_correction_zh-HK-HiuMaanNeural",
+      "b": "ALL_OFF_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "查询设备状态",
+      "a": "STATUS_ALL_direct_zh-CN-XiaoxiaoNeural",
+      "b": "STATUS_ALL_direct_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家咩狀態",
+      "a": "STATUS_ALL_direct_canto-tts-default",
+      "b": "STATUS_ALL_direct_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "而家咩狀態",
+      "a": "STATUS_ALL_direct_canto-tts-default",
+      "b": "STATUS_ALL_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家咩狀態",
+      "a": "STATUS_ALL_direct_canto-tts-default",
+      "b": "STATUS_ALL_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家咩狀態",
+      "a": "STATUS_ALL_direct_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_direct_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家咩狀態",
+      "a": "STATUS_ALL_direct_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_direct_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家咩狀態",
+      "a": "STATUS_ALL_direct_zh-HK-HiuMaanNeural",
+      "b": "STATUS_ALL_direct_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "看看现在设备什么情况",
+      "a": "STATUS_ALL_colloquial_zh-CN-XiaoxiaoNeural",
+      "b": "STATUS_ALL_colloquial_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "睇下而家啲設備咩情況",
+      "a": "STATUS_ALL_colloquial_canto-tts-default",
+      "b": "STATUS_ALL_colloquial_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "睇下而家啲設備咩情況",
+      "a": "STATUS_ALL_colloquial_canto-tts-default",
+      "b": "STATUS_ALL_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "睇下而家啲設備咩情況",
+      "a": "STATUS_ALL_colloquial_canto-tts-default",
+      "b": "STATUS_ALL_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "睇下而家啲設備咩情況",
+      "a": "STATUS_ALL_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_colloquial_zh-HK-HiuMaanNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "睇下而家啲設備咩情況",
+      "a": "STATUS_ALL_colloquial_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "睇下而家啲設備咩情況",
+      "a": "STATUS_ALL_colloquial_zh-HK-HiuMaanNeural",
+      "b": "STATUS_ALL_colloquial_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "麻烦告诉我设备状态",
+      "a": "STATUS_ALL_polite_zh-CN-XiaoxiaoNeural",
+      "b": "STATUS_ALL_polite_zh-CN-YunxiNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "唔該講下設備狀態",
+      "a": "STATUS_ALL_polite_canto-tts-default",
+      "b": "STATUS_ALL_polite_zh-HK-HiuGaaiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔該講下設備狀態",
+      "a": "STATUS_ALL_polite_canto-tts-default",
+      "b": "STATUS_ALL_polite_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔該講下設備狀態",
+      "a": "STATUS_ALL_polite_canto-tts-default",
+      "b": "STATUS_ALL_polite_zh-HK-WanLungNeural",
+      "cosine": 0.9999998807907104
+    },
+    {
+      "text": "唔該講下設備狀態",
+      "a": "STATUS_ALL_polite_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_polite_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該講下設備狀態",
+      "a": "STATUS_ALL_polite_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_polite_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔該講下設備狀態",
+      "a": "STATUS_ALL_polite_zh-HK-HiuMaanNeural",
+      "b": "STATUS_ALL_polite_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "现在设备是什么状态？",
+      "a": "STATUS_ALL_question_zh-CN-XiaoxiaoNeural",
+      "b": "STATUS_ALL_question_zh-CN-YunxiNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "而家啲設備係咩狀態？",
+      "a": "STATUS_ALL_question_canto-tts-default",
+      "b": "STATUS_ALL_question_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家啲設備係咩狀態？",
+      "a": "STATUS_ALL_question_canto-tts-default",
+      "b": "STATUS_ALL_question_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "而家啲設備係咩狀態？",
+      "a": "STATUS_ALL_question_canto-tts-default",
+      "b": "STATUS_ALL_question_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "而家啲設備係咩狀態？",
+      "a": "STATUS_ALL_question_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_question_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "而家啲設備係咩狀態？",
+      "a": "STATUS_ALL_question_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_question_zh-HK-WanLungNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "而家啲設備係咩狀態？",
+      "a": "STATUS_ALL_question_zh-HK-HiuMaanNeural",
+      "b": "STATUS_ALL_question_zh-HK-WanLungNeural",
+      "cosine": 1.0000001192092896
+    },
+    {
+      "text": "不是问灯，是问所有设备状态",
+      "a": "STATUS_ALL_correction_zh-CN-XiaoxiaoNeural",
+      "b": "STATUS_ALL_correction_zh-CN-YunxiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係問燈，係問全部設備狀態",
+      "a": "STATUS_ALL_correction_canto-tts-default",
+      "b": "STATUS_ALL_correction_zh-HK-HiuGaaiNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係問燈，係問全部設備狀態",
+      "a": "STATUS_ALL_correction_canto-tts-default",
+      "b": "STATUS_ALL_correction_zh-HK-HiuMaanNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係問燈，係問全部設備狀態",
+      "a": "STATUS_ALL_correction_canto-tts-default",
+      "b": "STATUS_ALL_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係問燈，係問全部設備狀態",
+      "a": "STATUS_ALL_correction_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_correction_zh-HK-HiuMaanNeural",
+      "cosine": 0.9999999403953552
+    },
+    {
+      "text": "唔係問燈，係問全部設備狀態",
+      "a": "STATUS_ALL_correction_zh-HK-HiuGaaiNeural",
+      "b": "STATUS_ALL_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    },
+    {
+      "text": "唔係問燈，係問全部設備狀態",
+      "a": "STATUS_ALL_correction_zh-HK-HiuMaanNeural",
+      "b": "STATUS_ALL_correction_zh-HK-WanLungNeural",
+      "cosine": 1.0
+    }
+  ],
+  "speaker_split": {
+    "train_speakers": [
+      "zh-HK-HiuGaaiNeural",
+      "zh-HK-HiuMaanNeural"
+    ],
+    "val_speakers": [
+      "zh-HK-WanLungNeural"
+    ],
+    "test_speakers": [
+      "canto-tts-default"
+    ],
+    "disjoint": true
+  },
+  "expression_split": {
+    "train": 72,
+    "val": 24,
+    "test": 24,
+    "id_overlap_train_test": 0,
+    "text_overlap_train_test": 0,
+    "speaker_overlap_train_test": 4
+  },
+  "note": "TTS synthetic only; no real human speaker data"
+}

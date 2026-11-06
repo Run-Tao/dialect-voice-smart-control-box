@@ -1,0 +1,775 @@
+{
+  "protocol": {
+    "model": "D:\\Run_Tao\\DialectVoice_Research\\data\\models\\v3_cnn_ensemble.npz",
+    "model_sha256": "9e261d88c116bc2f0f17688b5fea6b5dc7ab3af8e5055d5f191b31d626eeb9cc",
+    "threshold_selected_on": "val(known 440) + unknown calibration(36)",
+    "test_used_for": "final evaluation only",
+    "constraint": "known_coverage >= 0.85，最小化 FAR；无可行点则报告 FAR 最小点",
+    "scores": {
+      "max_prob": "温度标定后最大类概率（越大越像已知）",
+      "cos_centroid": "与训练集各类 centroid 的最大余弦相似度（越大越像已知）",
+      "mahalanobis": "到训练集类 centroid 的最小马氏距离（取负后越大越像已知）",
+      "knn_distance": "到训练集 k=5 近邻的平均欧氏距离（取负后越大越像已知）"
+    }
+  },
+  "n": {
+    "known_val": 440,
+    "known_test": 483,
+    "unknown_cal": 36,
+    "unknown_test": 36
+  },
+  "scores": {
+    "max_prob": {
+      "score": "max_prob",
+      "direction": "high",
+      "selected_threshold_raw": 0.9334328325439676,
+      "selected_on_validation": {
+        "threshold": 0.9334328325439676,
+        "known_coverage": 0.8522727272727273,
+        "accepted_accuracy": 1.0,
+        "unknown_false_accept_rate": 0.3333333333333333,
+        "n_known_accepted": 375,
+        "n_unknown_accepted": 12
+      },
+      "auc_known_val_vs_unknown_cal": 0.8714646464646465,
+      "test": {
+        "known_coverage": 0.8840579710144928,
+        "accepted_accuracy": 0.9437939110070258,
+        "unknown_false_accept_rate": 0.3611111111111111,
+        "unknown_rejection_rate": 0.6388888888888888,
+        "far_wilson95": [
+          0.2247538679218132,
+          0.5242521960916802
+        ],
+        "n_known": 483,
+        "n_unknown": 36
+      },
+      "curve_sample": [
+        {
+          "threshold": 0.3027967569128198,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": 0.3378320944478836,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": 0.37286743198294736,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": 0.4079027695180111,
+          "known_coverage": 0.9954545454545455,
+          "accepted_accuracy": 0.9452054794520548,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 438,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": 0.4429381070530749,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": 0.4779734445881386,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 0.9444444444444444,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 34
+        },
+        {
+          "threshold": 0.5130087821232023,
+          "known_coverage": 0.9886363636363636,
+          "accepted_accuracy": 0.9494252873563218,
+          "unknown_false_accept_rate": 0.8888888888888888,
+          "n_known_accepted": 435,
+          "n_unknown_accepted": 32
+        },
+        {
+          "threshold": 0.5480441196582662,
+          "known_coverage": 0.9772727272727273,
+          "accepted_accuracy": 0.9534883720930233,
+          "unknown_false_accept_rate": 0.8611111111111112,
+          "n_known_accepted": 430,
+          "n_unknown_accepted": 31
+        },
+        {
+          "threshold": 0.58307945719333,
+          "known_coverage": 0.9704545454545455,
+          "accepted_accuracy": 0.955503512880562,
+          "unknown_false_accept_rate": 0.75,
+          "n_known_accepted": 427,
+          "n_unknown_accepted": 27
+        },
+        {
+          "threshold": 0.6181147947283937,
+          "known_coverage": 0.9613636363636363,
+          "accepted_accuracy": 0.9598108747044918,
+          "unknown_false_accept_rate": 0.7222222222222222,
+          "n_known_accepted": 423,
+          "n_unknown_accepted": 26
+        },
+        {
+          "threshold": 0.6531501322634574,
+          "known_coverage": 0.9545454545454546,
+          "accepted_accuracy": 0.9666666666666667,
+          "unknown_false_accept_rate": 0.6388888888888888,
+          "n_known_accepted": 420,
+          "n_unknown_accepted": 23
+        },
+        {
+          "threshold": 0.6881854697985212,
+          "known_coverage": 0.9454545454545454,
+          "accepted_accuracy": 0.9711538461538461,
+          "unknown_false_accept_rate": 0.6388888888888888,
+          "n_known_accepted": 416,
+          "n_unknown_accepted": 23
+        },
+        {
+          "threshold": 0.723220807333585,
+          "known_coverage": 0.9363636363636364,
+          "accepted_accuracy": 0.9733009708737864,
+          "unknown_false_accept_rate": 0.5833333333333334,
+          "n_known_accepted": 412,
+          "n_unknown_accepted": 21
+        },
+        {
+          "threshold": 0.7582561448686487,
+          "known_coverage": 0.925,
+          "accepted_accuracy": 0.9828009828009828,
+          "unknown_false_accept_rate": 0.5555555555555556,
+          "n_known_accepted": 407,
+          "n_unknown_accepted": 20
+        },
+        {
+          "threshold": 0.7932914824037125,
+          "known_coverage": 0.9204545454545454,
+          "accepted_accuracy": 0.9827160493827161,
+          "unknown_false_accept_rate": 0.5277777777777778,
+          "n_known_accepted": 405,
+          "n_unknown_accepted": 19
+        },
+        {
+          "threshold": 0.8283268199387762,
+          "known_coverage": 0.9090909090909091,
+          "accepted_accuracy": 0.99,
+          "unknown_false_accept_rate": 0.4722222222222222,
+          "n_known_accepted": 400,
+          "n_unknown_accepted": 17
+        },
+        {
+          "threshold": 0.86336215747384,
+          "known_coverage": 0.9022727272727272,
+          "accepted_accuracy": 0.9924433249370277,
+          "unknown_false_accept_rate": 0.4444444444444444,
+          "n_known_accepted": 397,
+          "n_unknown_accepted": 16
+        },
+        {
+          "threshold": 0.8983974950089038,
+          "known_coverage": 0.8772727272727273,
+          "accepted_accuracy": 0.9948186528497409,
+          "unknown_false_accept_rate": 0.3888888888888889,
+          "n_known_accepted": 386,
+          "n_unknown_accepted": 14
+        },
+        {
+          "threshold": 0.9334328325439676,
+          "known_coverage": 0.8522727272727273,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.3333333333333333,
+          "n_known_accepted": 375,
+          "n_unknown_accepted": 12
+        },
+        {
+          "threshold": 0.9684681700790313,
+          "known_coverage": 0.8022727272727272,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.2222222222222222,
+          "n_known_accepted": 353,
+          "n_unknown_accepted": 8
+        }
+      ]
+    },
+    "cos_centroid": {
+      "score": "cos_centroid",
+      "direction": "high",
+      "selected_threshold_raw": 0.9699951230796716,
+      "selected_on_validation": {
+        "threshold": 0.9699951230796716,
+        "known_coverage": 0.8977272727272727,
+        "accepted_accuracy": 0.9696202531645569,
+        "unknown_false_accept_rate": 0.05555555555555555,
+        "n_known_accepted": 395,
+        "n_unknown_accepted": 2
+      },
+      "auc_known_val_vs_unknown_cal": 0.9517045454545454,
+      "test": {
+        "known_coverage": 0.9130434782608695,
+        "accepted_accuracy": 0.9523809523809523,
+        "unknown_false_accept_rate": 0.3611111111111111,
+        "unknown_rejection_rate": 0.6388888888888888,
+        "far_wilson95": [
+          0.2247538679218132,
+          0.5242521960916802
+        ],
+        "n_known": 483,
+        "n_unknown": 36
+      },
+      "curve_sample": [
+        {
+          "threshold": 0.9281025165807641,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": 0.9314539251006767,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 0.9444444444444444,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 34
+        },
+        {
+          "threshold": 0.9348053336205894,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 0.9166666666666666,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 33
+        },
+        {
+          "threshold": 0.9381567421405019,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 0.8888888888888888,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 32
+        },
+        {
+          "threshold": 0.9415081506604145,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 0.8888888888888888,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 32
+        },
+        {
+          "threshold": 0.9448595591803272,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 0.8333333333333334,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 30
+        },
+        {
+          "threshold": 0.9482109677002397,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 0.7222222222222222,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 26
+        },
+        {
+          "threshold": 0.9515623762201523,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 0.6944444444444444,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 25
+        },
+        {
+          "threshold": 0.9549137847400649,
+          "known_coverage": 0.990909090909091,
+          "accepted_accuracy": 0.9472477064220184,
+          "unknown_false_accept_rate": 0.6666666666666666,
+          "n_known_accepted": 436,
+          "n_unknown_accepted": 24
+        },
+        {
+          "threshold": 0.9582651932599775,
+          "known_coverage": 0.975,
+          "accepted_accuracy": 0.951048951048951,
+          "unknown_false_accept_rate": 0.5,
+          "n_known_accepted": 429,
+          "n_unknown_accepted": 18
+        },
+        {
+          "threshold": 0.9616166017798901,
+          "known_coverage": 0.9431818181818182,
+          "accepted_accuracy": 0.9590361445783132,
+          "unknown_false_accept_rate": 0.4444444444444444,
+          "n_known_accepted": 415,
+          "n_unknown_accepted": 16
+        },
+        {
+          "threshold": 0.9649680102998027,
+          "known_coverage": 0.925,
+          "accepted_accuracy": 0.9656019656019657,
+          "unknown_false_accept_rate": 0.3333333333333333,
+          "n_known_accepted": 407,
+          "n_unknown_accepted": 12
+        },
+        {
+          "threshold": 0.9683194188197153,
+          "known_coverage": 0.9090909090909091,
+          "accepted_accuracy": 0.965,
+          "unknown_false_accept_rate": 0.16666666666666666,
+          "n_known_accepted": 400,
+          "n_unknown_accepted": 6
+        },
+        {
+          "threshold": 0.971670827339628,
+          "known_coverage": 0.884090909090909,
+          "accepted_accuracy": 0.9717223650385605,
+          "unknown_false_accept_rate": 0.05555555555555555,
+          "n_known_accepted": 389,
+          "n_unknown_accepted": 2
+        },
+        {
+          "threshold": 0.9750222358595405,
+          "known_coverage": 0.8454545454545455,
+          "accepted_accuracy": 0.9731182795698925,
+          "unknown_false_accept_rate": 0.05555555555555555,
+          "n_known_accepted": 372,
+          "n_unknown_accepted": 2
+        },
+        {
+          "threshold": 0.9783736443794531,
+          "known_coverage": 0.7704545454545455,
+          "accepted_accuracy": 0.9852507374631269,
+          "unknown_false_accept_rate": 0.027777777777777776,
+          "n_known_accepted": 339,
+          "n_unknown_accepted": 1
+        },
+        {
+          "threshold": 0.9817250528993657,
+          "known_coverage": 0.6681818181818182,
+          "accepted_accuracy": 0.9931972789115646,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 294,
+          "n_unknown_accepted": 0
+        },
+        {
+          "threshold": 0.9850764614192783,
+          "known_coverage": 0.5272727272727272,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 232,
+          "n_unknown_accepted": 0
+        },
+        {
+          "threshold": 0.9884278699391909,
+          "known_coverage": 0.31363636363636366,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 138,
+          "n_unknown_accepted": 0
+        },
+        {
+          "threshold": 0.9917792784591035,
+          "known_coverage": 0.05227272727272727,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 23,
+          "n_unknown_accepted": 0
+        }
+      ]
+    },
+    "mahalanobis": {
+      "score": "mahalanobis",
+      "direction": "high",
+      "selected_threshold_raw": -13.553087315872773,
+      "selected_on_validation": {
+        "threshold": -13.553087315872773,
+        "known_coverage": 0.8545454545454545,
+        "accepted_accuracy": 0.9547872340425532,
+        "unknown_false_accept_rate": 0.4166666666666667,
+        "n_known_accepted": 376,
+        "n_unknown_accepted": 15
+      },
+      "auc_known_val_vs_unknown_cal": 0.8525883838383839,
+      "test": {
+        "known_coverage": 0.8509316770186336,
+        "accepted_accuracy": 0.9124087591240876,
+        "unknown_false_accept_rate": 0.4444444444444444,
+        "unknown_rejection_rate": 0.5555555555555556,
+        "far_wilson95": [
+          0.2954102987654314,
+          0.6041921268399659
+        ],
+        "n_known": 483,
+        "n_unknown": 36
+      },
+      "curve_sample": [
+        {
+          "threshold": -30.0908453140976,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -28.96582776319795,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -27.840810212298305,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -26.715792661398655,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -25.59077511049901,
+          "known_coverage": 0.9977272727272727,
+          "accepted_accuracy": 0.9453302961275627,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 439,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -24.46575755959936,
+          "known_coverage": 0.9954545454545455,
+          "accepted_accuracy": 0.9474885844748858,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 438,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -23.34074000869971,
+          "known_coverage": 0.9954545454545455,
+          "accepted_accuracy": 0.9474885844748858,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 438,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -22.215722457800062,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -21.090704906900417,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -19.965687356000767,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -18.840669805101122,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -17.715652254201473,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -16.590634703301824,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -15.465617152402176,
+          "known_coverage": 0.975,
+          "accepted_accuracy": 0.9463869463869464,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 429,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -14.340599601502529,
+          "known_coverage": 0.9295454545454546,
+          "accepted_accuracy": 0.9462102689486552,
+          "unknown_false_accept_rate": 0.75,
+          "n_known_accepted": 409,
+          "n_unknown_accepted": 27
+        },
+        {
+          "threshold": -13.21558205060288,
+          "known_coverage": 0.8204545454545454,
+          "accepted_accuracy": 0.961218836565097,
+          "unknown_false_accept_rate": 0.25,
+          "n_known_accepted": 361,
+          "n_unknown_accepted": 9
+        },
+        {
+          "threshold": -12.090564499703234,
+          "known_coverage": 0.6090909090909091,
+          "accepted_accuracy": 0.9925373134328358,
+          "unknown_false_accept_rate": 0.027777777777777776,
+          "n_known_accepted": 268,
+          "n_unknown_accepted": 1
+        },
+        {
+          "threshold": -10.965546948803585,
+          "known_coverage": 0.39090909090909093,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 172,
+          "n_unknown_accepted": 0
+        },
+        {
+          "threshold": -9.840529397903936,
+          "known_coverage": 0.12727272727272726,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 56,
+          "n_unknown_accepted": 0
+        },
+        {
+          "threshold": -8.71551184700429,
+          "known_coverage": 0.020454545454545454,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 9,
+          "n_unknown_accepted": 0
+        }
+      ]
+    },
+    "knn_distance": {
+      "score": "knn_distance",
+      "direction": "high",
+      "selected_threshold_raw": -6.78944768898522,
+      "selected_on_validation": {
+        "threshold": -6.78944768898522,
+        "known_coverage": 0.8545454545454545,
+        "accepted_accuracy": 0.9601063829787234,
+        "unknown_false_accept_rate": 0.19444444444444445,
+        "n_known_accepted": 376,
+        "n_unknown_accepted": 7
+      },
+      "auc_known_val_vs_unknown_cal": 0.8926767676767676,
+      "test": {
+        "known_coverage": 0.8923395445134575,
+        "accepted_accuracy": 0.925754060324826,
+        "unknown_false_accept_rate": 0.16666666666666666,
+        "unknown_rejection_rate": 0.8333333333333334,
+        "far_wilson95": [
+          0.07870340628564097,
+          0.3189111473467432
+        ],
+        "n_known": 483,
+        "n_unknown": 36
+      },
+      "curve_sample": [
+        {
+          "threshold": -19.099718708120296,
+          "known_coverage": 1.0,
+          "accepted_accuracy": 0.9454545454545454,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 440,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -18.30550767462771,
+          "known_coverage": 0.9954545454545455,
+          "accepted_accuracy": 0.9474885844748858,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 438,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -17.511296641135125,
+          "known_coverage": 0.9954545454545455,
+          "accepted_accuracy": 0.9474885844748858,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 438,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -16.717085607642538,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -15.922874574149954,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 1.0,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 36
+        },
+        {
+          "threshold": -15.128663540657367,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -14.334452507164782,
+          "known_coverage": 0.9931818181818182,
+          "accepted_accuracy": 0.9473684210526315,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 437,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -13.540241473672197,
+          "known_coverage": 0.990909090909091,
+          "accepted_accuracy": 0.9495412844036697,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 436,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -12.746030440179611,
+          "known_coverage": 0.990909090909091,
+          "accepted_accuracy": 0.9495412844036697,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 436,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -11.951819406687026,
+          "known_coverage": 0.990909090909091,
+          "accepted_accuracy": 0.9495412844036697,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 436,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -11.15760837319444,
+          "known_coverage": 0.9886363636363636,
+          "accepted_accuracy": 0.9494252873563218,
+          "unknown_false_accept_rate": 0.9722222222222222,
+          "n_known_accepted": 435,
+          "n_unknown_accepted": 35
+        },
+        {
+          "threshold": -10.363397339701855,
+          "known_coverage": 0.9863636363636363,
+          "accepted_accuracy": 0.9516129032258065,
+          "unknown_false_accept_rate": 0.9166666666666666,
+          "n_known_accepted": 434,
+          "n_unknown_accepted": 33
+        },
+        {
+          "threshold": -9.569186306209268,
+          "known_coverage": 0.9795454545454545,
+          "accepted_accuracy": 0.9535962877030162,
+          "unknown_false_accept_rate": 0.7222222222222222,
+          "n_known_accepted": 431,
+          "n_unknown_accepted": 26
+        },
+        {
+          "threshold": -8.774975272716683,
+          "known_coverage": 0.9636363636363636,
+          "accepted_accuracy": 0.9528301886792453,
+          "unknown_false_accept_rate": 0.6388888888888888,
+          "n_known_accepted": 424,
+          "n_unknown_accepted": 23
+        },
+        {
+          "threshold": -7.980764239224097,
+          "known_coverage": 0.9363636363636364,
+          "accepted_accuracy": 0.9514563106796117,
+          "unknown_false_accept_rate": 0.5833333333333334,
+          "n_known_accepted": 412,
+          "n_unknown_accepted": 21
+        },
+        {
+          "threshold": -7.186553205731512,
+          "known_coverage": 0.8977272727272727,
+          "accepted_accuracy": 0.9493670886075949,
+          "unknown_false_accept_rate": 0.3611111111111111,
+          "n_known_accepted": 395,
+          "n_unknown_accepted": 13
+        },
+        {
+          "threshold": -6.392342172238926,
+          "known_coverage": 0.8181818181818182,
+          "accepted_accuracy": 0.9666666666666667,
+          "unknown_false_accept_rate": 0.1388888888888889,
+          "n_known_accepted": 360,
+          "n_unknown_accepted": 5
+        },
+        {
+          "threshold": -5.598131138746341,
+          "known_coverage": 0.6431818181818182,
+          "accepted_accuracy": 0.9893992932862191,
+          "unknown_false_accept_rate": 0.08333333333333333,
+          "n_known_accepted": 283,
+          "n_unknown_accepted": 3
+        },
+        {
+          "threshold": -4.803920105253756,
+          "known_coverage": 0.38636363636363635,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 170,
+          "n_unknown_accepted": 0
+        },
+        {
+          "threshold": -4.00970907176117,
+          "known_coverage": 0.075,
+          "accepted_accuracy": 1.0,
+          "unknown_false_accept_rate": 0.0,
+          "n_known_accepted": 33,
+          "n_unknown_accepted": 0
+        }
+      ]
+    }
+  }
+}

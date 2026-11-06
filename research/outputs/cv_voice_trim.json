@@ -1,0 +1,266 @@
+{
+  "protocol": "leave-one-voice-out; all 5 expressions in each fold; one test sample per class; trim variant",
+  "folds": {
+    "canto-tts-default": {
+      "accuracy": 0.3333333333333333,
+      "macro_f1": 0.27777777777777773,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 2.267851733330948
+    },
+    "zh-HK-HiuGaaiNeural": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 0.8694841333393318
+    },
+    "zh-HK-HiuMaanNeural": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 3.4171828500014576
+    },
+    "zh-HK-WanLungNeural": {
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.7777777777777777,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 3.658192466663119
+    }
+  },
+  "mean_accuracy": 0.7916666666666666,
+  "std_accuracy": 0.27322660517925,
+  "mean_macro_f1": 0.7638888888888888,
+  "std_macro_f1": 0.2949550080777125,
+  "note": "synthetic TTS only"
+}

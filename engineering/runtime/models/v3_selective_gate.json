@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "generated": "2026-11-01",
+  "rule": "and",
+  "signals": [
+    "maxprob",
+    "ood"
+  ],
+  "thresholds": {
+    "maxprob": 0.309193,
+    "ood": -0.022306
+  },
+  "ood": {
+    "kind": "neg_knn_cosine",
+    "k": 5,
+    "pool": "v3_knn_pool.npz",
+    "pool_array": "embedding",
+    "pool_size": 500,
+    "pool_dim": 256,
+    "pool_dtype_stored": "float16",
+    "pool_bytes_stored": 256000,
+    "pool_source": "合成 train 分层子采样（按 6 个命令类别配额），size=500 seed=0",
+    "pool_note": "池与阈值是一对工件：换池必须重跑本脚本重标定",
+    "pool_sha256": "73a2b24900139a95cb8e4ea1c1804a48c8b0442ec9e84cfe33e89825f1073ae4",
+    "pool_n_by_class": {
+      "ALL_OFF": 84,
+      "CURTAIN_CLOSE": 83,
+      "CURTAIN_OPEN": 83,
+      "LIGHT_OFF": 83,
+      "LIGHT_ON": 84,
+      "STATUS_ALL": 83
+    }
+  },
+  "fallback": {
+    "mode": "single",
+    "threshold": 0.945,
+    "artifact": "v3_thresholds_vad.json",
+    "note": "池文件缺失或前向未给出嵌入时走这条路径；已知代价是真实域 FAR 0.3110（docs/real_far.json），比双信号差 4.7 倍"
+  },
+  "calibration": {
+    "method": "and_workpoint 全量拟合下发 + crossfit_and_rule 2 折 × 3 次划分做样本外估计",
+    "target_risk": 0.1,
+    "n_negatives": 2637,
+    "n_positives": 440,
+    "negatives_source": "真人粤语非命令语音（FLEURS yue_hant_hk，CC BY 4.0，data/real_domain_testset/manifest.csv）",
+    "positives_source": "合成 val 已知命令（TTS，非真人）",
+    "n_distinct_thresholds_in_crossfit": 1,
+    "deployed_equals_crossfit_mode": true,
+    "out_of_sample_far": 0.0812,
+    "out_of_sample_far_range": [
+      0.0812,
+      0.0812
+    ],
+    "out_of_sample_coverage": 0.8205,
+    "note": "真人负样本参与了阈值搜索，因此本项目在标定环节**需要**真人数据；交叉拟合保证每条样本都由没见过它的阈值判定，FAR 是样本外估计。"
+  },
+  "performance": {
+    "shipped_thresholds_in_sample": {
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.022306
+      },
+      "real_far": 0.0812,
+      "real_ci95": [
+        0.0713,
+        0.0922
+      ],
+      "real_accepted": 214,
+      "real_n": 2637,
+      "dangerous_rate": 0.0212,
+      "dangerous_ci95": [
+        0.0164,
+        0.0275
+      ],
+      "dangerous_accepted": 56,
+      "benign_rate": 0.0599,
+      "syn_coverage": 0.8205,
+      "false_accept_by_command": {
+        "STATUS_ALL": 158,
+        "ALL_OFF": 54,
+        "LIGHT_OFF": 2
+      }
+    },
+    "crossfit_mode_thresholds": {
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.022306
+      },
+      "real_far": 0.0812,
+      "real_ci95": [
+        0.0713,
+        0.0922
+      ],
+      "real_accepted": 214,
+      "real_n": 2637,
+      "dangerous_rate": 0.0212,
+      "dangerous_ci95": [
+        0.0164,
+        0.0275
+      ],
+      "dangerous_accepted": 56,
+      "benign_rate": 0.0599,
+      "syn_coverage": 0.8205,
+      "false_accept_by_command": {
+        "STATUS_ALL": 158,
+        "ALL_OFF": 54,
+        "LIGHT_OFF": 2
+      }
+    },
+    "out_of_sample": {
+      "real_far": 0.0812,
+      "real_far_range_over_splits": [
+        0.0812,
+        0.0812
+      ],
+      "syn_coverage": 0.8205,
+      "syn_coverage_min": 0.8205,
+      "meets_target": true,
+      "accept_max_far": 0.1,
+      "accept_min_coverage": 0.8
+    },
+    "baseline_single_threshold": {
+      "threshold": 0.945,
+      "real_far": 0.311,
+      "dangerous_rate": 0.1437,
+      "syn_coverage": 0.7864,
+      "source": "docs/real_far.json（S0 实测，同一批真人负样本）"
+    }
+  },
+  "evidence": [
+    "docs/selective_eval.json",
+    "docs/pool_size.json",
+    "docs/real_far.json",
+    "docs/selective_gate.json"
+  ],
+  "caveats": [
+    "覆盖率一侧全是合成 TTS 命令；真人命令在这对阈值下的覆盖率未测（真人正样本为 0）。",
+    "FAR 对应的负样本是 FLEURS 朗读式近讲粤语被 VAD 切成命令长度的片段，家庭远场/电视背景环境大概率更差，0.0808 一类数字不是保守上界。",
+    "交叉拟合用 2 折，每折只用约一半负样本标定，因此样本外估计相对「全量拟合后部署」偏保守。"
+  ]
+}

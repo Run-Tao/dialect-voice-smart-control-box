@@ -1,0 +1,118 @@
+{
+  "method": "cosine",
+  "split": {
+    "seed": 42,
+    "train_speakers": [
+      "zh-HK-HiuGaaiNeural",
+      "zh-HK-HiuMaanNeural"
+    ],
+    "val_speakers": [
+      "zh-HK-WanLungNeural"
+    ],
+    "test_speakers": [
+      "canto-tts-default"
+    ],
+    "train_size": 60,
+    "val_size": 30,
+    "test_size": 30
+  },
+  "data_protocol": {
+    "templates_from": "train",
+    "evaluation_on": "test",
+    "val_used_for": "not_used"
+  },
+  "templates": {
+    "LIGHT_ON": [
+      100,
+      13
+    ],
+    "LIGHT_OFF": [
+      100,
+      13
+    ],
+    "CURTAIN_OPEN": [
+      100,
+      13
+    ],
+    "CURTAIN_CLOSE": [
+      100,
+      13
+    ],
+    "ALL_OFF": [
+      100,
+      13
+    ],
+    "STATUS_ALL": [
+      100,
+      13
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.26666666666666666,
+    "macro_f1": 0.22377622377622375,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        4,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        1,
+        0,
+        2
+      ]
+    ]
+  },
+  "timing": {
+    "train_seconds": 0.0,
+    "inference_seconds_total": 0.421547899954021,
+    "inference_seconds_per_sample": 0.014051596665134032
+  },
+  "run_id": "cosine_20261018_223721"
+}

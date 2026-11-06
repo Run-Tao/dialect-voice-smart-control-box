@@ -1,0 +1,273 @@
+{
+  "run_id": "smoke_e1",
+  "generated_at": "2026-10-19T13:16:11",
+  "python": "3.13.9",
+  "numpy": "2.3.5",
+  "git_commit": null,
+  "manifest": {
+    "path": "data\\tts_corpus\\manifest_yue_v2.csv",
+    "sha256": "e89f3a0066859053c83ab5688e2aa886623590048e6742d7db7ae31ca51f3da7"
+  },
+  "split": {
+    "split_file": "data\\splits\\track_a_expression_split.csv",
+    "sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34"
+  },
+  "config_file": "config.json",
+  "features": {
+    "sample_rate": 16000,
+    "n_fft": 512,
+    "hop_length": 160,
+    "n_mfcc": 13,
+    "n_mels": 26,
+    "fmin": 50.0,
+    "fmax": 8000.0,
+    "preemphasis": 0.97,
+    "use_cmvn": true
+  },
+  "dtw": {
+    "normalize": "path",
+    "max_frames": 60
+  },
+  "dataset_sizes": {
+    "samples": {
+      "train": 397,
+      "val": 92,
+      "test": 111
+    },
+    "groups": {
+      "train": 114,
+      "val": 29,
+      "test": 31
+    }
+  },
+  "command_used": "scripts\\run_v2_experiments.py --experiments E1 --run-name smoke_e1",
+  "protocol": {
+    "train": "split=train 的记录",
+    "val": "split=val 的记录，仅用于超参选择",
+    "test": "split=test 的记录，固定，只评估一次",
+    "split_unit": "expression_group_id（同一表达的所有声学变体同属一个子集）"
+  },
+  "feature_extraction_seconds": 1.1803548003081232,
+  "total_elapsed_sec": 30.482196700002532,
+  "experiments": {
+    "E1_baseline": {
+      "train_origin_filter": "generation_batch == v1",
+      "train_size": 84,
+      "val_size": 92,
+      "test_size": 111,
+      "templates_per_class": {
+        "ALL_OFF": 8,
+        "CURTAIN_CLOSE": 20,
+        "CURTAIN_OPEN": 8,
+        "LIGHT_OFF": 16,
+        "LIGHT_ON": 16,
+        "STATUS_ALL": 16
+      },
+      "val_metrics": {
+        "accuracy": 0.4673913043478261,
+        "macro_f1": 0.4878831352360764,
+        "labels": [
+          "LIGHT_ON",
+          "LIGHT_OFF",
+          "CURTAIN_OPEN",
+          "CURTAIN_CLOSE",
+          "ALL_OFF",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            8,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            14,
+            4,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            1,
+            2,
+            7,
+            0
+          ],
+          [
+            3,
+            1,
+            1,
+            0,
+            0,
+            8
+          ]
+        ],
+        "per_class": {
+          "LIGHT_ON": {
+            "precision": 0.32,
+            "recall": 0.8,
+            "f1": 0.4571,
+            "support": 10
+          },
+          "LIGHT_OFF": {
+            "precision": 0.3077,
+            "recall": 0.2105,
+            "f1": 0.25,
+            "support": 19
+          },
+          "CURTAIN_OPEN": {
+            "precision": 0.4737,
+            "recall": 0.5,
+            "f1": 0.4865,
+            "support": 18
+          },
+          "CURTAIN_CLOSE": {
+            "precision": 0.35,
+            "recall": 0.5,
+            "f1": 0.4118,
+            "support": 14
+          },
+          "ALL_OFF": {
+            "precision": 1.0,
+            "recall": 0.3889,
+            "f1": 0.56,
+            "support": 18
+          },
+          "STATUS_ALL": {
+            "precision": 1.0,
+            "recall": 0.6154,
+            "f1": 0.7619,
+            "support": 13
+          }
+        },
+        "inference_seconds_total": 13.90352009999333,
+        "inference_seconds_per_sample": 0.15112521847818836
+      },
+      "test_metrics": {
+        "accuracy": 0.5765765765765766,
+        "macro_f1": 0.563234160358845,
+        "labels": [
+          "LIGHT_ON",
+          "LIGHT_OFF",
+          "CURTAIN_OPEN",
+          "CURTAIN_CLOSE",
+          "ALL_OFF",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            13,
+            7,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            13,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            17,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            2,
+            9,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            1,
+            17,
+            3
+          ],
+          [
+            4,
+            4,
+            3,
+            0,
+            0,
+            7
+          ]
+        ],
+        "per_class": {
+          "LIGHT_ON": {
+            "precision": 0.65,
+            "recall": 0.619,
+            "f1": 0.6341,
+            "support": 21
+          },
+          "LIGHT_OFF": {
+            "precision": 0.5,
+            "recall": 0.9286,
+            "f1": 0.65,
+            "support": 14
+          },
+          "CURTAIN_OPEN": {
+            "precision": 0.5,
+            "recall": 0.2273,
+            "f1": 0.3125,
+            "support": 22
+          },
+          "CURTAIN_CLOSE": {
+            "precision": 0.3333,
+            "recall": 0.6923,
+            "f1": 0.45,
+            "support": 13
+          },
+          "ALL_OFF": {
+            "precision": 1.0,
+            "recall": 0.7391,
+            "f1": 0.85,
+            "support": 23
+          },
+          "STATUS_ALL": {
+            "precision": 0.6364,
+            "recall": 0.3889,
+            "f1": 0.4828,
+            "support": 18
+          }
+        },
+        "inference_seconds_total": 16.266728300019167,
+        "inference_seconds_per_sample": 0.14654710180197447
+      },
+      "elapsed_sec": 30.482166300003882
+    }
+  }
+}

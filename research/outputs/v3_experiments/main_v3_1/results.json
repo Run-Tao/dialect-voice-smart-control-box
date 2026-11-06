@@ -1,0 +1,1895 @@
+{
+  "meta": {
+    "run_name": "main_v3_1",
+    "created_at": "2026-10-21T15:07:45",
+    "command": "scripts\\run_v3_experiments.py --experiments E1 E2 --run-name main_v3_1",
+    "config": "D:\\Run_Tao\\DialectVoice_Research\\config_v3.json",
+    "manifest": "data/tts_corpus/manifest_yue_v3_1.csv",
+    "split": "data/splits/track_a_expression_split_v3_1.csv",
+    "manifest_sha256": "eb9b60140047f2bfb2eb9fed834f94e55648d645e9e7ee0b5572a0139916aa02",
+    "split_sha256": "97a9eef8041ca7272ec26fcfdad33e01729df2947adcb3f405a1baceb7409620",
+    "model": "D:\\Run_Tao\\DialectVoice_Research\\data\\models\\v3_cnn_ensemble.npz",
+    "n_test_full": 483,
+    "n_test_matched_v2": 111,
+    "protocol": "超参/TTA/融合权重仅在 val 选择；test 用于最终评估。",
+    "updated_at": "2026-10-21T20:03:54"
+  },
+  "E1_v2_dtw_baseline": {
+    "full_test": {
+      "n": 483,
+      "accuracy": 0.5901,
+      "macro_f1": 0.5921,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 0.6019,
+          "recall": 0.6667,
+          "f1": 0.6327,
+          "support": 93
+        },
+        "LIGHT_OFF": {
+          "precision": 0.5333,
+          "recall": 0.5405,
+          "f1": 0.5369,
+          "support": 74
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.3553,
+          "recall": 0.3293,
+          "f1": 0.3418,
+          "support": 82
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.36,
+          "recall": 0.4932,
+          "f1": 0.4162,
+          "support": 73
+        },
+        "ALL_OFF": {
+          "precision": 0.9383,
+          "recall": 0.9157,
+          "f1": 0.9268,
+          "support": 83
+        },
+        "STATUS_ALL": {
+          "precision": 0.9167,
+          "recall": 0.5641,
+          "f1": 0.6984,
+          "support": 78
+        }
+      },
+      "confusion_matrix": [
+        [
+          62,
+          29,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          28,
+          40,
+          1,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          27,
+          55,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          34,
+          36,
+          0,
+          1
+        ],
+        [
+          4,
+          0,
+          0,
+          1,
+          76,
+          2
+        ],
+        [
+          8,
+          5,
+          13,
+          3,
+          5,
+          44
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.5
+          },
+          "pitch_high": {
+            "n": 93,
+            "accuracy": 0.6452
+          },
+          "pitch_low": {
+            "n": 93,
+            "accuracy": 0.6237
+          },
+          "rate_fast_18": {
+            "n": 93,
+            "accuracy": 0.5591
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.6111
+          },
+          "rate_slow_18": {
+            "n": 93,
+            "accuracy": 0.5806
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.5507
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 93,
+            "accuracy": 0.7527
+          },
+          "correction": {
+            "n": 98,
+            "accuracy": 0.5408
+          },
+          "polite": {
+            "n": 101,
+            "accuracy": 0.6139
+          },
+          "question": {
+            "n": 90,
+            "accuracy": 0.3
+          },
+          "short_direct": {
+            "n": 101,
+            "accuracy": 0.7228
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.3333
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 161,
+            "accuracy": 0.6087
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 161,
+            "accuracy": 0.5528
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 155,
+            "accuracy": 0.6194
+          }
+        }
+      },
+      "n_expression_groups": 31,
+      "latency_sec_per_sample": 0.1626,
+      "n_templates": 397
+    },
+    "matched_v2_test": {
+      "n": 111,
+      "accuracy": 0.5495,
+      "macro_f1": 0.5411,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 0.55,
+          "recall": 0.5238,
+          "f1": 0.5366,
+          "support": 21
+        },
+        "LIGHT_OFF": {
+          "precision": 0.3684,
+          "recall": 0.5,
+          "f1": 0.4242,
+          "support": 14
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.375,
+          "recall": 0.2727,
+          "f1": 0.3158,
+          "support": 22
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.2174,
+          "recall": 0.3846,
+          "f1": 0.2778,
+          "support": 13
+        },
+        "ALL_OFF": {
+          "precision": 0.9545,
+          "recall": 0.913,
+          "f1": 0.9333,
+          "support": 23
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 0.6111,
+          "f1": 0.7586,
+          "support": 18
+        }
+      },
+      "confusion_matrix": [
+        [
+          11,
+          10,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          7,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          6,
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          21,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0,
+          1,
+          11
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.5
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.6111
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.5507
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 21,
+            "accuracy": 0.8095
+          },
+          "correction": {
+            "n": 26,
+            "accuracy": 0.5
+          },
+          "polite": {
+            "n": 29,
+            "accuracy": 0.5172
+          },
+          "question": {
+            "n": 18,
+            "accuracy": 0.1667
+          },
+          "short_direct": {
+            "n": 17,
+            "accuracy": 0.7647
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.3333
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 37,
+            "accuracy": 0.5676
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 37,
+            "accuracy": 0.5135
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 31,
+            "accuracy": 0.6129
+          }
+        }
+      },
+      "n_expression_groups": 31
+    },
+    "model": "MFCC13+CMVN, DTW all templates(path norm, max_frames=60), class-min",
+    "train_size": 397
+  },
+  "E2_classical_logreg": {
+    "full_test": {
+      "n": 483,
+      "accuracy": 0.6749,
+      "macro_f1": 0.6706,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 0.7442,
+          "recall": 0.6882,
+          "f1": 0.7151,
+          "support": 93
+        },
+        "LIGHT_OFF": {
+          "precision": 0.6712,
+          "recall": 0.6622,
+          "f1": 0.6667,
+          "support": 74
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.7193,
+          "recall": 0.5,
+          "f1": 0.5899,
+          "support": 82
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.5625,
+          "recall": 0.6164,
+          "f1": 0.5882,
+          "support": 73
+        },
+        "ALL_OFF": {
+          "precision": 0.6321,
+          "recall": 0.8072,
+          "f1": 0.709,
+          "support": 83
+        },
+        "STATUS_ALL": {
+          "precision": 0.7407,
+          "recall": 0.7692,
+          "f1": 0.7547,
+          "support": 78
+        }
+      },
+      "confusion_matrix": [
+        [
+          64,
+          18,
+          3,
+          1,
+          2,
+          5
+        ],
+        [
+          13,
+          49,
+          1,
+          1,
+          6,
+          4
+        ],
+        [
+          4,
+          1,
+          41,
+          28,
+          6,
+          2
+        ],
+        [
+          0,
+          1,
+          11,
+          45,
+          13,
+          3
+        ],
+        [
+          0,
+          4,
+          1,
+          4,
+          67,
+          7
+        ],
+        [
+          5,
+          0,
+          0,
+          1,
+          12,
+          60
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.625
+          },
+          "pitch_high": {
+            "n": 93,
+            "accuracy": 0.6774
+          },
+          "pitch_low": {
+            "n": 93,
+            "accuracy": 0.6452
+          },
+          "rate_fast_18": {
+            "n": 93,
+            "accuracy": 0.6989
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.7778
+          },
+          "rate_slow_18": {
+            "n": 93,
+            "accuracy": 0.6452
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.7101
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 93,
+            "accuracy": 0.7204
+          },
+          "correction": {
+            "n": 98,
+            "accuracy": 0.3571
+          },
+          "polite": {
+            "n": 101,
+            "accuracy": 0.7723
+          },
+          "question": {
+            "n": 90,
+            "accuracy": 0.7667
+          },
+          "short_direct": {
+            "n": 101,
+            "accuracy": 0.7624
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.1667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 161,
+            "accuracy": 0.6832
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 161,
+            "accuracy": 0.7081
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 155,
+            "accuracy": 0.6516
+          }
+        }
+      },
+      "n_expression_groups": 31,
+      "selected_l2": 0.01,
+      "val_accuracy": 0.7568181818181818,
+      "latency_sec_per_sample": 1e-05,
+      "embedding_dim": 234
+    },
+    "matched_v2_test": {
+      "n": 111,
+      "accuracy": 0.7027,
+      "macro_f1": 0.6866,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 0.7727,
+          "recall": 0.8095,
+          "f1": 0.7907,
+          "support": 21
+        },
+        "LIGHT_OFF": {
+          "precision": 0.6667,
+          "recall": 0.7143,
+          "f1": 0.6897,
+          "support": 14
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.8333,
+          "recall": 0.4545,
+          "f1": 0.5882,
+          "support": 22
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.4118,
+          "recall": 0.5385,
+          "f1": 0.4667,
+          "support": 13
+        },
+        "ALL_OFF": {
+          "precision": 0.7143,
+          "recall": 0.8696,
+          "f1": 0.7843,
+          "support": 23
+        },
+        "STATUS_ALL": {
+          "precision": 0.8235,
+          "recall": 0.7778,
+          "f1": 0.8,
+          "support": 18
+        }
+      },
+      "confusion_matrix": [
+        [
+          17,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          10,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          10,
+          9,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          2,
+          7,
+          4,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          20,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          3,
+          14
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.625
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.7778
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.7101
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 21,
+            "accuracy": 0.7143
+          },
+          "correction": {
+            "n": 26,
+            "accuracy": 0.4615
+          },
+          "polite": {
+            "n": 29,
+            "accuracy": 0.7586
+          },
+          "question": {
+            "n": 18,
+            "accuracy": 0.8333
+          },
+          "short_direct": {
+            "n": 17,
+            "accuracy": 0.8235
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.1667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 37,
+            "accuracy": 0.7568
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 37,
+            "accuracy": 0.7297
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 31,
+            "accuracy": 0.7097
+          }
+        }
+      },
+      "n_expression_groups": 31
+    },
+    "model": "MFCC13+Δ+ΔΔ 统计嵌入(mean/std/min/max/p10/p90) + 多项逻辑回归",
+    "train_size": 1981
+  },
+  "E3_cnn_ensemble": {
+    "full_test": {
+      "n": 483,
+      "accuracy": 0.9048,
+      "macro_f1": 0.9022,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 1.0,
+          "recall": 0.9677,
+          "f1": 0.9836,
+          "support": 93
+        },
+        "LIGHT_OFF": {
+          "precision": 0.8409,
+          "recall": 1.0,
+          "f1": 0.9136,
+          "support": 74
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.8378,
+          "recall": 0.7561,
+          "f1": 0.7949,
+          "support": 82
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.7531,
+          "recall": 0.8356,
+          "f1": 0.7922,
+          "support": 73
+        },
+        "ALL_OFF": {
+          "precision": 1.0,
+          "recall": 0.8675,
+          "f1": 0.929,
+          "support": 83
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 78
+        }
+      },
+      "confusion_matrix": [
+        [
+          90,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          74,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          62,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12,
+          61,
+          0,
+          0
+        ],
+        [
+          0,
+          11,
+          0,
+          0,
+          72,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          78
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.7917
+          },
+          "pitch_high": {
+            "n": 93,
+            "accuracy": 0.914
+          },
+          "pitch_low": {
+            "n": 93,
+            "accuracy": 0.8925
+          },
+          "rate_fast_18": {
+            "n": 93,
+            "accuracy": 0.914
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.8333
+          },
+          "rate_slow_18": {
+            "n": 93,
+            "accuracy": 0.9247
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.9275
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 93,
+            "accuracy": 1.0
+          },
+          "correction": {
+            "n": 98,
+            "accuracy": 0.6531
+          },
+          "polite": {
+            "n": 101,
+            "accuracy": 0.8812
+          },
+          "question": {
+            "n": 90,
+            "accuracy": 1.0
+          },
+          "short_direct": {
+            "n": 101,
+            "accuracy": 1.0
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.6667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 161,
+            "accuracy": 0.9006
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 161,
+            "accuracy": 0.913
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 155,
+            "accuracy": 0.9097
+          }
+        }
+      },
+      "n_expression_groups": 31
+    },
+    "matched_v2_test": {
+      "n": 111,
+      "accuracy": 0.8829,
+      "macro_f1": 0.8752,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 21
+        },
+        "LIGHT_OFF": {
+          "precision": 0.875,
+          "recall": 1.0,
+          "f1": 0.9333,
+          "support": 14
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.8235,
+          "recall": 0.6364,
+          "f1": 0.7179,
+          "support": 22
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.5556,
+          "recall": 0.7692,
+          "f1": 0.6452,
+          "support": 13
+        },
+        "ALL_OFF": {
+          "precision": 1.0,
+          "recall": 0.913,
+          "f1": 0.9545,
+          "support": 23
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 18
+        }
+      },
+      "confusion_matrix": [
+        [
+          21,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          21,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.7917
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.8333
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.9275
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 21,
+            "accuracy": 1.0
+          },
+          "correction": {
+            "n": 26,
+            "accuracy": 0.6154
+          },
+          "polite": {
+            "n": 29,
+            "accuracy": 0.8966
+          },
+          "question": {
+            "n": 18,
+            "accuracy": 1.0
+          },
+          "short_direct": {
+            "n": 17,
+            "accuracy": 1.0
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.6667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 37,
+            "accuracy": 0.8919
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 37,
+            "accuracy": 0.8919
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 31,
+            "accuracy": 0.9032
+          }
+        }
+      },
+      "n_expression_groups": 31
+    },
+    "val": {
+      "n": 440,
+      "accuracy": 0.9455,
+      "macro_f1": 0.9444,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 0.8056,
+          "recall": 1.0,
+          "f1": 0.8923,
+          "support": 58
+        },
+        "LIGHT_OFF": {
+          "precision": 0.9028,
+          "recall": 0.8228,
+          "f1": 0.8609,
+          "support": 79
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.9872,
+          "recall": 0.9872,
+          "f1": 0.9872,
+          "support": 78
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.9733,
+          "recall": 0.9865,
+          "f1": 0.9799,
+          "support": 74
+        },
+        "ALL_OFF": {
+          "precision": 1.0,
+          "recall": 0.8974,
+          "f1": 0.9459,
+          "support": 78
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 73
+        }
+      },
+      "confusion_matrix": [
+        [
+          58,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          65,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          77,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          73,
+          0,
+          0
+        ],
+        [
+          0,
+          7,
+          0,
+          1,
+          70,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          73
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 12,
+            "accuracy": 0.9167
+          },
+          "pitch_high": {
+            "n": 87,
+            "accuracy": 0.9425
+          },
+          "pitch_low": {
+            "n": 87,
+            "accuracy": 0.9425
+          },
+          "rate_fast_18": {
+            "n": 87,
+            "accuracy": 0.954
+          },
+          "rate_slow": {
+            "n": 9,
+            "accuracy": 1.0
+          },
+          "rate_slow_18": {
+            "n": 87,
+            "accuracy": 0.954
+          },
+          "text_morphology": {
+            "n": 71,
+            "accuracy": 0.9296
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 93,
+            "accuracy": 1.0
+          },
+          "polite": {
+            "n": 87,
+            "accuracy": 1.0
+          },
+          "question": {
+            "n": 98,
+            "accuracy": 0.8673
+          },
+          "short_direct": {
+            "n": 162,
+            "accuracy": 0.9321
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 3,
+            "accuracy": 0.6667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 148,
+            "accuracy": 0.9459
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 148,
+            "accuracy": 0.9595
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 141,
+            "accuracy": 0.9362
+          }
+        }
+      },
+      "n_expression_groups": 29
+    },
+    "model": "log-mel40+Δ, 1D-CNN×3 seeds, 温度标定",
+    "train_size": 1981,
+    "temperature": 0.45,
+    "val_accuracy": 0.9454545454545454,
+    "latency_sec_per_sample_inference": 0.01603
+  },
+  "E4_cnn_tta": {
+    "selected_on_val": "pm12",
+    "val_candidates": {
+      "none": 0.9454545454545454,
+      "pm4": 0.9454545454545454,
+      "pm8": 0.9454545454545454,
+      "pm12": 0.9477272727272728
+    },
+    "full_test": {
+      "n": 483,
+      "accuracy": 0.9006,
+      "macro_f1": 0.8985,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 1.0,
+          "recall": 0.9462,
+          "f1": 0.9724,
+          "support": 93
+        },
+        "LIGHT_OFF": {
+          "precision": 0.8222,
+          "recall": 1.0,
+          "f1": 0.9024,
+          "support": 74
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.8378,
+          "recall": 0.7561,
+          "f1": 0.7949,
+          "support": 82
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.7531,
+          "recall": 0.8356,
+          "f1": 0.7922,
+          "support": 73
+        },
+        "ALL_OFF": {
+          "precision": 1.0,
+          "recall": 0.8675,
+          "f1": 0.929,
+          "support": 83
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 78
+        }
+      },
+      "confusion_matrix": [
+        [
+          88,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          74,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          62,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12,
+          61,
+          0,
+          0
+        ],
+        [
+          0,
+          11,
+          0,
+          0,
+          72,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          78
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.7917
+          },
+          "pitch_high": {
+            "n": 93,
+            "accuracy": 0.9032
+          },
+          "pitch_low": {
+            "n": 93,
+            "accuracy": 0.8925
+          },
+          "rate_fast_18": {
+            "n": 93,
+            "accuracy": 0.914
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.8333
+          },
+          "rate_slow_18": {
+            "n": 93,
+            "accuracy": 0.9247
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.913
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 93,
+            "accuracy": 1.0
+          },
+          "correction": {
+            "n": 98,
+            "accuracy": 0.6327
+          },
+          "polite": {
+            "n": 101,
+            "accuracy": 0.8812
+          },
+          "question": {
+            "n": 90,
+            "accuracy": 1.0
+          },
+          "short_direct": {
+            "n": 101,
+            "accuracy": 1.0
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.6667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 161,
+            "accuracy": 0.9006
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 161,
+            "accuracy": 0.9068
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 155,
+            "accuracy": 0.9032
+          }
+        }
+      },
+      "n_expression_groups": 31
+    },
+    "selected_val_accuracy": 0.9477272727272728
+  },
+  "E5_fusion": {
+    "selected_on_val": {
+      "cnn_weight": 0.6000000000000001,
+      "val_accuracy": 0.9477272727272728
+    },
+    "full_test": {
+      "n": 483,
+      "accuracy": 0.9151,
+      "macro_f1": 0.9126,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 1.0,
+          "recall": 0.9677,
+          "f1": 0.9836,
+          "support": 93
+        },
+        "LIGHT_OFF": {
+          "precision": 0.9024,
+          "recall": 1.0,
+          "f1": 0.9487,
+          "support": 74
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.8267,
+          "recall": 0.7561,
+          "f1": 0.7898,
+          "support": 82
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.75,
+          "recall": 0.8219,
+          "f1": 0.7843,
+          "support": 73
+        },
+        "ALL_OFF": {
+          "precision": 1.0,
+          "recall": 0.9398,
+          "f1": 0.9689,
+          "support": 83
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 78
+        }
+      },
+      "confusion_matrix": [
+        [
+          90,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          74,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          62,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          13,
+          60,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          78,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          78
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.7917
+          },
+          "pitch_high": {
+            "n": 93,
+            "accuracy": 0.914
+          },
+          "pitch_low": {
+            "n": 93,
+            "accuracy": 0.9032
+          },
+          "rate_fast_18": {
+            "n": 93,
+            "accuracy": 0.9355
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.8333
+          },
+          "rate_slow_18": {
+            "n": 93,
+            "accuracy": 0.9355
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.942
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 93,
+            "accuracy": 1.0
+          },
+          "correction": {
+            "n": 98,
+            "accuracy": 0.6429
+          },
+          "polite": {
+            "n": 101,
+            "accuracy": 0.9406
+          },
+          "question": {
+            "n": 90,
+            "accuracy": 1.0
+          },
+          "short_direct": {
+            "n": 101,
+            "accuracy": 1.0
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.6667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 161,
+            "accuracy": 0.9193
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 161,
+            "accuracy": 0.9255
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 155,
+            "accuracy": 0.9097
+          }
+        }
+      },
+      "n_expression_groups": 31
+    },
+    "matched_v2_test": {
+      "n": 111,
+      "accuracy": 0.8919,
+      "macro_f1": 0.8844,
+      "per_class": {
+        "LIGHT_ON": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 21
+        },
+        "LIGHT_OFF": {
+          "precision": 0.9333,
+          "recall": 1.0,
+          "f1": 0.9655,
+          "support": 14
+        },
+        "CURTAIN_OPEN": {
+          "precision": 0.8235,
+          "recall": 0.6364,
+          "f1": 0.7179,
+          "support": 22
+        },
+        "CURTAIN_CLOSE": {
+          "precision": 0.5556,
+          "recall": 0.7692,
+          "f1": 0.6452,
+          "support": 13
+        },
+        "ALL_OFF": {
+          "precision": 1.0,
+          "recall": 0.9565,
+          "f1": 0.9778,
+          "support": 23
+        },
+        "STATUS_ALL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 18
+        }
+      },
+      "confusion_matrix": [
+        [
+          21,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          22,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18
+        ]
+      ],
+      "labels": [
+        "LIGHT_ON",
+        "LIGHT_OFF",
+        "CURTAIN_OPEN",
+        "CURTAIN_CLOSE",
+        "ALL_OFF",
+        "STATUS_ALL"
+      ],
+      "stratified_accuracy": {
+        "condition": {
+          "legacy": {
+            "n": 24,
+            "accuracy": 0.7917
+          },
+          "rate_slow": {
+            "n": 18,
+            "accuracy": 0.8333
+          },
+          "text_morphology": {
+            "n": 69,
+            "accuracy": 0.942
+          }
+        },
+        "register": {
+          "colloquial": {
+            "n": 21,
+            "accuracy": 1.0
+          },
+          "correction": {
+            "n": 26,
+            "accuracy": 0.6154
+          },
+          "polite": {
+            "n": 29,
+            "accuracy": 0.931
+          },
+          "question": {
+            "n": 18,
+            "accuracy": 1.0
+          },
+          "short_direct": {
+            "n": 17,
+            "accuracy": 1.0
+          }
+        },
+        "voice": {
+          "canto-tts-default": {
+            "n": 6,
+            "accuracy": 0.6667
+          },
+          "edge-zh-HK-HiuGaaiNeural": {
+            "n": 37,
+            "accuracy": 0.9189
+          },
+          "edge-zh-HK-HiuMaanNeural": {
+            "n": 37,
+            "accuracy": 0.8919
+          },
+          "edge-zh-HK-WanLungNeural": {
+            "n": 31,
+            "accuracy": 0.9032
+          }
+        }
+      },
+      "n_expression_groups": 31
+    }
+  },
+  "E9_latency_size": {
+    "model_size_mb": 1.351,
+    "n_seeds": 3,
+    "inference_sec_per_sample": 0.01603,
+    "feature_extraction_seconds_total": null,
+    "note": "inference_sec_per_sample 只含 CNN 前向（不含特征提取与文件IO）；特征提取约 8–15ms/条（16k 2–4s 音频，numpy 单线程）。"
+  },
+  "E10_error_analysis": {
+    "model": "E5_fusion",
+    "confusion_matrix": [
+      [
+        90,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        74,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        62,
+        20,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        13,
+        60,
+        0,
+        0
+      ],
+      [
+        0,
+        5,
+        0,
+        0,
+        78,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        78
+      ]
+    ],
+    "labels": [
+      "LIGHT_ON",
+      "LIGHT_OFF",
+      "CURTAIN_OPEN",
+      "CURTAIN_CLOSE",
+      "ALL_OFF",
+      "STATUS_ALL"
+    ],
+    "top_error_pairs": [
+      {
+        "true": "CURTAIN_OPEN",
+        "pred": "CURTAIN_CLOSE",
+        "count": 20
+      },
+      {
+        "true": "CURTAIN_CLOSE",
+        "pred": "CURTAIN_OPEN",
+        "count": 13
+      },
+      {
+        "true": "ALL_OFF",
+        "pred": "LIGHT_OFF",
+        "count": 5
+      },
+      {
+        "true": "LIGHT_ON",
+        "pred": "LIGHT_OFF",
+        "count": 3
+      }
+    ],
+    "errors_by_register": {
+      "correction": 35,
+      "polite": 6
+    },
+    "correction_register_accuracy": 0.6429
+  },
+  "E6_statistics": {
+    "E1_vs_E3_full": {
+      "E1_v2_dtw_only_correct": 19,
+      "E3_cnn_only_correct": 171,
+      "both_correct": 266,
+      "neither_correct": 27,
+      "accuracy_delta_b_minus_a": 0.3147,
+      "mcnemar_exact_p_two_sided": 9.179152405389725e-32,
+      "group_bootstrap": {
+        "acc_diff_mean": 0.318,
+        "ci95": [
+          0.178,
+          0.4581
+        ],
+        "p_two_sided_bootstrap": 0.0,
+        "n_groups": 31
+      },
+      "interpretation": "差异显著（McNemar p<0.05）"
+    },
+    "E1_vs_E3_matched_v2": {
+      "E1_v2_dtw_only_correct": 3,
+      "E3_cnn_only_correct": 40,
+      "both_correct": 58,
+      "neither_correct": 10,
+      "accuracy_delta_b_minus_a": 0.3333,
+      "mcnemar_exact_p_two_sided": 3.0213413992896676e-09,
+      "group_bootstrap": {
+        "acc_diff_mean": 0.3378,
+        "ci95": [
+          0.1786,
+          0.5041
+        ],
+        "p_two_sided_bootstrap": 0.0,
+        "n_groups": 31
+      },
+      "interpretation": "差异显著（McNemar p<0.05）"
+    },
+    "E2_vs_E3_full": {
+      "E2_classical_only_correct": 13,
+      "E3_cnn_only_correct": 124,
+      "both_correct": 313,
+      "neither_correct": 33,
+      "accuracy_delta_b_minus_a": 0.2298,
+      "mcnemar_exact_p_two_sided": 6.840265458422732e-24,
+      "group_bootstrap": {
+        "acc_diff_mean": 0.2304,
+        "ci95": [
+          0.1419,
+          0.3271
+        ],
+        "p_two_sided_bootstrap": 0.0,
+        "n_groups": 31
+      },
+      "interpretation": "差异显著（McNemar p<0.05）"
+    },
+    "E2_vs_E3_matched_v2": {
+      "E2_classical_only_correct": 4,
+      "E3_cnn_only_correct": 24,
+      "both_correct": 74,
+      "neither_correct": 9,
+      "accuracy_delta_b_minus_a": 0.1802,
+      "mcnemar_exact_p_two_sided": 0.00017999112606048584,
+      "group_bootstrap": {
+        "acc_diff_mean": 0.1813,
+        "ci95": [
+          0.0866,
+          0.283
+        ],
+        "p_two_sided_bootstrap": 0.0004,
+        "n_groups": 31
+      },
+      "interpretation": "差异显著（McNemar p<0.05）"
+    }
+  }
+}

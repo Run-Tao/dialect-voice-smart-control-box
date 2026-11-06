@@ -1,0 +1,60 @@
+{
+  "threshold": 0.68,
+  "max_frames": 60,
+  "unknown_tts": {
+    "n": 8,
+    "accepted_rate": 0.0,
+    "rejection_rate": 1.0,
+    "mean_confidence": 0.4761509040277314,
+    "mean_latency_sec": 1.674520049993589,
+    "predictions": [
+      "LIGHT_ON",
+      "CURTAIN_CLOSE",
+      "LIGHT_ON",
+      "CURTAIN_CLOSE",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "ALL_OFF",
+      "STATUS_ALL"
+    ]
+  },
+  "shanghai_real_ood": {
+    "n": 8,
+    "accepted_rate": 0.0,
+    "rejection_rate": 1.0,
+    "mean_confidence": 0.341070907708655,
+    "mean_latency_sec": 1.7471845875043073,
+    "predictions": [
+      "STATUS_ALL",
+      "ALL_OFF",
+      "CURTAIN_OPEN",
+      "ALL_OFF",
+      "LIGHT_OFF",
+      "ALL_OFF",
+      "STATUS_ALL",
+      "ALL_OFF"
+    ]
+  },
+  "mandarin_crosslingual": {
+    "n": 12,
+    "accepted_rate": 0.08333333333333333,
+    "rejection_rate": 0.9166666666666666,
+    "mean_confidence": 0.42870191698919174,
+    "mean_latency_sec": 1.6447127416662017,
+    "predictions": [
+      "LIGHT_ON",
+      "LIGHT_ON",
+      "LIGHT_ON",
+      "LIGHT_OFF",
+      "STATUS_ALL",
+      "LIGHT_ON",
+      "LIGHT_ON",
+      "LIGHT_OFF",
+      "LIGHT_OFF",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "LIGHT_ON"
+    ],
+    "forced_accuracy": 0.4166666666666667
+  }
+}

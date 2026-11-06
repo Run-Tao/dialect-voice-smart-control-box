@@ -1,0 +1,385 @@
+{
+  "protocol": {
+    "model": "D:\\Run_Tao\\DialectVoice_Research\\data\\models\\v3_cnn_ensemble.npz",
+    "model_sha256": "9e261d88c116bc2f0f17688b5fea6b5dc7ab3af8e5055d5f191b31d626eeb9cc",
+    "threshold_selected_on": "val(known) + unknown_v3 calibration(36 clips/12 texts)",
+    "test_used_for": "final evaluation only（本脚本不据 test 改阈值）",
+    "score": "temperature-scaled max softmax probability",
+    "selection_rule": {
+      "min_known_coverage": 0.85,
+      "target_far": 0.08,
+      "rule": "满足 coverage>=min 且 FAR<=target 时最大化 coverage；否则最小化 FAR"
+    },
+    "config": "D:\\Run_Tao\\DialectVoice_Research\\config_v3.json"
+  },
+  "sizes": {
+    "known_val": 440,
+    "known_test": 483,
+    "unknown_calibration": 36,
+    "unknown_test": 36,
+    "unknown_test_texts": 12
+  },
+  "selected_threshold": 0.93,
+  "selected_on_validation": {
+    "known_coverage": 0.8590909090909091,
+    "known_false_reject_rate": 0.14090909090909087,
+    "accepted_accuracy": 1.0,
+    "unknown_false_accept_rate": 0.3611111111111111,
+    "n_known_accepted": 378
+  },
+  "validation_curve": [
+    {
+      "threshold": 0.05,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.9454545454545454,
+      "n_known_accepted": 440,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.1,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.9454545454545454,
+      "n_known_accepted": 440,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.15,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.9454545454545454,
+      "n_known_accepted": 440,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.2,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.9454545454545454,
+      "n_known_accepted": 440,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.25,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.9454545454545454,
+      "n_known_accepted": 440,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.3,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.9454545454545454,
+      "n_known_accepted": 440,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.35,
+      "known_coverage": 0.9977272727272727,
+      "known_false_reject_rate": 0.002272727272727315,
+      "accepted_accuracy": 0.9453302961275627,
+      "n_known_accepted": 439,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown_accepted": 36
+    },
+    {
+      "threshold": 0.4,
+      "known_coverage": 0.9977272727272727,
+      "known_false_reject_rate": 0.002272727272727315,
+      "accepted_accuracy": 0.9453302961275627,
+      "n_known_accepted": 439,
+      "unknown_false_accept_rate": 0.9722222222222222,
+      "n_unknown_accepted": 35
+    },
+    {
+      "threshold": 0.45,
+      "known_coverage": 0.9931818181818182,
+      "known_false_reject_rate": 0.006818181818181834,
+      "accepted_accuracy": 0.9473684210526315,
+      "n_known_accepted": 437,
+      "unknown_false_accept_rate": 0.9722222222222222,
+      "n_unknown_accepted": 35
+    },
+    {
+      "threshold": 0.5,
+      "known_coverage": 0.9886363636363636,
+      "known_false_reject_rate": 0.011363636363636354,
+      "accepted_accuracy": 0.9494252873563218,
+      "n_known_accepted": 435,
+      "unknown_false_accept_rate": 0.8888888888888888,
+      "n_unknown_accepted": 32
+    },
+    {
+      "threshold": 0.55,
+      "known_coverage": 0.9772727272727273,
+      "known_false_reject_rate": 0.022727272727272707,
+      "accepted_accuracy": 0.9534883720930233,
+      "n_known_accepted": 430,
+      "unknown_false_accept_rate": 0.8611111111111112,
+      "n_unknown_accepted": 31
+    },
+    {
+      "threshold": 0.6,
+      "known_coverage": 0.9681818181818181,
+      "known_false_reject_rate": 0.03181818181818186,
+      "accepted_accuracy": 0.9553990610328639,
+      "n_known_accepted": 426,
+      "unknown_false_accept_rate": 0.75,
+      "n_unknown_accepted": 27
+    },
+    {
+      "threshold": 0.65,
+      "known_coverage": 0.9545454545454546,
+      "known_false_reject_rate": 0.045454545454545414,
+      "accepted_accuracy": 0.9666666666666667,
+      "n_known_accepted": 420,
+      "unknown_false_accept_rate": 0.6388888888888888,
+      "n_unknown_accepted": 23
+    },
+    {
+      "threshold": 0.7,
+      "known_coverage": 0.9431818181818182,
+      "known_false_reject_rate": 0.05681818181818177,
+      "accepted_accuracy": 0.9710843373493976,
+      "n_known_accepted": 415,
+      "unknown_false_accept_rate": 0.6111111111111112,
+      "n_unknown_accepted": 22
+    },
+    {
+      "threshold": 0.75,
+      "known_coverage": 0.9272727272727272,
+      "known_false_reject_rate": 0.07272727272727275,
+      "accepted_accuracy": 0.9828431372549019,
+      "n_known_accepted": 408,
+      "unknown_false_accept_rate": 0.5833333333333334,
+      "n_unknown_accepted": 21
+    },
+    {
+      "threshold": 0.8,
+      "known_coverage": 0.9204545454545454,
+      "known_false_reject_rate": 0.07954545454545459,
+      "accepted_accuracy": 0.9827160493827161,
+      "n_known_accepted": 405,
+      "unknown_false_accept_rate": 0.5,
+      "n_unknown_accepted": 18
+    },
+    {
+      "threshold": 0.85,
+      "known_coverage": 0.9068181818181819,
+      "known_false_reject_rate": 0.09318181818181814,
+      "accepted_accuracy": 0.9899749373433584,
+      "n_known_accepted": 399,
+      "unknown_false_accept_rate": 0.4444444444444444,
+      "n_unknown_accepted": 16
+    },
+    {
+      "threshold": 0.9,
+      "known_coverage": 0.875,
+      "known_false_reject_rate": 0.125,
+      "accepted_accuracy": 0.9948051948051948,
+      "n_known_accepted": 385,
+      "unknown_false_accept_rate": 0.3888888888888889,
+      "n_unknown_accepted": 14
+    },
+    {
+      "threshold": 0.95,
+      "known_coverage": 0.8318181818181818,
+      "known_false_reject_rate": 0.1681818181818182,
+      "accepted_accuracy": 1.0,
+      "n_known_accepted": 366,
+      "unknown_false_accept_rate": 0.2222222222222222,
+      "n_unknown_accepted": 8
+    }
+  ],
+  "test_results": {
+    "no_threshold_accuracy": 0.9047619047619048,
+    "known_coverage": 0.8902691511387164,
+    "known_false_reject_rate": 0.10973084886128359,
+    "accepted_accuracy": 0.9441860465116279,
+    "n_known_accepted": 430,
+    "unknown_false_accept_rate": 0.3611111111111111,
+    "unknown_rejection_rate": 0.6388888888888888,
+    "n_unknown_test": 36,
+    "unknown_far_wilson95": [
+      0.2247538679218132,
+      0.5242521960916802
+    ],
+    "far_rule_of_three_upper95": 0.08333333333333333,
+    "known_coverage_bootstrap": {
+      "coverage_ci95": [
+        0.7963311240993343,
+        0.9628213020745487
+      ],
+      "n_groups": 31
+    },
+    "accepted_accuracy_bootstrap": {
+      "accepted_accuracy_ci95": [
+        0.9209302325581395,
+        0.9651162790697675
+      ]
+    },
+    "by_label": {
+      "hard_negative": {
+        "n": 33,
+        "accepted": 11,
+        "false_accept_rate": 0.3333333333333333
+      },
+      "general_unknown": {
+        "n": 3,
+        "accepted": 2,
+        "false_accept_rate": 0.6666666666666666
+      }
+    },
+    "hard_negative_far": 0.3333333333333333,
+    "by_negative_type": {
+      "device_onoff_exhaust_fan": {
+        "n": 6,
+        "accepted": 5
+      },
+      "device_onoff_fan": {
+        "n": 3,
+        "accepted": 1
+      },
+      "device_onoff_fridge": {
+        "n": 6,
+        "accepted": 0
+      },
+      "device_onoff_music": {
+        "n": 6,
+        "accepted": 2
+      },
+      "device_onoff_tv": {
+        "n": 3,
+        "accepted": 0
+      },
+      "device_onoff_water_heater": {
+        "n": 3,
+        "accepted": 0
+      },
+      "light_brightness": {
+        "n": 6,
+        "accepted": 3
+      },
+      "volume_adjust": {
+        "n": 3,
+        "accepted": 2
+      }
+    }
+  },
+  "unknown_test_per_text": {
+    "調光啲燈": {
+      "n": 3,
+      "n_accepted": 1,
+      "max_prob": 0.9534,
+      "pred_distribution": {
+        "ALL_OFF": 1,
+        "LIGHT_ON": 2
+      }
+    },
+    "調暗啲燈": {
+      "n": 3,
+      "n_accepted": 2,
+      "max_prob": 0.9347,
+      "pred_distribution": {
+        "LIGHT_ON": 3
+      }
+    },
+    "較大聲啲": {
+      "n": 3,
+      "n_accepted": 2,
+      "max_prob": 0.9446,
+      "pred_distribution": {
+        "LIGHT_OFF": 3
+      }
+    },
+    "開抽氣扇": {
+      "n": 3,
+      "n_accepted": 3,
+      "max_prob": 0.9982,
+      "pred_distribution": {
+        "CURTAIN_OPEN": 3
+      }
+    },
+    "開雪櫃": {
+      "n": 3,
+      "n_accepted": 0,
+      "max_prob": 0.7978,
+      "pred_distribution": {
+        "CURTAIN_OPEN": 2,
+        "ALL_OFF": 1
+      }
+    },
+    "開音樂": {
+      "n": 3,
+      "n_accepted": 2,
+      "max_prob": 0.9971,
+      "pred_distribution": {
+        "LIGHT_ON": 3
+      }
+    },
+    "關抽氣扇": {
+      "n": 3,
+      "n_accepted": 2,
+      "max_prob": 0.9969,
+      "pred_distribution": {
+        "CURTAIN_CLOSE": 3
+      }
+    },
+    "關熱水爐": {
+      "n": 3,
+      "n_accepted": 0,
+      "max_prob": 0.8357,
+      "pred_distribution": {
+        "CURTAIN_CLOSE": 1,
+        "LIGHT_OFF": 2
+      }
+    },
+    "關雪櫃": {
+      "n": 3,
+      "n_accepted": 0,
+      "max_prob": 0.8884,
+      "pred_distribution": {
+        "ALL_OFF": 2,
+        "LIGHT_OFF": 1
+      }
+    },
+    "關電視": {
+      "n": 3,
+      "n_accepted": 0,
+      "max_prob": 0.8591,
+      "pred_distribution": {
+        "LIGHT_OFF": 3
+      }
+    },
+    "關音樂": {
+      "n": 3,
+      "n_accepted": 0,
+      "max_prob": 0.8569,
+      "pred_distribution": {
+        "LIGHT_OFF": 3
+      }
+    },
+    "關風扇": {
+      "n": 3,
+      "n_accepted": 1,
+      "max_prob": 0.9382,
+      "pred_distribution": {
+        "CURTAIN_CLOSE": 3
+      }
+    }
+  },
+  "limitations": [
+    "未知测试集仅 36 条 / 12 个文本，FAR 的 95% 置信上界约 8.3%（rule of three），观测 0% 不等于可靠安全。",
+    "未知样本为合成 TTS（3 个 edge 音色），部分与已知命令共享粤语词汇，不能外推到真人语音或任意未登记命令。",
+    "阈值选择规则（min_coverage/target_far）是预注册的工程折中，实际部署应按使用场景调整并重新评估。"
+  ]
+}

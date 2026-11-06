@@ -1,0 +1,327 @@
+{
+  "protocol": {
+    "test_set": "data/splits/track_a_expression_split.csv (subset=test)",
+    "split_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34",
+    "test_size": 111,
+    "test_groups": 31,
+    "train_v1_size": 84,
+    "train_full_size": 397,
+    "template_strategy": "all（原项目默认，min 聚合）",
+    "max_frames": 60,
+    "note": "两模型在同一固定测试集上评估，因此可做配对比较；未调任何参数。"
+  },
+  "v1": {
+    "accuracy": 0.5765765765765766,
+    "macro_f1": 0.563234160358845,
+    "per_class": {
+      "LIGHT_ON": {
+        "precision": 0.65,
+        "recall": 0.619,
+        "f1": 0.6341,
+        "support": 21
+      },
+      "LIGHT_OFF": {
+        "precision": 0.5,
+        "recall": 0.9286,
+        "f1": 0.65,
+        "support": 14
+      },
+      "CURTAIN_OPEN": {
+        "precision": 0.5,
+        "recall": 0.2273,
+        "f1": 0.3125,
+        "support": 22
+      },
+      "CURTAIN_CLOSE": {
+        "precision": 0.3333,
+        "recall": 0.6923,
+        "f1": 0.45,
+        "support": 13
+      },
+      "ALL_OFF": {
+        "precision": 1.0,
+        "recall": 0.7391,
+        "f1": 0.85,
+        "support": 23
+      },
+      "STATUS_ALL": {
+        "precision": 0.6364,
+        "recall": 0.3889,
+        "f1": 0.4828,
+        "support": 18
+      }
+    },
+    "confusion_matrix": [
+      [
+        13,
+        7,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        13,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        17,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        2,
+        9,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        17,
+        3
+      ],
+      [
+        4,
+        4,
+        3,
+        0,
+        0,
+        7
+      ]
+    ],
+    "labels": [
+      "LIGHT_ON",
+      "LIGHT_OFF",
+      "CURTAIN_OPEN",
+      "CURTAIN_CLOSE",
+      "ALL_OFF",
+      "STATUS_ALL"
+    ]
+  },
+  "full": {
+    "accuracy": 0.5495495495495496,
+    "macro_f1": 0.5410581774244294,
+    "per_class": {
+      "LIGHT_ON": {
+        "precision": 0.55,
+        "recall": 0.5238,
+        "f1": 0.5366,
+        "support": 21
+      },
+      "LIGHT_OFF": {
+        "precision": 0.3684,
+        "recall": 0.5,
+        "f1": 0.4242,
+        "support": 14
+      },
+      "CURTAIN_OPEN": {
+        "precision": 0.375,
+        "recall": 0.2727,
+        "f1": 0.3158,
+        "support": 22
+      },
+      "CURTAIN_CLOSE": {
+        "precision": 0.2174,
+        "recall": 0.3846,
+        "f1": 0.2778,
+        "support": 13
+      },
+      "ALL_OFF": {
+        "precision": 0.9545,
+        "recall": 0.913,
+        "f1": 0.9333,
+        "support": 23
+      },
+      "STATUS_ALL": {
+        "precision": 1.0,
+        "recall": 0.6111,
+        "f1": 0.7586,
+        "support": 18
+      }
+    },
+    "confusion_matrix": [
+      [
+        11,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        7,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        6,
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        8,
+        5,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        21,
+        0
+      ],
+      [
+        2,
+        2,
+        2,
+        0,
+        1,
+        11
+      ]
+    ],
+    "labels": [
+      "LIGHT_ON",
+      "LIGHT_OFF",
+      "CURTAIN_OPEN",
+      "CURTAIN_CLOSE",
+      "ALL_OFF",
+      "STATUS_ALL"
+    ]
+  },
+  "paired_comparison": {
+    "both_correct": 45,
+    "v1_only_correct": 19,
+    "full_only_correct": 16,
+    "neither": 31,
+    "mcnemar_exact_p_two_sided": 0.7358788008568808,
+    "accuracy_delta_full_minus_v1": -0.027027027027026973,
+    "macro_f1_delta_full_minus_v1": -0.022175982934415583,
+    "group_bootstrap_acc_diff": {
+      "acc_diff_mean": -0.03103989678627732,
+      "ci95": [
+        -0.19448024054982818,
+        0.1111111111111111
+      ],
+      "p_two_sided_bootstrap": 0.754,
+      "n_groups": 31
+    },
+    "interpretation": "McNemar p>0.05 且自助法差值 CI 跨 0 ⇒ 扩充数据前后差异不显著。"
+  },
+  "per_class_f1_delta": {
+    "LIGHT_ON": {
+      "v1_f1": 0.6341,
+      "full_f1": 0.5366,
+      "delta": -0.0975,
+      "v1_support": 21
+    },
+    "LIGHT_OFF": {
+      "v1_f1": 0.65,
+      "full_f1": 0.4242,
+      "delta": -0.2258,
+      "v1_support": 14
+    },
+    "CURTAIN_OPEN": {
+      "v1_f1": 0.3125,
+      "full_f1": 0.3158,
+      "delta": 0.0033,
+      "v1_support": 22
+    },
+    "CURTAIN_CLOSE": {
+      "v1_f1": 0.45,
+      "full_f1": 0.2778,
+      "delta": -0.1722,
+      "v1_support": 13
+    },
+    "ALL_OFF": {
+      "v1_f1": 0.85,
+      "full_f1": 0.9333,
+      "delta": 0.0833,
+      "v1_support": 23
+    },
+    "STATUS_ALL": {
+      "v1_f1": 0.4828,
+      "full_f1": 0.7586,
+      "delta": 0.2758,
+      "v1_support": 18
+    }
+  },
+  "full_model_top_error_pairs": [
+    {
+      "true": "CURTAIN_OPEN",
+      "pred": "CURTAIN_CLOSE",
+      "count": 16
+    },
+    {
+      "true": "LIGHT_ON",
+      "pred": "LIGHT_OFF",
+      "count": 10
+    },
+    {
+      "true": "CURTAIN_CLOSE",
+      "pred": "CURTAIN_OPEN",
+      "count": 8
+    },
+    {
+      "true": "LIGHT_OFF",
+      "pred": "LIGHT_ON",
+      "count": 6
+    },
+    {
+      "true": "STATUS_ALL",
+      "pred": "LIGHT_ON",
+      "count": 2
+    },
+    {
+      "true": "STATUS_ALL",
+      "pred": "LIGHT_OFF",
+      "count": 2
+    },
+    {
+      "true": "STATUS_ALL",
+      "pred": "CURTAIN_OPEN",
+      "count": 2
+    },
+    {
+      "true": "ALL_OFF",
+      "pred": "CURTAIN_CLOSE",
+      "count": 1
+    },
+    {
+      "true": "ALL_OFF",
+      "pred": "LIGHT_ON",
+      "count": 1
+    },
+    {
+      "true": "LIGHT_OFF",
+      "pred": "CURTAIN_CLOSE",
+      "count": 1
+    },
+    {
+      "true": "STATUS_ALL",
+      "pred": "ALL_OFF",
+      "count": 1
+    }
+  ]
+}

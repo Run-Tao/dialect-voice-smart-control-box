@@ -1,0 +1,82 @@
+{
+  "threshold": 0.93,
+  "classes": [
+    "LIGHT_ON",
+    "LIGHT_OFF",
+    "CURTAIN_OPEN",
+    "CURTAIN_CLOSE",
+    "ALL_OFF",
+    "STATUS_ALL"
+  ],
+  "source": {
+    "manifest": null,
+    "subset": null,
+    "known_dir": "D:/Run_Tao/DialectVoice_Research/data/tts_corpus/wav16k_v3/edge",
+    "unknown_dir": "D:/Run_Tao/DialectVoice_Research/data/tts_corpus/unknown_v3"
+  },
+  "variants": {
+    "with_vad": {
+      "known": {
+        "n": 2238,
+        "skipped": 0,
+        "argmax_accuracy": 0.7395,
+        "acceptance_rate": 0.6819,
+        "accepted_accuracy": 0.9207,
+        "per_command_argmax_accuracy": {
+          "ALL_OFF": 0.992,
+          "CURTAIN_CLOSE": 0.8472,
+          "CURTAIN_OPEN": 0.9544,
+          "LIGHT_OFF": 0.496,
+          "LIGHT_ON": 0.1716,
+          "STATUS_ALL": 0.9759
+        },
+        "per_command_n": {
+          "ALL_OFF": 373,
+          "CURTAIN_CLOSE": 373,
+          "CURTAIN_OPEN": 373,
+          "LIGHT_OFF": 373,
+          "LIGHT_ON": 373,
+          "STATUS_ALL": 373
+        },
+        "mean_latency_ms": 16.4
+      },
+      "unknown": {
+        "n": 72,
+        "false_accept_rate": 0.4444,
+        "mean_latency_ms": 12.1
+      }
+    },
+    "no_vad": {
+      "known": {
+        "n": 2238,
+        "skipped": 0,
+        "argmax_accuracy": 0.9768,
+        "acceptance_rate": 0.9517,
+        "accepted_accuracy": 0.9925,
+        "per_command_argmax_accuracy": {
+          "ALL_OFF": 0.9598,
+          "CURTAIN_CLOSE": 0.9732,
+          "CURTAIN_OPEN": 0.9678,
+          "LIGHT_OFF": 0.9705,
+          "LIGHT_ON": 0.9893,
+          "STATUS_ALL": 1.0
+        },
+        "per_command_n": {
+          "ALL_OFF": 373,
+          "CURTAIN_CLOSE": 373,
+          "CURTAIN_OPEN": 373,
+          "LIGHT_OFF": 373,
+          "LIGHT_ON": 373,
+          "STATUS_ALL": 373
+        },
+        "mean_latency_ms": 17.6
+      },
+      "unknown": {
+        "n": 72,
+        "false_accept_rate": 0.3611,
+        "mean_latency_ms": 16.5
+      }
+    }
+  },
+  "note": "语料为 edge-tts 合成粤语，非真人语音；结论不外推为真人准确率。"
+}
