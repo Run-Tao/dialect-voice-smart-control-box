@@ -38,6 +38,9 @@ dialect-voice-smart-control-box/
 - **engineering/** 是运行时代码与工程文档的唯一权威；`runtime/` 是从 `research/src/` 同步来的自包含副本。
 - **research/** 是语料、训练脚本、算法源与模型工件的来源；训练/标定命令以它为准。
 - 历史负结果与第三阶段（v3）数据/实验记录保留在 `research/docs` 与 `research/outputs`，便于追溯。
+- 未入库：历史归档（`docs/archive_2026-10-30/`、`legacy/`）、中间 smoke/探针产物、特征缓存、
+  原始 mp3 与完整音频语料（见下方“数据说明”）；以保证仓库只保留当前有效、可追溯的文件。
+
 
 ---
 
