@@ -12,6 +12,7 @@
 
 param(
     [string]$Port = "",
+    [string]$IdfPath = "",
     [switch]$Monitor,
     [switch]$Clean,
     [switch]$Erase,
@@ -26,8 +27,21 @@ param(
 $ErrorActionPreference = "Continue"
 
 # ---------------------------------------------------------------- locations
-$IdfPath  = "D:\Run_Tao\esp-idf"
-# This script sits at the project root (DialectVoice_SZPI\), so PSScriptRoot IS the root.
+# IDF path resolution order: -IdfPath param > $env:IDF_PATH > known install dirs.
+if ($IdfPath -eq "") {
+    if ($env:IDF_PATH) {
+        $IdfPath = $env:IDF_PATH
+    } else {
+        $candidates = @(
+            "D:\Run_Tao\esp-idf",
+            "C:\Espressif\frameworks\esp-idf-v5.4.1",
+            "C:\Espressif\frameworks\esp-idf"
+        )
+        $IdfPath = $candidates | Where-Object { Test-Path (Join-Path $_ "export.ps1") } | Select-Object -First 1
+    }
+}
+if (-not $IdfPath) { throw "ESP-IDF not found. Pass -IdfPath <dir> or set `$env:IDF_PATH." }
+# This script sits at the project root, so PSScriptRoot IS the root.
 $RepoRoot = $PSScriptRoot
 $ProjDir  = Join-Path $RepoRoot "firmware"
 
