@@ -1,0 +1,103 @@
+audio:
+  samplerate: 16000
+  channels: 1
+  blocksize: 1024
+
+vad:
+  frame_ms: 30
+  energy_margin_db: 9
+  min_speech_ms: 200
+  min_silence_ms: 400
+  pre_roll_ms: 300
+  max_utterance_ms: 4000
+
+features:
+  kind: logmel_delta
+  n_fft: 512
+  hop_length: 160
+  n_mels: 40
+  fmin: 50.0
+  fmax: 8000.0
+  preemphasis: 0.97
+  use_cmvn: true
+  logmel_cmvn: true
+  include_delta: true
+  include_delta2: false
+  n_frames: 256
+
+recognition:
+  mode: cnn_ensemble
+  model: runtime/models/v3_cnn_ensemble_vad.npz
+  thresholds: runtime/models/v3_thresholds_vad.json
+  temperature: 0.5
+  confidence_threshold: 0.945
+  # S4 双信号拒识：maxprob AND ood（ood = 到 kNN 参照池的余弦距离取负）。
+  # 阈值与参照池是一对工件，由 scripts/build_selective_gate.py 生成，
+  # 换池必须重跑该脚本重标定，不能只手改下面的路径。
+  # 实测（docs/selective_gate.json，样本外交叉拟合）：真实域 FAR 0.3110 → 0.0812，
+  # 危险误动作率 0.1437 → 0.0212，合成已知命令覆盖率 0.7864 → 0.8205。
+  # enabled: false 时行为回到单阈值 confidence_threshold。
+  selective:
+    enabled: true
+    gate: runtime/models/v3_selective_gate.json
+    pool: runtime/models/v3_knn_pool.npz
+    fallback_mode: single
+  commands:
+    - LIGHT_ON
+    - LIGHT_OFF
+    - CURTAIN_OPEN
+    - CURTAIN_CLOSE
+    - ALL_OFF
+    - STATUS_ALL
+
+broadcast:
+  audio_dir: data/audio/mandarin
+  wake_word: ""
+
+control:
+  executor: log
+  relay_pin: 17
+  mock: true
+  # 两遍路径里执行器已经执行了动作，不再额外播普通话命令（否则智能音箱会重复执行）。
+  # 只有「靠播报驱动外部音箱」的场景才设为 true。
+  broadcast_command: false
+
+# --- S4(b)：流式两遍识别 ---------------------------------------------
+# Pass-1 用 window_ms 的滑窗滚动打分，hop_ms 步进，证据越过阈值就预触发；
+# 预触发之后 VAD 的静音挂起压到 fast_silence_ms，让「说完 -> 动作」进 300 ms 预算。
+# fast_endpoint_threshold 是**快速端点**的单窗后验门槛，与预触发的两窗一致
+# 要求分开：短命令的语音段在第一个窗被打分之前就结束了，等不到两窗一致的
+# 预触发，挂起会压在默认 400 ms，300 ms 预算就破了。
+streaming:
+  pretrigger: true
+  window_ms: 1000
+  hop_ms: 100
+  pretrigger_threshold: 0.5
+  fast_endpoint_threshold: 0.5
+  fast_silence_ms: 120
+  keyword_bias: 0.3
+
+# --- S5：状态先验 + 期望代价三态决策 ---------------------------------
+# cost_reject 取 4.0 而不是 §8.3 草稿的 1.0：拒识 = 用户整句重说，
+# 比二选一澄清贵；按 1.0 算 E_clarify(1.6) 永远大于 E_reject(1.0)，
+# 澄清机制根本触发不了。
+decision:
+  prior_temperature: 0.3
+  cost_act_wrong: 10.0
+  cost_reject: 4.0
+  cost_clarify: 1.5
+  competitor_floor: 0.005
+  prior_override_margin: 0.15
+  # 两遍不一致时，Pass-2 的 margin 低于这个值才降级。
+  # Pass-1 的 1 s 滑窗看的是半句话，常把「全部關晒」判成 LIGHT_OFF，
+  # 而 Pass-2 整句后验 margin 能到 0.998——一刀切降级会扔掉正确结果。
+  consistency_margin: 0.15
+  redundancy_weight: 0.25
+  confusable_pairs:
+    - [CURTAIN_OPEN, CURTAIN_CLOSE]
+  debounce_ms: 2000
+  max_clarify: 1
+
+# 状态源：mock | home_assistant | mqtt。课程环境默认 mock（方案 §11 R-9），
+# 用 mock 状态机跑通闭环，结论标注为「仿真状态源」。
+state_source: mock

@@ -1,0 +1,4121 @@
+{
+  "generated": "2026-11-01",
+  "protocol": {
+    "accept_max_far": 0.1,
+    "accept_min_coverage": 0.8,
+    "target_risk_for_calibration": 0.1,
+    "knn_k": 5,
+    "recalibrated_per_pool": true,
+    "calibrate_primary": "crossfit",
+    "calibrated_on": "crossfit：真人负样本 K 折交叉拟合（每折阈值只用其余折搜出，2 折 × 3 次随机划分），正样本全量参与；报出的 FAR 全部样本外",
+    "comparison_also_reported": "synthetic_only（S3 原口径）",
+    "pool_source_split": "train（与覆盖率一侧不重叠）",
+    "sampling": "分层子采样（按命令类别配额），多随机种子",
+    "bootstrap_draws": 200,
+    "bootstrap_target": "syn_unknown（72 条合成负样本）有放回重采样，池不变；用于量化合成侧标定的噪声底，即换标定方式的依据"
+  },
+  "groups": {
+    "pool": 1981,
+    "syn_known": 440,
+    "syn_unknown": 72,
+    "real": 2637
+  },
+  "full_pool_matches_s3": {
+    "checked": true,
+    "ref": "D:\\Run_Tao\\DialectVoice_Engineering\\docs\\selective_eval.json",
+    "matches_s3": true,
+    "expected": {
+      "real_far": 0.066,
+      "syn_coverage": 0.8455,
+      "dangerous_rate": 0.0201
+    },
+    "got_synthetic_only": {
+      "real_far": 0.066,
+      "syn_coverage": 0.8455,
+      "dangerous_rate": 0.0201
+    },
+    "got_primary": {
+      "calibrate_used": "crossfit",
+      "real_far": 0.066,
+      "syn_coverage": 0.8455,
+      "dangerous_rate": 0.0201,
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.020189
+      }
+    },
+    "crossfit_vs_s3": {
+      "far_delta": 0.0,
+      "n_distinct_thresholds": 1,
+      "note": "far_delta ≈ 0 说明 72 条合成负样本这次搜到了和数千条真人负样本交叉拟合相同的工作点；n_distinct_thresholds==1 说明该工作点在折间/种子间完全稳定。"
+    }
+  },
+  "per_config": [
+    {
+      "n_pool": 1981,
+      "k": 5,
+      "bytes_f32": 2028544,
+      "bytes_f16": 1014272,
+      "ood_auc_cross_domain": 0.9244,
+      "ood_auc_same_domain": 0.9384,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.020189
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.020189
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.066,
+        "pooled_far_min": 0.066,
+        "pooled_far_max": 0.066,
+        "pos_coverage_mean": 0.8455,
+        "pos_coverage_min": 0.8455
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0571,
+        0.0761
+      ],
+      "real_far": 0.066,
+      "real_far_at_modal_thresholds": 0.066,
+      "real_accepted": 174,
+      "real_n": 2637,
+      "dangerous_rate": 0.0201,
+      "dangerous_ci95": [
+        0.0154,
+        0.0262
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8455,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.020189
+        },
+        "real_far": 0.066,
+        "real_ci95": [
+          0.0571,
+          0.0761
+        ],
+        "dangerous_rate": 0.0201,
+        "syn_coverage": 0.8455,
+        "meets_target": true
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.066,
+        "real_far_p50": 0.066,
+        "real_far_p90": 0.1998,
+        "real_far_min": 0.0083,
+        "real_far_max": 0.328,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 8,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.020189,
+            "count": 109
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.022355,
+            "count": 30
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.022355,
+            "count": 27
+          },
+          {
+            "maxprob": 0.633336,
+            "ood": -0.022355,
+            "count": 24
+          },
+          {
+            "maxprob": 0.633336,
+            "ood": -0.023896,
+            "count": 5
+          }
+        ]
+      },
+      "kind": "full",
+      "requested_size": 1981,
+      "seed": 0
+    },
+    {
+      "n_pool": 1000,
+      "k": 5,
+      "bytes_f32": 1024000,
+      "bytes_f16": 512000,
+      "ood_auc_cross_domain": 0.92,
+      "ood_auc_same_domain": 0.9403,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.021383
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.021383
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0785,
+        "pooled_far_min": 0.0785,
+        "pooled_far_max": 0.0785,
+        "pos_coverage_mean": 0.8455,
+        "pos_coverage_min": 0.8455
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0688,
+        0.0894
+      ],
+      "real_far": 0.0785,
+      "real_far_at_modal_thresholds": 0.0785,
+      "real_accepted": 207,
+      "real_n": 2637,
+      "dangerous_rate": 0.0212,
+      "dangerous_ci95": [
+        0.0164,
+        0.0275
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8455,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.021383
+        },
+        "real_far": 0.0785,
+        "real_ci95": [
+          0.0688,
+          0.0894
+        ],
+        "dangerous_rate": 0.0212,
+        "syn_coverage": 0.8455,
+        "meets_target": true
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.0785,
+        "real_far_p50": 0.0785,
+        "real_far_p90": 0.251,
+        "real_far_min": 0.0091,
+        "real_far_max": 0.3807,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 8,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.021383,
+            "count": 139
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023915,
+            "count": 19
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023915,
+            "count": 19
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.021383,
+            "count": 14
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.020142,
+            "count": 4
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 1000,
+      "seed": 0
+    },
+    {
+      "n_pool": 1000,
+      "k": 5,
+      "bytes_f32": 1024000,
+      "bytes_f16": 512000,
+      "ood_auc_cross_domain": 0.9232,
+      "ood_auc_same_domain": 0.937,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.021751
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.021751
+            },
+            "count": 4
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.021751
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.633336,
+              "ood": -0.021751
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0935,
+        "pooled_far_min": 0.0929,
+        "pooled_far_max": 0.0944,
+        "pos_coverage_mean": 0.8425,
+        "pos_coverage_min": 0.8341
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0935,
+      "real_far_at_modal_thresholds": 0.0944,
+      "real_accepted": 249,
+      "real_n": 2637,
+      "dangerous_rate": 0.0231,
+      "dangerous_ci95": [
+        0.0181,
+        0.0296
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8455,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.744425,
+          "ood": -0.023303
+        },
+        "real_far": 0.1733,
+        "real_ci95": [
+          0.1593,
+          0.1882
+        ],
+        "dangerous_rate": 0.0421,
+        "syn_coverage": 0.8523,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.0937,
+        "real_far_p50": 0.1733,
+        "real_far_p90": 0.1949,
+        "real_far_min": 0.0118,
+        "real_far_max": 0.3246,
+        "syn_coverage_p50": 0.8523,
+        "n_distinct_threshold_pairs": 11,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023303,
+            "count": 64
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.021751,
+            "count": 55
+          },
+          {
+            "maxprob": 0.633336,
+            "ood": -0.023303,
+            "count": 29
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023303,
+            "count": 23
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.021751,
+            "count": 12
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 1000,
+      "seed": 1
+    },
+    {
+      "n_pool": 1000,
+      "k": 5,
+      "bytes_f32": 1024000,
+      "bytes_f16": 512000,
+      "ood_auc_cross_domain": 0.921,
+      "ood_auc_same_domain": 0.9369,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.019905
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.019905
+            },
+            "count": 4
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.022139
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.633336,
+              "ood": -0.022139
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0603,
+        "pooled_far_min": 0.0319,
+        "pooled_far_max": 0.077,
+        "pos_coverage_mean": 0.8239,
+        "pos_coverage_min": 0.8205
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0603,
+      "real_far_at_modal_thresholds": 0.0319,
+      "real_accepted": 84,
+      "real_n": 2637,
+      "dangerous_rate": 0.011,
+      "dangerous_ci95": [
+        0.0077,
+        0.0157
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8205,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.022139
+        },
+        "real_far": 0.1176,
+        "real_ci95": [
+          0.1058,
+          0.1304
+        ],
+        "dangerous_rate": 0.03,
+        "syn_coverage": 0.8455,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1062,
+        "real_far_p50": 0.1176,
+        "real_far_p90": 0.2351,
+        "real_far_min": 0.0118,
+        "real_far_max": 0.3785,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 8,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.022139,
+            "count": 92
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023967,
+            "count": 37
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023967,
+            "count": 27
+          },
+          {
+            "maxprob": 0.633336,
+            "ood": -0.023967,
+            "count": 21
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.022139,
+            "count": 14
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 1000,
+      "seed": 2
+    },
+    {
+      "n_pool": 500,
+      "k": 5,
+      "bytes_f32": 512000,
+      "bytes_f16": 256000,
+      "ood_auc_cross_domain": 0.9088,
+      "ood_auc_same_domain": 0.9319,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.022313
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.022313
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0808,
+        "pooled_far_min": 0.0808,
+        "pooled_far_max": 0.0808,
+        "pos_coverage_mean": 0.8205,
+        "pos_coverage_min": 0.8205
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.071,
+        0.0918
+      ],
+      "real_far": 0.0808,
+      "real_far_at_modal_thresholds": 0.0808,
+      "real_accepted": 213,
+      "real_n": 2637,
+      "dangerous_rate": 0.0212,
+      "dangerous_ci95": [
+        0.0164,
+        0.0275
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8205,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.023946
+        },
+        "real_far": 0.1794,
+        "real_ci95": [
+          0.1652,
+          0.1945
+        ],
+        "dangerous_rate": 0.044,
+        "syn_coverage": 0.8455,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.0808,
+        "real_far_p50": 0.1794,
+        "real_far_p90": 0.2431,
+        "real_far_min": 0.0053,
+        "real_far_max": 0.284,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 8,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023946,
+            "count": 95
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.022313,
+            "count": 47
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023946,
+            "count": 25
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.025371,
+            "count": 10
+          },
+          {
+            "maxprob": 0.633336,
+            "ood": -0.025371,
+            "count": 9
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 500,
+      "seed": 0
+    },
+    {
+      "n_pool": 500,
+      "k": 5,
+      "bytes_f32": 512000,
+      "bytes_f16": 256000,
+      "ood_auc_cross_domain": 0.9074,
+      "ood_auc_same_domain": 0.9281,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.022707
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 4,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.022707
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.021442
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.022707
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.091,
+        "pooled_far_min": 0.0785,
+        "pooled_far_max": 0.0978,
+        "pos_coverage_mean": 0.8129,
+        "pos_coverage_min": 0.7932
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.091,
+      "real_far_at_modal_thresholds": 0.099,
+      "real_accepted": 261,
+      "real_n": 2637,
+      "dangerous_rate": 0.0186,
+      "dangerous_ci95": [
+        0.0141,
+        0.0245
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8205,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.023546
+        },
+        "real_far": 0.1505,
+        "real_ci95": [
+          0.1374,
+          0.1647
+        ],
+        "dangerous_rate": 0.0322,
+        "syn_coverage": 0.8455,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.099,
+        "real_far_p50": 0.1505,
+        "real_far_p90": 0.2548,
+        "real_far_min": 0.0284,
+        "real_far_max": 0.2548,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 10,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023546,
+            "count": 58
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.025082,
+            "count": 44
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.025082,
+            "count": 28
+          },
+          {
+            "maxprob": 0.633336,
+            "ood": -0.025082,
+            "count": 21
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023546,
+            "count": 18
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 500,
+      "seed": 1
+    },
+    {
+      "n_pool": 500,
+      "k": 5,
+      "bytes_f32": 512000,
+      "bytes_f16": 256000,
+      "ood_auc_cross_domain": 0.9044,
+      "ood_auc_same_domain": 0.9281,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.022727
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 4,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.022727
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.021376
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.022727
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0866,
+        "pooled_far_min": 0.0796,
+        "pooled_far_max": 0.0994,
+        "pos_coverage_mean": 0.8084,
+        "pos_coverage_min": 0.7932
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0866,
+      "real_far_at_modal_thresholds": 0.105,
+      "real_accepted": 277,
+      "real_n": 2637,
+      "dangerous_rate": 0.0258,
+      "dangerous_ci95": [
+        0.0204,
+        0.0326
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8205,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.023858
+        },
+        "real_far": 0.1733,
+        "real_ci95": [
+          0.1593,
+          0.1882
+        ],
+        "dangerous_rate": 0.0436,
+        "syn_coverage": 0.8455,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.105,
+        "real_far_p50": 0.1733,
+        "real_far_p90": 0.1733,
+        "real_far_min": 0.014,
+        "real_far_max": 0.383,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 9,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023858,
+            "count": 142
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023858,
+            "count": 31
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.022727,
+            "count": 20
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.026271,
+            "count": 2
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.019605,
+            "count": 1
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 500,
+      "seed": 2
+    },
+    {
+      "n_pool": 250,
+      "k": 5,
+      "bytes_f32": 256000,
+      "bytes_f16": 128000,
+      "ood_auc_cross_domain": 0.8936,
+      "ood_auc_same_domain": 0.9154,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.023966
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 4,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.023966
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.023966
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.023272
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0947,
+        "pooled_far_min": 0.0872,
+        "pooled_far_max": 0.0994,
+        "pos_coverage_mean": 0.7852,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0947,
+      "real_far_at_modal_thresholds": 0.1001,
+      "real_accepted": 264,
+      "real_n": 2637,
+      "dangerous_rate": 0.0167,
+      "dangerous_ci95": [
+        0.0125,
+        0.0223
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7932,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.023966
+        },
+        "real_far": 0.1001,
+        "real_ci95": [
+          0.0892,
+          0.1122
+        ],
+        "dangerous_rate": 0.0167,
+        "syn_coverage": 0.7932,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.093,
+        "real_far_p50": 0.1555,
+        "real_far_p90": 0.2499,
+        "real_far_min": 0.0121,
+        "real_far_max": 0.3807,
+        "syn_coverage_p50": 0.7932,
+        "n_distinct_threshold_pairs": 26,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023966,
+            "count": 58
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.025206,
+            "count": 50
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.025206,
+            "count": 17
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023272,
+            "count": 14
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023966,
+            "count": 13
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 250,
+      "seed": 0
+    },
+    {
+      "n_pool": 250,
+      "k": 5,
+      "bytes_f32": 256000,
+      "bytes_f16": 128000,
+      "ood_auc_cross_domain": 0.8964,
+      "ood_auc_same_domain": 0.9159,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.023468
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.023468
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0785,
+        "pooled_far_min": 0.0785,
+        "pooled_far_max": 0.0785,
+        "pos_coverage_mean": 0.7955,
+        "pos_coverage_min": 0.7955
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0688,
+        0.0894
+      ],
+      "real_far": 0.0785,
+      "real_far_at_modal_thresholds": 0.0785,
+      "real_accepted": 207,
+      "real_n": 2637,
+      "dangerous_rate": 0.0102,
+      "dangerous_ci95": [
+        0.007,
+        0.0149
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7955,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.025473
+        },
+        "real_far": 0.1809,
+        "real_ci95": [
+          0.1667,
+          0.196
+        ],
+        "dangerous_rate": 0.0315,
+        "syn_coverage": 0.8205,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.0785,
+        "real_far_p50": 0.1809,
+        "real_far_p90": 0.2473,
+        "real_far_min": 0.0212,
+        "real_far_max": 0.3493,
+        "syn_coverage_p50": 0.8205,
+        "n_distinct_threshold_pairs": 12,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.026425,
+            "count": 55
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.025473,
+            "count": 39
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023468,
+            "count": 35
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.026425,
+            "count": 23
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.025473,
+            "count": 21
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 250,
+      "seed": 1
+    },
+    {
+      "n_pool": 250,
+      "k": 5,
+      "bytes_f32": 256000,
+      "bytes_f16": 128000,
+      "ood_auc_cross_domain": 0.9038,
+      "ood_auc_same_domain": 0.9227,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.023955
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.023955
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.023955
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.023955
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0963,
+        "pooled_far_min": 0.0956,
+        "pooled_far_max": 0.0971,
+        "pos_coverage_mean": 0.8103,
+        "pos_coverage_min": 0.7955
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0963,
+      "real_far_at_modal_thresholds": 0.0997,
+      "real_accepted": 263,
+      "real_n": 2637,
+      "dangerous_rate": 0.0201,
+      "dangerous_ci95": [
+        0.0154,
+        0.0262
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.8205,
+      "meets_target": true,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.023955
+        },
+        "real_far": 0.0997,
+        "real_ci95": [
+          0.0889,
+          0.1118
+        ],
+        "dangerous_rate": 0.0201,
+        "syn_coverage": 0.8205,
+        "meets_target": true
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.0997,
+        "real_far_p50": 0.0997,
+        "real_far_p90": 0.2272,
+        "real_far_min": 0.014,
+        "real_far_max": 0.3762,
+        "syn_coverage_p50": 0.8205,
+        "n_distinct_threshold_pairs": 11,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023955,
+            "count": 140
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.026124,
+            "count": 27
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.026124,
+            "count": 9
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023227,
+            "count": 6
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.029275,
+            "count": 5
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 250,
+      "seed": 2
+    },
+    {
+      "n_pool": 128,
+      "k": 5,
+      "bytes_f32": 131072,
+      "bytes_f16": 65536,
+      "ood_auc_cross_domain": 0.8875,
+      "ood_auc_same_domain": 0.9016,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.025582
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 2,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.025582
+            },
+            "count": 5
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.025582
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0788,
+        "pooled_far_min": 0.0785,
+        "pooled_far_max": 0.0793,
+        "pos_coverage_mean": 0.7682,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0788,
+      "real_far_at_modal_thresholds": 0.0785,
+      "real_accepted": 207,
+      "real_n": 2637,
+      "dangerous_rate": 0.0144,
+      "dangerous_ci95": [
+        0.0105,
+        0.0197
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.939803,
+          "ood": -0.035165
+        },
+        "real_far": 0.2636,
+        "real_ci95": [
+          0.2471,
+          0.2807
+        ],
+        "dangerous_rate": 0.0922,
+        "syn_coverage": 0.7864,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.079,
+        "real_far_p50": 0.1854,
+        "real_far_p90": 0.3026,
+        "real_far_min": 0.0046,
+        "real_far_max": 0.3656,
+        "syn_coverage_p50": 0.7886,
+        "n_distinct_threshold_pairs": 30,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.939803,
+            "ood": -0.035165,
+            "count": 24
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.027629,
+            "count": 23
+          },
+          {
+            "maxprob": 0.939803,
+            "ood": -0.044756,
+            "count": 22
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.026724,
+            "count": 17
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.02461,
+            "count": 14
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 128,
+      "seed": 0
+    },
+    {
+      "n_pool": 128,
+      "k": 5,
+      "bytes_f32": 131072,
+      "bytes_f16": 65536,
+      "ood_auc_cross_domain": 0.8772,
+      "ood_auc_same_domain": 0.9138,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.023981
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.023981
+            },
+            "count": 4
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.024955
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.845451,
+              "ood": -0.024955
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.083,
+        "pooled_far_min": 0.0705,
+        "pooled_far_max": 0.0914,
+        "pos_coverage_mean": 0.7466,
+        "pos_coverage_min": 0.7432
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.083,
+      "real_far_at_modal_thresholds": 0.0705,
+      "real_accepted": 186,
+      "real_n": 2637,
+      "dangerous_rate": 0.0068,
+      "dangerous_ci95": [
+        0.0043,
+        0.0108
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7432,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.027501
+        },
+        "real_far": 0.2617,
+        "real_ci95": [
+          0.2452,
+          0.2788
+        ],
+        "dangerous_rate": 0.0444,
+        "syn_coverage": 0.8205,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1684,
+        "real_far_p50": 0.2617,
+        "real_far_p90": 0.3739,
+        "real_far_min": 0.1361,
+        "real_far_max": 0.4175,
+        "syn_coverage_p50": 0.8205,
+        "n_distinct_threshold_pairs": 15,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.027501,
+            "count": 80
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.025861,
+            "count": 35
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.029093,
+            "count": 25
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.027501,
+            "count": 25
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.029093,
+            "count": 13
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 128,
+      "seed": 1
+    },
+    {
+      "n_pool": 128,
+      "k": 5,
+      "bytes_f32": 131072,
+      "bytes_f16": 65536,
+      "ood_auc_cross_domain": 0.8806,
+      "ood_auc_same_domain": 0.9145,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.024014
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.024014
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.633336,
+              "ood": -0.024844
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.024844
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0869,
+        "pooled_far_min": 0.0857,
+        "pooled_far_max": 0.0884,
+        "pos_coverage_mean": 0.7519,
+        "pos_coverage_min": 0.7432
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0869,
+      "real_far_at_modal_thresholds": 0.0667,
+      "real_accepted": 176,
+      "real_n": 2637,
+      "dangerous_rate": 0.0133,
+      "dangerous_ci95": [
+        0.0096,
+        0.0184
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7432,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.026691
+        },
+        "real_far": 0.2124,
+        "real_ci95": [
+          0.1972,
+          0.2284
+        ],
+        "dangerous_rate": 0.0504,
+        "syn_coverage": 0.8205,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1634,
+        "real_far_p50": 0.2124,
+        "real_far_p90": 0.344,
+        "real_far_min": 0.0444,
+        "real_far_max": 0.3686,
+        "syn_coverage_p50": 0.8205,
+        "n_distinct_threshold_pairs": 12,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.026691,
+            "count": 89
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.026691,
+            "count": 29
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.028876,
+            "count": 16
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.026691,
+            "count": 14
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.028876,
+            "count": 12
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 128,
+      "seed": 2
+    },
+    {
+      "n_pool": 64,
+      "k": 5,
+      "bytes_f32": 65536,
+      "bytes_f16": 32768,
+      "ood_auc_cross_domain": 0.8901,
+      "ood_auc_same_domain": 0.9138,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.028417
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.028417
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0865,
+        "pooled_far_min": 0.0865,
+        "pooled_far_max": 0.0865,
+        "pos_coverage_mean": 0.7682,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0763,
+        0.0978
+      ],
+      "real_far": 0.0865,
+      "real_far_at_modal_thresholds": 0.0865,
+      "real_accepted": 228,
+      "real_n": 2637,
+      "dangerous_rate": 0.0209,
+      "dangerous_ci95": [
+        0.0161,
+        0.027
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.800583,
+          "ood": -0.030469
+        },
+        "real_far": 0.1638,
+        "real_ci95": [
+          0.1502,
+          0.1784
+        ],
+        "dangerous_rate": 0.0425,
+        "syn_coverage": 0.7977,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1255,
+        "real_far_p50": 0.171,
+        "real_far_p90": 0.2389,
+        "real_far_min": 0.0284,
+        "real_far_max": 0.3792,
+        "syn_coverage_p50": 0.8102,
+        "n_distinct_threshold_pairs": 26,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.030469,
+            "count": 33
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.029249,
+            "count": 32
+          },
+          {
+            "maxprob": 0.800583,
+            "ood": -0.030469,
+            "count": 25
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.030469,
+            "count": 18
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.031819,
+            "count": 15
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 64,
+      "seed": 0
+    },
+    {
+      "n_pool": 64,
+      "k": 5,
+      "bytes_f32": 65536,
+      "bytes_f16": 32768,
+      "ood_auc_cross_domain": 0.8916,
+      "ood_auc_same_domain": 0.9172,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.027689
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 2,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.027689
+            },
+            "count": 5
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.028461
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0908,
+        "pooled_far_min": 0.0865,
+        "pooled_far_max": 0.0994,
+        "pos_coverage_mean": 0.7709,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0908,
+      "real_far_at_modal_thresholds": 0.0865,
+      "real_accepted": 228,
+      "real_n": 2637,
+      "dangerous_rate": 0.0155,
+      "dangerous_ci95": [
+        0.0115,
+        0.021
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.744425,
+          "ood": -0.030058
+        },
+        "real_far": 0.176,
+        "real_ci95": [
+          0.1619,
+          0.191
+        ],
+        "dangerous_rate": 0.0372,
+        "syn_coverage": 0.8091,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.116,
+        "real_far_p50": 0.1957,
+        "real_far_p90": 0.2537,
+        "real_far_min": 0.0789,
+        "real_far_max": 0.3652,
+        "syn_coverage_p50": 0.8091,
+        "n_distinct_threshold_pairs": 21,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.030058,
+            "count": 79
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.028461,
+            "count": 48
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.030058,
+            "count": 25
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.028461,
+            "count": 8
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.030058,
+            "count": 6
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 64,
+      "seed": 1
+    },
+    {
+      "n_pool": 64,
+      "k": 5,
+      "bytes_f32": 65536,
+      "bytes_f16": 32768,
+      "ood_auc_cross_domain": 0.8622,
+      "ood_auc_same_domain": 0.8963,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.026619
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.026619
+            },
+            "count": 4
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.026619
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.026619
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0954,
+        "pooled_far_min": 0.0929,
+        "pooled_far_max": 0.0975,
+        "pos_coverage_mean": 0.7417,
+        "pos_coverage_min": 0.7364
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0954,
+      "real_far_at_modal_thresholds": 0.0975,
+      "real_accepted": 257,
+      "real_n": 2637,
+      "dangerous_rate": 0.0159,
+      "dangerous_ci95": [
+        0.0118,
+        0.0215
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7432,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.028517
+        },
+        "real_far": 0.2059,
+        "real_ci95": [
+          0.1909,
+          0.2218
+        ],
+        "dangerous_rate": 0.0429,
+        "syn_coverage": 0.7932,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.132,
+        "real_far_p50": 0.2059,
+        "real_far_p90": 0.38,
+        "real_far_min": 0.1062,
+        "real_far_max": 0.38,
+        "syn_coverage_p50": 0.7932,
+        "n_distinct_threshold_pairs": 15,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.028517,
+            "count": 70
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.030926,
+            "count": 28
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.028517,
+            "count": 23
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.027381,
+            "count": 21
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.030926,
+            "count": 17
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 64,
+      "seed": 2
+    },
+    {
+      "n_pool": 32,
+      "k": 5,
+      "bytes_f32": 32768,
+      "bytes_f16": 16384,
+      "ood_auc_cross_domain": 0.8873,
+      "ood_auc_same_domain": 0.9124,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.033411
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.033411
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.744425,
+              "ood": -0.033411
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.033411
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0958,
+        "pooled_far_min": 0.0948,
+        "pooled_far_max": 0.0967,
+        "pos_coverage_mean": 0.7879,
+        "pos_coverage_min": 0.775
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0958,
+      "real_far_at_modal_thresholds": 0.0994,
+      "real_accepted": 262,
+      "real_n": 2637,
+      "dangerous_rate": 0.0269,
+      "dangerous_ci95": [
+        0.0214,
+        0.0338
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7932,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.033411
+        },
+        "real_far": 0.1028,
+        "real_ci95": [
+          0.0918,
+          0.1149
+        ],
+        "dangerous_rate": 0.0284,
+        "syn_coverage": 0.7932,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1028,
+        "real_far_p50": 0.1767,
+        "real_far_p90": 0.2614,
+        "real_far_min": 0.0842,
+        "real_far_max": 0.3538,
+        "syn_coverage_p50": 0.8,
+        "n_distinct_threshold_pairs": 22,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.033411,
+            "count": 57
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.034699,
+            "count": 45
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.03643,
+            "count": 18
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.03643,
+            "count": 12
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.03643,
+            "count": 12
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 32,
+      "seed": 0
+    },
+    {
+      "n_pool": 32,
+      "k": 5,
+      "bytes_f32": 32768,
+      "bytes_f16": 16384,
+      "ood_auc_cross_domain": 0.8491,
+      "ood_auc_same_domain": 0.8992,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.029359
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 2,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.029359
+            },
+            "count": 5
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.845451,
+              "ood": -0.030111
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0933,
+        "pooled_far_min": 0.0903,
+        "pooled_far_max": 0.0994,
+        "pos_coverage_mean": 0.692,
+        "pos_coverage_min": 0.6909
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0933,
+      "real_far_at_modal_thresholds": 0.0903,
+      "real_accepted": 238,
+      "real_n": 2637,
+      "dangerous_rate": 0.0068,
+      "dangerous_ci95": [
+        0.0043,
+        0.0108
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.6909,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.032172
+        },
+        "real_far": 0.212,
+        "real_ci95": [
+          0.1968,
+          0.228
+        ],
+        "dangerous_rate": 0.0265,
+        "syn_coverage": 0.7682,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.212,
+        "real_far_p50": 0.2708,
+        "real_far_p90": 0.3057,
+        "real_far_min": 0.105,
+        "real_far_max": 0.3762,
+        "syn_coverage_p50": 0.7932,
+        "n_distinct_threshold_pairs": 20,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.032172,
+            "count": 58
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.033554,
+            "count": 38
+          },
+          {
+            "maxprob": 0.939803,
+            "ood": -0.05464,
+            "count": 30
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.035093,
+            "count": 13
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.035093,
+            "count": 10
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 32,
+      "seed": 1
+    },
+    {
+      "n_pool": 32,
+      "k": 5,
+      "bytes_f32": 32768,
+      "bytes_f16": 16384,
+      "ood_auc_cross_domain": 0.8311,
+      "ood_auc_same_domain": 0.8978,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.845451,
+        "ood": -0.030132
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.845451,
+              "ood": -0.030132
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.896885,
+              "ood": -0.030506
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.845451,
+              "ood": -0.030506
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0959,
+        "pooled_far_min": 0.094,
+        "pooled_far_max": 0.0994,
+        "pos_coverage_mean": 0.6807,
+        "pos_coverage_min": 0.6727
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0959,
+      "real_far_at_modal_thresholds": 0.0899,
+      "real_accepted": 237,
+      "real_n": 2637,
+      "dangerous_rate": 0.0311,
+      "dangerous_ci95": [
+        0.0251,
+        0.0384
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.6727,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.912273,
+          "ood": -0.035887
+        },
+        "real_far": 0.2708,
+        "real_ci95": [
+          0.2541,
+          0.288
+        ],
+        "dangerous_rate": 0.0899,
+        "syn_coverage": 0.7705,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.2063,
+        "real_far_p50": 0.2708,
+        "real_far_p90": 0.3443,
+        "real_far_min": 0.1475,
+        "real_far_max": 0.5279,
+        "syn_coverage_p50": 0.7773,
+        "n_distinct_threshold_pairs": 36,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.939803,
+            "ood": -0.051903,
+            "count": 32
+          },
+          {
+            "maxprob": 0.912273,
+            "ood": -0.035887,
+            "count": 28
+          },
+          {
+            "maxprob": 0.959885,
+            "ood": -0.051903,
+            "count": 14
+          },
+          {
+            "maxprob": 0.959885,
+            "ood": -0.036974,
+            "count": 10
+          },
+          {
+            "maxprob": 0.96922,
+            "ood": -0.051903,
+            "count": 8
+          }
+        ]
+      },
+      "kind": "subsample",
+      "requested_size": 32,
+      "seed": 2
+    },
+    {
+      "n_pool": 96,
+      "k": 1,
+      "bytes_f32": 98304,
+      "bytes_f16": 49152,
+      "ood_auc_cross_domain": 0.9009,
+      "ood_auc_same_domain": 0.9312,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.016991
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.016991
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0804,
+        "pooled_far_min": 0.0804,
+        "pooled_far_max": 0.0804,
+        "pos_coverage_mean": 0.7932,
+        "pos_coverage_min": 0.7932
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0706,
+        0.0914
+      ],
+      "real_far": 0.0804,
+      "real_far_at_modal_thresholds": 0.0804,
+      "real_accepted": 212,
+      "real_n": 2637,
+      "dangerous_rate": 0.0099,
+      "dangerous_ci95": [
+        0.0067,
+        0.0144
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7932,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.019744
+        },
+        "real_far": 0.237,
+        "real_ci95": [
+          0.2212,
+          0.2536
+        ],
+        "dangerous_rate": 0.0497,
+        "syn_coverage": 0.8455,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1172,
+        "real_far_p50": 0.237,
+        "real_far_p90": 0.237,
+        "real_far_min": 0.0804,
+        "real_far_max": 0.5434,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 12,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.019744,
+            "count": 115
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.017724,
+            "count": 38
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.019744,
+            "count": 28
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023012,
+            "count": 6
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.024176,
+            "count": 4
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 16,
+      "seed": 0
+    },
+    {
+      "n_pool": 96,
+      "k": 3,
+      "bytes_f32": 98304,
+      "bytes_f16": 49152,
+      "ood_auc_cross_domain": 0.8907,
+      "ood_auc_same_domain": 0.9265,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.018533
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.018533
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.845451,
+              "ood": -0.019529
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.019529
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0853,
+        "pooled_far_min": 0.0823,
+        "pooled_far_max": 0.0903,
+        "pos_coverage_mean": 0.7708,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0853,
+      "real_far_at_modal_thresholds": 0.0641,
+      "real_accepted": 169,
+      "real_n": 2637,
+      "dangerous_rate": 0.0053,
+      "dangerous_ci95": [
+        0.0032,
+        0.0089
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.020712
+        },
+        "real_far": 0.1847,
+        "real_ci95": [
+          0.1703,
+          0.1999
+        ],
+        "dangerous_rate": 0.0288,
+        "syn_coverage": 0.8205,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1847,
+        "real_far_p50": 0.1847,
+        "real_far_p90": 0.3212,
+        "real_far_min": 0.0656,
+        "real_far_max": 0.4608,
+        "syn_coverage_p50": 0.8205,
+        "n_distinct_threshold_pairs": 12,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.020712,
+            "count": 116
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.022472,
+            "count": 19
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023991,
+            "count": 18
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.022472,
+            "count": 18
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.023991,
+            "count": 10
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 16,
+      "seed": 0
+    },
+    {
+      "n_pool": 48,
+      "k": 1,
+      "bytes_f32": 49152,
+      "bytes_f16": 24576,
+      "ood_auc_cross_domain": 0.9024,
+      "ood_auc_same_domain": 0.9263,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.017668
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.017668
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0698,
+        "pooled_far_min": 0.0698,
+        "pooled_far_max": 0.0698,
+        "pos_coverage_mean": 0.7932,
+        "pos_coverage_min": 0.7932
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0607,
+        0.0801
+      ],
+      "real_far": 0.0698,
+      "real_far_at_modal_thresholds": 0.0698,
+      "real_accepted": 184,
+      "real_n": 2637,
+      "dangerous_rate": 0.0129,
+      "dangerous_ci95": [
+        0.0092,
+        0.018
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7932,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.744425,
+          "ood": -0.021719
+        },
+        "real_far": 0.2397,
+        "real_ci95": [
+          0.2238,
+          0.2563
+        ],
+        "dangerous_rate": 0.052,
+        "syn_coverage": 0.8545,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1566,
+        "real_far_p50": 0.2397,
+        "real_far_p90": 0.2806,
+        "real_far_min": 0.0713,
+        "real_far_max": 0.4206,
+        "syn_coverage_p50": 0.8545,
+        "n_distinct_threshold_pairs": 12,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.021719,
+            "count": 61
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.021719,
+            "count": 36
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.021719,
+            "count": 30
+          },
+          {
+            "maxprob": 0.555198,
+            "ood": -0.021719,
+            "count": 21
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.019694,
+            "count": 20
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 8,
+      "seed": 0
+    },
+    {
+      "n_pool": 48,
+      "k": 3,
+      "bytes_f32": 49152,
+      "bytes_f16": 24576,
+      "ood_auc_cross_domain": 0.8843,
+      "ood_auc_same_domain": 0.9213,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.019523
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.019523
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0834,
+        "pooled_far_min": 0.0834,
+        "pooled_far_max": 0.0834,
+        "pos_coverage_mean": 0.7682,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0735,
+        0.0946
+      ],
+      "real_far": 0.0834,
+      "real_far_at_modal_thresholds": 0.0834,
+      "real_accepted": 220,
+      "real_n": 2637,
+      "dangerous_rate": 0.0083,
+      "dangerous_ci95": [
+        0.0055,
+        0.0126
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.744425,
+          "ood": -0.023642
+        },
+        "real_far": 0.2624,
+        "real_ci95": [
+          0.246,
+          0.2795
+        ],
+        "dangerous_rate": 0.0493,
+        "syn_coverage": 0.8364,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.226,
+        "real_far_p50": 0.2624,
+        "real_far_p90": 0.3113,
+        "real_far_min": 0.0849,
+        "real_far_max": 0.4714,
+        "syn_coverage_p50": 0.8364,
+        "n_distinct_threshold_pairs": 14,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023642,
+            "count": 75
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.022241,
+            "count": 56
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023642,
+            "count": 28
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.02553,
+            "count": 10
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.023642,
+            "count": 7
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 8,
+      "seed": 0
+    },
+    {
+      "n_pool": 24,
+      "k": 1,
+      "bytes_f32": 24576,
+      "bytes_f16": 12288,
+      "ood_auc_cross_domain": 0.8939,
+      "ood_auc_same_domain": 0.9219,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.01859
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 4,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.01859
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.01859
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.01859
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0934,
+        "pooled_far_min": 0.0925,
+        "pooled_far_max": 0.0948,
+        "pos_coverage_mean": 0.789,
+        "pos_coverage_min": 0.7773
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0934,
+      "real_far_at_modal_thresholds": 0.0956,
+      "real_accepted": 252,
+      "real_n": 2637,
+      "dangerous_rate": 0.0186,
+      "dangerous_ci95": [
+        0.0141,
+        0.0245
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7932,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.021925
+        },
+        "real_far": 0.256,
+        "real_ci95": [
+          0.2397,
+          0.273
+        ],
+        "dangerous_rate": 0.0573,
+        "syn_coverage": 0.8455,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.165,
+        "real_far_p50": 0.256,
+        "real_far_p90": 0.256,
+        "real_far_min": 0.0956,
+        "real_far_max": 0.256,
+        "syn_coverage_p50": 0.8455,
+        "n_distinct_threshold_pairs": 4,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.021925,
+            "count": 175
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.020127,
+            "count": 21
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.021925,
+            "count": 3
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.01859,
+            "count": 1
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 4,
+      "seed": 0
+    },
+    {
+      "n_pool": 24,
+      "k": 3,
+      "bytes_f32": 24576,
+      "bytes_f16": 12288,
+      "ood_auc_cross_domain": 0.8907,
+      "ood_auc_same_domain": 0.9117,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.022583
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.022583
+            },
+            "count": 4
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.633336,
+              "ood": -0.023319
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.023319
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0918,
+        "pooled_far_min": 0.0838,
+        "pooled_far_max": 0.0978,
+        "pos_coverage_mean": 0.772,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0918,
+      "real_far_at_modal_thresholds": 0.0838,
+      "real_accepted": 221,
+      "real_n": 2637,
+      "dangerous_rate": 0.0152,
+      "dangerous_ci95": [
+        0.0112,
+        0.0206
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.023319
+        },
+        "real_far": 0.1179,
+        "real_ci95": [
+          0.1062,
+          0.1308
+        ],
+        "dangerous_rate": 0.0212,
+        "syn_coverage": 0.7932,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.1179,
+        "real_far_p50": 0.1729,
+        "real_far_p90": 0.2378,
+        "real_far_min": 0.0531,
+        "real_far_max": 0.4312,
+        "syn_coverage_p50": 0.7977,
+        "n_distinct_threshold_pairs": 25,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.024648,
+            "count": 56
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023319,
+            "count": 52
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.024648,
+            "count": 25
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.026194,
+            "count": 11
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023319,
+            "count": 6
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 4,
+      "seed": 0
+    },
+    {
+      "n_pool": 12,
+      "k": 1,
+      "bytes_f32": 12288,
+      "bytes_f16": 6144,
+      "ood_auc_cross_domain": 0.878,
+      "ood_auc_same_domain": 0.9107,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.309193,
+        "ood": -0.018613
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 1,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.018613
+            },
+            "count": 6
+          }
+        ],
+        "pooled_far_mean": 0.0895,
+        "pooled_far_min": 0.0895,
+        "pooled_far_max": 0.0895,
+        "pos_coverage_mean": 0.7682,
+        "pos_coverage_min": 0.7682
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": true,
+      "real_ci95": [
+        0.0792,
+        0.101
+      ],
+      "real_far": 0.0895,
+      "real_far_at_modal_thresholds": 0.0895,
+      "real_accepted": 236,
+      "real_n": 2637,
+      "dangerous_rate": 0.0064,
+      "dangerous_ci95": [
+        0.004,
+        0.0103
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7682,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.019811
+        },
+        "real_far": 0.138,
+        "real_ci95": [
+          0.1254,
+          0.1517
+        ],
+        "dangerous_rate": 0.0102,
+        "syn_coverage": 0.7932,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.138,
+        "real_far_p50": 0.138,
+        "real_far_p90": 0.3079,
+        "real_far_min": 0.0895,
+        "real_far_max": 0.3788,
+        "syn_coverage_p50": 0.7932,
+        "n_distinct_threshold_pairs": 12,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.019811,
+            "count": 129
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023264,
+            "count": 31
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023264,
+            "count": 22
+          },
+          {
+            "maxprob": 0.912273,
+            "ood": -0.029088,
+            "count": 4
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.029088,
+            "count": 3
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 2,
+      "seed": 0
+    },
+    {
+      "n_pool": 12,
+      "k": 3,
+      "bytes_f32": 12288,
+      "bytes_f16": 6144,
+      "ood_auc_cross_domain": 0.8072,
+      "ood_auc_same_domain": 0.8913,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.973761,
+        "ood": -0.028069
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.973761,
+              "ood": -0.028069
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.96922,
+              "ood": -0.028069
+            },
+            "count": 2
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.959885,
+              "ood": -0.027759
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0959,
+        "pooled_far_min": 0.0952,
+        "pooled_far_max": 0.0967,
+        "pos_coverage_mean": 0.617,
+        "pos_coverage_min": 0.6091
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0959,
+      "real_far_at_modal_thresholds": 0.0918,
+      "real_accepted": 242,
+      "real_n": 2637,
+      "dangerous_rate": 0.0209,
+      "dangerous_ci95": [
+        0.0161,
+        0.027
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.6091,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.939803,
+          "ood": -0.037077
+        },
+        "real_far": 0.2761,
+        "real_ci95": [
+          0.2593,
+          0.2935
+        ],
+        "dangerous_rate": 0.1039,
+        "syn_coverage": 0.7864,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.2309,
+        "real_far_p50": 0.2973,
+        "real_far_p90": 0.4024,
+        "real_far_min": 0.1293,
+        "real_far_max": 0.5631,
+        "syn_coverage_p50": 0.7977,
+        "n_distinct_threshold_pairs": 33,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.896885,
+            "ood": -0.031543,
+            "count": 31
+          },
+          {
+            "maxprob": 0.912273,
+            "ood": -0.033897,
+            "count": 23
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.031543,
+            "count": 17
+          },
+          {
+            "maxprob": 0.939803,
+            "ood": -0.033897,
+            "count": 15
+          },
+          {
+            "maxprob": 0.845451,
+            "ood": -0.031543,
+            "count": 11
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 2,
+      "seed": 0
+    },
+    {
+      "n_pool": 6,
+      "k": 1,
+      "bytes_f32": 6144,
+      "bytes_f16": 3072,
+      "ood_auc_cross_domain": 0.8705,
+      "ood_auc_same_domain": 0.91,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.555198,
+        "ood": -0.019453
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 3,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.555198,
+              "ood": -0.019453
+            },
+            "count": 4
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.800583,
+              "ood": -0.019453
+            },
+            "count": 1
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.309193,
+              "ood": -0.019453
+            },
+            "count": 1
+          }
+        ],
+        "pooled_far_mean": 0.0933,
+        "pooled_far_min": 0.0925,
+        "pooled_far_max": 0.094,
+        "pos_coverage_mean": 0.7421,
+        "pos_coverage_min": 0.7364
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.0933,
+      "real_far_at_modal_thresholds": 0.0933,
+      "real_accepted": 246,
+      "real_n": 2637,
+      "dangerous_rate": 0.0053,
+      "dangerous_ci95": [
+        0.0032,
+        0.0089
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.7432,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.309193,
+          "ood": -0.021955
+        },
+        "real_far": 0.2143,
+        "real_ci95": [
+          0.199,
+          0.2303
+        ],
+        "dangerous_rate": 0.0243,
+        "syn_coverage": 0.7932,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.2143,
+        "real_far_p50": 0.2306,
+        "real_far_p90": 0.2848,
+        "real_far_min": 0.0872,
+        "real_far_max": 0.383,
+        "syn_coverage_p50": 0.8,
+        "n_distinct_threshold_pairs": 19,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.309193,
+            "ood": -0.021955,
+            "count": 83
+          },
+          {
+            "maxprob": 0.309193,
+            "ood": -0.023425,
+            "count": 42
+          },
+          {
+            "maxprob": 0.744425,
+            "ood": -0.023425,
+            "count": 23
+          },
+          {
+            "maxprob": 0.896885,
+            "ood": -0.024975,
+            "count": 11
+          },
+          {
+            "maxprob": 0.800583,
+            "ood": -0.024975,
+            "count": 7
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 1,
+      "seed": 0
+    },
+    {
+      "n_pool": 6,
+      "k": 3,
+      "bytes_f32": 6144,
+      "bytes_f16": 3072,
+      "ood_auc_cross_domain": 0.4753,
+      "ood_auc_same_domain": 0.6731,
+      "reachable": true,
+      "calibrate_used": "crossfit",
+      "thresholds": {
+        "maxprob": 0.993613,
+        "ood": -0.056887
+      },
+      "xfit": {
+        "n_folds": 2,
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "n_calib_negatives": 2637,
+        "n_distinct_thresholds": 2,
+        "threshold_modes": [
+          {
+            "thresholds": {
+              "maxprob": 0.993613,
+              "ood": -0.056887
+            },
+            "count": 3
+          },
+          {
+            "thresholds": {
+              "maxprob": 0.992102,
+              "ood": -0.056887
+            },
+            "count": 3
+          }
+        ],
+        "pooled_far_mean": 0.092,
+        "pooled_far_min": 0.0914,
+        "pooled_far_max": 0.0933,
+        "pos_coverage_mean": 0.5511,
+        "pos_coverage_min": 0.5386
+      },
+      "real_far_source": "crossfit_pooled_mean（样本外）",
+      "ci95_valid": false,
+      "real_ci95": null,
+      "real_far": 0.092,
+      "real_far_at_modal_thresholds": 0.0823,
+      "real_accepted": 217,
+      "real_n": 2637,
+      "dangerous_rate": 0.0338,
+      "dangerous_ci95": [
+        0.0275,
+        0.0413
+      ],
+      "dangerous_from": "众数阈值铺到全部真人样本（交叉拟合下为参考口径）",
+      "syn_coverage": 0.5386,
+      "meets_target": false,
+      "synthetic_only": {
+        "thresholds": {
+          "maxprob": 0.96922,
+          "ood": -0.056887
+        },
+        "real_far": 0.2237,
+        "real_ci95": [
+          0.2082,
+          0.24
+        ],
+        "dangerous_rate": 0.0933,
+        "syn_coverage": 0.7432,
+        "meets_target": false
+      },
+      "calibration_bootstrap": {
+        "k_boot": 200,
+        "reachable_draws": 200,
+        "real_far_p10": 0.2112,
+        "real_far_p50": 0.2567,
+        "real_far_p90": 0.3098,
+        "real_far_min": 0.1532,
+        "real_far_max": 0.4623,
+        "syn_coverage_p50": 0.7659,
+        "n_distinct_threshold_pairs": 19,
+        "top_threshold_pairs": [
+          {
+            "maxprob": 0.939803,
+            "ood": -0.056887,
+            "count": 60
+          },
+          {
+            "maxprob": 0.96922,
+            "ood": -0.056887,
+            "count": 36
+          },
+          {
+            "maxprob": 0.959885,
+            "ood": -0.056887,
+            "count": 29
+          },
+          {
+            "maxprob": 0.96922,
+            "ood": -0.048231,
+            "count": 12
+          },
+          {
+            "maxprob": 0.939803,
+            "ood": -0.050388,
+            "count": 12
+          }
+        ]
+      },
+      "kind": "centroid",
+      "requested_size": 1,
+      "seed": 0
+    }
+  ],
+  "summary": [
+    {
+      "kind": "centroid",
+      "n_pool": 96,
+      "k": 1,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 98304,
+      "bytes_f16": 49152,
+      "kb_f32": 96.0,
+      "real_far_mean": 0.0804,
+      "real_far_worst": 0.0804,
+      "dangerous_rate_worst": 0.0099,
+      "syn_coverage_mean": 0.7932,
+      "syn_coverage_worst": 0.7932,
+      "ood_auc_cross_mean": 0.9009,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.237,
+      "synthetic_only_far_worst": 0.237,
+      "synthetic_only_coverage_mean": 0.8455,
+      "xfit_far_worst_over_seeds": 0.0804,
+      "xfit_distinct_thresholds_max": 1,
+      "xfit_distinct_thresholds_sum": 1,
+      "xfit_coverage_worst": 0.7932,
+      "calib_noise_far_p10_best": 0.1172,
+      "calib_noise_far_p50_mean": 0.237,
+      "calib_noise_far_p90_worst": 0.237,
+      "calib_noise_far_max": 0.5434,
+      "calib_distinct_thresholds_total": 12
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 96,
+      "k": 3,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 98304,
+      "bytes_f16": 49152,
+      "kb_f32": 96.0,
+      "real_far_mean": 0.0853,
+      "real_far_worst": 0.0853,
+      "dangerous_rate_worst": 0.0053,
+      "syn_coverage_mean": 0.7682,
+      "syn_coverage_worst": 0.7682,
+      "ood_auc_cross_mean": 0.8907,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.1847,
+      "synthetic_only_far_worst": 0.1847,
+      "synthetic_only_coverage_mean": 0.8205,
+      "xfit_far_worst_over_seeds": 0.0903,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 3,
+      "xfit_coverage_worst": 0.7682,
+      "calib_noise_far_p10_best": 0.1847,
+      "calib_noise_far_p50_mean": 0.1847,
+      "calib_noise_far_p90_worst": 0.3212,
+      "calib_noise_far_max": 0.4608,
+      "calib_distinct_thresholds_total": 12
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 48,
+      "k": 1,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 49152,
+      "bytes_f16": 24576,
+      "kb_f32": 48.0,
+      "real_far_mean": 0.0698,
+      "real_far_worst": 0.0698,
+      "dangerous_rate_worst": 0.0129,
+      "syn_coverage_mean": 0.7932,
+      "syn_coverage_worst": 0.7932,
+      "ood_auc_cross_mean": 0.9024,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.2397,
+      "synthetic_only_far_worst": 0.2397,
+      "synthetic_only_coverage_mean": 0.8545,
+      "xfit_far_worst_over_seeds": 0.0698,
+      "xfit_distinct_thresholds_max": 1,
+      "xfit_distinct_thresholds_sum": 1,
+      "xfit_coverage_worst": 0.7932,
+      "calib_noise_far_p10_best": 0.1566,
+      "calib_noise_far_p50_mean": 0.2397,
+      "calib_noise_far_p90_worst": 0.2806,
+      "calib_noise_far_max": 0.4206,
+      "calib_distinct_thresholds_total": 12
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 48,
+      "k": 3,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 49152,
+      "bytes_f16": 24576,
+      "kb_f32": 48.0,
+      "real_far_mean": 0.0834,
+      "real_far_worst": 0.0834,
+      "dangerous_rate_worst": 0.0083,
+      "syn_coverage_mean": 0.7682,
+      "syn_coverage_worst": 0.7682,
+      "ood_auc_cross_mean": 0.8843,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.2624,
+      "synthetic_only_far_worst": 0.2624,
+      "synthetic_only_coverage_mean": 0.8364,
+      "xfit_far_worst_over_seeds": 0.0834,
+      "xfit_distinct_thresholds_max": 1,
+      "xfit_distinct_thresholds_sum": 1,
+      "xfit_coverage_worst": 0.7682,
+      "calib_noise_far_p10_best": 0.226,
+      "calib_noise_far_p50_mean": 0.2624,
+      "calib_noise_far_p90_worst": 0.3113,
+      "calib_noise_far_max": 0.4714,
+      "calib_distinct_thresholds_total": 14
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 24,
+      "k": 1,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 24576,
+      "bytes_f16": 12288,
+      "kb_f32": 24.0,
+      "real_far_mean": 0.0934,
+      "real_far_worst": 0.0934,
+      "dangerous_rate_worst": 0.0186,
+      "syn_coverage_mean": 0.7932,
+      "syn_coverage_worst": 0.7932,
+      "ood_auc_cross_mean": 0.8939,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.256,
+      "synthetic_only_far_worst": 0.256,
+      "synthetic_only_coverage_mean": 0.8455,
+      "xfit_far_worst_over_seeds": 0.0948,
+      "xfit_distinct_thresholds_max": 4,
+      "xfit_distinct_thresholds_sum": 4,
+      "xfit_coverage_worst": 0.7773,
+      "calib_noise_far_p10_best": 0.165,
+      "calib_noise_far_p50_mean": 0.256,
+      "calib_noise_far_p90_worst": 0.256,
+      "calib_noise_far_max": 0.256,
+      "calib_distinct_thresholds_total": 4
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 24,
+      "k": 3,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 24576,
+      "bytes_f16": 12288,
+      "kb_f32": 24.0,
+      "real_far_mean": 0.0918,
+      "real_far_worst": 0.0918,
+      "dangerous_rate_worst": 0.0152,
+      "syn_coverage_mean": 0.7682,
+      "syn_coverage_worst": 0.7682,
+      "ood_auc_cross_mean": 0.8907,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.1179,
+      "synthetic_only_far_worst": 0.1179,
+      "synthetic_only_coverage_mean": 0.7932,
+      "xfit_far_worst_over_seeds": 0.0978,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 3,
+      "xfit_coverage_worst": 0.7682,
+      "calib_noise_far_p10_best": 0.1179,
+      "calib_noise_far_p50_mean": 0.1729,
+      "calib_noise_far_p90_worst": 0.2378,
+      "calib_noise_far_max": 0.4312,
+      "calib_distinct_thresholds_total": 25
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 12,
+      "k": 1,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 12288,
+      "bytes_f16": 6144,
+      "kb_f32": 12.0,
+      "real_far_mean": 0.0895,
+      "real_far_worst": 0.0895,
+      "dangerous_rate_worst": 0.0064,
+      "syn_coverage_mean": 0.7682,
+      "syn_coverage_worst": 0.7682,
+      "ood_auc_cross_mean": 0.878,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.138,
+      "synthetic_only_far_worst": 0.138,
+      "synthetic_only_coverage_mean": 0.7932,
+      "xfit_far_worst_over_seeds": 0.0895,
+      "xfit_distinct_thresholds_max": 1,
+      "xfit_distinct_thresholds_sum": 1,
+      "xfit_coverage_worst": 0.7682,
+      "calib_noise_far_p10_best": 0.138,
+      "calib_noise_far_p50_mean": 0.138,
+      "calib_noise_far_p90_worst": 0.3079,
+      "calib_noise_far_max": 0.3788,
+      "calib_distinct_thresholds_total": 12
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 12,
+      "k": 3,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 12288,
+      "bytes_f16": 6144,
+      "kb_f32": 12.0,
+      "real_far_mean": 0.0959,
+      "real_far_worst": 0.0959,
+      "dangerous_rate_worst": 0.0209,
+      "syn_coverage_mean": 0.6091,
+      "syn_coverage_worst": 0.6091,
+      "ood_auc_cross_mean": 0.8072,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.2761,
+      "synthetic_only_far_worst": 0.2761,
+      "synthetic_only_coverage_mean": 0.7864,
+      "xfit_far_worst_over_seeds": 0.0967,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 3,
+      "xfit_coverage_worst": 0.6091,
+      "calib_noise_far_p10_best": 0.2309,
+      "calib_noise_far_p50_mean": 0.2973,
+      "calib_noise_far_p90_worst": 0.4024,
+      "calib_noise_far_max": 0.5631,
+      "calib_distinct_thresholds_total": 33
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 6,
+      "k": 1,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 6144,
+      "bytes_f16": 3072,
+      "kb_f32": 6.0,
+      "real_far_mean": 0.0933,
+      "real_far_worst": 0.0933,
+      "dangerous_rate_worst": 0.0053,
+      "syn_coverage_mean": 0.7432,
+      "syn_coverage_worst": 0.7432,
+      "ood_auc_cross_mean": 0.8705,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.2143,
+      "synthetic_only_far_worst": 0.2143,
+      "synthetic_only_coverage_mean": 0.7932,
+      "xfit_far_worst_over_seeds": 0.094,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 3,
+      "xfit_coverage_worst": 0.7364,
+      "calib_noise_far_p10_best": 0.2143,
+      "calib_noise_far_p50_mean": 0.2306,
+      "calib_noise_far_p90_worst": 0.2848,
+      "calib_noise_far_max": 0.383,
+      "calib_distinct_thresholds_total": 19
+    },
+    {
+      "kind": "centroid",
+      "n_pool": 6,
+      "k": 3,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 6144,
+      "bytes_f16": 3072,
+      "kb_f32": 6.0,
+      "real_far_mean": 0.092,
+      "real_far_worst": 0.092,
+      "dangerous_rate_worst": 0.0338,
+      "syn_coverage_mean": 0.5386,
+      "syn_coverage_worst": 0.5386,
+      "ood_auc_cross_mean": 0.4753,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.2237,
+      "synthetic_only_far_worst": 0.2237,
+      "synthetic_only_coverage_mean": 0.7432,
+      "xfit_far_worst_over_seeds": 0.0933,
+      "xfit_distinct_thresholds_max": 2,
+      "xfit_distinct_thresholds_sum": 2,
+      "xfit_coverage_worst": 0.5386,
+      "calib_noise_far_p10_best": 0.2112,
+      "calib_noise_far_p50_mean": 0.2567,
+      "calib_noise_far_p90_worst": 0.3098,
+      "calib_noise_far_max": 0.4623,
+      "calib_distinct_thresholds_total": 19
+    },
+    {
+      "kind": "full",
+      "n_pool": 1981,
+      "k": 5,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 2028544,
+      "bytes_f16": 1014272,
+      "kb_f32": 1981.0,
+      "real_far_mean": 0.066,
+      "real_far_worst": 0.066,
+      "dangerous_rate_worst": 0.0201,
+      "syn_coverage_mean": 0.8455,
+      "syn_coverage_worst": 0.8455,
+      "ood_auc_cross_mean": 0.9244,
+      "all_draws_meet_target": true,
+      "synthetic_only_far_mean": 0.066,
+      "synthetic_only_far_worst": 0.066,
+      "synthetic_only_coverage_mean": 0.8455,
+      "xfit_far_worst_over_seeds": 0.066,
+      "xfit_distinct_thresholds_max": 1,
+      "xfit_distinct_thresholds_sum": 1,
+      "xfit_coverage_worst": 0.8455,
+      "calib_noise_far_p10_best": 0.066,
+      "calib_noise_far_p50_mean": 0.066,
+      "calib_noise_far_p90_worst": 0.1998,
+      "calib_noise_far_max": 0.328,
+      "calib_distinct_thresholds_total": 8
+    },
+    {
+      "kind": "subsample",
+      "n_pool": 1000,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 1024000,
+      "bytes_f16": 512000,
+      "kb_f32": 1000.0,
+      "real_far_mean": 0.0774,
+      "real_far_worst": 0.0935,
+      "dangerous_rate_worst": 0.0231,
+      "syn_coverage_mean": 0.8372,
+      "syn_coverage_worst": 0.8205,
+      "ood_auc_cross_mean": 0.9214,
+      "all_draws_meet_target": true,
+      "synthetic_only_far_mean": 0.1231,
+      "synthetic_only_far_worst": 0.1733,
+      "synthetic_only_coverage_mean": 0.8478,
+      "xfit_far_worst_over_seeds": 0.0944,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 7,
+      "xfit_coverage_worst": 0.8205,
+      "calib_noise_far_p10_best": 0.0785,
+      "calib_noise_far_p50_mean": 0.1231,
+      "calib_noise_far_p90_worst": 0.251,
+      "calib_noise_far_max": 0.3807,
+      "calib_distinct_thresholds_total": 27
+    },
+    {
+      "kind": "subsample",
+      "n_pool": 500,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 512000,
+      "bytes_f16": 256000,
+      "kb_f32": 500.0,
+      "real_far_mean": 0.0861,
+      "real_far_worst": 0.091,
+      "dangerous_rate_worst": 0.0258,
+      "syn_coverage_mean": 0.8205,
+      "syn_coverage_worst": 0.8205,
+      "ood_auc_cross_mean": 0.9069,
+      "all_draws_meet_target": true,
+      "synthetic_only_far_mean": 0.1677,
+      "synthetic_only_far_worst": 0.1794,
+      "synthetic_only_coverage_mean": 0.8455,
+      "xfit_far_worst_over_seeds": 0.0994,
+      "xfit_distinct_thresholds_max": 4,
+      "xfit_distinct_thresholds_sum": 9,
+      "xfit_coverage_worst": 0.7932,
+      "calib_noise_far_p10_best": 0.0808,
+      "calib_noise_far_p50_mean": 0.1677,
+      "calib_noise_far_p90_worst": 0.2548,
+      "calib_noise_far_max": 0.383,
+      "calib_distinct_thresholds_total": 27
+    },
+    {
+      "kind": "subsample",
+      "n_pool": 250,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 256000,
+      "bytes_f16": 128000,
+      "kb_f32": 250.0,
+      "real_far_mean": 0.0898,
+      "real_far_worst": 0.0963,
+      "dangerous_rate_worst": 0.0201,
+      "syn_coverage_mean": 0.8031,
+      "syn_coverage_worst": 0.7932,
+      "ood_auc_cross_mean": 0.8979,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.1269,
+      "synthetic_only_far_worst": 0.1809,
+      "synthetic_only_coverage_mean": 0.8114,
+      "xfit_far_worst_over_seeds": 0.0994,
+      "xfit_distinct_thresholds_max": 4,
+      "xfit_distinct_thresholds_sum": 8,
+      "xfit_coverage_worst": 0.7682,
+      "calib_noise_far_p10_best": 0.0785,
+      "calib_noise_far_p50_mean": 0.1454,
+      "calib_noise_far_p90_worst": 0.2499,
+      "calib_noise_far_max": 0.3807,
+      "calib_distinct_thresholds_total": 49
+    },
+    {
+      "kind": "subsample",
+      "n_pool": 128,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 131072,
+      "bytes_f16": 65536,
+      "kb_f32": 128.0,
+      "real_far_mean": 0.0829,
+      "real_far_worst": 0.0869,
+      "dangerous_rate_worst": 0.0144,
+      "syn_coverage_mean": 0.7515,
+      "syn_coverage_worst": 0.7432,
+      "ood_auc_cross_mean": 0.8818,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.2459,
+      "synthetic_only_far_worst": 0.2636,
+      "synthetic_only_coverage_mean": 0.8091,
+      "xfit_far_worst_over_seeds": 0.0914,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 8,
+      "xfit_coverage_worst": 0.7432,
+      "calib_noise_far_p10_best": 0.079,
+      "calib_noise_far_p50_mean": 0.2198,
+      "calib_noise_far_p90_worst": 0.3739,
+      "calib_noise_far_max": 0.4175,
+      "calib_distinct_thresholds_total": 57
+    },
+    {
+      "kind": "subsample",
+      "n_pool": 64,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 65536,
+      "bytes_f16": 32768,
+      "kb_f32": 64.0,
+      "real_far_mean": 0.0909,
+      "real_far_worst": 0.0954,
+      "dangerous_rate_worst": 0.0209,
+      "syn_coverage_mean": 0.7599,
+      "syn_coverage_worst": 0.7432,
+      "ood_auc_cross_mean": 0.8813,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.1819,
+      "synthetic_only_far_worst": 0.2059,
+      "synthetic_only_coverage_mean": 0.8,
+      "xfit_far_worst_over_seeds": 0.0994,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 6,
+      "xfit_coverage_worst": 0.7364,
+      "calib_noise_far_p10_best": 0.116,
+      "calib_noise_far_p50_mean": 0.1909,
+      "calib_noise_far_p90_worst": 0.38,
+      "calib_noise_far_max": 0.38,
+      "calib_distinct_thresholds_total": 62
+    },
+    {
+      "kind": "subsample",
+      "n_pool": 32,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 32768,
+      "bytes_f16": 16384,
+      "kb_f32": 32.0,
+      "real_far_mean": 0.095,
+      "real_far_worst": 0.0959,
+      "dangerous_rate_worst": 0.0311,
+      "syn_coverage_mean": 0.7189,
+      "syn_coverage_worst": 0.6727,
+      "ood_auc_cross_mean": 0.8558,
+      "all_draws_meet_target": false,
+      "synthetic_only_far_mean": 0.1952,
+      "synthetic_only_far_worst": 0.2708,
+      "synthetic_only_coverage_mean": 0.7773,
+      "xfit_far_worst_over_seeds": 0.0994,
+      "xfit_distinct_thresholds_max": 3,
+      "xfit_distinct_thresholds_sum": 8,
+      "xfit_coverage_worst": 0.6727,
+      "calib_noise_far_p10_best": 0.1028,
+      "calib_noise_far_p50_mean": 0.2394,
+      "calib_noise_far_p90_worst": 0.3443,
+      "calib_noise_far_max": 0.5279,
+      "calib_distinct_thresholds_total": 78
+    }
+  ],
+  "smallest_passing": {
+    "kind": "subsample",
+    "n_pool": 500,
+    "k": 5,
+    "n_draws": 3,
+    "calibrate_used": [
+      "crossfit"
+    ],
+    "bytes_f32": 512000,
+    "bytes_f16": 256000,
+    "kb_f32": 500.0,
+    "real_far_mean": 0.0861,
+    "real_far_worst": 0.091,
+    "dangerous_rate_worst": 0.0258,
+    "syn_coverage_mean": 0.8205,
+    "syn_coverage_worst": 0.8205,
+    "ood_auc_cross_mean": 0.9069,
+    "all_draws_meet_target": true,
+    "synthetic_only_far_mean": 0.1677,
+    "synthetic_only_far_worst": 0.1794,
+    "synthetic_only_coverage_mean": 0.8455,
+    "xfit_far_worst_over_seeds": 0.0994,
+    "xfit_distinct_thresholds_max": 4,
+    "xfit_distinct_thresholds_sum": 9,
+    "xfit_coverage_worst": 0.7932,
+    "calib_noise_far_p10_best": 0.0808,
+    "calib_noise_far_p50_mean": 0.1677,
+    "calib_noise_far_p90_worst": 0.2548,
+    "calib_noise_far_max": 0.383,
+    "calib_distinct_thresholds_total": 27
+  },
+  "interpretation": {
+    "smallest_passing": {
+      "kind": "subsample",
+      "n_pool": 500,
+      "k": 5,
+      "n_draws": 3,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 512000,
+      "bytes_f16": 256000,
+      "kb_f32": 500.0,
+      "real_far_mean": 0.0861,
+      "real_far_worst": 0.091,
+      "dangerous_rate_worst": 0.0258,
+      "syn_coverage_mean": 0.8205,
+      "syn_coverage_worst": 0.8205,
+      "ood_auc_cross_mean": 0.9069,
+      "all_draws_meet_target": true,
+      "synthetic_only_far_mean": 0.1677,
+      "synthetic_only_far_worst": 0.1794,
+      "synthetic_only_coverage_mean": 0.8455,
+      "xfit_far_worst_over_seeds": 0.0994,
+      "xfit_distinct_thresholds_max": 4,
+      "xfit_distinct_thresholds_sum": 9,
+      "xfit_coverage_worst": 0.7932,
+      "calib_noise_far_p10_best": 0.0808,
+      "calib_noise_far_p50_mean": 0.1677,
+      "calib_noise_far_p90_worst": 0.2548,
+      "calib_noise_far_max": 0.383,
+      "calib_distinct_thresholds_total": 27
+    },
+    "full_pool": {
+      "kind": "full",
+      "n_pool": 1981,
+      "k": 5,
+      "n_draws": 1,
+      "calibrate_used": [
+        "crossfit"
+      ],
+      "bytes_f32": 2028544,
+      "bytes_f16": 1014272,
+      "kb_f32": 1981.0,
+      "real_far_mean": 0.066,
+      "real_far_worst": 0.066,
+      "dangerous_rate_worst": 0.0201,
+      "syn_coverage_mean": 0.8455,
+      "syn_coverage_worst": 0.8455,
+      "ood_auc_cross_mean": 0.9244,
+      "all_draws_meet_target": true,
+      "synthetic_only_far_mean": 0.066,
+      "synthetic_only_far_worst": 0.066,
+      "synthetic_only_coverage_mean": 0.8455,
+      "xfit_far_worst_over_seeds": 0.066,
+      "xfit_distinct_thresholds_max": 1,
+      "xfit_distinct_thresholds_sum": 1,
+      "xfit_coverage_worst": 0.8455,
+      "calib_noise_far_p10_best": 0.066,
+      "calib_noise_far_p50_mean": 0.066,
+      "calib_noise_far_p90_worst": 0.1998,
+      "calib_noise_far_max": 0.328,
+      "calib_distinct_thresholds_total": 8
+    },
+    "crossfit_stability": {
+      "full_pool_distinct_thresholds": 1,
+      "distinct_thresholds_max_over_all_configs": 4,
+      "full_pool_far_seed_spread": 0.0,
+      "stable_at_full_pool": true
+    },
+    "calib_noise_at_full_pool": {
+      "p10": 0.066,
+      "p90": 0.1998,
+      "max": 0.328
+    },
+    "calib_noise_spread": 0.1338,
+    "subsample_far_spread": 0.0189,
+    "crossfit_split_spread_max": 0.017,
+    "statements": [
+      "满池（n=1981，1981.0 KB f32 / 990.5 KB f16，标定=['crossfit']）实测 FAR 0.066、覆盖率 0.8455、危险误动作率 ≤ 0.0201，达标。",
+      "**交叉拟合稳定性**：满池在所有折与所有随机划分上共选出 1 组不同阈值，合并 FAR 全距 0.0——满池工作点唯一且稳定。压缩池上最多出现 4 组不同阈值，因此压缩配置的 FAR 是「交叉拟合这套流程」的样本外估计，不是某一对固定阈值的估计；实际下发时阈值会用全部真人负样本一次性拟合，2 折交叉拟合只用了一半负样本，故报出的 FAR 偏保守。",
+      "**换标定方式的依据（合成侧口径的噪声底）**：池完全不变、只对 72 条合成负样本做有放回重采样，真实域 FAR 就在 [0.066, 0.1998]（p10–p90 跨度 0.1338）之间摆动，最坏抽样到 0.328，共产生 8 组不同阈值。这个跨度已超过目标 FAR，所以合成侧标定的点估计不可当作可复现保证；本表主口径改为交叉拟合。",
+      "**同一批池换成合成侧标定（S3 原口径）**：FAR 均值区间 0.066–0.2761，最差抽样 0.2761；交叉拟合口径 FAR 均值区间 0.066–0.0959，最差 0.0963。满池上两者相同（0.066），池一压小就分道扬镳——小池上 72 条合成负样本更搜不出稳定工作点，这正是必须用交叉拟合读压缩代价的原因。",
+      "子采样配置（n=32–1000）的 FAR 全距为 0.0189（均值区间 0.0774–0.095，最差抽样 0.0963），覆盖率均值区间 0.7189–0.8372。压缩代价不大于合成侧标定的噪声底——若用合成口径，池规模的结论不可读；本表已改用交叉拟合口径，故按上条的稳定性判断。",
+      "子采样中达标的规模：n=1000（1000.0 KB）, n=500（500.0 KB）",
+      "两条判据里，**先崩的是覆盖率**：交叉拟合自身的划分间 FAR 抖动最大 0.017，与子采样之间的 FAR 差异（0.0176）同量级，所以 FAR 这一轴只能读到「压到 32 条仍在 0.10 附近」，读不出精细排序；覆盖率随池规模单调下滑且基本不随划分变（跨度 0.1183），是决定最小可用池的那一轴。",
+      "质心池（每类 1–96 个，6.0–96.0 KB）FAR 最差到 0.0959，覆盖率最差 0.5386，没有任何配置达标，质心化不可行。",
+      "最小达标池：subsample n=500 = 500.0 KB (f32) / 250.0 KB (f16)，FAR 0.0861、覆盖率 0.8205。"
+    ]
+  },
+  "reference": {
+    "model_bytes": 1349971,
+    "note": "满池 1981 条的 S3 结果见 docs/selective_eval.json"
+  },
+  "caveats": [
+    "覆盖率一侧仍是合成命令；池压缩对**真人命令**存活率的影响无法测（真人正样本为 0）。",
+    "质心池改变了 ood 的分布形状（不再有近邻尾部），阈值已按池重标定，但 k 的含义也变了：k 接近质心总数时 ood 退化为「到全部质心的平均距离」。",
+    "这里的字节数是未压缩裸数组；实际下发可再套 npz 压缩或 f16，体积会更小，但 RAM 占用按 f32 算。",
+    "交叉拟合口径下，真人负样本参与了阈值搜索。它仍是样本外估计（每条样本都由没见过它的阈值判定），但「本项目不需要真人数据」的说法在这个口径下不成立；实际下发时阈值会用全部真人负样本一次性拟合，S3 的 oracle 结果显示这与交叉拟合选出的工作点相同。",
+    "交叉拟合下 real_ci95 只在所有折选中同一对阈值时有效（ci95_valid=true）；否则接受集是不同阈值的混合，Wilson 区间不再对应单一规则。"
+  ]
+}

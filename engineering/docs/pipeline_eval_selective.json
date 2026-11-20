@@ -1,0 +1,173 @@
+{
+  "threshold": 0.945,
+  "rejection_rule": {
+    "version": 1,
+    "thresholds": {
+      "maxprob": 0.309193,
+      "ood": -0.022306
+    },
+    "ood_k": 5,
+    "pool_size": 500,
+    "pool_dim": 256,
+    "degraded": false,
+    "degraded_reason": "",
+    "fallback": {
+      "mode": "single",
+      "threshold": 0.945
+    },
+    "calibration": {
+      "method": "and_workpoint 全量拟合下发 + crossfit_and_rule 2 折 × 3 次划分做样本外估计",
+      "target_risk": 0.1,
+      "n_negatives": 2637,
+      "n_positives": 440,
+      "negatives_source": "真人粤语非命令语音（FLEURS yue_hant_hk，CC BY 4.0，data/real_domain_testset/manifest.csv）",
+      "positives_source": "合成 val 已知命令（TTS，非真人）",
+      "n_distinct_thresholds_in_crossfit": 1,
+      "deployed_equals_crossfit_mode": true,
+      "out_of_sample_far": 0.0812,
+      "out_of_sample_far_range": [
+        0.0812,
+        0.0812
+      ],
+      "out_of_sample_coverage": 0.8205,
+      "note": "真人负样本参与了阈值搜索，因此本项目在标定环节**需要**真人数据；交叉拟合保证每条样本都由没见过它的阈值判定，FAR 是样本外估计。"
+    }
+  },
+  "classes": [
+    "LIGHT_ON",
+    "LIGHT_OFF",
+    "CURTAIN_OPEN",
+    "CURTAIN_CLOSE",
+    "ALL_OFF",
+    "STATUS_ALL"
+  ],
+  "source": {
+    "manifest": "D:/Run_Tao/DialectVoice_Research/data/tts_corpus/manifest_yue_v3_1_vad.csv",
+    "subset": "test",
+    "known_dir": null,
+    "unknown_dir": "D:/Run_Tao/DialectVoice_Research/data/tts_corpus/unknown_v3_vad"
+  },
+  "variants": {
+    "with_vad": {
+      "known": {
+        "n": 483,
+        "skipped": 0,
+        "argmax_accuracy": 0.8799,
+        "acceptance_rate": 0.8592,
+        "accepted_accuracy": 0.9181,
+        "per_command_argmax_accuracy": {
+          "ALL_OFF": 0.9157,
+          "CURTAIN_CLOSE": 0.6849,
+          "CURTAIN_OPEN": 0.7561,
+          "LIGHT_OFF": 0.9595,
+          "LIGHT_ON": 0.9462,
+          "STATUS_ALL": 1.0
+        },
+        "per_command_n": {
+          "ALL_OFF": 83,
+          "CURTAIN_CLOSE": 73,
+          "CURTAIN_OPEN": 82,
+          "LIGHT_OFF": 74,
+          "LIGHT_ON": 93,
+          "STATUS_ALL": 78
+        },
+        "confusion": {
+          "ALL_OFF": {
+            "ALL_OFF": 76,
+            "LIGHT_OFF": 6,
+            "STATUS_ALL": 1
+          },
+          "CURTAIN_CLOSE": {
+            "ALL_OFF": 9,
+            "CURTAIN_CLOSE": 50,
+            "CURTAIN_OPEN": 14
+          },
+          "CURTAIN_OPEN": {
+            "CURTAIN_CLOSE": 19,
+            "CURTAIN_OPEN": 62,
+            "LIGHT_OFF": 1
+          },
+          "LIGHT_OFF": {
+            "ALL_OFF": 3,
+            "LIGHT_OFF": 71
+          },
+          "LIGHT_ON": {
+            "LIGHT_OFF": 4,
+            "LIGHT_ON": 88,
+            "STATUS_ALL": 1
+          },
+          "STATUS_ALL": {
+            "STATUS_ALL": 78
+          }
+        },
+        "mean_latency_ms": 23.4
+      },
+      "unknown": {
+        "n": 72,
+        "false_accept_rate": 0.0556,
+        "mean_latency_ms": 24.4
+      }
+    },
+    "no_vad": {
+      "known": {
+        "n": 483,
+        "skipped": 0,
+        "argmax_accuracy": 0.882,
+        "acceptance_rate": 0.8427,
+        "accepted_accuracy": 0.9214,
+        "per_command_argmax_accuracy": {
+          "ALL_OFF": 0.9157,
+          "CURTAIN_CLOSE": 0.6849,
+          "CURTAIN_OPEN": 0.7561,
+          "LIGHT_OFF": 0.973,
+          "LIGHT_ON": 0.9462,
+          "STATUS_ALL": 1.0
+        },
+        "per_command_n": {
+          "ALL_OFF": 83,
+          "CURTAIN_CLOSE": 73,
+          "CURTAIN_OPEN": 82,
+          "LIGHT_OFF": 74,
+          "LIGHT_ON": 93,
+          "STATUS_ALL": 78
+        },
+        "confusion": {
+          "ALL_OFF": {
+            "ALL_OFF": 76,
+            "LIGHT_OFF": 6,
+            "STATUS_ALL": 1
+          },
+          "CURTAIN_CLOSE": {
+            "ALL_OFF": 10,
+            "CURTAIN_CLOSE": 50,
+            "CURTAIN_OPEN": 13
+          },
+          "CURTAIN_OPEN": {
+            "CURTAIN_CLOSE": 19,
+            "CURTAIN_OPEN": 62,
+            "LIGHT_OFF": 1
+          },
+          "LIGHT_OFF": {
+            "ALL_OFF": 2,
+            "LIGHT_OFF": 72
+          },
+          "LIGHT_ON": {
+            "LIGHT_OFF": 4,
+            "LIGHT_ON": 88,
+            "STATUS_ALL": 1
+          },
+          "STATUS_ALL": {
+            "STATUS_ALL": 78
+          }
+        },
+        "mean_latency_ms": 26.0
+      },
+      "unknown": {
+        "n": 72,
+        "false_accept_rate": 0.0556,
+        "mean_latency_ms": 22.4
+      }
+    }
+  },
+  "note": "语料为 edge-tts 合成粤语，非真人语音；结论不外推为真人准确率。"
+}

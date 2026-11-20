@@ -1,0 +1,51 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.venv/
+.venv_*/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# ---- 编辑器 / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 大文件与原始数据（本仓库只放少量演示音频；完整语料按 README 重建） ----
+*.tar.gz
+*.tgz
+*.zip
+*.mp3
+*.flac
+research/data/corpora/
+research/data/tts_corpus/raw_v3/
+research/data/tts_corpus/wav16k_v3/
+research/data/tts_corpus/wav16k_v3_1/
+research/data/tts_corpus/wav16k_v3_1_vad/
+research/data/real_domain_testset/**/*.wav
+research/data/tts_validation/
+research/data/tts_multidialect/
+research/data/tts_cosyvoice_probe/
+research/data/smoke_wavs/
+
+# ---- 中间缓存 / 探针产物 ----
+research/outputs/v3_acoustic/cache/
+research/outputs/v3_scratch/
+research/outputs/tts_probe/
+research/outputs/**/__pycache__/
+engineering/logs/
+
+# ---- LaTeX 构建中间物 ----
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz

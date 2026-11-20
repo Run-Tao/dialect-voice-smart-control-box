@@ -1,0 +1,530 @@
+{
+  "generated": "2026-11-01",
+  "model": "D:\\Run_Tao\\DialectVoice_Engineering\\runtime\\models\\v3_cnn_ensemble_vad.npz",
+  "threshold": 0.945,
+  "classes": [
+    "LIGHT_ON",
+    "LIGHT_OFF",
+    "CURTAIN_OPEN",
+    "CURTAIN_CLOSE",
+    "ALL_OFF",
+    "STATUS_ALL"
+  ],
+  "testset": {
+    "manifest": "D:/Run_Tao/DialectVoice_Research/data/real_domain_testset/manifest.csv",
+    "subset": "real_test",
+    "window_ms": null,
+    "rows": 2744,
+    "evaluated": 2637,
+    "skipped": 107,
+    "total_duration_s": 7807.8,
+    "per_source": {
+      "fleurs_yue": {
+        "n": 2637,
+        "accepted": 820,
+        "far": 0.311,
+        "ci95": [
+          0.2936,
+          0.3289
+        ],
+        "skipped": 107
+      }
+    },
+    "provenance": {
+      "built": "2026-10-31",
+      "vad_kwargs": {
+        "frame_ms": 30,
+        "energy_margin_db": 9,
+        "min_speech_ms": 200,
+        "min_silence_ms": 400,
+        "pre_roll_ms": 300,
+        "max_utterance_ms": 4000
+      },
+      "text_filter": true,
+      "exclude_phrases": [
+        "開燈",
+        "熄燈",
+        "關燈",
+        "关灯",
+        "着燈",
+        "開窗簾",
+        "打開窗簾",
+        "拉埋窗簾",
+        "拉開窗簾",
+        "關窗簾",
+        "閂窗簾",
+        "全部閂",
+        "全部熄",
+        "全部關",
+        "設備狀態"
+      ],
+      "min_ms": 200.0,
+      "min_rms_db": -120.0,
+      "drop_clipped": false,
+      "selection_note": "默认不按响度/时长/削波挑样本，只剔除解不出来的和 VAD 判无语音的；挑样本会把「真实但难听」的负样本剔掉，导致 FAR 偏低。QC 数值全部写进 manifest，需要时在评估侧切片。",
+      "excluded": {
+        "too_short": 20
+      },
+      "segments_text_verified": 2744,
+      "segments_with_device_hint": 13,
+      "sources": {
+        "fleurs_yue": {
+          "license": "CC BY 4.0 - FLEURS google/fleurs, yue_hant_hk test split, arXiv:2205.12446; 需署名，可改作/再分发",
+          "path": "D:\\Run_Tao\\DialectVoice_Research\\data\\corpora\\fleurs_yue\\test",
+          "segments": 2744,
+          "files_scanned": 819
+        }
+      }
+    }
+  },
+  "headline": {
+    "n": 2637,
+    "accepted": 820,
+    "far": 0.311,
+    "ci95": [
+      0.2936,
+      0.3289
+    ],
+    "mean_latency_ms": 24.3
+  },
+  "false_accept_by_command": {
+    "STATUS_ALL": 441,
+    "ALL_OFF": 212,
+    "LIGHT_OFF": 146,
+    "LIGHT_ON": 13,
+    "CURTAIN_CLOSE": 5,
+    "CURTAIN_OPEN": 3
+  },
+  "dangerous_split": {
+    "dangerous": {
+      "accepted": 379,
+      "rate": 0.1437,
+      "ci95": [
+        0.1309,
+        0.1576
+      ],
+      "by_command": {
+        "ALL_OFF": 212,
+        "LIGHT_OFF": 146,
+        "LIGHT_ON": 13,
+        "CURTAIN_CLOSE": 5,
+        "CURTAIN_OPEN": 3
+      }
+    },
+    "benign": {
+      "accepted": 441,
+      "rate": 0.1672,
+      "by_command": {
+        "STATUS_ALL": 441
+      }
+    }
+  },
+  "confidence_percentiles": {
+    "p50": 0.8496,
+    "p90": 0.9923,
+    "p95": 0.9971,
+    "p99": 0.9996,
+    "max": 1.0,
+    "mean": 0.7961
+  },
+  "threshold_solve": [
+    {
+      "target_far": 0.1,
+      "threshold": 0.9924,
+      "far_at_threshold": 0.099,
+      "reachable": true
+    },
+    {
+      "target_far": 0.05,
+      "threshold": 0.9971,
+      "far_at_threshold": 0.0485,
+      "reachable": true
+    },
+    {
+      "target_far": 0.02,
+      "threshold": 0.9992,
+      "far_at_threshold": 0.0186,
+      "reachable": true
+    }
+  ],
+  "far_curve": [
+    {
+      "threshold": 0.8,
+      "far": 0.5692
+    },
+    {
+      "threshold": 0.82,
+      "far": 0.5374
+    },
+    {
+      "threshold": 0.84,
+      "far": 0.5116
+    },
+    {
+      "threshold": 0.86,
+      "far": 0.4827
+    },
+    {
+      "threshold": 0.88,
+      "far": 0.4486
+    },
+    {
+      "threshold": 0.9,
+      "far": 0.416
+    },
+    {
+      "threshold": 0.92,
+      "far": 0.3686
+    },
+    {
+      "threshold": 0.94,
+      "far": 0.3242
+    },
+    {
+      "threshold": 0.945,
+      "far": 0.311
+    },
+    {
+      "threshold": 0.96,
+      "far": 0.2673
+    },
+    {
+      "threshold": 0.98,
+      "far": 0.1748
+    },
+    {
+      "threshold": 0.992,
+      "far": 0.099
+    },
+    {
+      "threshold": 0.997,
+      "far": 0.0485
+    },
+    {
+      "threshold": 0.999,
+      "far": 0.0186
+    },
+    {
+      "threshold": 1.0,
+      "far": 0.0
+    }
+  ],
+  "risk_coverage": {
+    "curve": [
+      {
+        "threshold": 0.3092,
+        "coverage": 1.0,
+        "far": 0.9981
+      },
+      {
+        "threshold": 0.3209,
+        "coverage": 0.9977,
+        "far": 0.997
+      },
+      {
+        "threshold": 0.3326,
+        "coverage": 0.9977,
+        "far": 0.9954
+      },
+      {
+        "threshold": 0.3443,
+        "coverage": 0.9955,
+        "far": 0.9947
+      },
+      {
+        "threshold": 0.356,
+        "coverage": 0.9932,
+        "far": 0.9924
+      },
+      {
+        "threshold": 0.3677,
+        "coverage": 0.9932,
+        "far": 0.989
+      },
+      {
+        "threshold": 0.3794,
+        "coverage": 0.9932,
+        "far": 0.9863
+      },
+      {
+        "threshold": 0.3912,
+        "coverage": 0.9932,
+        "far": 0.9822
+      },
+      {
+        "threshold": 0.4029,
+        "coverage": 0.9932,
+        "far": 0.9791
+      },
+      {
+        "threshold": 0.4146,
+        "coverage": 0.9932,
+        "far": 0.9742
+      },
+      {
+        "threshold": 0.4263,
+        "coverage": 0.9932,
+        "far": 0.9708
+      },
+      {
+        "threshold": 0.438,
+        "coverage": 0.9909,
+        "far": 0.9632
+      },
+      {
+        "threshold": 0.4497,
+        "coverage": 0.9909,
+        "far": 0.9568
+      },
+      {
+        "threshold": 0.4614,
+        "coverage": 0.9864,
+        "far": 0.9518
+      },
+      {
+        "threshold": 0.4731,
+        "coverage": 0.9864,
+        "far": 0.9424
+      },
+      {
+        "threshold": 0.4848,
+        "coverage": 0.9841,
+        "far": 0.9325
+      },
+      {
+        "threshold": 0.4965,
+        "coverage": 0.9841,
+        "far": 0.9238
+      },
+      {
+        "threshold": 0.5082,
+        "coverage": 0.9841,
+        "far": 0.9124
+      },
+      {
+        "threshold": 0.5199,
+        "coverage": 0.9818,
+        "far": 0.8961
+      },
+      {
+        "threshold": 0.5317,
+        "coverage": 0.9773,
+        "far": 0.8809
+      },
+      {
+        "threshold": 0.5434,
+        "coverage": 0.9773,
+        "far": 0.8665
+      },
+      {
+        "threshold": 0.5551,
+        "coverage": 0.975,
+        "far": 0.8513
+      },
+      {
+        "threshold": 0.5668,
+        "coverage": 0.9682,
+        "far": 0.8426
+      },
+      {
+        "threshold": 0.5785,
+        "coverage": 0.9659,
+        "far": 0.8267
+      },
+      {
+        "threshold": 0.5902,
+        "coverage": 0.9591,
+        "far": 0.8134
+      },
+      {
+        "threshold": 0.6019,
+        "coverage": 0.9568,
+        "far": 0.8009
+      },
+      {
+        "threshold": 0.6136,
+        "coverage": 0.95,
+        "far": 0.7899
+      },
+      {
+        "threshold": 0.6253,
+        "coverage": 0.95,
+        "far": 0.7785
+      },
+      {
+        "threshold": 0.637,
+        "coverage": 0.9455,
+        "far": 0.7645
+      },
+      {
+        "threshold": 0.6487,
+        "coverage": 0.9455,
+        "far": 0.7531
+      },
+      {
+        "threshold": 0.6605,
+        "coverage": 0.9386,
+        "far": 0.7418
+      },
+      {
+        "threshold": 0.6722,
+        "coverage": 0.9364,
+        "far": 0.7292
+      },
+      {
+        "threshold": 0.6839,
+        "coverage": 0.9364,
+        "far": 0.7175
+      },
+      {
+        "threshold": 0.6956,
+        "coverage": 0.9364,
+        "far": 0.7016
+      },
+      {
+        "threshold": 0.7073,
+        "coverage": 0.9341,
+        "far": 0.6864
+      },
+      {
+        "threshold": 0.719,
+        "coverage": 0.9295,
+        "far": 0.6743
+      },
+      {
+        "threshold": 0.7307,
+        "coverage": 0.925,
+        "far": 0.6523
+      },
+      {
+        "threshold": 0.7424,
+        "coverage": 0.9227,
+        "far": 0.6413
+      },
+      {
+        "threshold": 0.7541,
+        "coverage": 0.9205,
+        "far": 0.6268
+      },
+      {
+        "threshold": 0.7658,
+        "coverage": 0.9136,
+        "far": 0.6136
+      },
+      {
+        "threshold": 0.7775,
+        "coverage": 0.9114,
+        "far": 0.5999
+      },
+      {
+        "threshold": 0.7892,
+        "coverage": 0.9045,
+        "far": 0.5829
+      },
+      {
+        "threshold": 0.801,
+        "coverage": 0.8955,
+        "far": 0.5662
+      },
+      {
+        "threshold": 0.8127,
+        "coverage": 0.8886,
+        "far": 0.5487
+      },
+      {
+        "threshold": 0.8244,
+        "coverage": 0.8886,
+        "far": 0.5305
+      },
+      {
+        "threshold": 0.8361,
+        "coverage": 0.8818,
+        "far": 0.5157
+      },
+      {
+        "threshold": 0.8478,
+        "coverage": 0.8705,
+        "far": 0.5009
+      },
+      {
+        "threshold": 0.8595,
+        "coverage": 0.8659,
+        "far": 0.4835
+      },
+      {
+        "threshold": 0.8712,
+        "coverage": 0.8636,
+        "far": 0.4623
+      },
+      {
+        "threshold": 0.8829,
+        "coverage": 0.8523,
+        "far": 0.4429
+      },
+      {
+        "threshold": 0.8946,
+        "coverage": 0.8477,
+        "far": 0.424
+      },
+      {
+        "threshold": 0.9063,
+        "coverage": 0.8295,
+        "far": 0.4027
+      },
+      {
+        "threshold": 0.918,
+        "coverage": 0.8182,
+        "far": 0.3785
+      },
+      {
+        "threshold": 0.9297,
+        "coverage": 0.8091,
+        "far": 0.3477
+      },
+      {
+        "threshold": 0.9415,
+        "coverage": 0.7864,
+        "far": 0.3197
+      },
+      {
+        "threshold": 0.9532,
+        "coverage": 0.7773,
+        "far": 0.2874
+      },
+      {
+        "threshold": 0.9649,
+        "coverage": 0.75,
+        "far": 0.2499
+      },
+      {
+        "threshold": 0.9766,
+        "coverage": 0.6977,
+        "far": 0.1926
+      },
+      {
+        "threshold": 0.9883,
+        "coverage": 0.6159,
+        "far": 0.1274
+      },
+      {
+        "threshold": 1.0,
+        "coverage": 0.0023,
+        "far": 0.0
+      },
+      {
+        "threshold": 1.001,
+        "coverage": 0.0,
+        "far": 0.0
+      }
+    ],
+    "aurc_cross_domain": 0.1828,
+    "coverage_levels_used": 20,
+    "note": "coverage 来自合成已知命令，far 来自真实域负样本，按阈值对齐；非同一数据集上的标准 AURC。"
+  },
+  "synthetic_unknown_far": {
+    "far": 0.125,
+    "n": 72,
+    "source": "pipeline_eval.json"
+  },
+  "note": "真实域 FAR 只说明「非命令真人语音被误接受的比例」，不代表真人命令识别率；后者需要真人正样本，尚未采集。"
+}

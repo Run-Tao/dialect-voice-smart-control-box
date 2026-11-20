@@ -1,0 +1,7 @@
+﻿intent_id,mandarin,cantonese_candidate,intent_group,hardware_action,in_mvp
+LIGHT_ON,开灯,開燈,lighting,LED_ON,yes
+LIGHT_OFF,关灯,熄燈,lighting,LED_OFF,yes
+CURTAIN_OPEN,开窗帘,打開窗簾,curtain,SERVO_OPEN,yes
+CURTAIN_CLOSE,关窗帘,拉埋窗簾,curtain,SERVO_CLOSE,yes
+ALL_OFF,全部关闭,全部熄晒,combination,ALL_OFF,yes
+STATUS_ALL,查询设备状态,而家咩狀態,status,STATUS,yes

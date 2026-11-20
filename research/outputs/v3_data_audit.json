@@ -1,0 +1,1070 @@
+{
+  "generated_at": "2026-10-21T14:40:29",
+  "protocol": "第三阶段 v3 数据扩充：条件多样性（语速/音高）增广 + 新表达 + 未知/易混指令集；v2 固定划分严格继承。",
+  "fallback": {
+    "enabled": true,
+    "reason": "实测 edge-tts 失败率远超 5% 阈值：并发6=41.7%(10/24)，并发1=33.3%(3/9)，并发3=22.2%(2/9)；单条成功延迟 7–35s，有效吞吐约 0.04–0.12 条/秒。按任务要求回退到离线信号级增广。",
+    "network_measurements": [
+      {
+        "concurrency": 6,
+        "requests": 24,
+        "failures": 10,
+        "failure_rate": 0.4167,
+        "wall_sec": 115.3,
+        "throughput_per_sec": 0.121
+      },
+      {
+        "concurrency": 1,
+        "requests": 9,
+        "failures": 3,
+        "failure_rate": 0.3333,
+        "wall_sec": 162.2,
+        "throughput_per_sec": 0.037,
+        "latency_mean_sec": 9.0
+      },
+      {
+        "concurrency": 3,
+        "requests": 9,
+        "failures": 2,
+        "failure_rate": 0.2222,
+        "wall_sec": 89.6,
+        "throughput_per_sec": 0.078,
+        "latency_mean_sec": 20.4
+      }
+    ],
+    "method": "对 v2 同表达、同音色、语速0/音高0 的基准音频做确定性离线增广：rate_slow_18/rate_fast_18 用 WSOLA 时域伸缩（保音高）；pitch_low/pitch_high 用重采样变调 + WSOLA 还原时长（保时长）。输出统一 16kHz 单声道 PCM16。",
+    "real_tts_still_used_for": "无 v2 音源、无法离线增广的文本：18 条新表达 baseline、24 条未知/易混文本 baseline、42 个 (表达组,WanLung) 缺口 baseline。",
+    "not_fabricated": "生成日志 outputs/v3_generation_log.csv 逐条记录 attempts/status/sha256；本审计由磁盘实际文件重算。"
+  },
+  "network": {
+    "edge_tts_available": true,
+    "reliable_enough": false,
+    "measured_at": "2026-10-21"
+  },
+  "probe": {
+    "generated_at": "2026-10-21T14:21:15",
+    "source_utterance_id": "ALL_OFF_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+    "source_audio_path": "wav16k_v2/edge/ALL_OFF_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00.wav",
+    "source_sha256": "3a8000572a65bcc3102bc73a37802b2f00f63744246846eed2c68a514666b2b5",
+    "source_stats": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "sampwidth": 2,
+      "duration": 2.184,
+      "rms": 0.0938,
+      "peak": 0.5757,
+      "silence_ratio": 0.5227,
+      "clipping_ratio": 0.0,
+      "speech_frame_ratio": 0.5576,
+      "samples": 34944
+    },
+    "conditions": {
+      "rate_slow_18": {
+        "ok": true,
+        "checks": {
+          "format_16k_mono_pcm16": true,
+          "sha_differs_from_v2_source": true,
+          "duration_ratio_within_2pct": true,
+          "duration_gt_0.35s": true,
+          "rms_gt_0.002": true,
+          "quality_not_excluded": true
+        },
+        "path": "data/tts_corpus/wav16k_v3/probe/ALL_OFF_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00_slow18_probe.wav",
+        "sha256": "701b732ecd95e8e880ffef90a789eb9c46457a7d59fd98f6c6ddafcc4ec2b2fd",
+        "format": {
+          "sample_rate": 16000,
+          "channels": 1,
+          "sampwidth": 2
+        },
+        "duration_in": 2.184,
+        "duration_out": 2.6634,
+        "duration_ratio": 1.219523,
+        "expected_ratio": 1.219512,
+        "rms": 0.087573,
+        "peak": 0.469818,
+        "quality": "ok",
+        "quality_reasons": "",
+        "detail": {
+          "method": "offline_signal_aug",
+          "kind": "rate",
+          "condition": "rate_slow_18",
+          "desc": "语速 -18%（时长 ×1.2195）",
+          "time_scale": 1.21951,
+          "speed_factor": 0.82,
+          "target_rate_percent": -18
+        },
+        "elapsed_sec": 0.196
+      },
+      "pitch_high": {
+        "ok": true,
+        "checks": {
+          "format_16k_mono_pcm16": true,
+          "sha_differs_from_v2_source": true,
+          "duration_ratio_within_2pct": true,
+          "duration_gt_0.35s": true,
+          "rms_gt_0.002": true,
+          "quality_not_excluded": true
+        },
+        "path": "data/tts_corpus/wav16k_v3/probe/ALL_OFF_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00_phigh15_probe.wav",
+        "sha256": "5ee9a4331613be93056c4a822c286820faf919a1f81455f1d0fd27c358f1fc2e",
+        "format": {
+          "sample_rate": 16000,
+          "channels": 1,
+          "sampwidth": 2
+        },
+        "duration_in": 2.184,
+        "duration_out": 2.184,
+        "duration_ratio": 1.0,
+        "expected_ratio": 1.0,
+        "rms": 0.086117,
+        "peak": 0.510925,
+        "quality": "ok",
+        "quality_reasons": "",
+        "detail": {
+          "method": "offline_signal_aug",
+          "kind": "pitch",
+          "condition": "pitch_high",
+          "desc": "音高 +15Hz（时长不变）",
+          "f0_est_hz": 207.79,
+          "f0_source": "estimated",
+          "pitch_multiplier": 1.07219,
+          "target_f0_hz": 222.79,
+          "pitch_delta_hz": 15.0
+        },
+        "elapsed_sec": 0.194
+      }
+    },
+    "network_note": "真实 edge-tts 基准生成由 tts 阶段执行；本探针校验离线增广产物",
+    "ok": true
+  },
+  "generation": {
+    "generation_log": "outputs/v3_generation_log.csv",
+    "log_rows": 2310,
+    "v3_failed_or_excluded_log_rows": 0,
+    "failed_samples": [],
+    "by_stage_status": {
+      "augment|ok": 2088,
+      "augment_new_expr|ok": 54,
+      "tts_new_expr|ok": 54,
+      "tts_source|ok": 41,
+      "tts_source|skipped_existing": 1,
+      "unknown|skipped_existing": 72
+    },
+    "stage_ok_counts": {
+      "tts_source": 42,
+      "tts_new_expr": 54,
+      "augment": 2088,
+      "augment_new_expr": 54,
+      "unknown": 72
+    },
+    "stage_total_counts": {
+      "tts_source": 42,
+      "tts_new_expr": 54,
+      "augment": 2088,
+      "augment_new_expr": 54,
+      "unknown": 72
+    }
+  },
+  "counts": {
+    "total_rows": 2796,
+    "usable_rows": 2796,
+    "excluded_rows": 0,
+    "flagged_rows": 0,
+    "v2_rows": 600,
+    "v3_added_rows": 2196,
+    "num_expression_groups": 192,
+    "by_command_all": {
+      "ALL_OFF": 466,
+      "CURTAIN_CLOSE": 466,
+      "CURTAIN_OPEN": 466,
+      "LIGHT_OFF": 466,
+      "LIGHT_ON": 466,
+      "STATUS_ALL": 466
+    },
+    "by_command_usable": {
+      "LIGHT_ON": 466,
+      "LIGHT_OFF": 466,
+      "CURTAIN_OPEN": 466,
+      "CURTAIN_CLOSE": 466,
+      "ALL_OFF": 466,
+      "STATUS_ALL": 466
+    },
+    "by_condition_usable": {
+      "text_morphology": 390,
+      "rate_slow": 90,
+      "legacy": 120,
+      "rate_fast_18": 522,
+      "pitch_high": 522,
+      "pitch_low": 522,
+      "rate_slow_18": 576,
+      "baseline": 54
+    },
+    "by_generation_batch": {
+      "v2": 480,
+      "v1": 120,
+      "v3": 2196
+    },
+    "by_generation_method_usable": {
+      "v2_tts": 480,
+      "v1_legacy_tts": 120,
+      "offline_signal_aug": 2142,
+      "edge_tts": 54
+    },
+    "by_voice_usable": {
+      "edge-zh-HK-HiuGaaiNeural": 936,
+      "edge-zh-HK-HiuMaanNeural": 936,
+      "edge-zh-HK-WanLungNeural": 894,
+      "canto-tts-default": 30
+    },
+    "by_split": {
+      "train": 1873,
+      "val": 440,
+      "test": 483
+    },
+    "by_split_condition": {
+      "train": {
+        "text_morphology": 250,
+        "rate_slow": 63,
+        "legacy": 84,
+        "rate_fast_18": 342,
+        "pitch_high": 342,
+        "pitch_low": 342,
+        "rate_slow_18": 396,
+        "baseline": 54
+      },
+      "val": {
+        "text_morphology": 71,
+        "rate_slow": 9,
+        "legacy": 12,
+        "rate_fast_18": 87,
+        "pitch_high": 87,
+        "pitch_low": 87,
+        "rate_slow_18": 87
+      },
+      "test": {
+        "rate_slow": 18,
+        "legacy": 24,
+        "text_morphology": 69,
+        "rate_fast_18": 93,
+        "pitch_high": 93,
+        "pitch_low": 93,
+        "rate_slow_18": 93
+      }
+    },
+    "by_split_command": {
+      "train": {
+        "LIGHT_ON": 315,
+        "LIGHT_OFF": 313,
+        "CURTAIN_OPEN": 306,
+        "CURTAIN_CLOSE": 319,
+        "ALL_OFF": 305,
+        "STATUS_ALL": 315
+      },
+      "val": {
+        "LIGHT_ON": 58,
+        "LIGHT_OFF": 79,
+        "CURTAIN_OPEN": 78,
+        "CURTAIN_CLOSE": 74,
+        "ALL_OFF": 78,
+        "STATUS_ALL": 73
+      },
+      "test": {
+        "LIGHT_ON": 93,
+        "LIGHT_OFF": 74,
+        "CURTAIN_OPEN": 82,
+        "CURTAIN_CLOSE": 73,
+        "ALL_OFF": 83,
+        "STATUS_ALL": 78
+      }
+    },
+    "v2_by_split_condition": {
+      "train": {
+        "text_morphology": 250,
+        "rate_slow": 63,
+        "legacy": 84
+      },
+      "val": {
+        "text_morphology": 71,
+        "rate_slow": 9,
+        "legacy": 12
+      },
+      "test": {
+        "rate_slow": 18,
+        "legacy": 24,
+        "text_morphology": 69
+      }
+    },
+    "v3_added_by_split_condition": {
+      "train": {
+        "rate_fast_18": 342,
+        "pitch_high": 342,
+        "pitch_low": 342,
+        "rate_slow_18": 396,
+        "baseline": 54
+      },
+      "val": {
+        "rate_fast_18": 87,
+        "pitch_high": 87,
+        "pitch_low": 87,
+        "rate_slow_18": 87
+      },
+      "test": {
+        "rate_fast_18": 93,
+        "pitch_high": 93,
+        "pitch_low": 93,
+        "rate_slow_18": 93
+      }
+    },
+    "v2_by_command_split": {
+      "LIGHT_ON": {
+        "train": 69,
+        "val": 10,
+        "test": 21
+      },
+      "LIGHT_OFF": {
+        "train": 67,
+        "val": 19,
+        "test": 14
+      },
+      "CURTAIN_OPEN": {
+        "train": 60,
+        "val": 18,
+        "test": 22
+      },
+      "CURTAIN_CLOSE": {
+        "train": 73,
+        "val": 14,
+        "test": 13
+      },
+      "ALL_OFF": {
+        "train": 59,
+        "val": 18,
+        "test": 23
+      },
+      "STATUS_ALL": {
+        "train": 69,
+        "val": 13,
+        "test": 18
+      }
+    },
+    "v3_added_by_command_split": {
+      "LIGHT_ON": {
+        "train": 246,
+        "val": 48,
+        "test": 72
+      },
+      "LIGHT_OFF": {
+        "train": 246,
+        "val": 60,
+        "test": 60
+      },
+      "CURTAIN_OPEN": {
+        "train": 246,
+        "val": 60,
+        "test": 60
+      },
+      "CURTAIN_CLOSE": {
+        "train": 246,
+        "val": 60,
+        "test": 60
+      },
+      "ALL_OFF": {
+        "train": 246,
+        "val": 60,
+        "test": 60
+      },
+      "STATUS_ALL": {
+        "train": 246,
+        "val": 60,
+        "test": 60
+      }
+    },
+    "v3_added_by_condition": {
+      "rate_fast_18": 522,
+      "pitch_high": 522,
+      "pitch_low": 522,
+      "rate_slow_18": 576,
+      "baseline": 54
+    },
+    "v3_added_by_command": {
+      "ALL_OFF": 366,
+      "CURTAIN_CLOSE": 366,
+      "CURTAIN_OPEN": 366,
+      "LIGHT_OFF": 366,
+      "LIGHT_ON": 366,
+      "STATUS_ALL": 366
+    },
+    "new_expression_rows": 108,
+    "new_expression_groups": 18
+  },
+  "quality": {
+    "by_status": {
+      "ok": 2796
+    },
+    "flagged": [],
+    "excluded": [],
+    "note": "所有状态由 src.dataset_v2.quality_flags_for 阈值实测重算，非手填。"
+  },
+  "duplicates": {
+    "exact_duplicate_groups": 0,
+    "sha256_duplicates": 0,
+    "exact_duplicate_removed": [],
+    "num_exact_duplicate_removed": 0,
+    "condition_key_duplicates_v3": {},
+    "v3_vs_v2_sha256_overlap": 0,
+    "v3_vs_v2_condition_key_collision": 0,
+    "v3_vs_v2_rate_slow_overlap_note": "v2 的 rate_slow 为 rate=-12%，v3 的 rate_slow_18 为 rate=-18%，且音频由离线 WSOLA 生成，sha256 与条件键均不同"
+  },
+  "expression_group_merge": {
+    "n_merged_text_keys": 0,
+    "n_rows_changed": 0,
+    "merged_examples": [],
+    "note": "按规范化文本统一表达组；v3 预期为 0（新表达文本已预先查重）。"
+  },
+  "condition_verification": {
+    "rate_slow_18": {
+      "condition": "rate_slow_18",
+      "n": 576,
+      "n_measured": 576,
+      "missing_source_or_stats": 0,
+      "expected_duration_ratio": 1.21951,
+      "duration_ratio": {
+        "n": 576,
+        "mean": 1.2195,
+        "min": 1.2195,
+        "max": 1.2195,
+        "p05": 1.2195,
+        "p95": 1.2195
+      },
+      "duration_ratio_within_2pct": 576,
+      "rms": {
+        "n": 576,
+        "mean": 0.07203,
+        "min": 0.04145,
+        "max": 0.1096,
+        "p05": 0.05411,
+        "p95": 0.09872
+      },
+      "sha256_same_as_source": 0,
+      "format_violations": 0
+    },
+    "rate_fast_18": {
+      "condition": "rate_fast_18",
+      "n": 522,
+      "n_measured": 522,
+      "missing_source_or_stats": 0,
+      "expected_duration_ratio": 0.84746,
+      "duration_ratio": {
+        "n": 522,
+        "mean": 0.8475,
+        "min": 0.8474,
+        "max": 0.8475,
+        "p05": 0.8474,
+        "p95": 0.8475
+      },
+      "duration_ratio_within_2pct": 522,
+      "rms": {
+        "n": 522,
+        "mean": 0.07136,
+        "min": 0.04217,
+        "max": 0.10942,
+        "p05": 0.05348,
+        "p95": 0.09848
+      },
+      "sha256_same_as_source": 0,
+      "format_violations": 0
+    },
+    "pitch_low": {
+      "condition": "pitch_low",
+      "n": 522,
+      "n_measured": 522,
+      "missing_source_or_stats": 0,
+      "expected_duration_ratio": 1.0,
+      "duration_ratio": {
+        "n": 522,
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "p05": 1.0,
+        "p95": 1.0
+      },
+      "duration_ratio_within_2pct": 522,
+      "rms": {
+        "n": 522,
+        "mean": 0.07315,
+        "min": 0.04256,
+        "max": 0.1094,
+        "p05": 0.05502,
+        "p95": 0.09987
+      },
+      "sha256_same_as_source": 0,
+      "format_violations": 0,
+      "f0_delta_hz_estimated": {
+        "n": 522,
+        "mean": -14.61,
+        "min": -48.48,
+        "max": 16.42,
+        "p05": -20.43,
+        "p95": -8.28
+      }
+    },
+    "pitch_high": {
+      "condition": "pitch_high",
+      "n": 522,
+      "n_measured": 522,
+      "missing_source_or_stats": 0,
+      "expected_duration_ratio": 1.0,
+      "duration_ratio": {
+        "n": 522,
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "p05": 1.0,
+        "p95": 1.0
+      },
+      "duration_ratio_within_2pct": 522,
+      "rms": {
+        "n": 522,
+        "mean": 0.07289,
+        "min": 0.0414,
+        "max": 0.10891,
+        "p05": 0.05509,
+        "p95": 0.09816
+      },
+      "sha256_same_as_source": 0,
+      "format_violations": 0,
+      "f0_delta_hz_estimated": {
+        "n": 522,
+        "mean": 15.13,
+        "min": -20.51,
+        "max": 61.54,
+        "p05": 7.19,
+        "p95": 22.84
+      }
+    },
+    "note": "离线增广验证：时长比用实测时长（源为 v2 清单实测时长或缺口 baseline 生成日志实测时长）；f0 为自相关估计，非人工听测；sha256 相同条数为 0 说明输出与源字节不同。"
+  },
+  "split": {
+    "path": "data/splits/track_a_expression_split_v3.csv",
+    "sha256": "15c057bfdad69ed8833fb4b06f2a3f027c7d9f3a224a380b13c57d897de882dd",
+    "note": "该文件 sha256 记录于此；实验只读取该文件，不重新划分。",
+    "inherited_from": "data/splits/track_a_expression_split.csv",
+    "v2_split_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34",
+    "n_groups": 192,
+    "by_subset": {
+      "train": 132,
+      "val": 29,
+      "test": 31
+    },
+    "inheritance": {
+      "v2_groups_inherited": 174,
+      "new_groups_added_train": 18,
+      "mismatches": 0,
+      "v2_split_reference": "data/splits/track_a_expression_split.csv",
+      "v2_split_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34"
+    },
+    "new_groups": [
+      "ALL_OFF_30",
+      "ALL_OFF_31",
+      "ALL_OFF_32",
+      "CURTAIN_CLOSE_30",
+      "CURTAIN_CLOSE_31",
+      "CURTAIN_CLOSE_32",
+      "CURTAIN_OPEN_30",
+      "CURTAIN_OPEN_31",
+      "CURTAIN_OPEN_32",
+      "LIGHT_OFF_30",
+      "LIGHT_OFF_31",
+      "LIGHT_OFF_32",
+      "LIGHT_ON_30",
+      "LIGHT_ON_31",
+      "LIGHT_ON_32",
+      "STATUS_ALL_30",
+      "STATUS_ALL_31",
+      "STATUS_ALL_32"
+    ]
+  },
+  "track_a": {
+    "subset_stats": {
+      "train": {
+        "n_samples": 1873,
+        "n_groups": 132,
+        "by_command": {
+          "LIGHT_ON": 315,
+          "LIGHT_OFF": 313,
+          "CURTAIN_OPEN": 306,
+          "CURTAIN_CLOSE": 319,
+          "ALL_OFF": 305,
+          "STATUS_ALL": 315
+        },
+        "by_condition": {
+          "text_morphology": 250,
+          "rate_slow": 63,
+          "legacy": 84,
+          "rate_fast_18": 342,
+          "pitch_high": 342,
+          "pitch_low": 342,
+          "rate_slow_18": 396,
+          "baseline": 54
+        },
+        "by_voice": {
+          "edge-zh-HK-HiuGaaiNeural": 627,
+          "edge-zh-HK-HiuMaanNeural": 627,
+          "edge-zh-HK-WanLungNeural": 598,
+          "canto-tts-default": 21
+        },
+        "by_generation_method": {
+          "v2_tts": 313,
+          "v1_legacy_tts": 84,
+          "offline_signal_aug": 1422,
+          "edge_tts": 54
+        }
+      },
+      "val": {
+        "n_samples": 440,
+        "n_groups": 29,
+        "by_command": {
+          "LIGHT_ON": 58,
+          "LIGHT_OFF": 79,
+          "CURTAIN_OPEN": 78,
+          "CURTAIN_CLOSE": 74,
+          "ALL_OFF": 78,
+          "STATUS_ALL": 73
+        },
+        "by_condition": {
+          "text_morphology": 71,
+          "rate_slow": 9,
+          "legacy": 12,
+          "rate_fast_18": 87,
+          "pitch_high": 87,
+          "pitch_low": 87,
+          "rate_slow_18": 87
+        },
+        "by_voice": {
+          "edge-zh-HK-HiuGaaiNeural": 148,
+          "edge-zh-HK-HiuMaanNeural": 148,
+          "edge-zh-HK-WanLungNeural": 141,
+          "canto-tts-default": 3
+        },
+        "by_generation_method": {
+          "v2_tts": 80,
+          "v1_legacy_tts": 12,
+          "offline_signal_aug": 348
+        }
+      },
+      "test": {
+        "n_samples": 483,
+        "n_groups": 31,
+        "by_command": {
+          "LIGHT_ON": 93,
+          "LIGHT_OFF": 74,
+          "CURTAIN_OPEN": 82,
+          "CURTAIN_CLOSE": 73,
+          "ALL_OFF": 83,
+          "STATUS_ALL": 78
+        },
+        "by_condition": {
+          "rate_slow": 18,
+          "legacy": 24,
+          "text_morphology": 69,
+          "rate_fast_18": 93,
+          "pitch_high": 93,
+          "pitch_low": 93,
+          "rate_slow_18": 93
+        },
+        "by_voice": {
+          "edge-zh-HK-HiuGaaiNeural": 161,
+          "edge-zh-HK-HiuMaanNeural": 161,
+          "edge-zh-HK-WanLungNeural": 155,
+          "canto-tts-default": 6
+        },
+        "by_generation_method": {
+          "v2_tts": 87,
+          "v1_legacy_tts": 24,
+          "offline_signal_aug": 372
+        }
+      }
+    },
+    "leakage": {
+      "group_overlap_train_val": 0,
+      "group_overlap_train_test": 0,
+      "group_overlap_val_test": 0,
+      "normalized_text_overlap_train_val": 0,
+      "normalized_text_overlap_train_test": 0,
+      "normalized_text_overlap_val_test": 0,
+      "sha256_overlap_train_val": 0,
+      "sha256_overlap_train_test": 0,
+      "sha256_overlap_val_test": 0,
+      "utterance_overlap_train_test": 0
+    },
+    "leakage_zero": true
+  },
+  "unknown": {
+    "path": "data/tts_corpus/unknown_v3.csv",
+    "sha256": "7b2beb9be641543422a82291bba15dcd0102b6eea01bc90c643c59ae7c5af777",
+    "n_rows": 72,
+    "n_texts": 24,
+    "n_text_groups": 24,
+    "by_text_split": {
+      "calibration": 36,
+      "test": 36
+    },
+    "texts_by_split": {
+      "calibration": 12,
+      "test": 12
+    },
+    "by_voice": {
+      "zh-HK-HiuGaaiNeural": 24,
+      "zh-HK-HiuMaanNeural": 24,
+      "zh-HK-WanLungNeural": 24
+    },
+    "by_label": {
+      "hard_negative": 66,
+      "general_unknown": 6
+    },
+    "by_negative_type": {
+      "device_onoff_aircon": 6,
+      "device_onoff_tv": 6,
+      "device_onoff_fan": 6,
+      "light_brightness": 6,
+      "window_vs_curtain": 6,
+      "device_onoff_door": 6,
+      "device_onoff_dehumidifier": 6,
+      "device_onoff_water_heater": 6,
+      "volume_adjust": 6,
+      "device_onoff_music": 6,
+      "device_onoff_exhaust_fan": 6,
+      "device_onoff_fridge": 6
+    },
+    "texts_by_label": {
+      "general_unknown": [
+        "較大聲啲",
+        "較細聲啲"
+      ],
+      "hard_negative": [
+        "調光啲燈",
+        "調暗啲燈",
+        "開冷氣",
+        "開抽氣扇",
+        "開抽濕機",
+        "開熱水爐",
+        "開窗",
+        "開門",
+        "開雪櫃",
+        "開電視",
+        "開音樂",
+        "開風扇",
+        "關冷氣",
+        "關抽氣扇",
+        "關抽濕機",
+        "關熱水爐",
+        "關窗",
+        "關門",
+        "關雪櫃",
+        "關電視",
+        "關音樂",
+        "關風扇"
+      ]
+    },
+    "by_label_split": {
+      "general_unknown": {
+        "test": 3,
+        "calibration": 3
+      },
+      "hard_negative": {
+        "calibration": 33,
+        "test": 33
+      }
+    },
+    "texts_detail": [
+      {
+        "text": "開冷氣",
+        "text_group_id": "UNK_V3_01",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_aircon",
+        "n_voices": 3
+      },
+      {
+        "text": "關冷氣",
+        "text_group_id": "UNK_V3_02",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_aircon",
+        "n_voices": 3
+      },
+      {
+        "text": "開電視",
+        "text_group_id": "UNK_V3_03",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_tv",
+        "n_voices": 3
+      },
+      {
+        "text": "關電視",
+        "text_group_id": "UNK_V3_04",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_tv",
+        "n_voices": 3
+      },
+      {
+        "text": "開風扇",
+        "text_group_id": "UNK_V3_05",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_fan",
+        "n_voices": 3
+      },
+      {
+        "text": "關風扇",
+        "text_group_id": "UNK_V3_06",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_fan",
+        "n_voices": 3
+      },
+      {
+        "text": "調暗啲燈",
+        "text_group_id": "UNK_V3_07",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "light_brightness",
+        "n_voices": 3
+      },
+      {
+        "text": "調光啲燈",
+        "text_group_id": "UNK_V3_08",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "light_brightness",
+        "n_voices": 3
+      },
+      {
+        "text": "開窗",
+        "text_group_id": "UNK_V3_09",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "window_vs_curtain",
+        "n_voices": 3
+      },
+      {
+        "text": "關窗",
+        "text_group_id": "UNK_V3_10",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "window_vs_curtain",
+        "n_voices": 3
+      },
+      {
+        "text": "開門",
+        "text_group_id": "UNK_V3_11",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_door",
+        "n_voices": 3
+      },
+      {
+        "text": "關門",
+        "text_group_id": "UNK_V3_12",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_door",
+        "n_voices": 3
+      },
+      {
+        "text": "開抽濕機",
+        "text_group_id": "UNK_V3_13",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_dehumidifier",
+        "n_voices": 3
+      },
+      {
+        "text": "關抽濕機",
+        "text_group_id": "UNK_V3_14",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_dehumidifier",
+        "n_voices": 3
+      },
+      {
+        "text": "開熱水爐",
+        "text_group_id": "UNK_V3_15",
+        "text_split": "calibration",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_water_heater",
+        "n_voices": 3
+      },
+      {
+        "text": "關熱水爐",
+        "text_group_id": "UNK_V3_16",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_water_heater",
+        "n_voices": 3
+      },
+      {
+        "text": "較大聲啲",
+        "text_group_id": "UNK_V3_17",
+        "text_split": "test",
+        "label": "general_unknown",
+        "negative_type": "volume_adjust",
+        "n_voices": 3
+      },
+      {
+        "text": "較細聲啲",
+        "text_group_id": "UNK_V3_18",
+        "text_split": "calibration",
+        "label": "general_unknown",
+        "negative_type": "volume_adjust",
+        "n_voices": 3
+      },
+      {
+        "text": "開音樂",
+        "text_group_id": "UNK_V3_19",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_music",
+        "n_voices": 3
+      },
+      {
+        "text": "關音樂",
+        "text_group_id": "UNK_V3_20",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_music",
+        "n_voices": 3
+      },
+      {
+        "text": "開抽氣扇",
+        "text_group_id": "UNK_V3_21",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_exhaust_fan",
+        "n_voices": 3
+      },
+      {
+        "text": "關抽氣扇",
+        "text_group_id": "UNK_V3_22",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_exhaust_fan",
+        "n_voices": 3
+      },
+      {
+        "text": "開雪櫃",
+        "text_group_id": "UNK_V3_23",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_fridge",
+        "n_voices": 3
+      },
+      {
+        "text": "關雪櫃",
+        "text_group_id": "UNK_V3_24",
+        "text_split": "test",
+        "label": "hard_negative",
+        "negative_type": "device_onoff_fridge",
+        "n_voices": 3
+      }
+    ],
+    "voices_per_text_ok": true,
+    "each_text_single_split": true,
+    "text_disjoint_from_main_train": true,
+    "audio_all_exist": true,
+    "sha256_duplicates": 0,
+    "quality": {
+      "ok": 72
+    },
+    "texts": [
+      "調光啲燈",
+      "調暗啲燈",
+      "較大聲啲",
+      "較細聲啲",
+      "開冷氣",
+      "開抽氣扇",
+      "開抽濕機",
+      "開熱水爐",
+      "開窗",
+      "開門",
+      "開雪櫃",
+      "開電視",
+      "開音樂",
+      "開風扇",
+      "關冷氣",
+      "關抽氣扇",
+      "關抽濕機",
+      "關熱水爐",
+      "關窗",
+      "關門",
+      "關雪櫃",
+      "關電視",
+      "關音樂",
+      "關風扇"
+    ],
+    "note": "未知/易混指令测试集，不参与训练；按文本对半分 calibration/test；label=hard_negative/general_unknown 由 scripts/generate_unknown_v3.py 写入。"
+  },
+  "library_v3": {
+    "path": "data/corpus/yue_expression_library_v3.csv",
+    "sha256": "b92f3d8b612564ec9095d5d5f8080021a9556aba0974fdb9dafce84d49b43598",
+    "n_rows": 192,
+    "n_new": 18,
+    "n_rule_reviewed": 192
+  },
+  "v2_reference": {
+    "manifest": "data/tts_corpus/manifest_yue_v2.csv",
+    "manifest_sha256": "e89f3a0066859053c83ab5688e2aa886623590048e6742d7db7ae31ca51f3da7",
+    "split": "data/splits/track_a_expression_split.csv",
+    "split_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34",
+    "audit": "outputs/v2_data_audit.json",
+    "v2_audit_reported_split_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34"
+  },
+  "manifest": {
+    "path": "data/tts_corpus/manifest_yue_v3.csv",
+    "sha256": "fb2da56e82825e611c30bba5288462006a47969c38f147b39ad52b72b47315e0",
+    "fields": [
+      "utterance_id",
+      "audio_path",
+      "speaker_id",
+      "dialect",
+      "command",
+      "language",
+      "text",
+      "expression_type",
+      "semantic_pair_id",
+      "source",
+      "is_synthetic",
+      "duration",
+      "sample_rate",
+      "split_group",
+      "text_verified_by",
+      "quality_flags",
+      "notes",
+      "expression_group_id",
+      "tts_engine",
+      "voice_id",
+      "voice_identity",
+      "rate_percent",
+      "pitch",
+      "volume",
+      "condition",
+      "source_text",
+      "quality_status",
+      "quality_reasons",
+      "generation_batch",
+      "channels",
+      "sha256",
+      "register",
+      "split",
+      "group_alias",
+      "condition_detail",
+      "generation_method",
+      "augment_from",
+      "augment_params",
+      "text_norm",
+      "split_source"
+    ]
+  }
+}

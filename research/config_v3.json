@@ -1,0 +1,65 @@
+{
+  "version": "3.0.0",
+  "description": "方言智控盒 第三阶段（v3/v3.1）主模型配置。第二阶段 config.json 保持不变，本文件只被 v3 脚本读取。",
+  "data": {
+    "manifest": "data/tts_corpus/manifest_yue_v3_1.csv",
+    "split_file": "data/splits/track_a_expression_split_v3_1.csv",
+    "fallback_manifest": "data/tts_corpus/manifest_yue_v3.csv",
+    "fallback_split_file": "data/splits/track_a_expression_split_v3.csv",
+    "min_quality_status": "ok",
+    "audio_root": "data/tts_corpus"
+  },
+  "classes": ["LIGHT_ON", "LIGHT_OFF", "CURTAIN_OPEN", "CURTAIN_CLOSE", "ALL_OFF", "STATUS_ALL"],
+  "features": {
+    "kind": "logmel_delta",
+    "sample_rate": 16000,
+    "n_fft": 512,
+    "hop": 160,
+    "n_mels": 40,
+    "fmin": 50.0,
+    "fmax": 8000.0,
+    "preemphasis": 0.97,
+    "use_cmvn": true,
+    "logmel_cmvn": true,
+    "include_mfcc": false,
+    "include_logmel": true,
+    "include_delta": true,
+    "include_delta2": false,
+    "delta_width": 2,
+    "n_frames": 256,
+    "fixed_length_method": "linear_interp"
+  },
+  "model": {
+    "arch": "cmd_cnn_v1",
+    "seeds": [42, 7, 2026],
+    "batch_size": 64,
+    "max_epochs": 90,
+    "patience": 12,
+    "lr": 0.0015,
+    "weight_decay": 0.0002,
+    "label_smoothing": 0.05,
+    "dropout": 0.3,
+    "augment": {
+      "time_shift": 14,
+      "freq_mask_max": 8,
+      "time_mask_max": 24,
+      "gain_db": 0.25,
+      "p_freq_mask": 0.7,
+      "p_time_mask": 0.7
+    }
+  },
+  "rejection": {
+    "enabled": true,
+    "score": "max_prob",
+    "temperature_grid_min": 0.5,
+    "temperature_grid_max": 5.0,
+    "temperature_grid_steps": 91,
+    "min_known_coverage": 0.85,
+    "target_far": 0.08
+  },
+  "paths": {
+    "artifacts_dir": "data/models",
+    "outputs_dir": "outputs/v3_experiments",
+    "cache_dir": "outputs/v3_cache"
+  }
+}

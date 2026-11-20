@@ -1,0 +1,19 @@
+{
+  "format": "v3_thresholds/1.0",
+  "selected_threshold": 0.93,
+  "score": "max_prob",
+  "temperature": 0.45,
+  "model_sha256": "9e261d88c116bc2f0f17688b5fea6b5dc7ab3af8e5055d5f191b31d626eeb9cc",
+  "selected_on": "validation + unknown calibration",
+  "known_coverage_on_validation": 0.8590909090909091,
+  "unknown_false_accept_rate_on_validation": 0.3611111111111111,
+  "test_metrics_reference": {
+    "known_coverage": 0.8902691511387164,
+    "accepted_accuracy": 0.9441860465116279,
+    "unknown_false_accept_rate": 0.3611111111111111,
+    "n_known_test": 483,
+    "n_unknown_test": 36
+  },
+  "notes": "阈值只在验证集+未知校准集选择；test 指标仅作参考记录，不参与阈值选择。",
+  "generated_by": "scripts/evaluate_v3_rejection.py"
+}

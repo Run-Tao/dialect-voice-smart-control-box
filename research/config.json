@@ -1,0 +1,64 @@
+{
+  "features": {
+    "sample_rate": 16000,
+    "n_fft": 512,
+    "hop_length": 160,
+    "n_mfcc": 13,
+    "n_mels": 26,
+    "fmin": 50.0,
+    "fmax": 8000.0,
+    "preemphasis": 0.97,
+    "use_cmvn": true
+  },
+  "split": {
+    "train_ratio": 0.6,
+    "val_ratio": 0.2,
+    "test_ratio": 0.2,
+    "seed": 42
+  },
+  "alignment": {
+    "fixed_length_frames": 100,
+    "dtw_metric": "euclidean"
+  },
+  "baselines": {
+    "template_language": null,
+    "dtw": {
+      "normalize": "path",
+      "max_frames": 60
+    },
+    "logreg": {
+      "l2": 0.001,
+      "learning_rate": 0.1,
+      "epochs": 300,
+      "tune_on_validation": true,
+      "l2_grid": [
+        0.0001,
+        0.001,
+        0.01
+      ]
+    },
+    "svm": {
+      "l2": 0.001,
+      "learning_rate": 0.05,
+      "epochs": 500,
+      "tune_on_validation": true,
+      "l2_grid": [
+        0.0001,
+        0.001,
+        0.01
+      ]
+    }
+  },
+  "mapping": {
+    "source_language": null,
+    "target_language": null,
+    "alignment": "fixed_length",
+    "svd_mode": "none",
+    "svd_rank": 8,
+    "fit_intercept": true,
+    "alpha": 0.001
+  },
+  "outputs": {
+    "directory": "outputs"
+  }
+}

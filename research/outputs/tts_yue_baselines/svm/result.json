@@ -1,0 +1,111 @@
+{
+  "method": "svm",
+  "split": {
+    "seed": 42,
+    "train_speakers": [
+      "zh-HK-HiuGaaiNeural",
+      "zh-HK-HiuMaanNeural"
+    ],
+    "val_speakers": [
+      "zh-HK-WanLungNeural"
+    ],
+    "test_speakers": [
+      "canto-tts-default"
+    ],
+    "train_size": 60,
+    "val_size": 30,
+    "test_size": 30
+  },
+  "data_protocol": {
+    "fit_on": "train",
+    "scaler_fit_on": "train",
+    "tuning_on": "validation",
+    "evaluation_on": "test"
+  },
+  "hyperparameters": {
+    "selected_l2": 0.0001,
+    "tuning_log": [
+      {
+        "l2": 0.0001,
+        "val_accuracy": 0.16666666666666666
+      },
+      {
+        "l2": 0.001,
+        "val_accuracy": 0.16666666666666666
+      },
+      {
+        "l2": 0.01,
+        "val_accuracy": 0.16666666666666666
+      }
+    ],
+    "sentence_feature_dim": 52
+  },
+  "metrics": {
+    "accuracy": 0.16666666666666666,
+    "macro_f1": 0.047619047619047616,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ]
+    ]
+  },
+  "timing": {
+    "train_seconds": 0.0143151999800466,
+    "inference_seconds_total": 3.0099996365606785e-05,
+    "inference_seconds_per_sample": 1.003333212186893e-06
+  },
+  "run_id": "svm_20261018_224805"
+}

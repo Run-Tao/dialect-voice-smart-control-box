@@ -1,0 +1,211 @@
+expression_id,command,text,register,expected_intent,direct_executable,distractor_terms,naturalness_morphemes,yue_naturalness_review,notes,text_verified_by,v3_source
+LIGHT_ON_01,LIGHT_ON,開燈,short_direct,LIGHT_ON,true,,開燈,"""HIGH: 書面粵語，全粵區通用""","""核心短命令""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_02,LIGHT_ON,開返燈,short_direct,LIGHT_ON,true,,開返燈,"""HIGH: 返 為粵語完成/恢復體貌詞，說話人常用""","""恢復性指令""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_03,LIGHT_ON,開著燈,short_direct,LIGHT_ON,true,,開著燈,"""MEDIUM: 著 作持續體貌在粵語口語可接受，部分寫法用 開着""","""寫法仍有變體""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_04,LIGHT_ON,燈開住先,short_direct,LIGHT_ON,true,,開住先,"""HIGH: 開住 持續體貌；先 表示先行，典型粤語語序""","""粵語特色語序""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_05,LIGHT_ON,幫我開燈,colloquial,LIGHT_ON,true,,幫我開燈,"""HIGH: 幫我 為粵語常用請求前綴""","""與既有 LIGHT_ON_colloquial 同文本""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_06,LIGHT_ON,幫我開返燈,colloquial,LIGHT_ON,true,,幫我開返燈,"""HIGH: 幫我+開返 組合自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_07,LIGHT_ON,幫我開著個燈,colloquial,LIGHT_ON,true,,幫我開著個,"""MEDIUM: 個 作量詞泛指在粵語常見，但 開著 體貌寫法有變體""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_08,LIGHT_ON,唔該開燈,polite,LIGHT_ON,true,,唔該,"""HIGH: 唔該 為粵語標誌性禮貌詞""","""與既有 polite 組同義但措辭不同""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_09,LIGHT_ON,唔該幫我開燈,polite,LIGHT_ON,true,,唔該幫我開燈,"""HIGH: 粵語日常禮貌請求""","""與既有 LIGHT_ON_polite 同文本""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_10,LIGHT_ON,可唔可以開燈,question,LIGHT_ON,true,,可唔可以,"""HIGH: 可唔可以 為粵語標準疑問框架""","""與既有 LIGHT_ON_question 同文本（去問號）""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_11,LIGHT_ON,可唔可以幫我開燈,question,LIGHT_ON,true,,可唔可以幫我開燈,"""HIGH: 粵語疑問+請求疊加，自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_12,LIGHT_ON,開燈得唔得,question,LIGHT_ON,true,,得唔得,"""HIGH: 得唔得 為粵語句末問句，口語自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_13,LIGHT_ON,可唔可以開返燈,question,LIGHT_ON,true,,可唔可以開返燈,"""HIGH: 粵語疑問+恢復體貌""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_14,LIGHT_ON,唔係熄燈係開燈,correction,LIGHT_ON,true,熄燈,唔係喺,"""HIGH: 粵語否定對比句式，自然；熄燈 作為對比項不改變意圖""","""與既有 LIGHT_ON_correction 同文本（去逗號）""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_15,LIGHT_ON,唔係熄燈係開返燈,correction,LIGHT_ON,true,熄燈,唔係喺,"""HIGH: 粵語否定對比+恢復體貌""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_16,LIGHT_ON,我想開燈,colloquial,LIGHT_ON,true,,我想,"""HIGH: 想 表達意願，粵語常用，未加粵語體貌詞但句子成立""","""表達意願而非純命令""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_17,LIGHT_ON,而家開燈,short_direct,LIGHT_ON,true,,而家,"""HIGH: 而家 為粵語時間詞，說話人常用""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_18,LIGHT_ON,開燈啦,short_direct,LIGHT_ON,true,,啦,"""HIGH: 啦 為粵語語氣助詞，自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_19,LIGHT_ON,幫手開燈,colloquial,LIGHT_ON,true,,幫手,"""HIGH: 幫手 為粵語動詞，表示幫忙""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_20,LIGHT_ON,唔該幫手開燈,polite,LIGHT_ON,true,,唔該幫手,"""HIGH: 唔該+幫手，粵語自然組合""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_21,LIGHT_ON,可以開燈嗎,question,LIGHT_ON,true,,嗎,"""LOW-MEDIUM: 嗎 屬普通話疑問標記，粵語通常用 可唔可以/得唔得""","""口語程度較低，已標記""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_22,LIGHT_ON,請開燈,polite,LIGHT_ON,true,,請,"""MEDIUM: 請 粵語可用但偏書面""","""偏書面""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_23,LIGHT_ON,開燈啊,short_direct,LIGHT_ON,true,,啊,"""HIGH: 啊 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_24,LIGHT_ON,幫我開盞燈,colloquial,LIGHT_ON,true,,幫我開盞,"""HIGH: 盞 為粵語燈的量詞，自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_25,LIGHT_ON,而家開返燈啦,short_direct,LIGHT_ON,true,,而家開返,"""HIGH: 而家+開返+啦，典型粵語口語""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_26,LIGHT_ON,唔該幫我開着燈,polite,LIGHT_ON,true,,唔該幫我開著,"""MEDIUM: 着/著 體貌寫法有變體""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_27,LIGHT_ON,燈太暗開燈啦,short_direct,LIGHT_ON,true,太暗,太暗,"""HIGH: 粵語自然因果句，燈太暗 為情境非命令項""","""含情境描述""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_28,LIGHT_ON,幫我燈開住,colloquial,LIGHT_ON,true,,開住,"""HIGH: 賓語前置+持續體貌，粵語口語合法""","""賓語前置語序""",RULE_REVIEWED,inherited_v2
+LIGHT_ON_29,LIGHT_ON,唔該燈開住先,polite,LIGHT_ON,true,,唔該開住先,"""HIGH: 粵語禮貌+持續體貌+先行助詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_01,LIGHT_OFF,熄燈,short_direct,LIGHT_OFF,true,,熄燈,"""HIGH: 熄 為粵語關燈動詞""","""核心短命令""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_02,LIGHT_OFF,熄返燈,short_direct,LIGHT_OFF,true,,熄返燈,"""HIGH: 返 為粵語體貌詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_03,LIGHT_OFF,關燈,short_direct,LIGHT_OFF,true,,關燈,"""HIGH: 關 粵語通用，較書面""","""與普通話同形""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_04,LIGHT_OFF,閂燈,short_direct,LIGHT_OFF,true,,閂燈,"""HIGH: 閂 為粵語關閉動詞（較口語）""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_05,LIGHT_OFF,幫我熄燈,colloquial,LIGHT_OFF,true,,幫我熄燈,"""HIGH: 粵語常用請求""","""與既有 LIGHT_OFF_colloquial 同文本""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_06,LIGHT_OFF,幫我熄返燈,colloquial,LIGHT_OFF,true,,幫我熄返,"""HIGH: 粵語體貌自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_07,LIGHT_OFF,幫我閂燈,colloquial,LIGHT_OFF,true,,幫我閂,"""HIGH: 閂 粵語口語動詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_08,LIGHT_OFF,唔該熄燈,polite,LIGHT_OFF,true,,唔該熄,"""HIGH: 粵語禮貌請求""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_09,LIGHT_OFF,唔該幫我熄燈,polite,LIGHT_OFF,true,,唔該幫我熄,"""HIGH: 粵語禮貌請求""","""與既有 LIGHT_OFF_polite 同文本""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_10,LIGHT_OFF,可唔可以熄燈,question,LIGHT_OFF,true,,可唔可以,"""HIGH: 粵語標準疑問""","""與既有 LIGHT_OFF_question 同文本（去問號）""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_11,LIGHT_OFF,可唔可以幫我熄燈,question,LIGHT_OFF,true,,可唔可以幫我熄,"""HIGH: 粵語疑問+請求""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_12,LIGHT_OFF,熄燈得唔得,question,LIGHT_OFF,true,,得唔得,"""HIGH: 粵語句末問句""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_13,LIGHT_OFF,可唔可以熄返燈,question,LIGHT_OFF,true,,可唔可以熄返,"""HIGH: 粵語疑問+體貌""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_14,LIGHT_OFF,唔係開燈係熄燈,correction,LIGHT_OFF,true,開燈,唔係喺,"""HIGH: 粵語否定對比""","""與既有 LIGHT_OFF_correction 同文本（去逗號）""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_15,LIGHT_OFF,唔係開燈係熄返燈,correction,LIGHT_OFF,true,開燈,唔係喺,"""HIGH: 粵語否定對比+體貌""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_16,LIGHT_OFF,我想熄燈,colloquial,LIGHT_OFF,true,,我想,"""HIGH: 粵語意願表達""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_17,LIGHT_OFF,而家熄燈,short_direct,LIGHT_OFF,true,,而家,"""HIGH: 而家 粵語時間詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_18,LIGHT_OFF,熄燈啦,short_direct,LIGHT_OFF,true,,啦,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_19,LIGHT_OFF,幫手熄燈,colloquial,LIGHT_OFF,true,,幫手,"""HIGH: 幫手 粵語動詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_20,LIGHT_OFF,唔該幫手熄燈,polite,LIGHT_OFF,true,,唔該幫手,"""HIGH: 粵語自然組合""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_21,LIGHT_OFF,可以關燈嗎,question,LIGHT_OFF,true,,嗎,"""LOW-MEDIUM: 嗎 屬普通話疑問標記""","""口語程度較低，已標記""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_22,LIGHT_OFF,請熄燈,polite,LIGHT_OFF,true,,請,"""MEDIUM: 請 偏書面""","""偏書面""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_23,LIGHT_OFF,熄燈啊,short_direct,LIGHT_OFF,true,,啊,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_24,LIGHT_OFF,幫我熄燈先,colloquial,LIGHT_OFF,true,,幫我熄先,"""HIGH: 先 表示先行""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_25,LIGHT_OFF,唔該幫我閂燈,polite,LIGHT_OFF,true,,唔該幫我閂,"""HIGH: 閂 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_26,LIGHT_OFF,熄燈先啦,short_direct,LIGHT_OFF,true,,熄先啦,"""HIGH: 先+啦，粵語口語自然""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_27,LIGHT_OFF,而家熄返燈,short_direct,LIGHT_OFF,true,,而家熄返,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_28,LIGHT_OFF,唔該幫我熄燈先,polite,LIGHT_OFF,true,,唔該熄先,"""HIGH: 粵語禮貌+先行""","""""",RULE_REVIEWED,inherited_v2
+LIGHT_OFF_29,LIGHT_OFF,燈太光熄燈啦,short_direct,LIGHT_OFF,true,太光,太光,"""HIGH: 粵語自然因果句""","""含情境描述""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_01,CURTAIN_OPEN,開窗簾,short_direct,CURTAIN_OPEN,true,,開窗簾,"""HIGH: 粵語通用""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_02,CURTAIN_OPEN,打開窗簾,short_direct,CURTAIN_OPEN,true,,打開窗簾,"""HIGH: 粵語通用""","""與既有 CURTAIN_OPEN_direct 同文本""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_03,CURTAIN_OPEN,拉開窗簾,short_direct,CURTAIN_OPEN,true,,拉開窗簾,"""HIGH: 拉開 為粵語窗簾動詞搭檔""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_04,CURTAIN_OPEN,開返窗簾,short_direct,CURTAIN_OPEN,true,,開返窗簾,"""HIGH: 返 體貌詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_05,CURTAIN_OPEN,幫我拉開窗簾,colloquial,CURTAIN_OPEN,true,,幫我拉開,"""HIGH: 粵語常用請求""","""與既有 CURTAIN_OPEN_colloquial 同文本""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_06,CURTAIN_OPEN,幫我打開窗簾,colloquial,CURTAIN_OPEN,true,,幫我打開,"""HIGH: 粵語常用""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_07,CURTAIN_OPEN,幫手打開窗簾,colloquial,CURTAIN_OPEN,true,,幫手打開,"""HIGH: 幫手 粵語動詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_08,CURTAIN_OPEN,唔該拉開窗簾,polite,CURTAIN_OPEN,true,,唔該拉開,"""HIGH: 粵語禮貌""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_09,CURTAIN_OPEN,唔該幫我打開窗簾,polite,CURTAIN_OPEN,true,,唔該幫我打開,"""HIGH: 粵語禮貌""","""與既有 CURTAIN_OPEN_polite 同文本""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_10,CURTAIN_OPEN,可唔可以打開窗簾,question,CURTAIN_OPEN,true,,可唔可以,"""HIGH: 粵語標準疑問""","""與既有 CURTAIN_OPEN_question 同文本（去問號）""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_11,CURTAIN_OPEN,可唔可以拉開窗簾,question,CURTAIN_OPEN,true,,可唔可以拉開,"""HIGH: 粵語疑問""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_12,CURTAIN_OPEN,開窗簾得唔得,question,CURTAIN_OPEN,true,,得唔得,"""HIGH: 粵語句末問句""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_13,CURTAIN_OPEN,可唔可以幫我拉開窗簾,question,CURTAIN_OPEN,true,,可唔可以幫我拉開,"""HIGH: 粵語疑問+請求""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_14,CURTAIN_OPEN,唔係拉埋窗簾係打開窗簾,correction,CURTAIN_OPEN,true,拉埋窗簾,唔係喺,"""HIGH: 粵語否定對比""","""與既有 CURTAIN_OPEN_correction 同文本（去逗號）""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_15,CURTAIN_OPEN,唔係拉埋係拉開,correction,CURTAIN_OPEN,true,拉埋,唔係喺,"""HIGH: 粵語口語對比""","""較短，測試表達長度效應""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_16,CURTAIN_OPEN,我想開窗簾,colloquial,CURTAIN_OPEN,true,,我想,"""HIGH: 粵語意願""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_17,CURTAIN_OPEN,而家拉開窗簾,short_direct,CURTAIN_OPEN,true,,而家,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_18,CURTAIN_OPEN,拉開窗簾啦,short_direct,CURTAIN_OPEN,true,,啦,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_19,CURTAIN_OPEN,幫手拉開窗簾,colloquial,CURTAIN_OPEN,true,,幫手拉開,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_20,CURTAIN_OPEN,唔該幫手拉開窗簾,polite,CURTAIN_OPEN,true,,唔該幫手拉開,"""HIGH: 粵語自然""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_21,CURTAIN_OPEN,可以打開窗簾嗎,question,CURTAIN_OPEN,true,,嗎,"""LOW-MEDIUM: 嗎 屬普通話疑問標記""","""口語程度較低，已標記""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_22,CURTAIN_OPEN,請打開窗簾,polite,CURTAIN_OPEN,true,,請,"""MEDIUM: 偏書面""","""偏書面""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_23,CURTAIN_OPEN,開窗簾啊,short_direct,CURTAIN_OPEN,true,,啊,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_24,CURTAIN_OPEN,開返窗簾啦,short_direct,CURTAIN_OPEN,true,,開返啦,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_25,CURTAIN_OPEN,唔該幫我拉開個窗簾,polite,CURTAIN_OPEN,true,,唔該幫我拉開個,"""HIGH: 個 泛指量詞，粵語口語常見""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_26,CURTAIN_OPEN,屋企太黑開窗簾,short_direct,CURTAIN_OPEN,true,太黑,屋企太黑,"""HIGH: 屋企 粵語詞，全句自然""","""含情境描述""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_27,CURTAIN_OPEN,幫我拉開窗簾先,colloquial,CURTAIN_OPEN,true,,幫我拉開先,"""HIGH: 先 先行助詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_28,CURTAIN_OPEN,窗簾拉開佢,short_direct,CURTAIN_OPEN,true,,拉開佢,"""HIGH: 佢 作結果補語在粵語口語常見""","""口語較重",RULE_REVIEWED,inherited_v2
+CURTAIN_OPEN_29,CURTAIN_OPEN,唔該開返窗簾,polite,CURTAIN_OPEN,true,,唔該開返,"""HIGH: 粵語禮貌+體貌""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_01,CURTAIN_CLOSE,關窗簾,short_direct,CURTAIN_CLOSE,true,,關窗簾,"""HIGH: 粵語通用，較書面""","""與普通話同形""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_02,CURTAIN_CLOSE,拉埋窗簾,short_direct,CURTAIN_CLOSE,true,,拉埋窗簾,"""HIGH: 埋 為粵語結果體貌，標誌性用法""","""與既有 CURTAIN_CLOSE_direct 同文本""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_03,CURTAIN_CLOSE,閂窗簾,short_direct,CURTAIN_CLOSE,true,,閂窗簾,"""HIGH: 閂 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_04,CURTAIN_CLOSE,拉返埋窗簾,short_direct,CURTAIN_CLOSE,true,,拉返埋,"""HIGH: 返+埋 粵語體貌疊用，口語自然""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_05,CURTAIN_CLOSE,幫我拉埋窗簾,colloquial,CURTAIN_CLOSE,true,,幫我拉埋,"""HIGH: 粵語常用請求""","""與既有 CURTAIN_CLOSE_colloquial 同文本""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_06,CURTAIN_CLOSE,幫我關窗簾,colloquial,CURTAIN_CLOSE,true,,幫我關,"""HIGH: 粵語常用""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_07,CURTAIN_CLOSE,幫手拉埋窗簾,colloquial,CURTAIN_CLOSE,true,,幫手拉埋,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_08,CURTAIN_CLOSE,唔該拉埋窗簾,polite,CURTAIN_CLOSE,true,,唔該拉埋,"""HIGH: 粵語禮貌""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_09,CURTAIN_CLOSE,唔該幫我拉埋窗簾,polite,CURTAIN_CLOSE,true,,唔該幫我拉埋,"""HIGH: 粵語禮貌""","""與既有 CURTAIN_CLOSE_polite 同文本""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_10,CURTAIN_CLOSE,可唔可以拉埋窗簾,question,CURTAIN_CLOSE,true,,可唔可以,"""HIGH: 粵語標準疑問""","""與既有 CURTAIN_CLOSE_question 同文本（去問號）""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_11,CURTAIN_CLOSE,可唔可以關窗簾,question,CURTAIN_CLOSE,true,,可唔可以關,"""HIGH: 粵語疑問""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_12,CURTAIN_CLOSE,拉埋窗簾得唔得,question,CURTAIN_CLOSE,true,,得唔得,"""HIGH: 粵語句末問句""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_13,CURTAIN_CLOSE,可唔可以幫我拉埋窗簾,question,CURTAIN_CLOSE,true,,可唔可以幫我拉埋,"""HIGH: 粵語疑問+請求""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_14,CURTAIN_CLOSE,唔係打開窗簾係拉埋窗簾,correction,CURTAIN_CLOSE,true,打開窗簾,唔係喺,"""HIGH: 粵語否定對比""","""與既有 CURTAIN_CLOSE_correction 同文本（去逗號）""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_15,CURTAIN_CLOSE,唔係拉開係拉埋,correction,CURTAIN_CLOSE,true,拉開,唔係喺,"""HIGH: 粵語口語對比""","""較短""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_16,CURTAIN_CLOSE,我想關窗簾,colloquial,CURTAIN_CLOSE,true,,我想,"""HIGH: 粵語意願""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_17,CURTAIN_CLOSE,而家拉埋窗簾,short_direct,CURTAIN_CLOSE,true,,而家,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_18,CURTAIN_CLOSE,拉埋窗簾啦,short_direct,CURTAIN_CLOSE,true,,啦,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_19,CURTAIN_CLOSE,幫手關窗簾,colloquial,CURTAIN_CLOSE,true,,幫手關,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_20,CURTAIN_CLOSE,唔該幫手拉埋窗簾,polite,CURTAIN_CLOSE,true,,唔該幫手拉埋,"""HIGH: 粵語自然""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_21,CURTAIN_CLOSE,可以關窗簾嗎,question,CURTAIN_CLOSE,true,,嗎,"""LOW-MEDIUM: 嗎 屬普通話疑問標記""","""口語程度較低，已標記""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_22,CURTAIN_CLOSE,請拉埋窗簾,polite,CURTAIN_CLOSE,true,,請,"""MEDIUM: 偏書面""","""偏書面""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_23,CURTAIN_CLOSE,關窗簾啊,short_direct,CURTAIN_CLOSE,true,,啊,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_24,CURTAIN_CLOSE,拉埋窗簾先,short_direct,CURTAIN_CLOSE,true,,拉埋先,"""HIGH: 先 先行助詞""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_25,CURTAIN_CLOSE,唔該幫我關窗簾,polite,CURTAIN_CLOSE,true,,唔該幫我關,"""HIGH: 粵語禮貌""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_26,CURTAIN_CLOSE,出面太光拉埋窗簾,short_direct,CURTAIN_CLOSE,true,太光,出面太光,"""HIGH: 出面 粵語詞，全句自然""","""含情境描述""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_27,CURTAIN_CLOSE,幫我拉埋窗簾先,colloquial,CURTAIN_CLOSE,true,,幫我拉埋先,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_28,CURTAIN_CLOSE,窗簾拉埋佢,short_direct,CURTAIN_CLOSE,true,,拉埋佢,"""HIGH: 佢 結果補語，粵語口語""","""口語較重""",RULE_REVIEWED,inherited_v2
+CURTAIN_CLOSE_29,CURTAIN_CLOSE,唔該閂窗簾,polite,CURTAIN_CLOSE,true,,唔該閂,"""HIGH: 閂 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_01,ALL_OFF,全部關晒,short_direct,ALL_OFF,true,,關晒,"""HIGH: 晒 為粵語全稱體貌，標誌性用法""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_02,ALL_OFF,全部熄晒,short_direct,ALL_OFF,true,,熄晒,"""HIGH: 粵語全稱體貌""","""與既有 ALL_OFF_direct 同文本""",RULE_REVIEWED,inherited_v2
+ALL_OFF_03,ALL_OFF,閂晒佢,short_direct,ALL_OFF,true,,閂晒佢,"""HIGH: 粵語口語，晒+佢 常見""","""較短口語""",RULE_REVIEWED,inherited_v2
+ALL_OFF_04,ALL_OFF,所有嘢關晒,short_direct,ALL_OFF,true,,所有嘢關晒,"""HIGH: 嘢（東西）為粵語口語詞""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_05,ALL_OFF,幫我全部閂晒,colloquial,ALL_OFF,true,,幫我全部閂晒,"""HIGH: 粵語口語""","""與既有 ALL_OFF_colloquial 同文本""",RULE_REVIEWED,inherited_v2
+ALL_OFF_06,ALL_OFF,幫我將啲嘢全部熄晒,colloquial,ALL_OFF,true,,將啲嘢全部熄晒,"""HIGH: 啲嘢 粵語口語（東西）""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_07,ALL_OFF,幫手關晒佢,colloquial,ALL_OFF,true,,幫手關晒佢,"""HIGH: 幫手+晒+佢 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_08,ALL_OFF,唔該全部關掉,polite,ALL_OFF,true,,唔該全部關掉,"""MEDIUM: 唔該 禮貌自然，但 關掉 偏書面""","""與既有 ALL_OFF_polite 同文本""",RULE_REVIEWED,inherited_v2
+ALL_OFF_09,ALL_OFF,唔該熄晒佢,polite,ALL_OFF,true,,唔該熄晒佢,"""HIGH: 粵語自然""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_10,ALL_OFF,可唔可以全部熄晒,question,ALL_OFF,true,,可唔可以,"""HIGH: 粵語標準疑問""","""與既有 ALL_OFF_question 同文本（去問號）""",RULE_REVIEWED,inherited_v2
+ALL_OFF_11,ALL_OFF,全部關晒得唔得,question,ALL_OFF,true,,得唔得,"""HIGH: 粵語句末問句""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_12,ALL_OFF,可唔可以幫我全部關晒,question,ALL_OFF,true,,可唔可以幫我全部關晒,"""HIGH: 粵語疑問+請求""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_13,ALL_OFF,可唔可以將啲嘢全部閂晒,question,ALL_OFF,true,,將啲嘢全部閂晒,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_14,ALL_OFF,唔係淨係熄燈係全部熄晒,correction,ALL_OFF,true,熄燈,唔係淨係,"""HIGH: 淨係 為粵語（只是），自然""","""與既有 ALL_OFF_correction 同文本（去逗號）""",RULE_REVIEWED,inherited_v2
+ALL_OFF_15,ALL_OFF,唔係熄燈唔係關窗簾係全部熄晒,correction,ALL_OFF,true,熄燈;關窗簾,唔係喺,"""HIGH: 粵語多重否定對比，自然""","""含兩個干擾項，較難""",RULE_REVIEWED,inherited_v2
+ALL_OFF_16,ALL_OFF,全部熄晒先,short_direct,ALL_OFF,true,,熄晒先,"""HIGH: 先 先行助詞""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_17,ALL_OFF,而家全部關晒,short_direct,ALL_OFF,true,,而家全部,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_18,ALL_OFF,全部熄晒佢,short_direct,ALL_OFF,true,,熄晒佢,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_19,ALL_OFF,幫手全部熄晒,colloquial,ALL_OFF,true,,幫手全部熄晒,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_20,ALL_OFF,唔該將所有嘢關晒,polite,ALL_OFF,true,,唔該關晒,"""HIGH: 粵語自然""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_21,ALL_OFF,可以全部關掉嗎,question,ALL_OFF,true,,嗎,"""LOW-MEDIUM: 嗎 屬普通話疑問標記，關掉 偏書面""","""口語程度較低，已標記""",RULE_REVIEWED,inherited_v2
+ALL_OFF_22,ALL_OFF,請全部關閉,polite,ALL_OFF,true,,請,"""LOW: 關閉 為書面語，粵語口語少用""","""書面程度最高，已標記""",RULE_REVIEWED,inherited_v2
+ALL_OFF_23,ALL_OFF,全部關晒啊,short_direct,ALL_OFF,true,,啊,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_24,ALL_OFF,全部熄晒啦,short_direct,ALL_OFF,true,,啦,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_25,ALL_OFF,唔該幫我全部熄晒佢,polite,ALL_OFF,true,,唔該幫我熄晒佢,"""HIGH: 粵語禮貌+體貌""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_26,ALL_OFF,我想全部關晒,colloquial,ALL_OFF,true,,我想,"""HIGH: 粵語意願""","""""",RULE_REVIEWED,inherited_v2
+ALL_OFF_27,ALL_OFF,夜晚喇全部熄晒,short_direct,ALL_OFF,true,,夜晚喇,"""HIGH: 喇 粵語語氣助詞，情境自然""","""含情境描述""",RULE_REVIEWED,inherited_v2
+ALL_OFF_28,ALL_OFF,燈同窗簾全部關晒,short_direct,ALL_OFF,true,燈;窗簾,燈同窗簾,"""HIGH: 同 為粵語連接詞（和），自然""","""明示兩類設備""",RULE_REVIEWED,inherited_v2
+ALL_OFF_29,ALL_OFF,唔該幫我將啲嘢全部閂晒,polite,ALL_OFF,true,,唔該將啲嘢全部閂晒,"""HIGH: 粵語禮貌口語""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_01,STATUS_ALL,而家咩狀態,short_direct,STATUS_ALL,true,,而家咩,"""HIGH: 咩 為粵語（什麼），標誌性用法""","""與既有 STATUS_ALL_direct 同文本""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_02,STATUS_ALL,睇下而家咩狀態,short_direct,STATUS_ALL,true,,睇下而家咩,"""HIGH: 睇下 粵語（看看）""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_03,STATUS_ALL,設備點樣,short_direct,STATUS_ALL,true,,點樣,"""HIGH: 點樣 為粵語（怎麼樣）""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_04,STATUS_ALL,而家點呀,short_direct,STATUS_ALL,true,,而家點,"""HIGH: 粵語口語，點 表示怎樣""","""較短，語境依賴略高""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_05,STATUS_ALL,睇下而家啲設備咩情況,colloquial,STATUS_ALL,true,,睇下啲設備咩,"""HIGH: 睇下+啲+咩 粵語口語""","""與既有 STATUS_ALL_colloquial 同文本""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_06,STATUS_ALL,講我知而家咩狀態,colloquial,STATUS_ALL,true,,講我知而家咩,"""HIGH: 講我知 為粵語語序（告訴我）""","""粵語特色語序""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_07,STATUS_ALL,查下而家啲設備,colloquial,STATUS_ALL,true,,查下啲設備,"""HIGH: 查下 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_08,STATUS_ALL,唔該講下設備狀態,polite,STATUS_ALL,true,,唔該講下,"""HIGH: 粵語禮貌""","""與既有 STATUS_ALL_polite 同文本""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_09,STATUS_ALL,唔該講我知而家咩情況,polite,STATUS_ALL,true,,唔該講我知而家咩,"""HIGH: 粵語禮貌+語序""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_10,STATUS_ALL,而家啲設備係咩狀態,question,STATUS_ALL,true,,啲設備係咩,"""HIGH: 係 粵語判斷詞""","""與既有 STATUS_ALL_question 同文本（去問號）""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_11,STATUS_ALL,可唔可以講下而家咩情況,question,STATUS_ALL,true,,可唔可以講下而家咩,"""HIGH: 粵語疑問+請求""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_12,STATUS_ALL,設備狀態點樣,question,STATUS_ALL,true,,點樣,"""HIGH: 點樣 粵語""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_13,STATUS_ALL,而家啲嘢係咪都開晒,question,STATUS_ALL,true,,啲嘢係咪,"""MEDIUM-HIGH: 係咪 疑問自然，但問題偏具體（是否全開）""","""語義偏向具體狀態查詢，已標記""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_14,STATUS_ALL,唔係問燈係問全部設備狀態,correction,STATUS_ALL,true,問燈,唔係喺,"""HIGH: 粵語否定對比""","""與既有 STATUS_ALL_correction 同文本（去逗號）""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_15,STATUS_ALL,唔係只講燈係講晒所有嘢,correction,STATUS_ALL,true,燈,唔係只係晒,"""HIGH: 粵語口語對比""","""含干擾項""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_16,STATUS_ALL,我想睇下設備狀態,colloquial,STATUS_ALL,true,,睇下,"""HIGH: 粵語意願+睇下""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_17,STATUS_ALL,而家啲設備點,short_direct,STATUS_ALL,true,,而家啲設備點,"""HIGH: 粵語口語，點 表示怎樣""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_18,STATUS_ALL,講下而家咩狀態啦,short_direct,STATUS_ALL,true,,講下而家咩,"""HIGH: 粵語語氣助詞""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_19,STATUS_ALL,幫我睇下啲設備點樣,colloquial,STATUS_ALL,true,,幫我睇下啲設備,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_20,STATUS_ALL,唔該幫我查下設備狀態,polite,STATUS_ALL,true,,唔該幫我查下,"""HIGH: 粵語禮貌""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_21,STATUS_ALL,可以講下設備狀態嗎,question,STATUS_ALL,true,,嗎,"""LOW-MEDIUM: 嗎 屬普通話疑問標記""","""口語程度較低，已標記""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_22,STATUS_ALL,請報告設備狀態,polite,STATUS_ALL,true,,請報告,"""LOW: 報告 書面語，粵語口語少用""","""書面程度最高，已標記""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_23,STATUS_ALL,而家係咩情況,short_direct,STATUS_ALL,true,,係咩,"""HIGH: 係 粵語判斷詞""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_24,STATUS_ALL,睇睇而家啲狀態,short_direct,STATUS_ALL,true,,睇睇啲,"""HIGH: 睇睇 粵語重疊式（看看）""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_25,STATUS_ALL,唔該睇下而家咩情況,polite,STATUS_ALL,true,,唔該睇下而家咩,"""HIGH: 粵語禮貌""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_26,STATUS_ALL,而家啲電器開定關,short_direct,STATUS_ALL,true,,電器開定關,"""HIGH: 開定關 選擇式問法，粵語口語自然""","""語義明確""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_27,STATUS_ALL,幫我睇下開咗定關咗,colloquial,STATUS_ALL,true,,開咗定關咗,"""HIGH: 咗 粵語完成體，定 選擇問""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_28,STATUS_ALL,啲設備而家點呀,short_direct,STATUS_ALL,true,,啲設備點呀,"""HIGH: 粵語口語""","""""",RULE_REVIEWED,inherited_v2
+STATUS_ALL_29,STATUS_ALL,唔該講晒啲設備狀態我知,polite,STATUS_ALL,true,,唔該講晒啲設備,"""HIGH: 晒+我知 粵語語序""","""較長",RULE_REVIEWED,inherited_v2
+LIGHT_ON_30,LIGHT_ON,快啲開燈,colloquial,LIGHT_ON,true,,,HIGH: 「快啲」係粵語高頻祈使副詞，配單音節動詞自然，語氣急切但唔冒犯,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+LIGHT_ON_31,LIGHT_ON,開返盞燈先,colloquial,LIGHT_ON,true,,,HIGH: 量詞「盞」係粵語燈嘅常用量詞，「先」結句符合粵語語序,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+LIGHT_ON_32,LIGHT_ON,唔該同我開燈,polite,LIGHT_ON,true,,,HIGH: 「唔該同我…」係粵語禮貌請求句式，自然流暢,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+LIGHT_OFF_30,LIGHT_OFF,快啲熄燈,colloquial,LIGHT_OFF,true,,,HIGH: 「熄」係粵語關燈常用動詞，配「快啲」自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+LIGHT_OFF_31,LIGHT_OFF,熄返盞燈先,colloquial,LIGHT_OFF,true,,,HIGH: 「返」表恢復原狀語義，「盞燈」量詞搭配自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+LIGHT_OFF_32,LIGHT_OFF,唔該同我閂燈,polite,LIGHT_OFF,true,,,HIGH: 「閂燈」係粵語地道講法，「唔該同我」禮貌自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+CURTAIN_OPEN_30,CURTAIN_OPEN,快啲拉開窗簾,colloquial,CURTAIN_OPEN,true,,,HIGH: 「拉開」係粵語開窗簾常用動詞配搭,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+CURTAIN_OPEN_31,CURTAIN_OPEN,拉開個窗簾先,colloquial,CURTAIN_OPEN,true,,,HIGH: 「個窗簾」量詞自然，「先」結句符合粵語口語,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+CURTAIN_OPEN_32,CURTAIN_OPEN,唔該同我打開窗簾,polite,CURTAIN_OPEN,true,,,HIGH: 「打開」同「拉開」均可，句式禮貌自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+CURTAIN_CLOSE_30,CURTAIN_CLOSE,快啲拉埋窗簾,colloquial,CURTAIN_CLOSE,true,,,HIGH: 「拉埋」係粵語關窗簾常用動詞配搭,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+CURTAIN_CLOSE_31,CURTAIN_CLOSE,拉埋個窗簾先,colloquial,CURTAIN_CLOSE,true,,,HIGH: 「拉埋個窗簾」量詞與動詞搭配自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+CURTAIN_CLOSE_32,CURTAIN_CLOSE,唔該同我閂窗簾,polite,CURTAIN_CLOSE,true,,,MEDIUM: 「閂窗簾」較「拉埋窗簾」少用，但粵語區仍可理解，屬可接受變體,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+ALL_OFF_30,ALL_OFF,快啲全部熄晒,colloquial,ALL_OFF,true,,,HIGH: 「全部熄晒」係粵語全關地道講法，「快啲」加強語氣自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+ALL_OFF_31,ALL_OFF,全部關晒先,colloquial,ALL_OFF,true,,,HIGH: 「關晒」+「先」結句符合粵語口語,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+ALL_OFF_32,ALL_OFF,唔該同我全部關晒,polite,ALL_OFF,true,,,HIGH: 「唔該同我全部關晒」禮貌且自然,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+STATUS_ALL_30,STATUS_ALL,快啲講下而家咩狀態,colloquial,STATUS_ALL,true,,,HIGH: 「講下…咩狀態」係粵語詢問狀態自然句式,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+STATUS_ALL_31,STATUS_ALL,睇下狀態先,colloquial,STATUS_ALL,true,,,HIGH: 「睇下…先」粵語口語常用，語義清晰,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+STATUS_ALL_32,STATUS_ALL,唔該同我查下設備,polite,STATUS_ALL,true,,,MEDIUM: 「查下設備」略簡，但粵語口語可接受，語義指向設備狀態,v3 新增表达；规则复核通过；口语化，仅进入 train 子集,RULE_REVIEWED,new_v3
+LIGHT_ON_NC01,LIGHT_ON,唔係熄燈係要開燈,correction,LIGHT_ON,true,熄燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=LIGHT_ON；句式「唔係X係Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+LIGHT_ON_NC02,LIGHT_ON,唔好熄燈，開燈先,correction,LIGHT_ON,true,熄燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=LIGHT_ON；句式「唔好X，Y先」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+LIGHT_ON_NC03,LIGHT_ON,熄咗先唔係，開返燈,correction,LIGHT_ON,true,熄咗,,MEDIUM: v3.1 correction 语域增量，先反后正，最终意图=LIGHT_ON；句式「X咗先唔係，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+LIGHT_OFF_NC01,LIGHT_OFF,唔係開燈係要熄燈,correction,LIGHT_OFF,true,開燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=LIGHT_OFF；句式「唔係X係Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+LIGHT_OFF_NC02,LIGHT_OFF,唔好開燈，熄燈先,correction,LIGHT_OFF,true,開燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=LIGHT_OFF；句式「唔好X，Y先」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+LIGHT_OFF_NC03,LIGHT_OFF,開咗先唔係，熄返燈,correction,LIGHT_OFF,true,開咗,,MEDIUM: v3.1 correction 语域增量，先反后正，最终意图=LIGHT_OFF；句式「X咗先唔係，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+CURTAIN_OPEN_NC01,CURTAIN_OPEN,唔係拉埋係要打開,correction,CURTAIN_OPEN,true,拉埋,,MEDIUM: v3.1 correction 语域增量，先反后正，最终意图=CURTAIN_OPEN；句式「唔係X係Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+CURTAIN_OPEN_NC02,CURTAIN_OPEN,唔好關窗簾，打開窗簾先,correction,CURTAIN_OPEN,true,關窗簾,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=CURTAIN_OPEN；句式「唔好X，Y先」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+CURTAIN_OPEN_NC03,CURTAIN_OPEN,拉埋咗先唔係，拉開佢,correction,CURTAIN_OPEN,true,拉埋咗,,MEDIUM: v3.1 correction 语域增量，先反后正，最终意图=CURTAIN_OPEN；句式「X咗先唔係，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+CURTAIN_CLOSE_NC01,CURTAIN_CLOSE,唔係打開係要拉埋,correction,CURTAIN_CLOSE,true,打開,,MEDIUM: v3.1 correction 语域增量，先反后正，最终意图=CURTAIN_CLOSE；句式「唔係X係Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+CURTAIN_CLOSE_NC02,CURTAIN_CLOSE,唔好開窗簾，關埋窗簾先,correction,CURTAIN_CLOSE,true,開窗簾,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=CURTAIN_CLOSE；句式「唔好X，Y先」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+CURTAIN_CLOSE_NC03,CURTAIN_CLOSE,打開咗先唔係，拉埋佢,correction,CURTAIN_CLOSE,true,打開咗,,MEDIUM: v3.1 correction 语域增量，先反后正，最终意图=CURTAIN_CLOSE；句式「X咗先唔係，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+ALL_OFF_NC01,ALL_OFF,唔係淨係熄燈，全部都要關,correction,ALL_OFF,true,淨係熄燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=ALL_OFF；句式「唔係X係Y/全部都要關」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+ALL_OFF_NC02,ALL_OFF,唔好只關燈，全部熄晒佢,correction,ALL_OFF,true,只關燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=ALL_OFF；句式「唔好X，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+ALL_OFF_NC03,ALL_OFF,熄燈唔夠，全部關晒,correction,ALL_OFF,true,熄燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=ALL_OFF；句式「X唔夠，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+STATUS_ALL_NC01,STATUS_ALL,唔係開燈，係問下狀態,correction,STATUS_ALL,true,開燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=STATUS_ALL；句式「唔係X係Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+STATUS_ALL_NC02,STATUS_ALL,唔好熄燈，講下設備狀態,correction,STATUS_ALL,true,熄燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=STATUS_ALL；句式「唔好X，Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1
+STATUS_ALL_NC03,STATUS_ALL,唔係叫我開燈，係查狀態,correction,STATUS_ALL,true,開燈,,HIGH: v3.1 correction 语域增量，先反后正，最终意图=STATUS_ALL；句式「唔係叫我X，係Y」,v3.1 correction 覆盖修复新增；仅进入 train；未复用测试集 correction 文本,RULE_REVIEWED,new_v3_1

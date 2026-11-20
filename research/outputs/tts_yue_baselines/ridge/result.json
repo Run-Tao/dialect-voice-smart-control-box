@@ -1,0 +1,138 @@
+{
+  "method": "ridge",
+  "split": {
+    "seed": 42,
+    "train_speakers": [
+      "zh-HK-HiuGaaiNeural",
+      "zh-HK-HiuMaanNeural"
+    ],
+    "val_speakers": [
+      "zh-HK-WanLungNeural"
+    ],
+    "test_speakers": [
+      "canto-tts-default"
+    ],
+    "train_size": 60,
+    "val_size": 30,
+    "test_size": 30
+  },
+  "data_protocol": {
+    "mapping_fit_on": "train_pairs",
+    "svd_fit_on": "train_pairs",
+    "templates_from": "train_target_records",
+    "evaluation_on": "test",
+    "val_used_for": "not_used"
+  },
+  "mapping": {
+    "method": "ridge",
+    "fit_intercept": true,
+    "alpha": 0.001,
+    "svd_mode": "none",
+    "svd_rank": 8,
+    "alignment": "fixed_length",
+    "source_language": null,
+    "target_language": null,
+    "num_pairs": 540,
+    "train_rmse": 0.8564822726265375,
+    "train_mae": 0.612118761500933,
+    "train_mean_cosine": 0.49274311073356447,
+    "omega_shape": [
+      100,
+      13
+    ]
+  },
+  "templates": {
+    "LIGHT_ON": [
+      100,
+      13
+    ],
+    "LIGHT_OFF": [
+      100,
+      13
+    ],
+    "CURTAIN_OPEN": [
+      100,
+      13
+    ],
+    "CURTAIN_CLOSE": [
+      100,
+      13
+    ],
+    "ALL_OFF": [
+      100,
+      13
+    ],
+    "STATUS_ALL": [
+      100,
+      13
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.13333333333333333,
+    "macro_f1": 0.04301075268817204,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "timing": {
+    "train_seconds": 0.06357050000224262,
+    "inference_seconds_total": 0.16496860003098845,
+    "inference_seconds_per_sample": 0.005498953334366282
+  },
+  "run_id": "ridge_20261018_224817"
+}

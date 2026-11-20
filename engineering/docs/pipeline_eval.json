@@ -1,0 +1,140 @@
+{
+  "threshold": 0.945,
+  "classes": [
+    "LIGHT_ON",
+    "LIGHT_OFF",
+    "CURTAIN_OPEN",
+    "CURTAIN_CLOSE",
+    "ALL_OFF",
+    "STATUS_ALL"
+  ],
+  "source": {
+    "manifest": "D:/Run_Tao/DialectVoice_Research/data/tts_corpus/manifest_yue_v3_1_vad.csv",
+    "subset": "test",
+    "known_dir": null,
+    "unknown_dir": "D:/Run_Tao/DialectVoice_Research/data/tts_corpus/unknown_v3_vad"
+  },
+  "variants": {
+    "with_vad": {
+      "known": {
+        "n": 483,
+        "skipped": 0,
+        "argmax_accuracy": 0.8799,
+        "acceptance_rate": 0.7598,
+        "accepted_accuracy": 0.9319,
+        "per_command_argmax_accuracy": {
+          "ALL_OFF": 0.9157,
+          "CURTAIN_CLOSE": 0.6849,
+          "CURTAIN_OPEN": 0.7561,
+          "LIGHT_OFF": 0.9595,
+          "LIGHT_ON": 0.9462,
+          "STATUS_ALL": 1.0
+        },
+        "per_command_n": {
+          "ALL_OFF": 83,
+          "CURTAIN_CLOSE": 73,
+          "CURTAIN_OPEN": 82,
+          "LIGHT_OFF": 74,
+          "LIGHT_ON": 93,
+          "STATUS_ALL": 78
+        },
+        "confusion": {
+          "ALL_OFF": {
+            "ALL_OFF": 76,
+            "LIGHT_OFF": 6,
+            "STATUS_ALL": 1
+          },
+          "CURTAIN_CLOSE": {
+            "ALL_OFF": 9,
+            "CURTAIN_CLOSE": 50,
+            "CURTAIN_OPEN": 14
+          },
+          "CURTAIN_OPEN": {
+            "CURTAIN_CLOSE": 19,
+            "CURTAIN_OPEN": 62,
+            "LIGHT_OFF": 1
+          },
+          "LIGHT_OFF": {
+            "ALL_OFF": 3,
+            "LIGHT_OFF": 71
+          },
+          "LIGHT_ON": {
+            "LIGHT_OFF": 4,
+            "LIGHT_ON": 88,
+            "STATUS_ALL": 1
+          },
+          "STATUS_ALL": {
+            "STATUS_ALL": 78
+          }
+        },
+        "mean_latency_ms": 10.8
+      },
+      "unknown": {
+        "n": 72,
+        "false_accept_rate": 0.125,
+        "mean_latency_ms": 8.9
+      }
+    },
+    "no_vad": {
+      "known": {
+        "n": 483,
+        "skipped": 0,
+        "argmax_accuracy": 0.882,
+        "acceptance_rate": 0.764,
+        "accepted_accuracy": 0.9377,
+        "per_command_argmax_accuracy": {
+          "ALL_OFF": 0.9157,
+          "CURTAIN_CLOSE": 0.6849,
+          "CURTAIN_OPEN": 0.7561,
+          "LIGHT_OFF": 0.973,
+          "LIGHT_ON": 0.9462,
+          "STATUS_ALL": 1.0
+        },
+        "per_command_n": {
+          "ALL_OFF": 83,
+          "CURTAIN_CLOSE": 73,
+          "CURTAIN_OPEN": 82,
+          "LIGHT_OFF": 74,
+          "LIGHT_ON": 93,
+          "STATUS_ALL": 78
+        },
+        "confusion": {
+          "ALL_OFF": {
+            "ALL_OFF": 76,
+            "LIGHT_OFF": 6,
+            "STATUS_ALL": 1
+          },
+          "CURTAIN_CLOSE": {
+            "ALL_OFF": 10,
+            "CURTAIN_CLOSE": 50,
+            "CURTAIN_OPEN": 13
+          },
+          "CURTAIN_OPEN": {
+            "CURTAIN_CLOSE": 19,
+            "CURTAIN_OPEN": 62,
+            "LIGHT_OFF": 1
+          },
+          "LIGHT_OFF": {
+            "ALL_OFF": 2,
+            "LIGHT_OFF": 72
+          },
+          "LIGHT_ON": {
+            "LIGHT_OFF": 4,
+            "LIGHT_ON": 88,
+            "STATUS_ALL": 1
+          },
+          "STATUS_ALL": {
+            "STATUS_ALL": 78
+          }
+        },
+        "mean_latency_ms": 9.5
+      },
+      "unknown": {
+        "n": 72,
+        "false_accept_rate": 0.125,
+        "mean_latency_ms": 8.5
+      }
+    }
+  },
+  "note": "语料为 edge-tts 合成粤语，非真人语音；结论不外推为真人准确率。"
+}

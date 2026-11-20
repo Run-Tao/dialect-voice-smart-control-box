@@ -1,0 +1,330 @@
+{
+  "protocol": "leave-one-expression-out; all 4 voices in each fold; one test sample per class; trim variant",
+  "folds": {
+    "colloquial": {
+      "accuracy": 0.6666666666666666,
+      "macro_f1": 0.5555555555555555,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 6.194427366659511
+    },
+    "correction": {
+      "accuracy": 0.16666666666666666,
+      "macro_f1": 0.16666666666666666,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 6.018731250000807
+    },
+    "direct": {
+      "accuracy": 0.16666666666666666,
+      "macro_f1": 0.08333333333333333,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 5.810088149999501
+    },
+    "polite": {
+      "accuracy": 0.5,
+      "macro_f1": 0.5,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 5.6947076166591915
+    },
+    "question": {
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.7777777777777777,
+      "labels": [
+        "ALL_OFF",
+        "CURTAIN_CLOSE",
+        "CURTAIN_OPEN",
+        "LIGHT_OFF",
+        "LIGHT_ON",
+        "STATUS_ALL"
+      ],
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "n": 6,
+      "mean_latency_sec": 5.425641849995979
+    }
+  },
+  "mean_accuracy": 0.4666666666666667,
+  "std_accuracy": 0.2666666666666667,
+  "mean_macro_f1": 0.41666666666666663,
+  "std_macro_f1": 0.257000744582675,
+  "note": "synthetic TTS only"
+}

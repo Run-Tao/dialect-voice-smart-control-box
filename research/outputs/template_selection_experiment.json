@@ -1,0 +1,390 @@
+{
+  "best_on_val": "medoid_min",
+  "results": {
+    "all_min": {
+      "val": {
+        "accuracy": 0.6666666666666666,
+        "macro_f1": 0.611111111111111,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 1.2482921833288856
+      },
+      "test": {
+        "accuracy": 0.16666666666666666,
+        "macro_f1": 0.1111111111111111,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "mean_latency_sec": 1.523219216663468
+      }
+    },
+    "medoid_min": {
+      "val": {
+        "accuracy": 0.8333333333333334,
+        "macro_f1": 0.7777777777777777,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 0.2256970999975844
+      },
+      "test": {
+        "accuracy": 0.16666666666666666,
+        "macro_f1": 0.16666666666666666,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 0.2601522500044666
+      }
+    },
+    "all_top2": {
+      "val": {
+        "accuracy": 0.6666666666666666,
+        "macro_f1": 0.611111111111111,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 1.5159829833331362
+      },
+      "test": {
+        "accuracy": 0.0,
+        "macro_f1": 0.0,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "mean_latency_sec": 1.5025905333362364
+      }
+    }
+  },
+  "note": "synthetic TTS strict split; trim feature; selected on val only"
+}

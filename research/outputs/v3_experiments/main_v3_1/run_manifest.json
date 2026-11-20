@@ -1,0 +1,8 @@
+{
+  "command": "scripts\\run_v3_experiments.py --experiments E3 E4 E5 E10 --run-name main_v3_1",
+  "config": "D:\\Run_Tao\\DialectVoice_Research\\config_v3.json",
+  "model": "D:\\Run_Tao\\DialectVoice_Research\\data\\models\\v3_cnn_ensemble.npz",
+  "manifest_sha256": "eb9b60140047f2bfb2eb9fed834f94e55648d645e9e7ee0b5572a0139916aa02",
+  "split_sha256": "97a9eef8041ca7272ec26fcfdad33e01729df2947adcb3f405a1baceb7409620",
+  "created_at": "2026-10-21T15:07:45"
+}

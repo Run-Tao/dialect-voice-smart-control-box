@@ -1,0 +1,100 @@
+{
+  "method": "dtw",
+  "split": {
+    "seed": 42,
+    "train_speakers": [
+      "zh-HK-HiuGaaiNeural",
+      "zh-HK-HiuMaanNeural"
+    ],
+    "val_speakers": [
+      "zh-HK-WanLungNeural"
+    ],
+    "test_speakers": [
+      "canto-tts-default"
+    ],
+    "train_size": 60,
+    "val_size": 30,
+    "test_size": 30
+  },
+  "data_protocol": {
+    "templates_from": "train",
+    "evaluation_on": "test",
+    "val_used_for": "not_used"
+  },
+  "templates": {
+    "LIGHT_ON": 10,
+    "LIGHT_OFF": 10,
+    "CURTAIN_OPEN": 10,
+    "CURTAIN_CLOSE": 10,
+    "ALL_OFF": 10,
+    "STATUS_ALL": 10
+  },
+  "metrics": {
+    "accuracy": 0.36666666666666664,
+    "macro_f1": 0.36087061087061084,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        2,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        2,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        2,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        3,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    ]
+  },
+  "timing": {
+    "train_seconds": 0.0,
+    "inference_seconds_total": 17.85327690001577,
+    "inference_seconds_per_sample": 0.5951092300005257
+  },
+  "run_id": "dtw_20261018_224800"
+}

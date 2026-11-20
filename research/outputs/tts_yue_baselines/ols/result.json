@@ -1,0 +1,138 @@
+{
+  "method": "ols",
+  "split": {
+    "seed": 42,
+    "train_speakers": [
+      "zh-HK-HiuGaaiNeural",
+      "zh-HK-HiuMaanNeural"
+    ],
+    "val_speakers": [
+      "zh-HK-WanLungNeural"
+    ],
+    "test_speakers": [
+      "canto-tts-default"
+    ],
+    "train_size": 60,
+    "val_size": 30,
+    "test_size": 30
+  },
+  "data_protocol": {
+    "mapping_fit_on": "train_pairs",
+    "svd_fit_on": "train_pairs",
+    "templates_from": "train_target_records",
+    "evaluation_on": "test",
+    "val_used_for": "not_used"
+  },
+  "mapping": {
+    "method": "ols",
+    "fit_intercept": true,
+    "alpha": null,
+    "svd_mode": "none",
+    "svd_rank": 8,
+    "alignment": "fixed_length",
+    "source_language": null,
+    "target_language": null,
+    "num_pairs": 540,
+    "train_rmse": 0.8564822726260136,
+    "train_mae": 0.6121187637629432,
+    "train_mean_cosine": 0.49274310538737653,
+    "omega_shape": [
+      100,
+      13
+    ]
+  },
+  "templates": {
+    "LIGHT_ON": [
+      100,
+      13
+    ],
+    "LIGHT_OFF": [
+      100,
+      13
+    ],
+    "CURTAIN_OPEN": [
+      100,
+      13
+    ],
+    "CURTAIN_CLOSE": [
+      100,
+      13
+    ],
+    "ALL_OFF": [
+      100,
+      13
+    ],
+    "STATUS_ALL": [
+      100,
+      13
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.13333333333333333,
+    "macro_f1": 0.04301075268817204,
+    "labels": [
+      "ALL_OFF",
+      "CURTAIN_CLOSE",
+      "CURTAIN_OPEN",
+      "LIGHT_OFF",
+      "LIGHT_ON",
+      "STATUS_ALL"
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "timing": {
+    "train_seconds": 0.03341719997115433,
+    "inference_seconds_total": 0.12587889999849722,
+    "inference_seconds_per_sample": 0.004195963333283241
+  },
+  "run_id": "ols_20261018_224811"
+}

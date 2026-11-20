@@ -1,0 +1,17 @@
+{
+  "note": "small synthetic proxy; 12 yue test utterances; Mandarin Xiaoxiao added to mixed template pool",
+  "test_size": 12,
+  "max_frames": 60,
+  "yue_only": {
+    "accuracy": 0.5,
+    "macro_f1": 0.5388888888888889,
+    "templates": 60,
+    "mean_latency_sec": 1.3448449416658452
+  },
+  "yue_plus_mandarin": {
+    "accuracy": 0.5833333333333334,
+    "macro_f1": 0.5944444444444444,
+    "templates": 90,
+    "mean_latency_sec": 2.15861323333714
+  }
+}

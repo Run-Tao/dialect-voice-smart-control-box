@@ -1,0 +1,1240 @@
+{
+  "protocol": {
+    "threshold_selected_on": "validation split (track A) + 校准用未知文本",
+    "test_used_for": "final evaluation only, no parameter changes after this run",
+    "confidence_definition": "DTW 距离 softmax 置信度，与 src/baselines.py predict_dtw 一致",
+    "split_sha256": "b9b42403525e80b9678b95faedc196a911dc9047b5d2d8cf422f8f7b1f5c0b34"
+  },
+  "sizes": {
+    "train": 397,
+    "val": 92,
+    "test": 111,
+    "unknown_cal": 12,
+    "unknown_test": 12,
+    "unknown_texts_total": 8,
+    "unknown_cal_texts": 4,
+    "unknown_test_texts": 4
+  },
+  "validation_curve": [
+    {
+      "threshold": 0.0,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.5869565217391305,
+      "n_accepted": 92,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.05,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.5869565217391305,
+      "n_accepted": 92,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.1,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.5869565217391305,
+      "n_accepted": 92,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.15,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.5869565217391305,
+      "n_accepted": 92,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.2,
+      "known_coverage": 1.0,
+      "known_false_reject_rate": 0.0,
+      "accepted_accuracy": 0.5869565217391305,
+      "n_accepted": 92,
+      "unknown_false_accept_rate": 1.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.25,
+      "known_coverage": 0.9891304347826086,
+      "known_false_reject_rate": 0.010869565217391353,
+      "accepted_accuracy": 0.5934065934065934,
+      "n_accepted": 91,
+      "unknown_false_accept_rate": 0.75,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.3,
+      "known_coverage": 0.9891304347826086,
+      "known_false_reject_rate": 0.010869565217391353,
+      "accepted_accuracy": 0.5934065934065934,
+      "n_accepted": 91,
+      "unknown_false_accept_rate": 0.75,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.35,
+      "known_coverage": 0.9347826086956522,
+      "known_false_reject_rate": 0.06521739130434778,
+      "accepted_accuracy": 0.627906976744186,
+      "n_accepted": 86,
+      "unknown_false_accept_rate": 0.5833333333333334,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.4,
+      "known_coverage": 0.8586956521739131,
+      "known_false_reject_rate": 0.14130434782608692,
+      "accepted_accuracy": 0.6329113924050633,
+      "n_accepted": 79,
+      "unknown_false_accept_rate": 0.5,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.45,
+      "known_coverage": 0.8152173913043478,
+      "known_false_reject_rate": 0.18478260869565222,
+      "accepted_accuracy": 0.6266666666666667,
+      "n_accepted": 75,
+      "unknown_false_accept_rate": 0.4166666666666667,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.5,
+      "known_coverage": 0.7391304347826086,
+      "known_false_reject_rate": 0.26086956521739135,
+      "accepted_accuracy": 0.6029411764705882,
+      "n_accepted": 68,
+      "unknown_false_accept_rate": 0.3333333333333333,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.55,
+      "known_coverage": 0.6630434782608695,
+      "known_false_reject_rate": 0.3369565217391305,
+      "accepted_accuracy": 0.6229508196721312,
+      "n_accepted": 61,
+      "unknown_false_accept_rate": 0.16666666666666666,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.6,
+      "known_coverage": 0.5434782608695652,
+      "known_false_reject_rate": 0.4565217391304348,
+      "accepted_accuracy": 0.6,
+      "n_accepted": 50,
+      "unknown_false_accept_rate": 0.16666666666666666,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.65,
+      "known_coverage": 0.40217391304347827,
+      "known_false_reject_rate": 0.5978260869565217,
+      "accepted_accuracy": 0.6486486486486487,
+      "n_accepted": 37,
+      "unknown_false_accept_rate": 0.08333333333333333,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.7,
+      "known_coverage": 0.33695652173913043,
+      "known_false_reject_rate": 0.6630434782608696,
+      "accepted_accuracy": 0.7096774193548387,
+      "n_accepted": 31,
+      "unknown_false_accept_rate": 0.08333333333333333,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.75,
+      "known_coverage": 0.2717391304347826,
+      "known_false_reject_rate": 0.7282608695652174,
+      "accepted_accuracy": 0.72,
+      "n_accepted": 25,
+      "unknown_false_accept_rate": 0.08333333333333333,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.8,
+      "known_coverage": 0.1956521739130435,
+      "known_false_reject_rate": 0.8043478260869565,
+      "accepted_accuracy": 0.7222222222222222,
+      "n_accepted": 18,
+      "unknown_false_accept_rate": 0.08333333333333333,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.85,
+      "known_coverage": 0.17391304347826086,
+      "known_false_reject_rate": 0.8260869565217391,
+      "accepted_accuracy": 0.75,
+      "n_accepted": 16,
+      "unknown_false_accept_rate": 0.08333333333333333,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.9,
+      "known_coverage": 0.09782608695652174,
+      "known_false_reject_rate": 0.9021739130434783,
+      "accepted_accuracy": 0.7777777777777778,
+      "n_accepted": 9,
+      "unknown_false_accept_rate": 0.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 0.95,
+      "known_coverage": 0.021739130434782608,
+      "known_false_reject_rate": 0.9782608695652174,
+      "accepted_accuracy": 0.5,
+      "n_accepted": 2,
+      "unknown_false_accept_rate": 0.0,
+      "n_unknown": 12
+    },
+    {
+      "threshold": 1.0,
+      "known_coverage": 0.0,
+      "known_false_reject_rate": 1.0,
+      "accepted_accuracy": 0.0,
+      "n_accepted": 0,
+      "unknown_false_accept_rate": 0.0,
+      "n_unknown": 12
+    }
+  ],
+  "selected_threshold": 0.62,
+  "selected_on_validation": {
+    "known_coverage": 0.5,
+    "known_false_reject_rate": 0.5,
+    "accepted_accuracy": 0.6086956521739131,
+    "unknown_false_accept_rate": 0.08333333333333333
+  },
+  "test_results": {
+    "no_threshold_accuracy": 0.5495495495495496,
+    "no_threshold_macro_f1": 0.5410581774244294,
+    "known_coverage": 0.5225225225225225,
+    "known_false_reject_rate": 0.4774774774774775,
+    "accepted_accuracy": 0.5862068965517241,
+    "n_known_accepted": 58,
+    "unknown_false_accept_rate": 0.0,
+    "unknown_rejection_rate": 1.0,
+    "n_unknown_test": 12
+  },
+  "bootstrap_95ci_no_threshold": {
+    "accuracy_ci": [
+      0.3942040598290598,
+      0.7
+    ],
+    "n_groups": 31
+  },
+  "per_sample_test": [
+    {
+      "utterance_id": "ALL_OFF_05_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.8514474795616337,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_05_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.7804362320654629,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_05_edge_tts_zh-HK-WanLungNeural_slow_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.8603011272559563,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_colloquial_canto-tts-default",
+      "command": "ALL_OFF",
+      "voice": "canto-tts-default",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.2749066892033711,
+      "correct": false
+    },
+    {
+      "utterance_id": "ALL_OFF_colloquial_zh-HK-HiuGaaiNeural",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.8677999239880431,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_colloquial_zh-HK-HiuMaanNeural",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.8199210541241145,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_colloquial_zh-HK-WanLungNeural",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_05",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.9025235519441182,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_09_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_09",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.7275453457520583,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_09_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_09",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.5676672385428646,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_09_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_09",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.35467346290255464,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_11",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.5942761581182351,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_11_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_11",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.5518411885737744,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_11",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.5829957789567056,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_14_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.6485577138105924,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_14_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.5367764573894473,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_14_edge_tts_zh-HK-WanLungNeural_slow_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.8236420265309928,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_correction_canto-tts-default",
+      "command": "ALL_OFF",
+      "voice": "canto-tts-default",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.3301491815068,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_correction_zh-HK-HiuGaaiNeural",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.31251497339222795,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_correction_zh-HK-HiuMaanNeural",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.4246725117212411,
+      "correct": false
+    },
+    {
+      "utterance_id": "ALL_OFF_correction_zh-HK-WanLungNeural",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_14",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.48778862613899926,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_17_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "ALL_OFF_17",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.766806150649914,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_17_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "ALL_OFF_17",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.849869290979113,
+      "correct": true
+    },
+    {
+      "utterance_id": "ALL_OFF_17_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "ALL_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "ALL_OFF_17",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.834329635752491,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_13_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_CLOSE_13",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.7232462497712351,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_13_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_CLOSE_13",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.8344915691077968,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_13_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_CLOSE_13",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.9582813123630947,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_15_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_CLOSE_15",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.7439083997641952,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_15_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_CLOSE_15",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.4678186194947197,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_15_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_CLOSE_15",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.7440866523764939,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_CLOSE_19",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.7390624393979579,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_CLOSE_19",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.5905849000296045,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_CLOSE_19",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.5827864085967426,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_24_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_CLOSE_24",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.7372845306271106,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_24_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_CLOSE_24",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.7456547406078582,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_25_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_CLOSE_25",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.4766246594365415,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_CLOSE_25_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_CLOSE",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_CLOSE_25",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.5675066211873631,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_01_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_01",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.5382233872889134,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_01_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_01",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.561098360915971,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_01_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_OPEN_01",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.6457502860349891,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.6841579871366746,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.6800016011611749,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.5765884962129667,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_polite_canto-tts-default",
+      "command": "CURTAIN_OPEN",
+      "voice": "canto-tts-default",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.47628580380489677,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_polite_zh-HK-HiuGaaiNeural",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.5472444266569313,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_polite_zh-HK-HiuMaanNeural",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.5325296121537384,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_polite_zh-HK-WanLungNeural",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_OPEN_09",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.5440084309413673,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_11",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.9470818536033421,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_11_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_11",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.7279301902185528,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_OPEN_11",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.8027171490034587,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_14_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.4424042205710876,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_14_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.7156946088339933,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_14_edge_tts_zh-HK-WanLungNeural_slow_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.8097916508547391,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_correction_canto-tts-default",
+      "command": "CURTAIN_OPEN",
+      "voice": "canto-tts-default",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.6035989003043203,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_correction_zh-HK-HiuGaaiNeural",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.6599299628210306,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_correction_zh-HK-HiuMaanNeural",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.7379896192246348,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_correction_zh-HK-WanLungNeural",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "CURTAIN_OPEN_14",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.7586735450079676,
+      "correct": false
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_27_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "CURTAIN_OPEN_27",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.5529592252505012,
+      "correct": true
+    },
+    {
+      "utterance_id": "CURTAIN_OPEN_27_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "CURTAIN_OPEN",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "CURTAIN_OPEN_27",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.4733116249041894,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_08_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_OFF_08",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.5765761141899087,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_08_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_OFF_08",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.680003337001431,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_08_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_OFF_08",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.6567606897112163,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_12_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_OFF_12",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.8412717371544874,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_12_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_OFF_12",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.7980536365317188,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_12_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_OFF_12",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.8864506825337402,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_15_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_OFF_15",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.9183026170254905,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_15_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_OFF_15",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.8747525471369137,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_15_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_OFF_15",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.9447903711789837,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_OFF_19",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.6396109991045911,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_OFF_19",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.8120417651646871,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_OFF_19",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.6649808868764604,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_OFF_29_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_OFF_29",
+      "pred_command": "CURTAIN_CLOSE",
+      "confidence": 0.3670969676308646,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_OFF_29_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_OFF",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_OFF_29",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.41843394442409804,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_02_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_02",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.3812237380147306,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_02_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_02",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.5844257543783213,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_02_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_ON_02",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.4862098718031337,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_09_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.5021866080016145,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_09_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.5255785626793972,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_09_edge_tts_zh-HK-WanLungNeural_slow_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.5573172326671633,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_polite_canto-tts-default",
+      "command": "LIGHT_ON",
+      "voice": "canto-tts-default",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.3084875431987853,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_polite_zh-HK-HiuGaaiNeural",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.5250570405155048,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_polite_zh-HK-HiuMaanNeural",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.6136668120517212,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_polite_zh-HK-WanLungNeural",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_ON_09",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.5879125299509229,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_11_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_11",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.8203477166882661,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_11_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_11",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.8563052337456261,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_11_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_ON_11",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.8455068780412983,
+      "correct": false
+    },
+    {
+      "utterance_id": "LIGHT_ON_15_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_15",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.9499584245563293,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_15_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_15",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.8755248207587234,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_15_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_ON_15",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.978112044353375,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_19",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.7608327837786067,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_19",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.851608642511417,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "LIGHT_ON_19",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.7074954887299364,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_25_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "LIGHT_ON_25",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.34746073501746183,
+      "correct": true
+    },
+    {
+      "utterance_id": "LIGHT_ON_25_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "LIGHT_ON",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "LIGHT_ON_25",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.5050262350380839,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_08_edge_tts_zh-HK-HiuGaaiNeural_slow_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.9156157947961124,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_08_edge_tts_zh-HK-HiuMaanNeural_slow_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.8519753150223466,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_08_edge_tts_zh-HK-WanLungNeural_slow_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.9675436784252508,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_polite_canto-tts-default",
+      "command": "STATUS_ALL",
+      "voice": "canto-tts-default",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.3643513761236322,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_polite_zh-HK-HiuGaaiNeural",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.9247089657630652,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_polite_zh-HK-HiuMaanNeural",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.898927171844772,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_polite_zh-HK-WanLungNeural",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "STATUS_ALL_08",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.9650719682946262,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_15_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "STATUS_ALL_15",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.21645955303942546,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_15_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "STATUS_ALL_15",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.22304109639326458,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_15_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "STATUS_ALL_15",
+      "pred_command": "LIGHT_ON",
+      "confidence": 0.252064689003155,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_19_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "STATUS_ALL_19",
+      "pred_command": "LIGHT_OFF",
+      "confidence": 0.2683405218452382,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_19_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "STATUS_ALL_19",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.248603400652494,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_19_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "STATUS_ALL_19",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.5884094860608801,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_21_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "STATUS_ALL_21",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.29739090353413344,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_21_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "STATUS_ALL_21",
+      "pred_command": "ALL_OFF",
+      "confidence": 0.32478557638986394,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_21_edge_tts_zh-HK-WanLungNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-WanLungNeural",
+      "expression_group_id": "STATUS_ALL_21",
+      "pred_command": "CURTAIN_OPEN",
+      "confidence": 0.477090428669793,
+      "correct": false
+    },
+    {
+      "utterance_id": "STATUS_ALL_23_edge_tts_zh-HK-HiuGaaiNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuGaaiNeural",
+      "expression_group_id": "STATUS_ALL_23",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.5900815543496032,
+      "correct": true
+    },
+    {
+      "utterance_id": "STATUS_ALL_23_edge_tts_zh-HK-HiuMaanNeural_v0_00",
+      "command": "STATUS_ALL",
+      "voice": "zh-HK-HiuMaanNeural",
+      "expression_group_id": "STATUS_ALL_23",
+      "pred_command": "STATUS_ALL",
+      "confidence": 0.7184939697155599,
+      "correct": true
+    }
+  ],
+  "limitations": [
+    "未知命令样本仅 24 条合成 TTS（8 个不同文本），全部来自与已知命令相同的 3 个 TTS 音色，且部分文本与已知命令共享粤语词汇。未知误接受率不能外推到真人语音或任意未登记命令。",
+    "已知命令测试集为合成 TTS 的表达留出集；拒识结论仅适用于该合成条件。",
+    "若 unknown_test 为空，则未知误接受率不可估计。"
+  ]
+}

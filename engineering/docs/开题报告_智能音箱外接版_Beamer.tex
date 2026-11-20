@@ -1,0 +1,232 @@
+\documentclass[10pt]{beamer}
+\usepackage{ctex}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usefonttheme{serif}
+\usetheme{CambridgeUS}
+\usecolortheme{seahorse}
+\graphicspath{{beamer_assets/}}
+\title{基于方言语音识别的智能家居语音转换装置}
+\subtitle{本科工程导论开题报告}
+\author{陶理}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{frame}
+    \centering
+    \tableofcontents
+\end{frame}
+
+\section{研究背景与问题}
+\begin{frame}{研究背景}
+    \begin{itemize}
+        \item 很多老年人习惯使用方言，而主流智能家居设备主要面向普通话。
+        \item 方言口音会导致语音识别率下降，影响老人使用智能家居。
+        \item 现有智能音箱多为封闭系统，普通开发者难以修改固件或接入厂商接口。
+    \end{itemize}
+\end{frame}
+\begin{frame}{问题提出}
+    \begin{itemize}
+        \item 已有研究多关注普通话语音识别，方言识别资源较少。
+        \item 前期研究已经完成方言指令识别模型、置信度拒识与串口控制链路。
+        \item 本项目要把离线研究转化为一个可外接、可实时运行、可现场展示的装置。
+        \item 工程化过程中发现并修正了一个关键问题：训练输入与线上输入分布不一致。
+    \end{itemize}
+\end{frame}
+\section{前期研究基础}
+\begin{frame}{前期研究基础}
+    \begin{itemize}
+        \item 粤语家居指令语料库与合成语料生成流水线（2904 条）。
+        \item log-mel 与 MFCC 特征提取，整句 CMVN 归一化。
+        \item 多条识别路线：DTW 模板匹配、回归映射、Softmax 回归、线性 SVM、1D-CNN。
+        \item 温度标定置信度与阈值拒识。
+        \item 串口协议、模拟设备与 Web 演示台。
+    \end{itemize}
+\end{frame}
+\begin{frame}{特征提取}
+    Mel 刻度：
+    \begin{equation}
+        Mel(f)=2595\log_{10}(1+f/700)
+    \end{equation}
+    加窗：
+    \begin{equation}
+        w(n)=0.54-0.46\cos\left(\frac{2\pi n}{N-1}\right)
+    \end{equation}
+    短时傅里叶变换：
+    \begin{equation}
+        X(m,\omega)=\sum_{n=-\infty}^{\infty}x(n)w(n-m)e^{-j\omega n}
+    \end{equation}
+    整句 CMVN 消除信道与音量差异。
+\end{frame}
+\begin{frame}{一条被否决的技术路线}
+    前期曾以「方言特征 $\to$ 普通话特征」的回归映射为主线：
+    \begin{equation}
+        \hat{y}=\beta_0+\beta_1 x
+    \end{equation}
+    \begin{itemize}
+        \item 特征级指标很好：RMSE 0.025，余弦相似度 0.999。
+        \item 但映射后命令识别准确率 0.1667，与 6 类随机基线相同。
+        \item 原因：统一回归矩阵未按命令类别条件化，类别判别边界被抹平。
+        \item 结论：转换必须发生在语义层，不能发生在特征层。
+    \end{itemize}
+\end{frame}
+\begin{frame}{本项目的核心工程发现}
+    \begin{itemize}
+        \item 模型原本在带尾部静音的整段音频上训练，线上 VAD 输出却紧贴语音。
+        \item 整句 CMVN 下，尾部静音稀释了均值与方差，输入分布一变模型失效。
+        \item 短命令受损最重：LIGHT\_ON 准确率由 0.9893 掉到 0.1716。
+        \item 处置：用部署同款 VAD 重生成训练语料，再重新训练。
+        \item 原则：训练输入与部署输入必须同源。
+    \end{itemize}
+\end{frame}
+\begin{frame}{修复后的实测结果}
+    \begin{itemize}
+        \item 部署模型：在部署同款 VAD 裁剪后的同源语料上重训练；拒识阈值 0.945。
+        \item 测试集 483 条未见表达组：argmax 准确率 0.8799，接受样本准确率 0.9319。
+        \item 未知指令误接受率 0.125，修复前为 0.4444。
+        \item 单条推理延迟 13--16 ms，纯 numpy 推理，不联网。
+        \item 如实说明：验证集 0.9477 与测试集 0.8799 相差 6.8 点，
+              弱项集中在窗帘类命令，需优先补采这两类的真人表达。
+    \end{itemize}
+\end{frame}
+\section{项目目标}
+\begin{frame}{项目目标}
+    \begin{itemize}
+        \item 做一个智能家居语音转换装置。
+        \item 用户说方言，装置在端侧完成识别与置信度判断。
+        \item 通过扬声器播放标准普通话指令，驱动智能音箱执行。
+        \item 支持 6 条固定家居命令。
+        \item 通过 OLED 显示识别结果与置信度。
+        \item 保留 ESP32-S3 串口与继电器直控作为演示备用。
+    \end{itemize}
+\end{frame}
+
+\section{系统方案与技术路线}
+\begin{frame}{系统总体方案}
+    \begin{itemize}
+        \item 输入：麦克风采集方言语音。
+        \item 计算：端侧完成 VAD、特征提取、分类与拒识。
+        \item 输出：扬声器播放标准普通话指令，OLED 显示结果。
+        \item 执行：智能音箱接收普通话指令并控制家居设备。
+        \item 备用：串口 ESP32-S3 或继电器直接控制演示设备。
+    \end{itemize}
+\end{frame}
+\begin{frame}{技术路线}
+    总体流程：
+    \begin{center}
+        方言语音 $\rightarrow$ VAD $\rightarrow$ log-mel40+$\Delta$ $\rightarrow$ CNN 集成
+        $\rightarrow$ 置信度 $\rightarrow$ 拒识 $\rightarrow$ 普通话指令 $\rightarrow$ 智能音箱执行
+    \end{center}
+    \begin{itemize}
+        \item 特征：40 维 log-mel 及一阶差分，整句 CMVN，插值到 256 帧。
+        \item 模型：1D-CNN 三种子集成，纯 numpy 推理，约 1.35 MB。
+        \item 拒识：温度标定最大概率，阈值只在验证集与未知校准集上选取。
+        \item 语义层映射：命令标签 $\to$ 普通话指令 $\to$ 预录音频播放。
+    \end{itemize}
+\end{frame}
+\begin{frame}{VAD 端点检测}
+    \begin{itemize}
+        \item 帧能量转 dB，自适应噪声底（最小值统计）。
+        \item 判决门限：噪声底 $+$ 门限余量。
+        \item 静音挂起判定语音结束，保留前置上下文避免吃掉起始音。
+        \item 输出前后裁剪过的语音段，作为模型输入。
+        \item 与训练语料生成使用同一实现，保证训练与部署同源。
+    \end{itemize}
+\end{frame}
+\begin{frame}{智能音箱外接联动}
+    \begin{itemize}
+        \item 不修改智能音箱固件，不依赖厂商 API。
+        \item 装置播放预录的普通话命令音频。
+        \item 智能音箱识别后执行家居控制。
+        \item 若现场联动不稳定，改用 ESP32-S3 串口或继电器直接控制演示设备。
+    \end{itemize}
+\end{frame}
+\section{数据采集与实验设计}
+\begin{frame}{命令词与数据采集}
+    \begin{itemize}
+        \item 命令词：开灯、关灯、开窗帘、关窗帘、全部关闭、查询状态。
+        \item 合成语料：2904 条，3 个粤语音色，含语速/音高条件与纠正否定句式。
+        \item 真人语料：2--3 位方言使用者，每人每命令 30--50 次。
+        \item 未知指令负样本：用于标定拒识阈值。
+        \item 环境：安静环境加电视/风扇背景噪声。
+        \item 划分：按表达组划分固定训练/验证/测试集，避免泄漏。
+    \end{itemize}
+\end{frame}
+\begin{frame}{实验与评价指标}
+    \begin{itemize}
+        \item 对比方法：MFCC+DTW 基线 与 log-mel+CNN。
+        \item 消融：VAD 前 / 后，验证端点检测对准确率与误接受率的影响。
+        \item 测试条件：安静/噪声、近/远距离、已注册/未注册用户。
+        \item 指标：识别准确率、接受样本准确率、未知指令误接受率、端到端延迟、执行成功率、误触发率、总成本。
+    \end{itemize}
+\end{frame}
+
+\section{硬件与进度}
+\begin{frame}{硬件与预算}
+    \begin{table}
+        \centering
+        \begin{tabular}{lr}
+            \toprule
+            部件 & 估价（元） \\
+            \midrule
+            树莓派 4B/Zero 2W & 0--400 \\
+            USB 麦克风 & 50--150 \\
+            扬声器与功放 & 30--80 \\
+            ESP32-S3 开发板 & 60--90 \\
+            SG90 舵机 / LED / 按键 & 20--40 \\
+            OLED & 15--25 \\
+            电源、线材、外壳 & 130--250 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+        \item 合计约 305--1085 元，按 1000 元以内控制；价格为估算，未实时核价。
+    \end{itemize}
+\end{frame}
+\begin{frame}{进度安排}
+    \begin{itemize}
+        \item 第 1 周：需求确认、技术路线修订、硬件清单与采购。
+        \item 第 2 周：VAD、实时管线、普通话播报、双备用执行层打通。
+        \item 第 3 周：真人数据采集、训练语料同源重生成与重训练。
+        \item 第 4 周：拒识阈值标定与安全评估。
+        \item 第 5 周：多人、噪声、距离测试与端到端延迟实测。
+        \item 第 6 周：硬件联调与现场演示彩排。
+        \item 第 7 周：成本核算、演示视频、答辩 PPT。
+        \item 第 8 周：答辩与材料归档。
+    \end{itemize}
+\end{frame}
+\section{风险与预期成果}
+\begin{frame}{风险与应对}
+    \begin{itemize}
+        \item 合成与真人存在域差距：补真人语料，报告区分合成与实测数字。
+        \item 未知指令误接受（最突出短板）：补采负样本、阈值仅在校准集选取、演示展示低置信度拒识。
+        \item 智能音箱识别不稳定：预录普通话音频，准备串口与继电器两条备用通道。
+        \item 真人语料不足：固定 6 条命令，2--3 位使用者反复采集，必要时用个性化注册模板补充。
+        \item 端侧实时性不足：优先树莓派 4B，模型已纯 numpy 推理且体积 1.35 MB。
+        \item 现场演示失败：准备预录视频、备用音频与继电器演示。
+    \end{itemize}
+\end{frame}
+\begin{frame}{预期成果}
+    \begin{itemize}
+        \item 方言语音智能家居控制原型。
+        \item 方言与普通话指令数据及标注（合成与真人分开标注来源）。
+        \item 端侧推理程序与自包含运行时（纯 numpy，可离线运行）。
+        \item 智能音箱联动演示与双备用通道演示。
+        \item 测试报告、成本表、3 分钟演示视频与答辩 PPT。
+        \item 技术路线修订说明：记录被否决方案及其实验依据。
+    \end{itemize}
+\end{frame}
+
+\section{参考文献}
+\begin{frame}{参考文献}
+    \begin{itemize}
+        \item 申请人前期研究：方言家居指令识别与控制，实验记录与代码仓库。
+        \item Davis S, Mermelstein P. Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences. IEEE Transactions on Acoustics, Speech, and Signal Processing, 1980.
+        \item MFCC、log-mel 特征、DTW、CNN 语音命令识别与智能家居语音交互相关文献。
+    \end{itemize}
+\end{frame}
+
+\end{document}

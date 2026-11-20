@@ -1,0 +1,14 @@
+numpy
+scipy
+sounddevice
+soundfile
+librosa
+scikit-learn
+joblib
+pandas
+matplotlib
+PyQt5
+pyqtgraph
+Flask
+luma.oled
+PyYAML

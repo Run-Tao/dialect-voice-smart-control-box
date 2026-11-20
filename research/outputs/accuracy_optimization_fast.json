@@ -1,0 +1,889 @@
+{
+  "protocol": "train=2 voices x 3 expressions; val=1 voice x question; test=1 voice x correction; no CV; selected on val only",
+  "best": "trim",
+  "best_config": {
+    "n_fft": 512,
+    "hop_length": 160,
+    "n_mfcc": 13,
+    "n_mels": 26,
+    "cmvn": true,
+    "delta": false,
+    "trim": true,
+    "metric": "euclidean",
+    "norm": "path",
+    "max_frames": 60
+  },
+  "variants": {
+    "baseline": {
+      "val": {
+        "accuracy": 0.6666666666666666,
+        "macro_f1": 0.5555555555555555,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 2.1344359500023224,
+        "errors": [
+          {
+            "utt": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_OPEN",
+            "pred": "LIGHT_OFF",
+            "distances": {
+              "LIGHT_ON": 3.829280983219019,
+              "LIGHT_OFF": 3.7750010529034235,
+              "CURTAIN_OPEN": 3.814963446522811,
+              "CURTAIN_CLOSE": 3.7955373457815003,
+              "ALL_OFF": 3.825346398462572,
+              "STATUS_ALL": 4.02581426660209
+            }
+          },
+          {
+            "utt": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_CLOSE",
+            "pred": "LIGHT_ON",
+            "distances": {
+              "LIGHT_ON": 3.846998270719374,
+              "LIGHT_OFF": 3.8845988094062567,
+              "CURTAIN_OPEN": 3.937839114998644,
+              "CURTAIN_CLOSE": 3.954475989607191,
+              "ALL_OFF": 3.978548159313011,
+              "STATUS_ALL": 4.079142972673761
+            }
+          }
+        ]
+      },
+      "test": {
+        "accuracy": 0.16666666666666666,
+        "macro_f1": 0.06666666666666667,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "mean_latency_sec": 2.2866522000016025,
+        "errors": [
+          {
+            "utt": "LIGHT_ON_correction_canto-tts-default",
+            "true": "LIGHT_ON",
+            "pred": "CURTAIN_CLOSE",
+            "distances": {
+              "LIGHT_ON": 4.320609555782882,
+              "LIGHT_OFF": 4.524580375997047,
+              "CURTAIN_OPEN": 4.1334065232129005,
+              "CURTAIN_CLOSE": 4.032397755314788,
+              "ALL_OFF": 4.441752096898453,
+              "STATUS_ALL": 4.399395395711333
+            }
+          },
+          {
+            "utt": "LIGHT_OFF_correction_canto-tts-default",
+            "true": "LIGHT_OFF",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 4.489697817743851,
+              "LIGHT_OFF": 4.235544025081422,
+              "CURTAIN_OPEN": 4.165877002942539,
+              "CURTAIN_CLOSE": 4.192531920730059,
+              "ALL_OFF": 4.157352445119962,
+              "STATUS_ALL": 4.442842520659235
+            }
+          },
+          {
+            "utt": "CURTAIN_OPEN_correction_canto-tts-default",
+            "true": "CURTAIN_OPEN",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 4.24863996873154,
+              "LIGHT_OFF": 4.360419480569521,
+              "CURTAIN_OPEN": 4.183832284375614,
+              "CURTAIN_CLOSE": 4.316662193915471,
+              "ALL_OFF": 4.043485831323413,
+              "STATUS_ALL": 4.342264040198768
+            }
+          },
+          {
+            "utt": "CURTAIN_CLOSE_correction_canto-tts-default",
+            "true": "CURTAIN_CLOSE",
+            "pred": "LIGHT_OFF",
+            "distances": {
+              "LIGHT_ON": 4.4261319983804075,
+              "LIGHT_OFF": 4.0912342838317635,
+              "CURTAIN_OPEN": 4.381108522476472,
+              "CURTAIN_CLOSE": 4.267355859695353,
+              "ALL_OFF": 4.479702364791817,
+              "STATUS_ALL": 4.31575865582305
+            }
+          },
+          {
+            "utt": "STATUS_ALL_correction_canto-tts-default",
+            "true": "STATUS_ALL",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 4.5041179542461665,
+              "LIGHT_OFF": 4.557157063219425,
+              "CURTAIN_OPEN": 4.531183935054445,
+              "CURTAIN_CLOSE": 4.540043493644534,
+              "ALL_OFF": 4.447626689929278,
+              "STATUS_ALL": 4.507171392305745
+            }
+          }
+        ]
+      }
+    },
+    "delta": {
+      "val": {
+        "accuracy": 0.5,
+        "macro_f1": 0.4444444444444444,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 2.541048850000758,
+        "errors": [
+          {
+            "utt": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+            "true": "LIGHT_OFF",
+            "pred": "CURTAIN_OPEN",
+            "distances": {
+              "LIGHT_ON": 4.37080446140728,
+              "LIGHT_OFF": 4.437996778972032,
+              "CURTAIN_OPEN": 4.348724586687401,
+              "CURTAIN_CLOSE": 4.489039641952824,
+              "ALL_OFF": 4.386555474169651,
+              "STATUS_ALL": 4.46009485969744
+            }
+          },
+          {
+            "utt": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_OPEN",
+            "pred": "CURTAIN_CLOSE",
+            "distances": {
+              "LIGHT_ON": 4.200746476020372,
+              "LIGHT_OFF": 4.249227242174191,
+              "CURTAIN_OPEN": 4.190990067587701,
+              "CURTAIN_CLOSE": 4.150093284693147,
+              "ALL_OFF": 4.271553740706714,
+              "STATUS_ALL": 4.401906427175791
+            }
+          },
+          {
+            "utt": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_CLOSE",
+            "pred": "LIGHT_ON",
+            "distances": {
+              "LIGHT_ON": 4.183037399161674,
+              "LIGHT_OFF": 4.342617261043476,
+              "CURTAIN_OPEN": 4.317101887811555,
+              "CURTAIN_CLOSE": 4.329126796221444,
+              "ALL_OFF": 4.366804706681775,
+              "STATUS_ALL": 4.486386867390658
+            }
+          }
+        ]
+      }
+    },
+    "mfcc20": {
+      "val": {
+        "accuracy": 0.3333333333333333,
+        "macro_f1": 0.27777777777777773,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 2.118945950001944,
+        "errors": [
+          {
+            "utt": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+            "true": "LIGHT_OFF",
+            "pred": "LIGHT_ON",
+            "distances": {
+              "LIGHT_ON": 4.745472295386056,
+              "LIGHT_OFF": 5.136199248894293,
+              "CURTAIN_OPEN": 5.046811598732915,
+              "CURTAIN_CLOSE": 5.1320280138499506,
+              "ALL_OFF": 4.941955293829583,
+              "STATUS_ALL": 5.161007759793279
+            }
+          },
+          {
+            "utt": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_OPEN",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 5.152856201122025,
+              "LIGHT_OFF": 5.347957305961451,
+              "CURTAIN_OPEN": 5.169055970115035,
+              "CURTAIN_CLOSE": 5.157812827132371,
+              "ALL_OFF": 5.0748163995647095,
+              "STATUS_ALL": 5.33345354732982
+            }
+          },
+          {
+            "utt": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_CLOSE",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 5.173895424327358,
+              "LIGHT_OFF": 5.256328115645839,
+              "CURTAIN_OPEN": 5.212886735223708,
+              "CURTAIN_CLOSE": 5.206858999758764,
+              "ALL_OFF": 5.156212565779326,
+              "STATUS_ALL": 5.479591677632547
+            }
+          },
+          {
+            "utt": "ALL_OFF_question_zh-HK-WanLungNeural",
+            "true": "ALL_OFF",
+            "pred": "LIGHT_OFF",
+            "distances": {
+              "LIGHT_ON": 5.360092306333266,
+              "LIGHT_OFF": 5.1333998985322395,
+              "CURTAIN_OPEN": 5.317481770596379,
+              "CURTAIN_CLOSE": 5.399586776172537,
+              "ALL_OFF": 5.279321021465548,
+              "STATUS_ALL": 5.164847492265073
+            }
+          }
+        ]
+      }
+    },
+    "trim": {
+      "val": {
+        "accuracy": 0.6666666666666666,
+        "macro_f1": 0.611111111111111,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 2.045444583335969,
+        "errors": [
+          {
+            "utt": "LIGHT_ON_question_zh-HK-WanLungNeural",
+            "true": "LIGHT_ON",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 4.242934630127837,
+              "LIGHT_OFF": 4.522333151322336,
+              "CURTAIN_OPEN": 4.472098589304622,
+              "CURTAIN_CLOSE": 4.681270377391914,
+              "ALL_OFF": 4.1805290166438045,
+              "STATUS_ALL": 4.350978371419485
+            }
+          },
+          {
+            "utt": "CURTAIN_CLOSE_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_CLOSE",
+            "pred": "LIGHT_ON",
+            "distances": {
+              "LIGHT_ON": 4.173458354643315,
+              "LIGHT_OFF": 4.482520513538025,
+              "CURTAIN_OPEN": 4.272817480742708,
+              "CURTAIN_CLOSE": 4.291763899410187,
+              "ALL_OFF": 4.497362521225938,
+              "STATUS_ALL": 4.412517744467689
+            }
+          }
+        ]
+      },
+      "test": {
+        "accuracy": 0.16666666666666666,
+        "macro_f1": 0.1111111111111111,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "mean_latency_sec": 2.0736788166686893,
+        "errors": [
+          {
+            "utt": "LIGHT_ON_correction_canto-tts-default",
+            "true": "LIGHT_ON",
+            "pred": "CURTAIN_CLOSE",
+            "distances": {
+              "LIGHT_ON": 4.438962223048934,
+              "LIGHT_OFF": 4.666814034810777,
+              "CURTAIN_OPEN": 4.701150393268369,
+              "CURTAIN_CLOSE": 4.342994074079098,
+              "ALL_OFF": 4.543327495606787,
+              "STATUS_ALL": 4.6422619660841375
+            }
+          },
+          {
+            "utt": "LIGHT_OFF_correction_canto-tts-default",
+            "true": "LIGHT_OFF",
+            "pred": "CURTAIN_OPEN",
+            "distances": {
+              "LIGHT_ON": 4.289175336839271,
+              "LIGHT_OFF": 4.457667044262882,
+              "CURTAIN_OPEN": 4.155334591871054,
+              "CURTAIN_CLOSE": 4.187814564972108,
+              "ALL_OFF": 4.3955105042497955,
+              "STATUS_ALL": 4.468531691494952
+            }
+          },
+          {
+            "utt": "CURTAIN_CLOSE_correction_canto-tts-default",
+            "true": "CURTAIN_CLOSE",
+            "pred": "LIGHT_ON",
+            "distances": {
+              "LIGHT_ON": 3.8910347159863425,
+              "LIGHT_OFF": 4.032097455830488,
+              "CURTAIN_OPEN": 4.0252777035796115,
+              "CURTAIN_CLOSE": 4.328625831936241,
+              "ALL_OFF": 4.228337932360055,
+              "STATUS_ALL": 4.157345958379776
+            }
+          },
+          {
+            "utt": "ALL_OFF_correction_canto-tts-default",
+            "true": "ALL_OFF",
+            "pred": "LIGHT_ON",
+            "distances": {
+              "LIGHT_ON": 4.404968075025532,
+              "LIGHT_OFF": 4.426473955442416,
+              "CURTAIN_OPEN": 4.543600275639035,
+              "CURTAIN_CLOSE": 4.454645161271164,
+              "ALL_OFF": 4.523090385352378,
+              "STATUS_ALL": 4.60727461902947
+            }
+          },
+          {
+            "utt": "STATUS_ALL_correction_canto-tts-default",
+            "true": "STATUS_ALL",
+            "pred": "CURTAIN_CLOSE",
+            "distances": {
+              "LIGHT_ON": 4.636513836929016,
+              "LIGHT_OFF": 4.496096015996142,
+              "CURTAIN_OPEN": 4.543876980852975,
+              "CURTAIN_CLOSE": 4.373040530339677,
+              "ALL_OFF": 4.417490491259895,
+              "STATUS_ALL": 4.479376547052271
+            }
+          }
+        ]
+      }
+    },
+    "cosine": {
+      "val": {
+        "accuracy": 0.6666666666666666,
+        "macro_f1": 0.5833333333333334,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 3.9993827500050734,
+        "errors": [
+          {
+            "utt": "LIGHT_ON_question_zh-HK-WanLungNeural",
+            "true": "LIGHT_ON",
+            "pred": "STATUS_ALL",
+            "distances": {
+              "LIGHT_ON": 0.5863398146754262,
+              "LIGHT_OFF": 0.5941072283895872,
+              "CURTAIN_OPEN": 0.6113574457692849,
+              "CURTAIN_CLOSE": 0.615626751394354,
+              "ALL_OFF": 0.5987191991403563,
+              "STATUS_ALL": 0.5839944915407884
+            }
+          },
+          {
+            "utt": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+            "true": "LIGHT_OFF",
+            "pred": "STATUS_ALL",
+            "distances": {
+              "LIGHT_ON": 0.6225753641520784,
+              "LIGHT_OFF": 0.5730664227821285,
+              "CURTAIN_OPEN": 0.5832027977706047,
+              "CURTAIN_CLOSE": 0.583322270899115,
+              "ALL_OFF": 0.5898353616398785,
+              "STATUS_ALL": 0.52634667578012
+            }
+          }
+        ]
+      }
+    },
+    "max40": {
+      "val": {
+        "accuracy": 0.5,
+        "macro_f1": 0.4444444444444444,
+        "labels": [
+          "ALL_OFF",
+          "CURTAIN_CLOSE",
+          "CURTAIN_OPEN",
+          "LIGHT_OFF",
+          "LIGHT_ON",
+          "STATUS_ALL"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "mean_latency_sec": 1.323871450003935,
+        "errors": [
+          {
+            "utt": "LIGHT_OFF_question_zh-HK-WanLungNeural",
+            "true": "LIGHT_OFF",
+            "pred": "CURTAIN_OPEN",
+            "distances": {
+              "LIGHT_ON": 3.820711812905361,
+              "LIGHT_OFF": 3.856687660398574,
+              "CURTAIN_OPEN": 3.815808914698346,
+              "CURTAIN_CLOSE": 3.9082580401348133,
+              "ALL_OFF": 3.947964032592569,
+              "STATUS_ALL": 3.9276089202186224
+            }
+          },
+          {
+            "utt": "CURTAIN_OPEN_question_zh-HK-WanLungNeural",
+            "true": "CURTAIN_OPEN",
+            "pred": "ALL_OFF",
+            "distances": {
+              "LIGHT_ON": 3.6394139418765485,
+              "LIGHT_OFF": 3.6645656652962155,
+              "CURTAIN_OPEN": 3.7404137831074866,
+              "CURTAIN_CLOSE": 3.6907950226897634,
+              "ALL_OFF": 3.6340784986028405,
+              "STATUS_ALL": 3.8557799362522114
+            }
+          },
+          {
+            "utt": "ALL_OFF_question_zh-HK-WanLungNeural",
+            "true": "ALL_OFF",
+            "pred": "STATUS_ALL",
+            "distances": {
+              "LIGHT_ON": 4.0195871350611405,
+              "LIGHT_OFF": 3.8383279749539363,
+              "CURTAIN_OPEN": 4.109735023999355,
+              "CURTAIN_CLOSE": 4.007217699765879,
+              "ALL_OFF": 3.891908910754599,
+              "STATUS_ALL": 3.8258511683470084
+            }
+          }
+        ]
+      }
+    }
+  },
+  "note": "synthetic TTS only"
+}
