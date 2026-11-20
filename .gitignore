@@ -41,6 +41,7 @@ research/outputs/v3_scratch/
 research/outputs/tts_probe/
 research/outputs/**/__pycache__/
 engineering/logs/
+*.log
 
 # ---- LaTeX 构建中间物 ----
 *.aux

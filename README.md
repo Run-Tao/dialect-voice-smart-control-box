@@ -24,19 +24,28 @@ dialect-voice-smart-control-box/
 │   ├── tests/       # pytest（199 项）
 │   ├── data/audio/mandarin/   # 6 条普通话播报预录音频
 │   └── docs/        # v5 方案设计、测试报告、交付物清单、开题报告/建议书、评估结果 JSON
-└── research/        # DialectVoice_Research：训练/评测脚本、语料与实验产物（v2/v3/v3.1）
-    ├── src/         # 声学前端、CNN 推理、分类器、选择性分类、流式、决策、对话、状态
-    ├── scripts/     # 数据生成/清洗/训练/对照实验/拒识/OOD/报告/演示
-    ├── tests/       # unittest（197 项）
-    ├── data/        # 清单、固定划分、表达库、模型工件、少量演示音频
-    ├── outputs/     # 关键实验结果 JSON/CSV、数据审计、报告表格
-    └── docs/        # v2/v3 执行报告、数据文档、演示文档、声学消融（含 docx/pptx 交付件）
+├── research/        # DialectVoice_Research：训练/评测脚本、语料与实验产物（v2/v3/v3.1）
+│   ├── src/         # 声学前端、CNN 推理、分类器、选择性分类、流式、决策、对话、状态
+│   ├── scripts/     # 数据生成/清洗/训练/对照实验/拒识/OOD/报告/演示
+│   ├── tests/       # unittest（197 项）
+│   ├── data/        # 清单、固定划分、表达库、模型工件、少量演示音频
+│   ├── outputs/     # 关键实验结果 JSON/CSV、数据审计、报告表格
+│   └── docs/        # v2/v3 执行报告、数据文档、演示文档、声学消融（含 docx/pptx 交付件）
+└── szpi/            # DialectVoice_SZPI：立创·实战派 ESP32-S3 板载端（端云协同，另一条硬件路线）
+    ├── firmware/    # ESP-IDF v5.x：BSP（PCA9557/ES7210/ES8311/ST7789/SD）、全双工 I2S、硬件自检
+    ├── backend/     # FastAPI：WAV 归档 + 方言 ASR + LLM 结构化意图 + 标注回流（待实现）
+    ├── flash.ps1    # 一键编译/烧录/串口监视（含 IDF 环境自愈）
+    └── README.md    # 引脚表与来源、烧录步骤、本机 IDF 环境修复记录
 ```
 
-两个目录的权威关系：
+三个目录的权威关系：
 
 - **engineering/** 是运行时代码与工程文档的唯一权威；`runtime/` 是从 `research/src/` 同步来的自包含副本。
 - **research/** 是语料、训练脚本、算法源与模型工件的来源；训练/标定命令以它为准。
+- **szpi/** 是**独立的硬件路线**：板载麦克风录音 → PSRAM 缓冲 → SD 归档 → Wi-Fi 上传 →
+  屏显结果 → 触屏标注纠错 → 语音播报，后端做方言 ASR + LLM 结构化意图。
+  它与 `engineering/` 的「PC 推理 + 串口/继电器执行端」**不共用固件**，仅共享 6 类命令集与语料口径；
+  两边的引脚、模型部署方式、评估指标都不同，改动时不要互相套用。
 - 历史负结果与第三阶段（v3）数据/实验记录保留在 `research/docs` 与 `research/outputs`，便于追溯。
 - 未入库：历史归档（`docs/archive_2026-10-30/`、`legacy/`）、中间 smoke/探针产物、特征缓存、
   原始 mp3 与完整音频语料（见下方“数据说明”）；以保证仓库只保留当前有效、可追溯的文件。
