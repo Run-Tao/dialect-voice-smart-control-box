@@ -107,3 +107,16 @@ dataset/
 
 该数据集即 PC 版评测语料的真实增量来源：`annotated && is_correct=false` 的样本
 可回流到 `dialect-smart-home` 的归一化词典/命令库别名修订。
+
+## 回归评测
+
+```bash
+:: 云端契约链路：40 条合成语料 WAV → CloudEngine.understand → 契约字段逐项比对
+D:\Projects\dialect-smart-home\.venv\Scripts\python.exe eval_cloud.py
+:: 结果写入 eval_results_cloud.json（summary + 逐条 rows）
+```
+
+文本通道鲁棒性/拒识评测在 PC 版工程内：
+`dialect-smart-home/scripts/run_eval_robust.py`（`data/corpus/robust_dev.json`：
+同音错字/语序/填充词/中文数字正例 + 抱怨/疑问/观看/祈使否定负例）。
+两层评测与 `pytest tests` 共同构成引擎改动的回归门槛。

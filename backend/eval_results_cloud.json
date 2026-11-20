@@ -1,0 +1,1322 @@
+{
+  "summary": {
+    "path": "cloud adapter (CloudEngine.understand)",
+    "corpus": "TTS 合成（zh-HK 粤语 + zh-CN 普通话），非真实录音",
+    "n": 40,
+    "intent_accuracy": 100.0,
+    "intent_accuracy_yue": 100.0,
+    "intent_accuracy_zh": 100.0,
+    "room_accuracy": 100.0,
+    "slot_accuracy": 100.0,
+    "dialect_accuracy": 100.0,
+    "gate_accuracy": 100.0,
+    "contract_exact_accuracy": 100.0,
+    "ms_mean": 1246.6
+  },
+  "rows": [
+    {
+      "id": "yue01",
+      "lang": "yue",
+      "text": "唔该帮我熄咗客厅盏灯",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "唔该帮我熄咗客厅盏灯。",
+        "normalized_text": "关了客厅灯",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "light",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗客厅灯"
+      },
+      "expected": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 33337.0
+    },
+    {
+      "id": "yue02",
+      "lang": "yue",
+      "text": "帮我开客厅盏灯",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "帮我开客厅盏灯。",
+        "normalized_text": "开客厅灯",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "light",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗客厅灯"
+      },
+      "expected": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 451.1
+    },
+    {
+      "id": "yue03",
+      "lang": "yue",
+      "text": "客厅盏灯较光啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "客厅盏灯校光啲。",
+        "normalized_text": "客厅灯校亮一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "light",
+          "action": "brighter"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅灯已经较光啲"
+      },
+      "expected": {
+        "device": "light",
+        "action": "brighter",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 533.4
+    },
+    {
+      "id": "yue04",
+      "lang": "yue",
+      "text": "卧室灯较暗啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "卧室灯校暗啲。",
+        "normalized_text": "卧室灯校暗一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "bedroom",
+          "device": "light",
+          "action": "dimmer"
+        },
+        "confidence": 1.0,
+        "reply_text": "卧室灯已经较暗啲"
+      },
+      "expected": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 406.0
+    },
+    {
+      "id": "yue05",
+      "lang": "yue",
+      "text": "开冷气",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "开冷气。",
+        "normalized_text": "开空调",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗客厅冷气"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 508.0
+    },
+    {
+      "id": "yue06",
+      "lang": "yue",
+      "text": "熄咗冷气",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "熄咗冷气。",
+        "normalized_text": "关了空调",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗客厅冷气"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 449.7
+    },
+    {
+      "id": "yue07",
+      "lang": "yue",
+      "text": "冷气较低两度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "冷气降低两度。",
+        "normalized_text": "空调降低2度",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "temp_down",
+          "delta": 2
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经调低2度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "slots": {
+          "delta": 2
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 441.8
+    },
+    {
+      "id": "yue08",
+      "lang": "yue",
+      "text": "冷气调高一度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "冷气调高一度。",
+        "normalized_text": "空调调高1度",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "temp_up",
+          "delta": 1
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经调高1度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "slots": {
+          "delta": 1
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 408.3
+    },
+    {
+      "id": "yue09",
+      "lang": "yue",
+      "text": "冷气调到二十六度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "冷气调到二十六度。",
+        "normalized_text": "空调调到26度",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "set_temp",
+          "temperature": 26
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经设定到26度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "slots": {
+          "temperature": 26
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 509.8
+    },
+    {
+      "id": "yue10",
+      "lang": "yue",
+      "text": "卧室冷气较到廿八度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "卧室冷气降到廿八度。",
+        "normalized_text": "卧室空调降到28度",
+        "intent": "device_control",
+        "slots": {
+          "location": "bedroom",
+          "device": "ac",
+          "action": "set_temp",
+          "temperature": 28
+        },
+        "confidence": 1.0,
+        "reply_text": "卧室冷气已经设定到28度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "bedroom",
+        "slots": {
+          "temperature": 28
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 530.3
+    },
+    {
+      "id": "yue11",
+      "lang": "yue",
+      "text": "开电视",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "开电视。",
+        "normalized_text": "开电视",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗客厅电视"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 377.1
+    },
+    {
+      "id": "yue12",
+      "lang": "yue",
+      "text": "熄电视",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "熄电视。",
+        "normalized_text": "关电视",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗客厅电视"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 381.7
+    },
+    {
+      "id": "yue13",
+      "lang": "yue",
+      "text": "电视大声啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "电视大声啲。",
+        "normalized_text": "电视大声一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "volume_up"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅电视已经大声啲"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 417.8
+    },
+    {
+      "id": "yue14",
+      "lang": "yue",
+      "text": "电视细声啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "电视细声啲。",
+        "normalized_text": "电视小声一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "volume_down"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅电视已经细声啲"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "volume_down",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 392.6
+    },
+    {
+      "id": "yue15",
+      "lang": "yue",
+      "text": "帮我转台",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "帮我转台。",
+        "normalized_text": "转台",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "channel_up"
+        },
+        "confidence": 0.9,
+        "reply_text": "客厅电视已经转咗台"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "channel_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 416.6
+    },
+    {
+      "id": "yue16",
+      "lang": "yue",
+      "text": "拉开客厅窗帘",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "拉开客厅窗帘。",
+        "normalized_text": "拉开客厅窗帘",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "curtain",
+          "action": "open"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你打开客厅窗帘"
+      },
+      "expected": {
+        "device": "curtain",
+        "action": "open",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 429.2
+    },
+    {
+      "id": "yue17",
+      "lang": "yue",
+      "text": "拉埋卧室窗帘",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "拉埋卧室窗帘。",
+        "normalized_text": "拉上卧室窗帘",
+        "intent": "device_control",
+        "slots": {
+          "location": "bedroom",
+          "device": "curtain",
+          "action": "close"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你关咗卧室窗帘"
+      },
+      "expected": {
+        "device": "curtain",
+        "action": "close",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 448.3
+    },
+    {
+      "id": "yue18",
+      "lang": "yue",
+      "text": "开风扇",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "开风扇。",
+        "normalized_text": "开风扇",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "fan",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗客厅风扇"
+      },
+      "expected": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 395.6
+    },
+    {
+      "id": "yue19",
+      "lang": "yue",
+      "text": "熄风扇",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "熄风扇。",
+        "normalized_text": "关风扇",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "fan",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗客厅风扇"
+      },
+      "expected": {
+        "device": "fan",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 361.0
+    },
+    {
+      "id": "yue20",
+      "lang": "yue",
+      "text": "风扇快啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "风扇快啲。",
+        "normalized_text": "风扇快一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "fan",
+          "action": "speed_up"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅风扇风速已经较快啲"
+      },
+      "expected": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 402.4
+    },
+    {
+      "id": "yue21",
+      "lang": "yue",
+      "text": "风扇慢啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "风扇慢啲。",
+        "normalized_text": "风扇慢一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "fan",
+          "action": "speed_down"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅风扇风速已经较慢啲"
+      },
+      "expected": {
+        "device": "fan",
+        "action": "speed_down",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 392.6
+    },
+    {
+      "id": "yue22",
+      "lang": "yue",
+      "text": "开厨房插座",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "开厨房插座。",
+        "normalized_text": "开厨房插座",
+        "intent": "device_control",
+        "slots": {
+          "location": "kitchen",
+          "device": "socket",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗厨房插座"
+      },
+      "expected": {
+        "device": "socket",
+        "action": "turn_on",
+        "room": "kitchen",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 395.4
+    },
+    {
+      "id": "yue23",
+      "lang": "yue",
+      "text": "熄咗浴室插座",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "熄咗浴室插咗。",
+        "normalized_text": "关了浴室插了",
+        "intent": "device_control",
+        "slots": {
+          "location": "bathroom",
+          "device": "socket",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗浴室插座"
+      },
+      "expected": {
+        "device": "socket",
+        "action": "turn_off",
+        "room": "bathroom",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 424.7
+    },
+    {
+      "id": "yue24",
+      "lang": "yue",
+      "text": "书房灯较光啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "书房灯割光啲。",
+        "normalized_text": "书房灯割亮一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "study",
+          "device": "light",
+          "action": "brighter"
+        },
+        "confidence": 1.0,
+        "reply_text": "书房灯已经较光啲"
+      },
+      "expected": {
+        "device": "light",
+        "action": "brighter",
+        "room": "study",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 429.1
+    },
+    {
+      "id": "yue25",
+      "lang": "yue",
+      "text": "唔该熄咗睡房盏灯",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "唔该熄咗睡房盏灯。",
+        "normalized_text": "关了卧室灯",
+        "intent": "device_control",
+        "slots": {
+          "location": "bedroom",
+          "device": "light",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗卧室灯"
+      },
+      "expected": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 572.9
+    },
+    {
+      "id": "yue26",
+      "lang": "yue",
+      "text": "冷气冻啲",
+      "contract": {
+        "sample_id": "",
+        "dialect": "cantonese",
+        "raw_text": "冷气冻啲。",
+        "normalized_text": "空调冷一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "temp_down",
+          "delta": 1
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经调低1度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "slots": {
+          "delta": 1
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 378.7
+    },
+    {
+      "id": "zh01",
+      "lang": "zh",
+      "text": "打开客厅的灯",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "打开客厅的灯。",
+        "normalized_text": "打开客厅的灯",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "light",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗客厅灯"
+      },
+      "expected": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 379.8
+    },
+    {
+      "id": "zh02",
+      "lang": "zh",
+      "text": "关掉卧室的灯",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "关掉卧室的灯。",
+        "normalized_text": "关掉卧室的灯",
+        "intent": "device_control",
+        "slots": {
+          "location": "bedroom",
+          "device": "light",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗卧室灯"
+      },
+      "expected": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 405.8
+    },
+    {
+      "id": "zh03",
+      "lang": "zh",
+      "text": "把空调打开",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "把空调打开。",
+        "normalized_text": "把空调打开",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗客厅冷气"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 360.5
+    },
+    {
+      "id": "zh04",
+      "lang": "zh",
+      "text": "空调温度调低两度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "空调温度调低两度。",
+        "normalized_text": "空调温度调低2度",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "temp_down",
+          "delta": 2
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经调低2度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "slots": {
+          "delta": 2
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 487.2
+    },
+    {
+      "id": "zh05",
+      "lang": "zh",
+      "text": "空调调到二十四度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "空调调到24度。",
+        "normalized_text": "空调调到24度",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "set_temp",
+          "temperature": 24
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经设定到24度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "slots": {
+          "temperature": 24
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 400.2
+    },
+    {
+      "id": "zh06",
+      "lang": "zh",
+      "text": "关闭窗帘",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "关闭窗帘。",
+        "normalized_text": "关闭窗帘",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "curtain",
+          "action": "close"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你关咗客厅窗帘"
+      },
+      "expected": {
+        "device": "curtain",
+        "action": "close",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 379.0
+    },
+    {
+      "id": "zh07",
+      "lang": "zh",
+      "text": "打开窗帘",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "打开窗帘。",
+        "normalized_text": "打开窗帘",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "curtain",
+          "action": "open"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你打开客厅窗帘"
+      },
+      "expected": {
+        "device": "curtain",
+        "action": "open",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 373.1
+    },
+    {
+      "id": "zh08",
+      "lang": "zh",
+      "text": "电视大声一点",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "电视大声一点。",
+        "normalized_text": "电视大声一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "volume_up"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅电视已经大声啲"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 393.8
+    },
+    {
+      "id": "zh09",
+      "lang": "zh",
+      "text": "风扇调快一点",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "风扇调快一点。",
+        "normalized_text": "风扇调快一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "fan",
+          "action": "speed_up"
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅风扇风速已经较快啲"
+      },
+      "expected": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 390.9
+    },
+    {
+      "id": "zh10",
+      "lang": "zh",
+      "text": "打开书房的风扇",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "打开书房的风扇。",
+        "normalized_text": "打开书房的风扇",
+        "intent": "device_control",
+        "slots": {
+          "location": "study",
+          "device": "fan",
+          "action": "on"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你开咗书房风扇"
+      },
+      "expected": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "study",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 418.8
+    },
+    {
+      "id": "zh11",
+      "lang": "zh",
+      "text": "厨房的灯调暗一点",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "厨房的灯条暗一点。",
+        "normalized_text": "厨房的灯条暗一点",
+        "intent": "device_control",
+        "slots": {
+          "location": "kitchen",
+          "device": "light",
+          "action": "dimmer"
+        },
+        "confidence": 1.0,
+        "reply_text": "厨房灯已经较暗啲"
+      },
+      "expected": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "kitchen",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 419.0
+    },
+    {
+      "id": "zh12",
+      "lang": "zh",
+      "text": "关上浴室的插座",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "关上浴室的插座。",
+        "normalized_text": "关上浴室的插座",
+        "intent": "device_control",
+        "slots": {
+          "location": "bathroom",
+          "device": "socket",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗浴室插座"
+      },
+      "expected": {
+        "device": "socket",
+        "action": "turn_off",
+        "room": "bathroom",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 399.5
+    },
+    {
+      "id": "zh13",
+      "lang": "zh",
+      "text": "空调温度调高一度",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "空调温度调高一度。",
+        "normalized_text": "空调温度调高1度",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "ac",
+          "action": "temp_up",
+          "delta": 1
+        },
+        "confidence": 1.0,
+        "reply_text": "客厅冷气已经调高1度"
+      },
+      "expected": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "slots": {
+          "delta": 1
+        }
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 411.5
+    },
+    {
+      "id": "zh14",
+      "lang": "zh",
+      "text": "把客厅电视关掉",
+      "contract": {
+        "sample_id": "",
+        "dialect": "mandarin",
+        "raw_text": "把客厅电视关掉。",
+        "normalized_text": "把客厅电视关掉",
+        "intent": "device_control",
+        "slots": {
+          "location": "living_room",
+          "device": "tv",
+          "action": "off"
+        },
+        "confidence": 1.0,
+        "reply_text": "好嘅，已经帮你熄咗客厅电视"
+      },
+      "expected": {
+        "device": "tv",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "dialect_ok": true,
+      "gate_ok": true,
+      "exact_ok": true,
+      "ms": 452.3
+    }
+  ]
+}
