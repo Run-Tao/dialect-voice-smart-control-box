@@ -2,7 +2,7 @@
 
 **一句话状态**：第 1 步目录结构与第 2 步 `board_pins.h`、`sdkconfig.defaults`、`board_bsp.c/h` 已落到 `D:\Run_Tao\DialectVoice_SZPI`；ESP-IDF 5.4.1 目标 `esp32s3` 全量构建通过，待真实开发板烧录与 I2C/I2S/SD 实机自检。
 
-**最后更新**：2026-11-20 14:26（按立创官方示例 `lichuang-esp32s3-demo@828edec` 核实引脚；ES7210 地址修正为 0x41；PCA9557 仅将 IO0..IO2 配置为输出；锁定 ES7210/ES8311/LVGL 8.3/触摸组件；构建产出 `firmware/build/dialect_voice_szpi.bin`）
+**最后更新**：2026-11-20 15:10（git 仓库已初始化，默认分支 `main`，首个提交 `8700178`，16 文件 / 1731 行；`build/`、`managed_components/`、`sdkconfig`、`*.log` 均已忽略。无远程仓库，尚未推送）
 
 ## 目录地图
 
@@ -24,6 +24,7 @@
 
 ## 已完成
 
+- **git 仓库初始化**（2026-11-20）：默认分支 `main`，首个提交 `8700178`。入库 16 个文件（源码/配置/文档/脚本，共 1731 行，约 68 KB），已忽略 `firmware/build/`、`firmware/managed_components/`、`firmware/sdkconfig`、`*.log`、`backend/dataset/audio/*`。`firmware/dependencies.lock` **已入库**以锁定组件版本。**无远程仓库，尚未 push。**
 - 完整规划 `firmware/` 与 `backend/` 目录。
 - 按官方示例核实 I2C=GPIO1/2、I2S=38/14/13/12/45、LCD=41/40/39/42、SDMMC=47/48/21、按键=GPIO0。
 - 核实 PCA9557=0x19、ES8311=0x18、ES7210=0x41、FT6336=0x38；PCA9557 IO0=LCD_CS、IO1=PA_EN、IO2=DVP_PWDN。
