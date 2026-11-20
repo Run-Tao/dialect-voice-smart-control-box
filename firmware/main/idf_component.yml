@@ -1,0 +1,5 @@
+dependencies:
+  espressif/esp_codec_dev: "^1.3.0"      # ES8311 DAC + ES7210 ADC 统一编解码框架
+  espressif/esp_lcd_st7789: "^1.2.0"     # 2.0 寸 320x240 SPI LCD
+  espressif/esp_lcd_touch_ft5x06: "^1.0.0"  # FT6336/FT5x06 I2C 触摸
+  lvgl/lvgl: "^8.4.0"                    # UI 端口层在 ui_manager.c 手写（flush/tick/touch/锁）

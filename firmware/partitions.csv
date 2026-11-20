@@ -1,0 +1,8 @@
+# 16MB Flash 分区表（立创实战派 ESP32-S3 N16R8）
+# Name,     Type, SubType,  Offset,   Size,     Flags
+nvs,        data, nvs,      0x9000,   0x6000,
+otadata,    data, ota,      0xf000,   0x2000,
+phy_init,   data, phy,      0x11000,  0x1000,
+factory,    app,  factory,  0x20000,  0x600000,
+coredump,   data, coredump, 0x620000, 0x10000,
+# 0x630000 之后预留（OTA 扩展 / 字库资源分区）

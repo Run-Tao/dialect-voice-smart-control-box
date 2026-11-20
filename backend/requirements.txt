@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+PyYAML>=6.0
+# 识别引擎（SenseVoice ASR + 归一化 + 规则 NLU + 执行器）来自 PC 版工程，二选一：
+#   pip install -e ../../dialect-smart-home     （推荐，可编辑安装）
+#   或保持默认：asr_nlu_pipeline.py 自动把 ../../dialect-smart-home/src 加入 sys.path
+# 引擎自身依赖（funasr/onnxruntime/rapidfuzz/soundfile 等）见该工程 requirements.txt

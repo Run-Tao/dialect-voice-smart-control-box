@@ -1,0 +1,5 @@
+# 云端服务配置：识别引擎直接复用 PC 版方言智能家居工程
+engine_root: ../../dialect-smart-home
+dataset_dir: dataset
+host: 0.0.0.0
+port: 8000

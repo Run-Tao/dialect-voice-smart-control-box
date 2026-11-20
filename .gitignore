@@ -1,0 +1,17 @@
+# ESP-IDF 构建产物
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+dependencies.lock
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node（字库工具链，可用 npm install 复原）
+node_modules/
+
+# 运行时生成的数据集（录音存档与标注）
+backend/dataset/
