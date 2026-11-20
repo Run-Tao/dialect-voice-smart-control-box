@@ -1,0 +1,11 @@
+# 立创·实战派 ESP32-S3 · 16MB Flash 分区表
+# 说明：
+#  - factory 给 4MB：当前 BSP 固件约 1MB，留足空间给后续 LVGL + 中文字库 + HTTP。
+#  - storage 预留 11MB：后续可放 LVGL 中文字库 / 提示音 PCM；
+#    录音文件一律写 SD 卡（/sdcard），不占 Flash。
+#  - 若后续启用 OTA，需改为 ota_0 / ota_1 双分区（各 4MB），届时同步改 sdkconfig。
+# Name,     Type, SubType, Offset,    Size,      Flags
+nvs,        data, nvs,     0x9000,    0x6000,
+phy_init,   data, phy,     0xf000,    0x1000,
+factory,    app,  factory, 0x10000,   0x400000,
+storage,    data, spiffs,  0x410000,  0xBF0000,

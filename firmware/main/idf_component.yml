@@ -1,0 +1,9 @@
+# ESP-IDF 组件管理器依赖
+# 先锁定板级 codec 与后续 UI 所需组件版本，第一阶段 main.c 暂不调用 LVGL。
+dependencies:
+  idf: ">=5.0"
+  espressif/es8311: "^1.0.0"
+  espressif/es7210: "^1.0.0"
+  lvgl/lvgl: "~8.3.0"
+  espressif/esp_lvgl_port: "~1.4.0"
+  espressif/esp_lcd_touch_ft5x06: "~1.0.6"

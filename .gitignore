@@ -1,0 +1,25 @@
+# ESP-IDF generated output
+firmware/build/
+firmware/managed_components/
+firmware/sdkconfig
+firmware/sdkconfig.old
+
+# Build / flash logs produced by flash.ps1 and manual idf.py runs
+*.log
+build*.log
+
+# Python runtime output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+backend/.env
+backend/dataset/metadata.jsonl
+backend/dataset/audio/*
+!backend/dataset/audio/.gitkeep
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,89 @@
+# =============================================================================
+# 立创·实战派 ESP32-S3（N16R8）默认配置
+# 用法：把本文件放在工程根（firmware/ 下一层），执行
+#     idf.py set-target esp32s3 && idf.py build
+# 若先前已生成 sdkconfig，需删除后重建才会应用本文件：
+#     rm -f sdkconfig sdkconfig.old && idf.py build
+# =============================================================================
+
+# ------------------------------ 目标与 Flash ------------------------------
+CONFIG_IDF_TARGET="esp32s3"
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# ------------------------------ CPU --------------------------------------
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+
+# ------------------------------ Octal PSRAM（8MB）-------------------------
+# N16R8 的 PSRAM 是 Octal（8 线）模式，必须显式开启，否则只认到 0 或 2MB
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_BOOT_INIT=y
+CONFIG_SPIRAM_IGNORE_NOTFOUND=n
+# 仅通过 heap_caps_malloc(..., MALLOC_CAP_SPIRAM) 显式申请外部内存，
+# 避免普通 malloc 无意中把需内部 RAM 的对象分到 PSRAM
+CONFIG_SPIRAM_USE_CAPS_ALLOC=y
+# Wi-Fi/LWIP 允许使用 PSRAM，缓解内部 SRAM 紧张
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+
+# ------------------------------ 分区表 ------------------------------------
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_PARTITION_TABLE_FILENAME="partitions.csv"
+
+# ------------------------------ FreeRTOS ----------------------------------
+# 1 kHz tick：录音任务按 10 ms 粒度调度，音频 DMA 喂数据更平稳
+CONFIG_FREERTOS_HZ=1000
+CONFIG_FREERTOS_USE_TRACE_FACILITY=y
+# 主任务栈加大：board_init + LVGL 初始化调用链较深
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+# ------------------------------ FATFS / SD 卡 -----------------------------
+# 长文件名 + UTF-8：文件名含设备 ID 与时间戳，默认 8.3 会截断
+CONFIG_FATFS_LFN_HEAP=y
+CONFIG_FATFS_MAX_LFN=255
+CONFIG_FATFS_CODEPAGE_936=y
+CONFIG_FATFS_API_ENCODING_UTF_8=y
+CONFIG_FATFS_VOLUME_COUNT=2
+CONFIG_FATFS_SECTOR_512=y
+CONFIG_FATFS_VFS_FSTAT_BLKSIZE=4096
+
+# ------------------------------ I2S / DMA ---------------------------------
+CONFIG_I2S_ISR_IRAM_SAFE=y
+
+# ------------------------------ HTTP / TLS --------------------------------
+# 后端若走 HTTPS 需要；纯内网 HTTP 可保留以备切换
+CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS=y
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=y
+
+# ------------------------------ LVGL（esp_lvgl_port 组件）------------------
+# 16 位色深：ST7789 走 RGB565，与显存占用最匹配。
+# 这些符号由 idf_component.yml 锁定的 LVGL 8.3 提供。
+CONFIG_LV_COLOR_DEPTH_16=y
+CONFIG_LV_COLOR_16_SWAP=y
+CONFIG_LV_MEM_CUSTOM=y
+CONFIG_LV_MEM_SIZE_KILOBYTES=64
+CONFIG_LV_USE_LOG=n
+CONFIG_LV_USE_PERF_MONITOR=n
+CONFIG_LV_BUILD_EXAMPLES=n
+CONFIG_LV_FONT_MONTSERRAT_14=y
+CONFIG_LV_FONT_MONTSERRAT_16=y
+CONFIG_LV_FONT_MONTSERRAT_20=y
+CONFIG_LV_FONT_MONTSERRAT_24=y
+# 中文字体：LVGL 内置不含 CJK，需自备字库；先关闭内建大字库控制固件体积
+CONFIG_LV_FONT_FMT_TXT_LARGE=n
+
+# ------------------------------ Wi-Fi ------------------------------------
+CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=8
+CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM=32
+CONFIG_ESP_WIFI_DYNAMIC_TX_BUFFER_NUM=32
+CONFIG_ESP_WIFI_AMPDU_RX_ENABLED=y
+CONFIG_ESP_WIFI_AMPDU_TX_ENABLED=y
+CONFIG_LWIP_TCP_SND_BUF_DEFAULT=32768
+CONFIG_LWIP_TCP_WND_DEFAULT=32768
+
+# ------------------------------ 日志 -------------------------------------
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+CONFIG_LOG_MAXIMUM_LEVEL_DEBUG=y
