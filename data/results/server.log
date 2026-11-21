@@ -1,0 +1,97 @@
+2026-11-20 14:14:23,457 [INFO] download models from model hub: ms
+2026-11-20 14:14:24,435 | INFO    | modelscope_hub.download | Downloading 20 files from iic/SenseVoiceSmall@master
+Notice: ffmpeg is not installed. torchaudio is used to load audio
+If you want to use ffmpeg backend to load audio, please install it by:
+	sudo apt install ffmpeg # ubuntu
+	# brew install ffmpeg # mac
+funasr version: 1.4.27.
+Downloading:   0%|          | 0/20 [00:00<?, ?file/s]Downloading:  45%|████▌     | 9/20 [00:00<00:00, 79.35file/s]Downloading:  90%|█████████ | 18/20 [00:00<00:00, 78.20file/s]Downloading: 100%|██████████| 20/20 [00:02<00:00,  9.93file/s]
+2026-11-20 14:14:26,577 [WARNING] trust_remote_code: False
+2026-11-20 14:14:31,021 [INFO] Loading pretrained params from D:\Projects\dialect-smart-home\models\models\iic--SenseVoiceSmall\snapshots\master\model.pt
+2026-11-20 14:14:31,033 [INFO] ckpt: D:\Projects\dialect-smart-home\models\models\iic--SenseVoiceSmall\snapshots\master\model.pt
+2026-11-20 14:14:33,080 [INFO] scope_map: ['module.', 'None']
+2026-11-20 14:14:33,080 [INFO] excludes: None
+2026-11-20 14:14:33,354 [INFO] Loading ckpt: D:\Projects\dialect-smart-home\models\models\iic--SenseVoiceSmall\snapshots\master\model.pt, status: <All keys matched successfully>
+2026-11-20 14:14:33,403 [INFO] Building VAD model.
+2026-11-20 14:14:33,403 [INFO] download models from model hub: ms
+2026-11-20 14:14:34,054 | INFO    | modelscope_hub.download | Downloading 8 files from iic/speech_fsmn_vad_zh-cn-16k-common-pytorch@master
+Downloading:   0%|          | 0/8 [00:00<?, ?file/s]Downloading: 100%|██████████| 8/8 [00:00<00:00, 86.66file/s]
+2026-11-20 14:14:34,220 [WARNING] trust_remote_code: False
+2026-11-20 14:14:34,276 [INFO] Loading pretrained params from D:\Projects\dialect-smart-home\models\models\iic--speech_fsmn_vad_zh-cn-16k-common-pytorch\snapshots\master\model.pt
+2026-11-20 14:14:34,276 [INFO] ckpt: D:\Projects\dialect-smart-home\models\models\iic--speech_fsmn_vad_zh-cn-16k-common-pytorch\snapshots\master\model.pt
+2026-11-20 14:14:34,297 [INFO] scope_map: ['module.', 'None']
+2026-11-20 14:14:34,301 [INFO] excludes: None
+2026-11-20 14:14:34,302 [INFO] Loading ckpt: D:\Projects\dialect-smart-home\models\models\iic--speech_fsmn_vad_zh-cn-16k-common-pytorch\snapshots\master\model.pt, status: <All keys matched successfully>
+方言智居 Web 服务: http://127.0.0.1:8000
+ * Serving Flask app 'server'
+ * Debug mode: off
+2026-11-20 14:14:34,559 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2026-11-20 14:14:34,560 [INFO] [33mPress CTRL+C to quit[0m
+2026-11-20 14:15:15,764 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:15] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:25,866 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:25] "GET / HTTP/1.1" 200 -
+2026-11-20 14:15:27,875 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:27] "GET /web/style.css HTTP/1.1" 200 -
+2026-11-20 14:15:27,998 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:27] "GET /web/app.js HTTP/1.1" 200 -
+2026-11-20 14:15:28,034 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:28] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:28,769 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+  0%|[34m          [0m| 0/1 [00:00<?, ?it/s]100%|[34m██████████[0m| 1/1 [00:00<00:00,  1.53it/s]{'load_data': '0.000', 'extract_feat': '0.358', 'forward': '0.656', 'batch_size': '1', 'rtf': '0.216'}, : 100%|[34m██████████[0m| 1/1 [00:00<00:00,  1.53it/s]rtf_avg: 0.216: 100%|[34m██████████[0m| 1/1 [00:00<00:00,  1.53it/s]                                                                                          rtf_avg: 0.216: 100%|[34m██████████[0m| 1/1 [00:00<00:00,  1.52it/s]
+  0%|[31m          [0m| 0/1 [00:00<?, ?it/s]
+  0%|[34m          [0m| 0/1 [00:00<?, ?it/s][A
+100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.06s/it][A
+{'load_data': '0.000', 'extract_feat': '0.029', 'forward': '2.059', 'batch_size': '1', 'rtf': '0.673'}, : 100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.06s/it][A
+rtf_avg: 0.673: 100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.06s/it]                                                                                          [Artf_avg: 0.673: 100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.06s/it]
+100%|[31m██████████[0m| 1/1 [00:02<00:00,  2.07s/it]rtf_avg: 0.678, time_speech:  3.048, time_escape: 2.066: 100%|[31m██████████[0m| 1/1 [00:02<00:00,  2.07s/it]rtf_avg: 0.678, time_speech:  3.048, time_escape: 2.066: 100%|[31m██████████[0m| 1/1 [00:02<00:00,  2.07s/it]
+2026-11-20 14:15:32,450 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:32] "POST /api/recognize HTTP/1.1" 200 -
+2026-11-20 14:15:32,955 [INFO] Could not import comtypes.gen, trying to create it.
+2026-11-20 14:15:32,958 [INFO] Created comtypes.gen directory: 'D:\Projects\dialect-smart-home\.venv\lib\site-packages\comtypes\gen'
+2026-11-20 14:15:32,961 [INFO] Writing __init__.py file: 'D:\Projects\dialect-smart-home\.venv\lib\site-packages\comtypes\gen\__init__.py'
+2026-11-20 14:15:33,015 [INFO] Using writeable comtypes cache directory: 'D:\Projects\dialect-smart-home\.venv\lib\site-packages\comtypes\gen'
+2026-11-20 14:15:33,139 [INFO] Could not import comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4: No module named 'comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4'
+2026-11-20 14:15:33,170 [INFO] # Generating comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4
+2026-11-20 14:15:33,565 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:33] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:33,838 [INFO] # Generating comtypes.gen.SpeechLib
+2026-11-20 14:15:33,897 [INFO] Could not import comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0: No module named 'comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0'
+2026-11-20 14:15:33,915 [INFO] # Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+2026-11-20 14:15:33,986 [INFO] # Generating comtypes.gen.stdole
+2026-11-20 14:15:38,557 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:38] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:43,549 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:43] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:48,544 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:48] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:53,549 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:53] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:15:58,547 [INFO] 127.0.0.1 - - [20/Nov/2026 14:15:58] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:03,550 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:03] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:08,557 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:08] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:13,552 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:13] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:18,642 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:18] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:18,715 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:18] "POST /api/text HTTP/1.1" 200 -
+2026-11-20 14:16:19,120 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:19] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:24,766 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:24] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:42,994 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:42] "POST /api/text HTTP/1.1" 200 -
+2026-11-20 14:16:43,007 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:43] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:43,103 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:43] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:48,110 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:48] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:53,043 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:53] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:16:58,051 [INFO] 127.0.0.1 - - [20/Nov/2026 14:16:58] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:03,044 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:03] "GET /api/state HTTP/1.1" 200 -
+  0%|[34m          [0m| 0/1 [00:00<?, ?it/s]100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.75it/s]{'load_data': '0.000', 'extract_feat': '0.141', 'forward': '0.364', 'batch_size': '1', 'rtf': '0.371'}, : 100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.75it/s]rtf_avg: 0.371: 100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.75it/s]                                                                                          rtf_avg: 0.371: 100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.74it/s]
+  0%|[31m          [0m| 0/1 [00:00<?, ?it/s]
+  0%|[34m          [0m| 0/1 [00:00<?, ?it/s][A
+100%|[34m██████████[0m| 1/1 [00:01<00:00,  1.51s/it][A
+{'load_data': '0.000', 'extract_feat': '0.180', 'forward': '1.508', 'batch_size': '1', 'rtf': '1.571'}, : 100%|[34m██████████[0m| 1/1 [00:01<00:00,  1.51s/it][A
+rtf_avg: 1.571: 100%|[34m██████████[0m| 1/1 [00:01<00:00,  1.51s/it]                                                                                          [Artf_avg: 1.571: 100%|[34m██████████[0m| 1/1 [00:01<00:00,  1.51s/it]
+100%|[31m██████████[0m| 1/1 [00:01<00:00,  1.51s/it]rtf_avg: 1.510, time_speech:  1.000, time_escape: 1.510: 100%|[31m██████████[0m| 1/1 [00:01<00:00,  1.51s/it]rtf_avg: 1.510, time_speech:  1.000, time_escape: 1.510: 100%|[31m██████████[0m| 1/1 [00:01<00:00,  1.51s/it]
+2026-11-20 14:17:06,083 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:06] "POST /api/recognize HTTP/1.1" 200 -
+2026-11-20 14:17:08,090 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:08] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:13,035 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:13] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:18,050 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:18] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:23,047 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:23] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:28,048 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:28] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:33,052 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:33] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:38,047 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:38] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:43,045 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:43] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:48,046 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:48] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:53,066 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:53] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:17:58,049 [INFO] 127.0.0.1 - - [20/Nov/2026 14:17:58] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:18:03,050 [INFO] 127.0.0.1 - - [20/Nov/2026 14:18:03] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:18:08,050 [INFO] 127.0.0.1 - - [20/Nov/2026 14:18:08] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:18:13,035 [INFO] 127.0.0.1 - - [20/Nov/2026 14:18:13] "GET /api/state HTTP/1.1" 200 -
+2026-11-20 14:18:18,059 [INFO] 127.0.0.1 - - [20/Nov/2026 14:18:18] "GET /api/state HTTP/1.1" 200 -

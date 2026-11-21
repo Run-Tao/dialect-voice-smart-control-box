@@ -1,0 +1,35 @@
+# 核心数值与音频
+numpy>=1.24,<2.0
+scipy>=1.10
+soundfile>=0.12
+sounddevice>=0.4
+
+# ASR 主后端：SenseVoice-Small（原生粤语）+ FSMN-VAD
+torch>=2.0
+torchaudio>=2.0
+funasr>=1.1
+modelscope>=1.15
+
+# ASR 备用后端：faster-whisper（CPU int8）
+faster-whisper>=1.0
+
+# 方言文本归一化与模糊理解
+pypinyin>=0.51
+opencc-python-reimplemented>=0.1.7
+rapidfuzz>=3.0
+PyYAML>=6.0
+
+# 服务与界面
+flask>=3.0
+
+# 语音反馈与测试语料合成
+pyttsx3>=2.90
+edge-tts>=6.1
+imageio-ffmpeg>=0.4.9
+
+# 执行适配
+requests>=2.31
+paho-mqtt>=2.0
+
+# 开发
+pytest>=8.0

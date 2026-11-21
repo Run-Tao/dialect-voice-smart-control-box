@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方言智居 · 方言语音指令转换器</title>
+  <link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+  <header>
+    <h1>方言智居 <span>DialectHome</span></h1>
+    <p class="sub">粤语 / 带口音普通话 → 智能家居控制 · 本地离线识别</p>
+  </header>
+
+  <main>
+    <section class="panel voice-panel">
+      <button id="micBtn" class="mic-btn" title="点击开始录音，再点击结束">
+        <span class="mic-icon"></span>
+        <span id="micLabel">点击说话</span>
+      </button>
+      <div id="recStatus" class="rec-status">支持粤语，例如「唔该帮我熄咗客厅盏灯」</div>
+      <div class="text-debug">
+        <input id="textInput" type="text" placeholder="或输入文本直接测试理解层，如：冷气较低两度">
+        <button id="textBtn">解析</button>
+      </div>
+    </section>
+
+    <section class="panel result-panel">
+      <h2>识别链路</h2>
+      <div class="stage"><label>ASR 原文</label><div id="rawText" class="val">—</div></div>
+      <div class="stage"><label>归一化</label><div id="normText" class="val">—</div></div>
+      <div class="stage"><label>结构化命令</label><pre id="cmdJson" class="val">—</pre></div>
+      <div class="stage"><label>执行反馈</label><div id="feedback" class="val feedback">—</div></div>
+      <div class="stage"><label>耗时</label><div id="timings" class="val">—</div></div>
+    </section>
+
+    <section class="panel state-panel">
+      <div class="state-head">
+        <h2>虚拟家居状态</h2>
+        <button id="resetBtn" class="small-btn">重置</button>
+      </div>
+      <div id="stateGrid" class="state-grid"></div>
+    </section>
+  </main>
+
+  <footer>SenseVoice-Small 粤语原生 ASR · 拼音模糊理解 · 可插拔执行器（模拟器 / MQTT / Home Assistant）</footer>
+  <script src="/web/app.js"></script>
+</body>
+</html>

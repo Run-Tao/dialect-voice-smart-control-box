@@ -1,0 +1,38 @@
+# 方言智居 · 运行配置
+asr:
+  backend: sensevoice        # sensevoice | whisper | mock
+  language: auto             # auto | yue | zh
+  num_threads: 0             # 推理线程数，0=自适应逻辑核数（实测见docs/05线程基准）
+  whisper_model: small       # faster-whisper 模型规格（备用后端）
+  models_dir: models         # 模型缓存目录（相对项目根）
+
+understand:
+  fuzzy_threshold: 78        # 拼音模糊通道动作匹配阈值 (0-100)
+  entity_threshold: 85       # 设备/房间模糊匹配阈值（短串要求更严）
+  default_room: living_room  # 未指明房间时的默认房间
+
+executor:
+  type: simulator            # simulator | mqtt | homeassistant
+  mqtt:
+    host: 127.0.0.1
+    port: 1883
+    topic_prefix: dialecthome/cmd
+  homeassistant:
+    url: http://homeassistant.local:8123
+    token: ""
+
+tts:
+  enabled: true
+  engine: pyttsx3            # pyttsx3(离线) | edge(在线)
+  edge_voice: zh-CN-XiaoxiaoNeural
+
+audio:
+  sample_rate: 16000
+  max_record_seconds: 15
+
+server:
+  host: 127.0.0.1
+  port: 8000
+
+logging:
+  interactions_file: data/results/interactions.jsonl

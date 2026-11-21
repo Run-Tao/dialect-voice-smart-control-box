@@ -1,0 +1,121 @@
+# 方言智居 · 命令库（封闭域意图/槽位定义）
+# 新增设备或说法只需编辑本文件，无需改代码。
+# aliases 同时收录普通话与粤语口语说法；归一化层会先把粤语词映射为普通话词。
+
+rooms:
+  living_room:
+    name: 客厅
+    aliases: [客厅, 大厅, 客堂, 厅]
+  bedroom:
+    name: 卧室
+    aliases: [卧室, 睡房, 房间, 卧房]
+  kitchen:
+    name: 厨房
+    aliases: [厨房, 煮饭房]
+  bathroom:
+    name: 浴室
+    aliases: [浴室, 洗手间, 厕所, 冲凉房]
+  study:
+    name: 书房
+    aliases: [书房]
+
+devices:
+  light:
+    name: 灯
+    aliases: [灯, 电灯, 灯光, 盏灯, 吊灯]
+    actions:
+      turn_on:
+        aliases: [开灯, 打开灯, 开盏灯, 着灯, 打开盏灯, 开一下灯]
+        feedback: "已为你打开{room}的灯"
+      turn_off:
+        aliases: [关灯, 熄灯, 关盏灯, 熄咗盏灯, 熄咗灯, 关一下灯]
+        feedback: "已关闭{room}的灯"
+      brighter:
+        aliases: [调亮, 较光, 光啲, 亮一点, 较光啲, 调亮一点]
+        feedback: "{room}的灯已调亮"
+      dimmer:
+        aliases: [调暗, 较暗, 暗啲, 暗一点, 较暗啲, 调暗一点]
+        feedback: "{room}的灯已调暗"
+
+  ac:
+    name: 空调
+    aliases: [空调, 冷气, 冷气机]
+    actions:
+      turn_on:
+        aliases: [开空调, 开冷气, 打开冷气, 打开空调]
+        feedback: "已打开{room}的空调"
+      turn_off:
+        aliases: [关空调, 熄冷气, 关冷气, 关闭空调]
+        feedback: "已关闭{room}的空调"
+      temp_up:
+        aliases: [调高温度, 较高温, 热啲, 温度调高, 调高啲温度, 温度较高]
+        feedback: "{room}空调温度已调高{delta}度，当前{temp}度"
+      temp_down:
+        aliases: [调低温度, 较低温, 冻啲, 温度调低, 调低啲温度, 温度较低]
+        feedback: "{room}空调温度已调低{delta}度，当前{temp}度"
+      set_temp:
+        aliases: [调到, 较到, 设定温度, 温度调到, 温度设定, 降到, 降至]
+        slot: temperature
+        feedback: "{room}空调已设定为{temp}度"
+
+  tv:
+    name: 电视
+    aliases: [电视, 电视机]
+    actions:
+      turn_on:
+        aliases: [开电视, 打开电视, 打开电视机]
+        feedback: "已打开{room}的电视"
+      turn_off:
+        aliases: [关电视, 熄电视, 关闭电视]
+        feedback: "已关闭{room}的电视"
+      channel_up:
+        aliases: [换台, 转台, 下一个台, 换个台]
+        feedback: "{room}电视已切换到频道{channel}"
+      channel_down:
+        aliases: [上一个台, 返上一个台]
+        feedback: "{room}电视已返回频道{channel}"
+      volume_up:
+        aliases: [大声啲, 调大声, 大声一点, 较大大声, 音量调高]
+        feedback: "{room}电视音量已调高到{volume}"
+      volume_down:
+        aliases: [细声啲, 调小声, 小声一点, 较细声, 音量调低]
+        feedback: "{room}电视音量已调低到{volume}"
+
+  curtain:
+    name: 窗帘
+    aliases: [窗帘, 窗纱]
+    actions:
+      open:
+        aliases: [打开窗帘, 拉开窗帘, 开窗帘, 拉开窗纱]
+        feedback: "已打开{room}的窗帘"
+      close:
+        aliases: [关上窗帘, 拉上窗帘, 拉埋窗帘, 关窗帘, 拉埋窗纱]
+        feedback: "已关上{room}的窗帘"
+
+  fan:
+    name: 风扇
+    aliases: [风扇, 电风扇, 风扇仔]
+    actions:
+      turn_on:
+        aliases: [开风扇, 打开风扇, 开电风扇]
+        feedback: "已打开{room}的风扇"
+      turn_off:
+        aliases: [关风扇, 熄风扇, 关电风扇]
+        feedback: "已关闭{room}的风扇"
+      speed_up:
+        aliases: [调快, 快啲, 风速调高, 风大啲]
+        feedback: "{room}风扇风速已调高到{speed}档"
+      speed_down:
+        aliases: [调慢, 慢啲, 风速调低, 风细啲]
+        feedback: "{room}风扇风速已调低到{speed}档"
+
+  socket:
+    name: 插座
+    aliases: [插座, 插苏, 电源插座, 插咗]  # 插咗：粤语座/咗近音(z o6/zo2)的ASR常见变体
+    actions:
+      turn_on:
+        aliases: [开插座, 打开插座, 开插苏]
+        feedback: "已打开{room}的插座"
+      turn_off:
+        aliases: [关插座, 熄插座, 关插苏]
+        feedback: "已关闭{room}的插座"

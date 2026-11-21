@@ -1,0 +1,76 @@
+:root {
+  --bg: #0f1420;
+  --panel: #1a2233;
+  --line: #2a3550;
+  --text: #e8edf7;
+  --muted: #8b96ad;
+  --accent: #4f8cff;
+  --ok: #3ecf8e;
+  --err: #ff6b6b;
+  --rec: #ff4d5e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+header { text-align: center; padding: 28px 16px 8px; }
+header h1 { font-size: 28px; letter-spacing: 2px; }
+header h1 span { font-size: 14px; color: var(--muted); font-weight: 400; margin-left: 8px; }
+.sub { color: var(--muted); font-size: 13px; margin-top: 6px; }
+main {
+  flex: 1; width: min(1080px, 94vw); margin: 18px auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.panel {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 14px; padding: 20px;
+}
+.voice-panel { grid-column: 1 / -1; text-align: center; }
+.mic-btn {
+  width: 130px; height: 130px; border-radius: 50%;
+  border: 3px solid var(--accent); background: #22304d; color: var(--text);
+  cursor: pointer; display: inline-flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  font-size: 14px; transition: all .2s;
+}
+.mic-btn:hover { background: #2a3b60; }
+.mic-btn.recording { border-color: var(--rec); background: #4d2230; animation: pulse 1.2s infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,77,94,.4);} 50% { box-shadow: 0 0 0 16px rgba(255,77,94,0);} }
+.mic-icon {
+  width: 22px; height: 34px; border-radius: 11px; background: var(--accent);
+  position: relative;
+}
+.mic-btn.recording .mic-icon { background: var(--rec); }
+.rec-status { color: var(--muted); font-size: 13px; margin-top: 14px; min-height: 18px; }
+.text-debug { margin-top: 16px; display: flex; gap: 8px; justify-content: center; }
+.text-debug input {
+  width: min(480px, 70%); padding: 9px 12px; border-radius: 8px;
+  border: 1px solid var(--line); background: #10182a; color: var(--text); font-size: 14px;
+}
+.text-debug button, .small-btn {
+  padding: 9px 16px; border-radius: 8px; border: 1px solid var(--accent);
+  background: transparent; color: var(--accent); cursor: pointer; font-size: 14px;
+}
+.text-debug button:hover, .small-btn:hover { background: var(--accent); color: #fff; }
+h2 { font-size: 15px; color: var(--muted); margin-bottom: 14px; font-weight: 600; }
+.stage { margin-bottom: 12px; }
+.stage label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.val {
+  background: #10182a; border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; font-size: 14px; min-height: 36px; word-break: break-all;
+}
+pre.val { font-family: Consolas, monospace; font-size: 12.5px; white-space: pre-wrap; }
+.feedback.ok { border-color: var(--ok); color: var(--ok); }
+.feedback.err { border-color: var(--err); color: var(--err); }
+.state-head { display: flex; justify-content: space-between; align-items: center; }
+.small-btn { padding: 4px 12px; font-size: 12px; }
+.state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.room-card { background: #10182a; border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.room-card h3 { font-size: 13px; margin-bottom: 8px; color: var(--accent); }
+.dev-row { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; color: var(--muted); }
+.dev-row .on { color: var(--ok); }
+.dev-row .off { color: #5a6478; }
+footer { text-align: center; color: #5a6478; font-size: 12px; padding: 14px; }
+@media (max-width: 760px) { main { grid-template-columns: 1fr; } }

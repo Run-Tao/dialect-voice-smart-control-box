@@ -1,0 +1,1212 @@
+{
+  "summary": {
+    "backend": "sensevoice",
+    "corpus": "TTS 合成（zh-HK 粤语 + zh-CN 普通话），非真实录音",
+    "n": 40,
+    "intent_accuracy": 100.0,
+    "intent_accuracy_yue": 100.0,
+    "intent_accuracy_zh": 100.0,
+    "room_accuracy": 100.0,
+    "slot_accuracy": 100.0,
+    "exact_accuracy": 100.0,
+    "exec_success_rate": 100.0,
+    "asr_ms_mean": 440.1,
+    "asr_ms_p95": 546.0,
+    "wall_ms_mean": 452.6,
+    "wall_ms_p95": 557.8
+  },
+  "rows": [
+    {
+      "id": "yue01",
+      "lang": "yue",
+      "text": "唔该帮我熄咗客厅盏灯",
+      "asr_text": "唔该帮我熄咗客厅盏灯。",
+      "asr_lang": "yue",
+      "normalized": "关了客厅灯",
+      "expected": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 743.2,
+      "wall_ms": 757.4
+    },
+    {
+      "id": "yue02",
+      "lang": "yue",
+      "text": "帮我开客厅盏灯",
+      "asr_text": "帮我开客厅盏灯。",
+      "asr_lang": "yue",
+      "normalized": "开客厅灯",
+      "expected": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 508.8,
+      "wall_ms": 522.3
+    },
+    {
+      "id": "yue03",
+      "lang": "yue",
+      "text": "客厅盏灯较光啲",
+      "asr_text": "客厅盏灯校光啲。",
+      "asr_lang": "yue",
+      "normalized": "客厅灯校亮一点",
+      "expected": {
+        "device": "light",
+        "action": "brighter",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "brighter",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 579.9,
+      "wall_ms": 593.8
+    },
+    {
+      "id": "yue04",
+      "lang": "yue",
+      "text": "卧室灯较暗啲",
+      "asr_text": "卧室灯校暗啲。",
+      "asr_lang": "yue",
+      "normalized": "卧室灯校暗一点",
+      "expected": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 412.8,
+      "wall_ms": 425.6
+    },
+    {
+      "id": "yue05",
+      "lang": "yue",
+      "text": "开冷气",
+      "asr_text": "开冷气。",
+      "asr_lang": "yue",
+      "normalized": "开空调",
+      "expected": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 507.1,
+      "wall_ms": 523.7
+    },
+    {
+      "id": "yue06",
+      "lang": "yue",
+      "text": "熄咗冷气",
+      "asr_text": "熄咗冷气。",
+      "asr_lang": "yue",
+      "normalized": "关了空调",
+      "expected": {
+        "device": "ac",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "ac",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 405.8,
+      "wall_ms": 422.0
+    },
+    {
+      "id": "yue07",
+      "lang": "yue",
+      "text": "冷气较低两度",
+      "asr_text": "冷气降低两度。",
+      "asr_lang": "yue",
+      "normalized": "空调降低2度",
+      "expected": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "slots": {
+          "delta": 2
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 2
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 440.6,
+      "wall_ms": 448.6
+    },
+    {
+      "id": "yue08",
+      "lang": "yue",
+      "text": "冷气调高一度",
+      "asr_text": "冷气调高一度。",
+      "asr_lang": "yue",
+      "normalized": "空调调高1度",
+      "expected": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "slots": {
+          "delta": 1
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 420.4,
+      "wall_ms": 427.8
+    },
+    {
+      "id": "yue09",
+      "lang": "yue",
+      "text": "冷气调到二十六度",
+      "asr_text": "冷气调到二十六度。",
+      "asr_lang": "yue",
+      "normalized": "空调调到26度",
+      "expected": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "slots": {
+          "temperature": 26
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "temperature": 26
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 531.1,
+      "wall_ms": 538.2
+    },
+    {
+      "id": "yue10",
+      "lang": "yue",
+      "text": "卧室冷气较到廿八度",
+      "asr_text": "卧室冷气降到廿八度。",
+      "asr_lang": "yue",
+      "normalized": "卧室空调降到28度",
+      "expected": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "bedroom",
+        "slots": {
+          "temperature": 28
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {
+          "temperature": 28
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 526.4,
+      "wall_ms": 534.6
+    },
+    {
+      "id": "yue11",
+      "lang": "yue",
+      "text": "开电视",
+      "asr_text": "开电视。",
+      "asr_lang": "yue",
+      "normalized": "开电视",
+      "expected": {
+        "device": "tv",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 384.5,
+      "wall_ms": 396.5
+    },
+    {
+      "id": "yue12",
+      "lang": "yue",
+      "text": "熄电视",
+      "asr_text": "熄电视。",
+      "asr_lang": "yue",
+      "normalized": "关电视",
+      "expected": {
+        "device": "tv",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 376.7,
+      "wall_ms": 389.9
+    },
+    {
+      "id": "yue13",
+      "lang": "yue",
+      "text": "电视大声啲",
+      "asr_text": "电视大声啲。",
+      "asr_lang": "yue",
+      "normalized": "电视大声一点",
+      "expected": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 423.4,
+      "wall_ms": 440.2
+    },
+    {
+      "id": "yue14",
+      "lang": "yue",
+      "text": "电视细声啲",
+      "asr_text": "电视细声啲。",
+      "asr_lang": "yue",
+      "normalized": "电视小声一点",
+      "expected": {
+        "device": "tv",
+        "action": "volume_down",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "volume_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 455.3,
+      "wall_ms": 472.9
+    },
+    {
+      "id": "yue15",
+      "lang": "yue",
+      "text": "帮我转台",
+      "asr_text": "帮我转台。",
+      "asr_lang": "yue",
+      "normalized": "转台",
+      "expected": {
+        "device": "tv",
+        "action": "channel_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "channel_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 0.9
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 420.6,
+      "wall_ms": 433.9
+    },
+    {
+      "id": "yue16",
+      "lang": "yue",
+      "text": "拉开客厅窗帘",
+      "asr_text": "拉开客厅窗帘。",
+      "asr_lang": "yue",
+      "normalized": "拉开客厅窗帘",
+      "expected": {
+        "device": "curtain",
+        "action": "open",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "curtain",
+        "action": "open",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 452.0,
+      "wall_ms": 464.0
+    },
+    {
+      "id": "yue17",
+      "lang": "yue",
+      "text": "拉埋卧室窗帘",
+      "asr_text": "拉埋卧室窗帘。",
+      "asr_lang": "yue",
+      "normalized": "拉上卧室窗帘",
+      "expected": {
+        "device": "curtain",
+        "action": "close",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "got": {
+        "device": "curtain",
+        "action": "close",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 451.3,
+      "wall_ms": 462.4
+    },
+    {
+      "id": "yue18",
+      "lang": "yue",
+      "text": "开风扇",
+      "asr_text": "开风扇。",
+      "asr_lang": "yue",
+      "normalized": "开风扇",
+      "expected": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 366.3,
+      "wall_ms": 376.6
+    },
+    {
+      "id": "yue19",
+      "lang": "yue",
+      "text": "熄风扇",
+      "asr_text": "熄风扇。",
+      "asr_lang": "yue",
+      "normalized": "关风扇",
+      "expected": {
+        "device": "fan",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "fan",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 381.9,
+      "wall_ms": 393.2
+    },
+    {
+      "id": "yue20",
+      "lang": "yue",
+      "text": "风扇快啲",
+      "asr_text": "风扇快啲。",
+      "asr_lang": "yue",
+      "normalized": "风扇快一点",
+      "expected": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 404.7,
+      "wall_ms": 417.4
+    },
+    {
+      "id": "yue21",
+      "lang": "yue",
+      "text": "风扇慢啲",
+      "asr_text": "风扇慢啲。",
+      "asr_lang": "yue",
+      "normalized": "风扇慢一点",
+      "expected": {
+        "device": "fan",
+        "action": "speed_down",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "fan",
+        "action": "speed_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 397.6,
+      "wall_ms": 410.3
+    },
+    {
+      "id": "yue22",
+      "lang": "yue",
+      "text": "开厨房插座",
+      "asr_text": "开厨房插座。",
+      "asr_lang": "yue",
+      "normalized": "开厨房插座",
+      "expected": {
+        "device": "socket",
+        "action": "turn_on",
+        "room": "kitchen",
+        "slots": {}
+      },
+      "got": {
+        "device": "socket",
+        "action": "turn_on",
+        "room": "kitchen",
+        "room_name": "厨房",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 421.8,
+      "wall_ms": 429.9
+    },
+    {
+      "id": "yue23",
+      "lang": "yue",
+      "text": "熄咗浴室插座",
+      "asr_text": "熄咗浴室插咗。",
+      "asr_lang": "yue",
+      "normalized": "关了浴室插了",
+      "expected": {
+        "device": "socket",
+        "action": "turn_off",
+        "room": "bathroom",
+        "slots": {}
+      },
+      "got": {
+        "device": "socket",
+        "action": "turn_off",
+        "room": "bathroom",
+        "room_name": "浴室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 463.0,
+      "wall_ms": 471.7
+    },
+    {
+      "id": "yue24",
+      "lang": "yue",
+      "text": "书房灯较光啲",
+      "asr_text": "书房灯割光啲。",
+      "asr_lang": "yue",
+      "normalized": "书房灯割亮一点",
+      "expected": {
+        "device": "light",
+        "action": "brighter",
+        "room": "study",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "brighter",
+        "room": "study",
+        "room_name": "书房",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 446.4,
+      "wall_ms": 460.8
+    },
+    {
+      "id": "yue25",
+      "lang": "yue",
+      "text": "唔该熄咗睡房盏灯",
+      "asr_text": "唔该熄咗睡房盏灯。",
+      "asr_lang": "yue",
+      "normalized": "关了卧室灯",
+      "expected": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 546.0,
+      "wall_ms": 557.8
+    },
+    {
+      "id": "yue26",
+      "lang": "yue",
+      "text": "冷气冻啲",
+      "asr_text": "冷气冻啲。",
+      "asr_lang": "yue",
+      "normalized": "空调冷一点",
+      "expected": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "slots": {
+          "delta": 1
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 378.9,
+      "wall_ms": 401.7
+    },
+    {
+      "id": "zh01",
+      "lang": "zh",
+      "text": "打开客厅的灯",
+      "asr_text": "打开客厅的灯。",
+      "asr_lang": "zh",
+      "normalized": "打开客厅的灯",
+      "expected": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 386.8,
+      "wall_ms": 400.2
+    },
+    {
+      "id": "zh02",
+      "lang": "zh",
+      "text": "关掉卧室的灯",
+      "asr_text": "关掉卧室的灯。",
+      "asr_lang": "zh",
+      "normalized": "关掉卧室的灯",
+      "expected": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "bedroom",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 403.6,
+      "wall_ms": 417.2
+    },
+    {
+      "id": "zh03",
+      "lang": "zh",
+      "text": "把空调打开",
+      "asr_text": "把空调打开。",
+      "asr_lang": "zh",
+      "normalized": "把空调打开",
+      "expected": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 369.2,
+      "wall_ms": 386.7
+    },
+    {
+      "id": "zh04",
+      "lang": "zh",
+      "text": "空调温度调低两度",
+      "asr_text": "空调温度调低两度。",
+      "asr_lang": "zh",
+      "normalized": "空调温度调低2度",
+      "expected": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "slots": {
+          "delta": 2
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 2
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 495.6,
+      "wall_ms": 503.5
+    },
+    {
+      "id": "zh05",
+      "lang": "zh",
+      "text": "空调调到二十四度",
+      "asr_text": "空调调到24度。",
+      "asr_lang": "zh",
+      "normalized": "空调调到24度",
+      "expected": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "slots": {
+          "temperature": 24
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "temperature": 24
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 418.6,
+      "wall_ms": 425.0
+    },
+    {
+      "id": "zh06",
+      "lang": "zh",
+      "text": "关闭窗帘",
+      "asr_text": "关闭窗帘。",
+      "asr_lang": "zh",
+      "normalized": "关闭窗帘",
+      "expected": {
+        "device": "curtain",
+        "action": "close",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "curtain",
+        "action": "close",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 426.7,
+      "wall_ms": 437.1
+    },
+    {
+      "id": "zh07",
+      "lang": "zh",
+      "text": "打开窗帘",
+      "asr_text": "打开窗帘。",
+      "asr_lang": "zh",
+      "normalized": "打开窗帘",
+      "expected": {
+        "device": "curtain",
+        "action": "open",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "curtain",
+        "action": "open",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 366.2,
+      "wall_ms": 375.6
+    },
+    {
+      "id": "zh08",
+      "lang": "zh",
+      "text": "电视大声一点",
+      "asr_text": "电视大声一点。",
+      "asr_lang": "zh",
+      "normalized": "电视大声一点",
+      "expected": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 404.8,
+      "wall_ms": 420.6
+    },
+    {
+      "id": "zh09",
+      "lang": "zh",
+      "text": "风扇调快一点",
+      "asr_text": "风扇调快一点。",
+      "asr_lang": "zh",
+      "normalized": "风扇调快一点",
+      "expected": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 386.0,
+      "wall_ms": 399.0
+    },
+    {
+      "id": "zh10",
+      "lang": "zh",
+      "text": "打开书房的风扇",
+      "asr_text": "打开书房的风扇。",
+      "asr_lang": "zh",
+      "normalized": "打开书房的风扇",
+      "expected": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "study",
+        "slots": {}
+      },
+      "got": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "study",
+        "room_name": "书房",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 415.1,
+      "wall_ms": 430.1
+    },
+    {
+      "id": "zh11",
+      "lang": "zh",
+      "text": "厨房的灯调暗一点",
+      "asr_text": "厨房的灯条暗一点。",
+      "asr_lang": "zh",
+      "normalized": "厨房的灯条暗一点",
+      "expected": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "kitchen",
+        "slots": {}
+      },
+      "got": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "kitchen",
+        "room_name": "厨房",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 412.6,
+      "wall_ms": 427.4
+    },
+    {
+      "id": "zh12",
+      "lang": "zh",
+      "text": "关上浴室的插座",
+      "asr_text": "关上浴室的插座。",
+      "asr_lang": "zh",
+      "normalized": "关上浴室的插座",
+      "expected": {
+        "device": "socket",
+        "action": "turn_off",
+        "room": "bathroom",
+        "slots": {}
+      },
+      "got": {
+        "device": "socket",
+        "action": "turn_off",
+        "room": "bathroom",
+        "room_name": "浴室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 417.4,
+      "wall_ms": 427.5
+    },
+    {
+      "id": "zh13",
+      "lang": "zh",
+      "text": "空调温度调高一度",
+      "asr_text": "空调温度调高一度。",
+      "asr_lang": "zh",
+      "normalized": "空调温度调高1度",
+      "expected": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "slots": {
+          "delta": 1
+        }
+      },
+      "got": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 427.7,
+      "wall_ms": 436.0
+    },
+    {
+      "id": "zh14",
+      "lang": "zh",
+      "text": "把客厅电视关掉",
+      "asr_text": "把客厅电视关掉。",
+      "asr_lang": "zh",
+      "normalized": "把客厅电视关掉",
+      "expected": {
+        "device": "tv",
+        "action": "turn_off",
+        "room": "living_room",
+        "slots": {}
+      },
+      "got": {
+        "device": "tv",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "intent_ok": true,
+      "room_ok": true,
+      "slots_ok": true,
+      "exact_ok": true,
+      "exec_ok": true,
+      "asr_ms": 428.4,
+      "wall_ms": 445.3
+    }
+  ]
+}

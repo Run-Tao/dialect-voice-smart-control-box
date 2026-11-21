@@ -1,0 +1,538 @@
+[
+  {
+    "id": "yue01",
+    "text": "唔该帮我熄咗客厅盏灯",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue01.wav",
+    "expected": {
+      "device": "light",
+      "action": "turn_off",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue02",
+    "text": "帮我开客厅盏灯",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue02.wav",
+    "expected": {
+      "device": "light",
+      "action": "turn_on",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue03",
+    "text": "客厅盏灯较光啲",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue03.wav",
+    "expected": {
+      "device": "light",
+      "action": "brighter",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue04",
+    "text": "卧室灯较暗啲",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue04.wav",
+    "expected": {
+      "device": "light",
+      "action": "dimmer",
+      "room": "bedroom",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue05",
+    "text": "开冷气",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue05.wav",
+    "expected": {
+      "device": "ac",
+      "action": "turn_on",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue06",
+    "text": "熄咗冷气",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue06.wav",
+    "expected": {
+      "device": "ac",
+      "action": "turn_off",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue07",
+    "text": "冷气较低两度",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue07.wav",
+    "expected": {
+      "device": "ac",
+      "action": "temp_down",
+      "room": "living_room",
+      "slots": {
+        "delta": 2
+      }
+    }
+  },
+  {
+    "id": "yue08",
+    "text": "冷气调高一度",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue08.wav",
+    "expected": {
+      "device": "ac",
+      "action": "temp_up",
+      "room": "living_room",
+      "slots": {
+        "delta": 1
+      }
+    }
+  },
+  {
+    "id": "yue09",
+    "text": "冷气调到二十六度",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue09.wav",
+    "expected": {
+      "device": "ac",
+      "action": "set_temp",
+      "room": "living_room",
+      "slots": {
+        "temperature": 26
+      }
+    }
+  },
+  {
+    "id": "yue10",
+    "text": "卧室冷气较到廿八度",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue10.wav",
+    "expected": {
+      "device": "ac",
+      "action": "set_temp",
+      "room": "bedroom",
+      "slots": {
+        "temperature": 28
+      }
+    }
+  },
+  {
+    "id": "yue11",
+    "text": "开电视",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue11.wav",
+    "expected": {
+      "device": "tv",
+      "action": "turn_on",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue12",
+    "text": "熄电视",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue12.wav",
+    "expected": {
+      "device": "tv",
+      "action": "turn_off",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue13",
+    "text": "电视大声啲",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue13.wav",
+    "expected": {
+      "device": "tv",
+      "action": "volume_up",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue14",
+    "text": "电视细声啲",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue14.wav",
+    "expected": {
+      "device": "tv",
+      "action": "volume_down",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue15",
+    "text": "帮我转台",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue15.wav",
+    "expected": {
+      "device": "tv",
+      "action": "channel_up",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue16",
+    "text": "拉开客厅窗帘",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue16.wav",
+    "expected": {
+      "device": "curtain",
+      "action": "open",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue17",
+    "text": "拉埋卧室窗帘",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue17.wav",
+    "expected": {
+      "device": "curtain",
+      "action": "close",
+      "room": "bedroom",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue18",
+    "text": "开风扇",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue18.wav",
+    "expected": {
+      "device": "fan",
+      "action": "turn_on",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue19",
+    "text": "熄风扇",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue19.wav",
+    "expected": {
+      "device": "fan",
+      "action": "turn_off",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue20",
+    "text": "风扇快啲",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue20.wav",
+    "expected": {
+      "device": "fan",
+      "action": "speed_up",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue21",
+    "text": "风扇慢啲",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue21.wav",
+    "expected": {
+      "device": "fan",
+      "action": "speed_down",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue22",
+    "text": "开厨房插座",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue22.wav",
+    "expected": {
+      "device": "socket",
+      "action": "turn_on",
+      "room": "kitchen",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue23",
+    "text": "熄咗浴室插座",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue23.wav",
+    "expected": {
+      "device": "socket",
+      "action": "turn_off",
+      "room": "bathroom",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue24",
+    "text": "书房灯较光啲",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue24.wav",
+    "expected": {
+      "device": "light",
+      "action": "brighter",
+      "room": "study",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue25",
+    "text": "唔该熄咗睡房盏灯",
+    "lang": "yue",
+    "voice": "zh-HK-HiuGaaiNeural",
+    "wav": "data/corpus/yue25.wav",
+    "expected": {
+      "device": "light",
+      "action": "turn_off",
+      "room": "bedroom",
+      "slots": {}
+    }
+  },
+  {
+    "id": "yue26",
+    "text": "冷气冻啲",
+    "lang": "yue",
+    "voice": "zh-HK-WanLungNeural",
+    "wav": "data/corpus/yue26.wav",
+    "expected": {
+      "device": "ac",
+      "action": "temp_down",
+      "room": "living_room",
+      "slots": {
+        "delta": 1
+      }
+    }
+  },
+  {
+    "id": "zh01",
+    "text": "打开客厅的灯",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh01.wav",
+    "expected": {
+      "device": "light",
+      "action": "turn_on",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh02",
+    "text": "关掉卧室的灯",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh02.wav",
+    "expected": {
+      "device": "light",
+      "action": "turn_off",
+      "room": "bedroom",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh03",
+    "text": "把空调打开",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh03.wav",
+    "expected": {
+      "device": "ac",
+      "action": "turn_on",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh04",
+    "text": "空调温度调低两度",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh04.wav",
+    "expected": {
+      "device": "ac",
+      "action": "temp_down",
+      "room": "living_room",
+      "slots": {
+        "delta": 2
+      }
+    }
+  },
+  {
+    "id": "zh05",
+    "text": "空调调到二十四度",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh05.wav",
+    "expected": {
+      "device": "ac",
+      "action": "set_temp",
+      "room": "living_room",
+      "slots": {
+        "temperature": 24
+      }
+    }
+  },
+  {
+    "id": "zh06",
+    "text": "关闭窗帘",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh06.wav",
+    "expected": {
+      "device": "curtain",
+      "action": "close",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh07",
+    "text": "打开窗帘",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh07.wav",
+    "expected": {
+      "device": "curtain",
+      "action": "open",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh08",
+    "text": "电视大声一点",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh08.wav",
+    "expected": {
+      "device": "tv",
+      "action": "volume_up",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh09",
+    "text": "风扇调快一点",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh09.wav",
+    "expected": {
+      "device": "fan",
+      "action": "speed_up",
+      "room": "living_room",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh10",
+    "text": "打开书房的风扇",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh10.wav",
+    "expected": {
+      "device": "fan",
+      "action": "turn_on",
+      "room": "study",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh11",
+    "text": "厨房的灯调暗一点",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh11.wav",
+    "expected": {
+      "device": "light",
+      "action": "dimmer",
+      "room": "kitchen",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh12",
+    "text": "关上浴室的插座",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh12.wav",
+    "expected": {
+      "device": "socket",
+      "action": "turn_off",
+      "room": "bathroom",
+      "slots": {}
+    }
+  },
+  {
+    "id": "zh13",
+    "text": "空调温度调高一度",
+    "lang": "zh",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "wav": "data/corpus/zh13.wav",
+    "expected": {
+      "device": "ac",
+      "action": "temp_up",
+      "room": "living_room",
+      "slots": {
+        "delta": 1
+      }
+    }
+  },
+  {
+    "id": "zh14",
+    "text": "把客厅电视关掉",
+    "lang": "zh",
+    "voice": "zh-CN-YunxiNeural",
+    "wav": "data/corpus/zh14.wav",
+    "expected": {
+      "device": "tv",
+      "action": "turn_off",
+      "room": "living_room",
+      "slots": {}
+    }
+  }
+]

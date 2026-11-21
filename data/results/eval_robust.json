@@ -1,0 +1,971 @@
+{
+  "summary": {
+    "n_positive": 38,
+    "n_negative": 37,
+    "robust_accuracy": 100.0,
+    "reject_accuracy": 100.0
+  },
+  "rows": [
+    {
+      "id": "r01",
+      "kind": "positive",
+      "text": "唔该帮我熄左客厅盏灯",
+      "normalized": "关左客厅灯",
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r02",
+      "kind": "positive",
+      "text": "帮我开客厅展灯",
+      "normalized": "开客厅灯",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r03",
+      "kind": "positive",
+      "text": "客厅盏灯较光滴",
+      "normalized": "客厅灯调亮一点",
+      "got": {
+        "device": "light",
+        "action": "brighter",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r04",
+      "kind": "positive",
+      "text": "卧室灯较暗D",
+      "normalized": "卧室灯调暗一点",
+      "got": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r05",
+      "kind": "positive",
+      "text": "开冷汽",
+      "normalized": "开空调",
+      "got": {
+        "device": "ac",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r06",
+      "kind": "positive",
+      "text": "熄咗冷汽",
+      "normalized": "关了空调",
+      "got": {
+        "device": "ac",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r07",
+      "kind": "positive",
+      "text": "客厅冷气较到二十六度",
+      "normalized": "客厅空调调到26度",
+      "got": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "temperature": 26
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r08",
+      "kind": "positive",
+      "text": "帮我将卧室空调调低两度",
+      "normalized": "将卧室空调调低2度",
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {
+          "delta": 2
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r09",
+      "kind": "positive",
+      "text": "把客厅的灯打开",
+      "normalized": "把客厅的灯打开",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r10",
+      "kind": "positive",
+      "text": "客厅灯调亮一点",
+      "normalized": "客厅灯调亮一点",
+      "got": {
+        "device": "light",
+        "action": "brighter",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r11",
+      "kind": "positive",
+      "text": "唔该开下客厅盏灯啦",
+      "normalized": "开下客厅灯啦",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r12",
+      "kind": "positive",
+      "text": "客厅盏灯帮我开咗佢",
+      "normalized": "客厅灯开了佢",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r13",
+      "kind": "positive",
+      "text": "开咗客厅盏灯唔该",
+      "normalized": "开了客厅灯",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r14",
+      "kind": "positive",
+      "text": "较暗啲卧室盏灯",
+      "normalized": "调暗一点卧室灯",
+      "got": {
+        "device": "light",
+        "action": "dimmer",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r15",
+      "kind": "positive",
+      "text": "客厅电视大声滴",
+      "normalized": "客厅电视大声一点",
+      "got": {
+        "device": "tv",
+        "action": "volume_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r16",
+      "kind": "positive",
+      "text": "转台",
+      "normalized": "转台",
+      "got": {
+        "device": "tv",
+        "action": "channel_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 0.9
+      },
+      "confidence": 0.9,
+      "ok": true
+    },
+    {
+      "id": "r17",
+      "kind": "positive",
+      "text": "细声啲",
+      "normalized": "小声一点",
+      "got": {
+        "device": "tv",
+        "action": "volume_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 0.9
+      },
+      "confidence": 0.9,
+      "ok": true
+    },
+    {
+      "id": "r18",
+      "kind": "positive",
+      "text": "拉埋客厅窗帘",
+      "normalized": "拉上客厅窗帘",
+      "got": {
+        "device": "curtain",
+        "action": "close",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r19",
+      "kind": "positive",
+      "text": "打开卧室窗纱",
+      "normalized": "打开卧室窗纱",
+      "got": {
+        "device": "curtain",
+        "action": "open",
+        "room": "bedroom",
+        "room_name": "卧室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r20",
+      "kind": "positive",
+      "text": "开风扇仔",
+      "normalized": "开风扇仔",
+      "got": {
+        "device": "fan",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r21",
+      "kind": "positive",
+      "text": "风扇快啲",
+      "normalized": "风扇快一点",
+      "got": {
+        "device": "fan",
+        "action": "speed_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r22",
+      "kind": "positive",
+      "text": "开插苏",
+      "normalized": "开插座",
+      "got": {
+        "device": "socket",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r23",
+      "kind": "positive",
+      "text": "熄咗厨房盏灯",
+      "normalized": "关了厨房灯",
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "kitchen",
+        "room_name": "厨房",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r24",
+      "kind": "positive",
+      "text": "洗手间灯开咗佢",
+      "normalized": "洗手间灯开了佢",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "bathroom",
+        "room_name": "浴室",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r25",
+      "kind": "positive",
+      "text": "书房空调调到二十八度",
+      "normalized": "书房空调调到28度",
+      "got": {
+        "device": "ac",
+        "action": "set_temp",
+        "room": "study",
+        "room_name": "书房",
+        "slots": {
+          "temperature": 28
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r26",
+      "kind": "positive",
+      "text": "客厅空调温度调高3度",
+      "normalized": "客厅空调温度调高3度",
+      "got": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 3
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r27",
+      "kind": "positive",
+      "text": "帮我把客厅灯关了",
+      "normalized": "把客厅灯关了",
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r28",
+      "kind": "positive",
+      "text": "客厅盏灯熄咗佢唔该",
+      "normalized": "客厅灯关了佢",
+      "got": {
+        "device": "light",
+        "action": "turn_off",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r29",
+      "kind": "positive",
+      "text": "较光啲客厅灯",
+      "normalized": "调亮一点客厅灯",
+      "got": {
+        "device": "light",
+        "action": "brighter",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r30",
+      "kind": "positive",
+      "text": "客厅冷气冻啲",
+      "normalized": "客厅空调冷一点",
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "n01",
+      "kind": "reject",
+      "text": "今日天气好好",
+      "normalized": "今日天气好好",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n02",
+      "kind": "reject",
+      "text": "客厅灯好像坏了",
+      "normalized": "客厅灯好像坏了",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n03",
+      "kind": "reject",
+      "text": "我想看电视",
+      "normalized": "我想看电视",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n04",
+      "kind": "reject",
+      "text": "唔该帮我买部冷气",
+      "normalized": "买部空调",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n05",
+      "kind": "reject",
+      "text": "电视真好看",
+      "normalized": "电视真好看",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n06",
+      "kind": "reject",
+      "text": "你食咗饭未",
+      "normalized": "你食了饭未",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n07",
+      "kind": "reject",
+      "text": "客厅好热",
+      "normalized": "客厅好热",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n08",
+      "kind": "reject",
+      "text": "帮我查下明日天气",
+      "normalized": "查下明日天气",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n09",
+      "kind": "reject",
+      "text": "盏灯系边度买嘅",
+      "normalized": "灯系边度买的",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n10",
+      "kind": "reject",
+      "text": "空调坏咗点算",
+      "normalized": "空调坏了点算",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n11",
+      "kind": "reject",
+      "text": "灯太光",
+      "normalized": "灯太光",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n12",
+      "kind": "reject",
+      "text": "灯唔够光",
+      "normalized": "灯唔够光",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n13",
+      "kind": "reject",
+      "text": "空调唔冷",
+      "normalized": "空调唔冷",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n14",
+      "kind": "reject",
+      "text": "风扇唔转",
+      "normalized": "风扇唔转",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n15",
+      "kind": "reject",
+      "text": "窗帘卡住拉唔开",
+      "normalized": "窗帘卡住拉唔开",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n16",
+      "kind": "reject",
+      "text": "睇下电视",
+      "normalized": "睇下电视",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n17",
+      "kind": "reject",
+      "text": "查下客厅灯",
+      "normalized": "查下客厅灯",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n18",
+      "kind": "reject",
+      "text": "盏灯几钱",
+      "normalized": "灯几钱",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n19",
+      "kind": "reject",
+      "text": "空调系咪坏咗",
+      "normalized": "空调系咪坏了",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "r31",
+      "kind": "positive",
+      "text": "下一个台",
+      "normalized": "下1个台",
+      "got": {
+        "device": "tv",
+        "action": "channel_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 0.9
+      },
+      "confidence": 0.9,
+      "ok": true
+    },
+    {
+      "id": "r32",
+      "kind": "positive",
+      "text": "冷气冻滴",
+      "normalized": "空调冷一点",
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r33",
+      "kind": "positive",
+      "text": "空调冻一点",
+      "normalized": "空调冷一点",
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "n20",
+      "kind": "reject",
+      "text": "唔好开灯",
+      "normalized": "唔好开灯",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n21",
+      "kind": "reject",
+      "text": "咪开冷气",
+      "normalized": "咪开空调",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n22",
+      "kind": "reject",
+      "text": "不要关窗帘",
+      "normalized": "不要关窗帘",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n23",
+      "kind": "reject",
+      "text": "别开电视",
+      "normalized": "别开电视",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "r34",
+      "kind": "positive",
+      "text": "帮妈咪开灯",
+      "normalized": "帮妈咪开灯",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r35",
+      "kind": "positive",
+      "text": "客厅特别暗开灯",
+      "normalized": "客厅特别暗开灯",
+      "got": {
+        "device": "light",
+        "action": "turn_on",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {},
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r36",
+      "kind": "positive",
+      "text": "冷气暖滴",
+      "normalized": "空调热一点",
+      "got": {
+        "device": "ac",
+        "action": "temp_up",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r37",
+      "kind": "positive",
+      "text": "冷气凉滴",
+      "normalized": "空调冷一点",
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "r38",
+      "kind": "positive",
+      "text": "冷气冻D",
+      "normalized": "空调冷一点",
+      "got": {
+        "device": "ac",
+        "action": "temp_down",
+        "room": "living_room",
+        "room_name": "客厅",
+        "slots": {
+          "delta": 1
+        },
+        "confidence": 1.0
+      },
+      "confidence": 1.0,
+      "ok": true
+    },
+    {
+      "id": "n24",
+      "kind": "reject",
+      "text": "灯开咗未",
+      "normalized": "灯开了未",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n25",
+      "kind": "reject",
+      "text": "我开咗灯",
+      "normalized": "我开了灯",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n26",
+      "kind": "reject",
+      "text": "边个开咗灯",
+      "normalized": "边个开了灯",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n27",
+      "kind": "reject",
+      "text": "唔想开灯",
+      "normalized": "唔想开灯",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n28",
+      "kind": "reject",
+      "text": "唔使开冷气",
+      "normalized": "唔使开空调",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n29",
+      "kind": "reject",
+      "text": "如果落雨就关窗帘",
+      "normalized": "如果落雨就关窗帘",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n30",
+      "kind": "reject",
+      "text": "电视太大声",
+      "normalized": "电视太大声",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n31",
+      "kind": "reject",
+      "text": "灯好光",
+      "normalized": "灯好光",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n32",
+      "kind": "reject",
+      "text": "风扇好快",
+      "normalized": "风扇好快",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n33",
+      "kind": "reject",
+      "text": "冷气好冻",
+      "normalized": "空调好冻",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n34",
+      "kind": "reject",
+      "text": "米开冷气",
+      "normalized": "米开空调",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n35",
+      "kind": "reject",
+      "text": "冷气调D",
+      "normalized": "空调调一点",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n36",
+      "kind": "reject",
+      "text": "落雨就关窗帘",
+      "normalized": "落雨就关窗帘",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    },
+    {
+      "id": "n37",
+      "kind": "reject",
+      "text": "灯开未",
+      "normalized": "灯开未",
+      "got": null,
+      "confidence": 0.0,
+      "ok": true
+    }
+  ]
+}
