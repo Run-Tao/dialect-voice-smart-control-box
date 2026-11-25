@@ -1,0 +1,251 @@
+\documentclass[UTF8,a4paper,12pt,fontset=fandol]{ctexart}
+
+\usepackage{geometry}
+\geometry{top=2.5cm,bottom=2.5cm,left=2.7cm,right=2.7cm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.7em}{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.35em}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{3.2cm}
+  {\zihao{2}\bfseries 基于方言语音识别的\\[0.3em]智能家居语音转换装置\par}
+  \vspace{1.6cm}
+  {\zihao{4} 本科工程导论项目 · 开题报告\par}
+  \vspace{2.2cm}
+  \begin{tabular}{rl}
+    项目类型 & 本科工程导论项目 \\
+    项目负责人 & 陶理 \\
+    所在单位 & 上海交通大学 \\
+    报告日期 & 2026 年 11 月 \\
+  \end{tabular}
+  \vfill
+  {\zihao{5} 2026}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{选题背景与意义}
+
+很多老年人习惯使用方言，而主流智能家居设备与语音助手主要面向普通话。方言口音会导致语音识别率下降，使老年用户使用智能家居的门槛显著提高。与此同时，市面上的智能音箱多为封闭系统，普通开发者难以修改其固件，也难以直接接入厂商的语音接口，这给面向方言的二次开发带来了现实障碍。
+
+本项目拟设计并实现一个智能家居语音转换装置：用户说出方言命令，装置在端侧完成语音识别与置信度判断，再以标准普通话指令的形式播报给智能音箱执行；同时保留串口与继电器直控两条备用执行通道。该方案不修改智能音箱固件、不依赖厂商私有 API，成本低、便于现场演示，也为方言使用者接入智能家居提供了一条可落地的工程路径。
+
+从工程意义上看，本项目把一套已有的方言指令识别研究转化为可实时运行、可现场展示的完整装置，重点解决“研究模型如何真正对接部署输入”“识别结果如何在低置信度下安全拒识”“端侧算力受限时如何保证实时性”这三类典型工程问题，具有明确的工程训练价值。
+
+\section{国内外研究现状与前期基础}
+
+\subsection{研究现状}
+
+语音识别技术已有长期积累。MFCC 等声学特征与 DTW 模板匹配是早期关键词识别的经典方法；随着深度学习发展，小 footprint 的一维卷积神经网络（1D-CNN）在端侧关键词识别任务上被证明有效，适合算力受限的嵌入式场景。然而，主流公开资源与商业系统仍以普通话和英语为主，粤语等方言的识别资源相对稀缺，面向家居控制这一特定场景的方言命令识别与拒识研究更少。
+
+在可靠性方面，仅有高识别准确率并不足以支撑真实的家居控制——系统必须在“听不懂”或“不是命令”时拒绝执行。选择性分类、置信度标定与分布外（OOD）检测因此成为本项目的关键技术环节。本项目采用公开的真人粤语非命令语料（FLEURS，\texttt{yue\_hant\_hk}，CC BY 4.0）作为安全评估的负样本来源，这一口径是目前项目中唯一有真人数据支撑的指标。
+
+\subsection{前期研究基础}
+
+申请人在前期已完成以下研究工作：
+
+\begin{enumerate}[leftmargin=2em]
+  \item 粤语家居指令语料库与合成语料生成流水线，覆盖短指令、口语、礼貌、疑问、纠正否定等多种句式；
+  \item MFCC / log-mel 特征提取与整句 CMVN 归一化；
+  \item DTW 模板匹配、回归映射、Softmax 回归、线性 SVM、1D-CNN 等多条识别路线；
+  \item 温度标定置信度与阈值拒识机制；
+  \item 串口协议、模拟执行设备与 Web 演示台。
+\end{enumerate}
+
+\subsection{两项关键工程发现}
+
+前期研究过程中有两个发现直接决定了本项目的走向，均已通过自有实验核实。
+
+\paragraph{其一，被否决的“方言到普通话特征映射”路线。}
+前期曾以 MFCC 加奇异值分解与回归映射作为主线，试图把方言特征映射为普通话特征。实验显示，特征级指标很好（RMSE 0.025、余弦相似度 0.999），但映射后的命令识别准确率仅为 0.1667，与六类随机基线相同；同一份数据上端侧 CNN 的固定测试集准确率为 0.9048。原因是统一回归矩阵未按命令类别条件化，类别判别边界在映射后被抹平。据此，转换被改到语义层进行——即端侧直接识别方言命令，再映射为普通话指令文本。
+
+\paragraph{其二，训练输入与部署输入必须同源。}
+模型最初在带尾部静音的整段音频上训练，而线上 VAD 输出的语音段紧贴语音。在整句 CMVN 下，尾部静音稀释了均值与方差，输入分布发生变化后模型失效，短命令受损最重（LIGHT\_ON 准确率由 0.9893 掉到 0.1716）。处置办法是用部署同款 VAD 重新生成训练语料再训练，把短命令从崩溃状态拉回可用区间。这条“训练与部署同源”的原则贯穿了后续全部工程实现。
+
+\section{研究目标与主要内容}
+
+\subsection{总体目标}
+
+设计并实现一个可现场演示的方言智能家居语音转换原型：用户说方言命令，装置完成端侧实时识别与安全拒识，通过扬声器播放标准普通话指令驱动智能音箱执行，并以 OLED 显示识别结果与置信度；同时保留串口与继电器直控作为备用执行通道。
+
+\subsection{具体目标}
+
+\begin{enumerate}[leftmargin=2em]
+  \item 支持六条固定家居命令：开灯（LIGHT\_ON）、关灯（LIGHT\_OFF）、开窗帘（CURTAIN\_OPEN）、关窗帘（CURTAIN\_CLOSE）、全部关闭（ALL\_OFF）、查询设备状态（STATUS\_ALL）；
+  \item 在低算力设备上完成方言语音的端侧实时识别，纯前向单条推理延迟约 13--16 ms；
+  \item 置信度不足或判定为非命令时不执行动作，并提示重说；
+  \item 完成真人数据采集，使性能指标从合成口径扩展到真人口径；
+  \item 完成成本核算、系统测试与现场演示。
+\end{enumerate}
+
+\subsection{主要研究内容}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{实时音频通路}：麦克风采集、VAD 端点检测、连续流式推理（前期仓库中缺少完整实现）；
+  \item \textbf{训练与部署同源}：用部署同款 VAD 重生成语料并重新训练，消除分布不一致；
+  \item \textbf{安全拒识机制}：温度标定置信度、双信号门限与 kNN 分布外检测，在真实域负样本上评估误接受率；
+  \item \textbf{语义层转换与执行}：命令标签到普通话指令的映射与播报、智能音箱联动、串口与继电器备用通道；
+  \item \textbf{真人数据采集与系统评估}：采集真人命令正样本，完成多条件测试与端到端延迟实测。
+\end{itemize}
+
+\section{技术路线与系统方案}
+
+\subsection{总体流程}
+
+\begin{center}
+\small
+方言语音 $\rightarrow$ VAD 端点检测 $\rightarrow$ log-mel40 + $\Delta$ 特征（整句 CMVN）
+$\rightarrow$ 1D-CNN 三种子集成 $\rightarrow$ 温度标定置信度 $\rightarrow$ 双信号拒识
+$\rightarrow$ 语义层映射 $\rightarrow$ 扬声器播放 / 串口下发 $\rightarrow$ 智能音箱或设备执行
+\end{center}
+
+\subsection{声学前端与特征}
+
+输入为 16 kHz 单声道语音。VAD 采用帧能量转分贝、自适应噪声底（最小值统计）与静音挂起判决，保留前置上下文以避免吃掉起始音，输出前后裁剪的语音段。特征为 40 维 log-mel 及其一阶差分，经整句 CMVN 归一化后线性插值到 256 帧。Mel 刻度与加窗按标准公式计算：
+\begin{align}
+  \mathrm{Mel}(f) &= 2595 \cdot \log_{10}\!\left(1+\frac{f}{700}\right), \\
+  w(n) &= 0.54 - 0.46\cos\!\left(\frac{2\pi n}{N-1}\right).
+\end{align}
+
+\subsection{识别模型与置信度}
+
+识别模型为 1D-CNN，采用三个随机种子集成，纯 numpy 推理，模型体积约 1.35 MB。置信度经温度标定（当前模型温度 0.55，取自模型元数据）。当前默认模型为 \texttt{v3\_cnn\_ensemble\_v32b.npz}，是针对纠正否定句式覆盖问题修复后的版本。
+
+\subsection{安全拒识机制}
+
+拒识采用两套口径：单阈值 0.945 作为缺件降级路径；当前部署默认走双信号门限，即
+\[
+  \text{maxprob} \ge 0.51863 \quad \text{且} \quad \text{ood} \ge -0.026796,
+\]
+其中 ood 为到 500 条 f16 参照池的嵌入 kNN 余弦距离取负（$k=5$）。阈值与参照池是一对配套工件，必须同时下发，单独替换其一会破坏标定。对 ALL\_OFF 这一高风险命令额外设置二次门槛（$\text{ood} \ge -0.019$），未过门槛时只做确认、不直接执行。
+
+阈值与参照池的标定可靠性经过交叉拟合复核：真人负样本按折交叉拟合，每折阈值只用其余折搜出，报出的误接受率全部为样本外估计。这一步说明真人非命令语音（公开语料）在标定环节是必需的。
+
+\subsection{语义层转换与执行}
+
+命令标签映射到普通话指令文本，预录为音频后由扬声器播放给智能音箱；若现场联动不稳定，则改用串口 ESP32-S3 或继电器直接控制演示设备。执行层在写入设备状态时使用归一化的状态值，保证状态机层的冗余判断与决策先验一致。
+
+\subsection{硬件方案与两条路线}
+
+装置的硬件主控已确定为 ESP32-S3（不放宽为其他平台），软件侧按此完成代码就绪；硬件接线、选型与联调由硬件负责人承担。项目实际形成两条并行的硬件路线：
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{PC 推理 + 执行端路线}：PC 完成识别与决策，通过串口驱动 ESP32-S3 与继电器执行，配套 OLED 显示；
+  \item \textbf{立创·实战派 ESP32-S3 板载路线}：板载麦克风录音、PSRAM 缓冲、SD 卡归档、Wi-Fi 上传，后端做方言 ASR 与大模型结构化意图解析，屏显结果并支持触屏标注纠错，后端部分待实现。
+\end{itemize}
+
+两条路线不共用固件，仅共享六类命令集与语料口径，引脚与部署方式互不套用。
+
+\section{创新点}
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{把“识别正确性”与“执行安全性”分开建模}：识别准确率之外，引入双信号拒识与高风险命令二次门槛，在真人非命令负样本上定量评估误接受率与危险误动作率，使安全性成为可测量、可调标的工程指标。
+  \item \textbf{训练与部署输入同源的工程闭环}：定位并修复了“训练语料带尾部静音、线上 VAD 紧贴语音”导致的分布不一致问题，形成以部署同款 VAD 重生成语料的标准流程。
+  \item \textbf{端侧小模型与安全信号的联合部署}：在 1D-CNN 三种子集成之上，用轻量 kNN 参照池（250 KB f16）提供分布外信号，使真实域误接受率大幅下降，兼顾了算力约束与安全收益。
+  \item \textbf{双硬件路线共享语义口径}：同一套六类命令集与语料口径同时支撑 PC 推理执行端与 ESP32-S3 板载端，便于在不同硬件条件下验证与演示。
+\end{enumerate}
+
+\section{进度安排}
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{项目进度安排}
+  \begin{tabularx}{\textwidth}{@{}lXX@{}}
+    \toprule
+    阶段 & 主要工作 & 阶段验收 \\
+    \midrule
+    第 1 周 & 需求确认、技术路线修订、硬件清单与采购 & 修订说明与硬件清单定稿 \\
+    第 2 周 & VAD、实时管线、普通话播报、双备用执行层打通 & 软件闭环可运行 \\
+    第 3 周 & 真人数据采集与标注、训练语料同源重生成与重训练 & 真人语料入库、模型更新 \\
+    第 4 周 & 拒识阈值标定与安全评估 & 误接受率有据可依 \\
+    第 5 周 & 多人、噪声、距离测试与端到端延迟实测 & 测试报告与指标表 \\
+    第 6 周 & 硬件联调与现场演示彩排 & 演示稳定、备用通道可用 \\
+    第 7 周 & 成本核算、演示视频与答辩 PPT & 交付物齐全 \\
+    第 8 周 & 答辩与材料归档 & 答辩通过 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+说明：截至本报告整理时，软件侧的识别、拒识、语义映射与测试闭环已完成并复现；真人正样本采集、硬件实机联调、成本表与 3 分钟演示视频仍待完成，其中硬件联调由硬件负责人承担。
+
+\section{预期成果与已知限制}
+
+\subsection{预期成果}
+
+\begin{itemize}[leftmargin=2em]
+  \item 方言语音智能家居控制原型（端侧实时识别 + 安全拒识 + 普通话播报 + 双备用执行通道）；
+  \item 方言与普通话指令数据及标注文件，合成与真人两部分分开标注来源；
+  \item 端侧推理程序与自包含运行时，可离线运行；
+  \item 智能音箱联动演示与串口 / 继电器备用演示；
+  \item 测试报告、成本表、演示视频与答辩材料；
+  \item 技术路线修订说明，记录被否决方案及其实验依据。
+\end{itemize}
+
+\subsection{当前已达成的量化结果}
+
+以下为当前生效口径，均来自项目实跑复现：
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{当前生效的量化结果}
+  \begin{tabularx}{\textwidth}{@{}lXX@{}}
+    \toprule
+    指标 & 结果 & 口径说明 \\
+    \midrule
+    命令识别准确率（test 483 条） & 0.9110 & 合成粤语未见表达组 \\
+    命令识别准确率（val 440 条） & 0.9523 & 合成粤语 \\
+    总体误接受率 FAR & 0.0702 & 真人非命令负样本，样本外 \\
+    ALL\_OFF 危险误动作率 & 0.0326 & 真人负样本，高风险二次门槛下可进一步压低 \\
+    动作延迟 P95 & 290.5 ms & 合成语料，未实机 \\
+    全量测试 & 350 passed & 软件回归（最近一次） \\
+    C 端内核对拍 & 482/483 & 与 numpy 决策一致 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{已知限制}
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{无真人命令正样本}：所有识别准确率与覆盖率均来自 edge-tts 合成粤语。测试集为“同音色、未见表达”口径，不是跨说话人口径。真实域误接受率虽用真人语音测得，但那是非命令负样本，只反映“非命令被误当成命令”的比例，不代表真人说命令时的识别率。
+  \item \textbf{危险误动作率未达目标}：ALL\_OFF 类危险误动作率 0.0326，高于 0.02 的期望上限，且样本量不足以把置信区间压窄。
+  \item \textbf{会话成功率与模型体积未达标}：整体会话成功率 0.7702，低于 0.85 目标；模型体积 1.35 MB，高于 300 KB 目标（int8 内核精度已验证，但部署工件仍为浮点格式）。
+  \item \textbf{快速端点切分仍待根治}：当前静音挂起 240 ms 时仍有 13/480 条被提前切段，其中 4 条执行了错误命令。彻底消除需按部署端点重生成语料并重训、重标门限与参照池。
+  \item \textbf{硬件未实机联调}：延迟为离线 CPU 测量，板端实际耗时与 GPIO、舵机、麦克风的电气联调由硬件负责人负责，尚未验证。
+  \item \textbf{演示与成本材料待补}：3 分钟演示视频、采购成本表尚未产出，现有演示为无声可复现的动图兜底版。
+\end{enumerate}
+
+\section{参考文献}
+
+\begin{thebibliography}{9}
+  \bibitem{self} 申请人前期研究：方言家居指令识别与控制，实验记录与代码仓库（DialectVoice\_Research / DialectVoice\_Engineering）。
+  \bibitem{davis} Davis S, Mermelstein P. Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences. \emph{IEEE Transactions on Acoustics, Speech, and Signal Processing}, 1980, 28(4): 357--366.
+  \bibitem{fleurs} Conneau A, Ma M, Khanuja S, et al. FLEURS: Few-shot Learning Evaluation of Universal Representations of Speech. \emph{arXiv:2205.12446}, 2022.
+  \bibitem{kws} Sainath T N, Parada C. Convolutional neural networks for small-footprint keyword spotting. \emph{Interspeech 2015}: 1478--1482.
+  \bibitem{selective} Geifman Y, El-Yaniv R. Selective Classification for Deep Neural Networks. \emph{NeurIPS 2017}.
+  \bibitem{calib} Guo C, Pleiss G, Sun Y, Weinberger K Q. On Calibration of Modern Neural Networks. \emph{ICML 2017}.
+\end{thebibliography}
+
+\end{document}
