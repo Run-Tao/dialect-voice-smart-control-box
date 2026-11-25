@@ -9,6 +9,11 @@
 - ``clarify`` 黄区：top-2 命中**已知易混对**且该对的竞争者不可忽略 → 问一句让用户重说。
 - ``reject``  红区：门限拒识（选择性分类判定为「不像命令」）→ 播报可用命令。
 
+红区默认直接拒识。可选的 ``red_soft`` 只处理一种保守情形：双信号门限
+恰好只有一个信号差一点、top-1 又属于配置好的易混对。这时系统只发起
+**不执行动作**的二选一澄清；两个信号都远处门外、缺少信号、或 top-1
+不在易混对里，仍然直接拒识。该行为默认关闭，必须由配置显式启用。
+
 先验
 ----
 ``P(c | audio, state) ∝ P(audio | c) · P(c | state)^τ``，``τ`` 为先验温度
@@ -209,12 +214,26 @@ def _pair_hit(top1: str, top2: str,
     return False
 
 
+def _pair_for_command(command: str,
+                      confusable_pairs: Sequence[Sequence[str]]) -> List[str]:
+    """返回以 ``command`` 开头的有序二选一候选；没有配置对时返回空表。"""
+    for pair in confusable_pairs:
+        members = list(dict.fromkeys(str(x) for x in pair if str(x)))
+        if len(members) < 2 or command not in members:
+            continue
+        other = next((x for x in members if x != command), '')
+        if other:
+            return [command, other]
+    return []
+
+
 def decide(prob, classes: Sequence[str], *,
            state=None,
            gate_accepted: bool = True,
            gate_reason: str = '',
            costs: Optional[DecisionCosts] = None,
            confusable_pairs: Optional[Sequence[Sequence[str]]] = None,
+           confirmation_pairs: Optional[Sequence[Sequence[str]]] = None,
            competitor_floor: float = 0.005,
            prior_temperature: float = 0.3,
            redundancy_weight: float = 0.25,
@@ -223,7 +242,15 @@ def decide(prob, classes: Sequence[str], *,
            seed_std: Optional[float] = None,
            consistency: Optional[str] = None,
            consistency_margin: float = 0.15,
-           clarify_allowed: bool = True) -> Decision:
+           clarify_allowed: bool = True,
+           gate_near_miss: bool = False,
+           red_soft_enabled: bool = False,
+           red_soft_min_prob: float = 0.0,
+           red_soft_min_margin: float = 0.0,
+           force_confirm_commands: Optional[Sequence[str]] = None,
+           confirmation_retry: bool = False,
+           gate_ood: Optional[float] = None,
+           high_risk_min_ood: Optional[Dict[str, float]] = None) -> Decision:
     """返回三态决策。
 
     参数
@@ -238,10 +265,20 @@ def decide(prob, classes: Sequence[str], *,
         **不得执行**）；margin 够大说明整句证据没有分歧，分歧只来自
         Pass-1 的滑窗看的是半句话，这时降级反而会扔掉正确结果。
     clarify_allowed : 是否允许澄清（会话内最多一次，由 ``dialog.py`` 控制）
+    gate_near_miss : 双信号门限是否只差一个信号、且差距在配置容差内。
+    red_soft_enabled : 是否允许红区发起**不执行**的易混对澄清。
+    red_soft_min_prob / red_soft_min_margin : 红区澄清的最低声学证据。
+    force_confirm_commands : 无论 OOD 都先确认的高风险命令；默认留空。
+    confirmation_retry : 当前语句是对高风险确认的重说；同一命令再次通过门限
+        后允许执行，但不会发起第二次确认。
+    gate_ood : 本次双信号门限算出的 OOD 信号（越大越像命令）。
+    high_risk_min_ood : 按命令设置的高风险额外 OOD 边界；低于边界时先确认。
     """
     costs = costs or DecisionCosts()
     pairs = list(confusable_pairs if confusable_pairs is not None
                  else CONFUSABLE_PAIRS)
+    confirm_pairs = list(confirmation_pairs if confirmation_pairs is not None
+                         else pairs)
     classes = list(classes)
     p = np.asarray(prob, dtype=np.float64).reshape(-1)
     if p.shape[0] != len(classes):
@@ -263,6 +300,7 @@ def decide(prob, classes: Sequence[str], *,
         'runner_up': runner_up,
         'margin': margin,
         'competitor_floor': float(competitor_floor),
+        'gate_near_miss': 1.0 if gate_near_miss else 0.0,
     }
     if seed_agree is not None:
         signals['seed_agree'] = 1.0 if seed_agree else 0.0
@@ -271,11 +309,60 @@ def decide(prob, classes: Sequence[str], *,
 
     # ---- 红区：门限拒识 -------------------------------------------------
     if not gate_accepted:
+        recovery_pair = _pair_for_command(top1, confirm_pairs)
+        red_soft = bool(
+            red_soft_enabled
+            and gate_near_miss
+            and clarify_allowed
+            and len(recovery_pair) >= 2
+            and float(p[int(order[0])]) >= float(red_soft_min_prob)
+            and margin >= float(red_soft_min_margin)
+        )
+        if red_soft:
+            e_clarify = (float(costs.clarify)
+                         + (1.0 - float(costs.retry_success)) * float(costs.reject))
+            signals['red_soft'] = 1.0
+            return Decision(action='clarify', command=top1, zone='red',
+                            reason='gate_recoverable', probs=p, margin=margin,
+                            candidates=recovery_pair,
+                            expected_costs={'clarify': e_clarify,
+                                            'reject': float(costs.reject)},
+                            signals=signals)
         return Decision(action='reject', command='', zone='red',
                         reason=gate_reason or 'gate_rejected',
                         probs=p, margin=margin, candidates=[top1, top2],
                         expected_costs={'reject': float(costs.reject)},
                         signals=signals)
+
+    # ---- 高风险命令：门限通过后仍先确认一次 -----------------------------
+    force_commands = set(str(x) for x in (force_confirm_commands or ()))
+    risk_ood = {str(k): float(v) for k, v in (high_risk_min_ood or {}).items()}
+    high_risk = top1 in force_commands or top1 in risk_ood
+    risk_ood_fail = bool(
+        top1 in risk_ood
+        and (gate_ood is None or float(gate_ood) < risk_ood[top1]))
+    if (confirmation_retry and high_risk
+            and margin >= float(competitor_floor)):
+        signals['high_risk_confirmed'] = 1.0
+        cost = costs.cost_of(top1)
+        e_exec = cost * (1.0 - float(p[int(order[0])]))
+        return Decision(action='execute', command=top1, zone='green',
+                        reason='high_risk_confirmed', probs=p, margin=margin,
+                        candidates=[top1, top2],
+                        expected_costs={'execute': e_exec},
+                        signals=signals)
+    if high_risk and (top1 in force_commands or risk_ood_fail) and clarify_allowed:
+        confirm_pair = _pair_for_command(top1, confirm_pairs)
+        if len(confirm_pair) >= 2:
+            e_clarify = (float(costs.clarify)
+                         + (1.0 - float(costs.retry_success)) * float(costs.reject))
+            signals['high_risk_confirm'] = 1.0
+            return Decision(action='clarify', command=top1, zone='yellow',
+                            reason='high_risk_confirm', probs=p, margin=margin,
+                            candidates=confirm_pair,
+                            expected_costs={'clarify': e_clarify,
+                                            'reject': float(costs.reject)},
+                            signals=signals)
 
     # ---- 黄区判定 -------------------------------------------------------
     pair_hit = _pair_hit(top1, top2, pairs)

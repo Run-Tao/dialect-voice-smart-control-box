@@ -74,6 +74,14 @@ def test_clarify_asset_is_sorted_and_deterministic():
     assert a == b == 'CLARIFY_CURTAIN_CLOSE_CURTAIN_OPEN.wav'
 
 
+def test_all_off_confirmation_asset_exists():
+    """高风险确认必须能实际播报，不能只生成文本状态。"""
+    from src.speaker_out import MandarinSpeaker
+
+    speaker = MandarinSpeaker()
+    assert speaker.available_asset('CLARIFY_ALL_OFF_LIGHT_OFF')
+
+
 def test_clarify_is_not_repeated_while_awaiting_retry():
     """用户正在重说时不能再追问。"""
     d = ClarifyDialog(max_clarify=1)

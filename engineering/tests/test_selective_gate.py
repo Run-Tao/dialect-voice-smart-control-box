@@ -28,7 +28,7 @@ from src.realtime import DEFAULT_GATE, DialectEngine  # noqa: E402
 
 import eval_pool_size as eps  # noqa: E402
 
-MODEL = ROOT / 'runtime' / 'models' / 'v3_cnn_ensemble_vad.npz'
+MODEL = ROOT / 'runtime' / 'models' / 'v3_cnn_ensemble_v32b.npz'
 THRESHOLDS = ROOT / 'runtime' / 'models' / 'v3_thresholds_vad.json'
 POOL = ROOT / 'runtime' / 'models' / 'v3_knn_pool.npz'
 GATE_REPORT = ROOT / 'docs' / 'selective_gate.json'
@@ -363,7 +363,16 @@ def test_shipped_gate_artifact_matches_build_report():
         assert gate.thresholds == {k: float(v)
                                    for k, v in rep['deployed_fit']['thresholds'].items()}
         assert rep['meets_target'] is True, f'工件未达判据: {rep["problems"]}'
-        assert rep['crossfit']['n_distinct_thresholds'] == 1
+        # 折间可能搜出多组「等价工作点」（ood 相同、maxprob 落在低概率平台，
+        # FAR/覆盖率完全相同）。允许的前提是：众数阈值 == 下发阈值，
+        # 且所有折的 FAR / 覆盖率范围一致——否则说明工作点真的不稳，不能放行。
+        xf = rep['crossfit']
+        assert xf['threshold_modes'][0]['thresholds'] == {
+            k: float(v) for k, v in gate.thresholds.items()}
+        assert xf['pooled_far_min'] == xf['pooled_far_max'], \
+            f'各折 FAR 不一致: {xf["pooled_far_min"]}..{xf["pooled_far_max"]}'
+        assert xf['pos_coverage_min'] == xf['pos_coverage_mean'], \
+            f'各折覆盖率不一致: {xf["pos_coverage_min"]}..{xf["pos_coverage_mean"]}'
         assert rule['ood']['pool_size'] == rep['pool']['shape'][0]
 
 

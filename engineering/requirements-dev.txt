@@ -1,0 +1,12 @@
+# 开发 / 评估 / 测试侧依赖。部署到设备时不需要这张表。
+-r requirements.txt
+
+# scripts/build_real_testset.py:103 用 scipy.signal.resample_poly 重采样 FLEURS。
+# 这是 scipy 在 Engineering 侧的唯一用途（2026-11-13 核实）。
+scipy==1.16.3
+
+pytest==8.4.2
+
+# scripts/build_mandarin_audio.py 合成普通话播报音频。
+# 版本沿用 Research/requirements_tts.txt 已钉死的值，不另猜一个。
+edge-tts==7.3.1

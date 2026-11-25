@@ -15,7 +15,8 @@
 
 - 音频时间 = 从「VAD 判定最后一帧是语音」到「切段」之间的静音挂起。
   这一段是**音频本身**要等的时间，不是代码慢；预触发命中后静音挂起
-  从 400 ms 压到 ``fast_silence_ms``（120 ms），这是 300 ms 预算能成立的前提。
+  从 400 ms 压到配置的 ``fast_silence_ms``（工程当前 240 ms），这是
+  300 ms 预算能成立的前提。
 - CPU 时间 = Pass-2 整句复核 + 双信号门限 + 决策层 + 执行器下发。
 
 真实设备上音频是持续流入的，CPU 时间与后续音频**并行**，所以
@@ -191,12 +192,19 @@ def build_engine(cfg, gate_enabled: bool) -> DialectEngine:
         state_source=_mock_state(),
         decision_costs=cfg.decision_costs,
         confusable_pairs=cfg.confusable_pairs,
+        confirmation_pairs=cfg.confirmation_pairs,
         competitor_floor=cfg.competitor_floor,
         prior_temperature=cfg.prior_temperature,
         redundancy_weight=cfg.redundancy_weight,
         prior_override_margin=cfg.prior_override_margin,
         debounce_ms=cfg.debounce_ms,
         max_clarify=cfg.max_clarify,
+        red_soft_enabled=cfg.red_soft_enabled,
+        red_soft_min_prob=cfg.red_soft_min_prob,
+        red_soft_min_margin=cfg.red_soft_min_margin,
+        red_soft_tolerances=cfg.red_soft_tolerances,
+        force_confirm_commands=cfg.force_confirm_commands,
+        high_risk_min_ood=cfg.high_risk_min_ood,
         window_ms=cfg.streaming_window_ms,
         hop_ms=cfg.streaming_hop_ms,
         pretrigger_threshold=cfg.pretrigger_threshold,
@@ -223,7 +231,8 @@ def corpus_reference_segment(audio, fs: int, vad_kwargs) -> Optional[np.ndarray]
 
     语料是用 ``scripts/make_trimmed_corpus.py`` 生成的，那里的 VAD 用默认
     ``min_silence_ms``（400 ms -> 13 帧 = 390 ms）。部署路径在快速端点命中后
-    把挂起压到 120 ms，两者切点不同：句内只要有超过 120 ms 的停顿，部署路径
+    把挂起压到 ``fast_silence_ms``（工程当前 240 ms），两者切点不同：
+    句内只要超过该挂起，部署路径
     就会**提前切段**，把后半句留给下一段——而模型从没见过这种被截断的输入。
     """
     from src.vad import EnergyVad
@@ -440,8 +449,8 @@ def main(argv=None):
         'truncated_wrong_rate': (round(len(trunc_wrong) / float(len(trunc_exec)), 4)
                                  if trunc_exec else None),
         'note': '截断 = 部署路径切出的语音段比「默认挂起切法」（训练语料的切法）'
-                '短超过 30 ms（一个 VAD 帧）。快速端点把静音挂起压到 120 ms，'
-                '句内超过 120 ms 的停顿就会提前切段。',
+                f'短超过 30 ms（一个 VAD 帧）。快速端点把静音挂起压到 '
+                f'{cfg.fast_silence_ms:g} ms，句内超过该挂起的停顿就会提前切段。',
     }
 
     report = {

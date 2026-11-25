@@ -1,0 +1,4 @@
+n_samples=25920
+T=159
+command=ALL_OFF
+confidence=0.999989362

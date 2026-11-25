@@ -27,15 +27,21 @@ features:
 
 recognition:
   mode: cnn_ensemble
-  model: runtime/models/v3_cnn_ensemble_vad.npz
+  # 2026-11-19 切换到纠错句式覆盖修复模型 v3.2b：
+  # 冻结 test 483 条 0.8820→0.9110，val 440 条 0.9500→0.9523（无回归）。
+  # 该模型 embedding 空间已变，kNN 池与双信号门限已用新模型重算重标
+  # （见 docs/selective_gate_v32b.json），不可再用旧模型的池/阈值。
+  model: runtime/models/v3_cnn_ensemble_v32b.npz
   thresholds: runtime/models/v3_thresholds_vad.json
-  temperature: 0.5
+  # 仅文档字段：推理温度实际来自模型 npz 的 __meta__.temperature（v32b = 0.55）。
+  temperature: 0.55
   confidence_threshold: 0.945
   # S4 双信号拒识：maxprob AND ood（ood = 到 kNN 参照池的余弦距离取负）。
   # 阈值与参照池是一对工件，由 scripts/build_selective_gate.py 生成，
   # 换池必须重跑该脚本重标定，不能只手改下面的路径。
-  # 实测（docs/selective_gate.json，样本外交叉拟合）：真实域 FAR 0.3110 → 0.0812，
-  # 危险误动作率 0.1437 → 0.0212，合成已知命令覆盖率 0.7864 → 0.8205。
+  # 实测（v32b 重标，docs/selective_gate_v32b.json，样本外交叉拟合）：
+  # 真实域 FAR 0.3110 → 0.0702（旧模型门限为 0.0812），危险误动作率 0.1437 → 0.0326，
+  # 合成已知命令覆盖率 0.7864 → 0.8205。池/阈值已随 v32b 模型一起重算。
   # enabled: false 时行为回到单阈值 confidence_threshold。
   selective:
     enabled: true
@@ -74,7 +80,10 @@ streaming:
   hop_ms: 100
   pretrigger_threshold: 0.5
   fast_endpoint_threshold: 0.5
-  fast_silence_ms: 120
+  # 2026-11-13 端点扫描：120/180/240/300/390 ms 中，
+  # 240 ms 将截断从 18 条降到 13 条，动作 P95 约 293 ms；
+  # 300 ms 已超 300 ms 预算，390 ms 虽无截断但 P95 约 419 ms。
+  fast_silence_ms: 240
   keyword_bias: 0.3
 
 # --- S5：状态先验 + 期望代价三态决策 ---------------------------------
@@ -95,8 +104,35 @@ decision:
   redundancy_weight: 0.25
   confusable_pairs:
     - [CURTAIN_OPEN, CURTAIN_CLOSE]
+  # 澄清/确认问句的候选对。与上面的「黄区易混对」分开：
+  # ALL_OFF 不应仅因第二名非零就进入普通黄区，否则高风险代价会把它直接拒掉。
+  confirmation_pairs:
+    - [ALL_OFF, LIGHT_OFF]
+    - [CURTAIN_OPEN, CURTAIN_CLOSE]
   debounce_ms: 2000
   max_clarify: 1
+  # 无条件确认的命令。默认留空，避免把所有自信且正确的 ALL_OFF 都打断。
+  force_confirm_commands: []
+  # 高风险命令的额外 OOD 门槛：只有靠近参照池边界时才先确认。
+  # 2026-11-19 随 v32b 重扫（scripts/sweep_high_risk_tau.py，报告 docs/high_risk_tau_v32b.json）：
+  #   主门限下真人非命令 top1=ALL_OFF 且通过主门限 85 条（危险误动作）；
+  #   旧 tau=-0.014 仍能把这 85 条全部拦下（安全未失效），但过度保守，
+  #   合成已知 ALL_OFF 误拦 14/55。tau=-0.019 同样真人 0 剩余，合成误拦降到 8/55。
+  #   故取 tau=-0.019：安全性不降，少牺牲 6 条正确 ALL_OFF 直接执行。
+  # 注意 ood 定义依赖参照池，换模型/换池必须重扫（见脚本）。
+  high_risk_min_ood:
+    ALL_OFF: -0.019
+  # 红区默认直接拒识。打开 red_soft 后，只有在双信号门限恰好一个信号
+  # 差一点、且 top-1 命中易混对时才澄清；它从不执行动作。
+  # 宽容差会大量误澄清；采用严格工作点后，已知命令仅回收少量样本，
+  # 但真人非命令误澄清率约 0.53%。只澄清、不执行。
+  red_soft:
+    enabled: true
+    min_prob: 0.95
+    min_margin: 0.5
+    tolerance:
+      maxprob: 0.01
+      ood: 0.001
 
 # 状态源：mock | home_assistant | mqtt。课程环境默认 mock（方案 §11 R-9），
 # 用 mock 状态机跑通闭环，结论标注为「仿真状态源」。

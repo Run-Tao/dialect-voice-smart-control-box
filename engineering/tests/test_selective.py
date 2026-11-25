@@ -544,21 +544,41 @@ def test_signals_from_real_forward_have_expected_ranges():
 @needs_model
 @needs_corpus
 def test_predict_detailed_single_forward_pass_matches_two_calls():
-    """predict_detailed 不得靠跑两遍网络拿信号（那样延迟翻倍，端侧受不了）。"""
-    import time
+    """predict_detailed 不得靠跑两遍网络拿信号（那样延迟翻倍，端侧受不了）。
+
+    直接数 ``_forward`` 的调用次数，不用墙钟比值：两条路径都只应调一次。
+    原先断言 ``t_detailed < t_plain * 1.6 + 5e-3``，在全量套件里受机器负载
+    影响会偶发失败（本次审查实测：套件内 0.059 s vs 0.021 s 判失败，
+    隔离重跑 3/3 通过），而被测不变量本身是确定性的，不该用计时去猜。
+    """
     m = _predictor()
     _, seq = _sample_seq(m, 1)[0]
-    m.predict_detailed(seq)
-    t0 = time.perf_counter()
-    for _ in range(5):
-        m.predict_detailed(seq)
-    t_detailed = (time.perf_counter() - t0) / 5
-    t0 = time.perf_counter()
-    for _ in range(5):
-        m.predict_features(seq)
-    t_plain = (time.perf_counter() - t0) / 5
-    # 同一遍前向，允许噪声；若 detailed 明显更慢说明又跑了一次卷积
-    assert t_detailed < t_plain * 1.6 + 5e-3
+
+    calls = {'n': 0}
+    original = m._forward
+
+    def counting_forward(*args, **kwargs):
+        calls['n'] += 1
+        return original(*args, **kwargs)
+
+    m._forward = counting_forward
+    try:
+        calls['n'] = 0
+        pred_d, extras = m.predict_detailed(seq)
+        assert calls['n'] == 1, f'predict_detailed 跑了 {calls["n"]} 遍前向'
+        # 信号必须真的从这一遍前向里拿到，不能是空壳
+        assert extras['seed_probs'].shape[0] >= 1
+        assert extras['embedding'].size > 0
+
+        calls['n'] = 0
+        pred_p = m.predict_features(seq)
+        assert calls['n'] == 1, f'predict_features 跑了 {calls["n"]} 遍前向'
+    finally:
+        m._forward = original
+
+    # 一次前向的两种出口，部署判定必须逐位一致
+    assert pred_d.command == pred_p.command
+    assert abs(pred_d.confidence - pred_p.confidence) < 1e-12
 
 
 # --------------------------------------------------------------------------

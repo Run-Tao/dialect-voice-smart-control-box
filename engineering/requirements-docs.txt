@@ -1,0 +1,9 @@
+# 可选：答辩材料构建（PPT / Word）。与运行时无关。
+#
+#   build_beamer_pptx.py:2      from pptx import Presentation
+#   build_integrated_pptx.py:3  from pptx import Presentation
+#   md2docx.py:2                from docx import Document
+#
+# 版本号 = 本机实测已安装版本（2026-11-13 用 importlib.metadata 核实）。
+python-pptx==1.0.2
+python-docx==1.2.0

@@ -21,7 +21,8 @@ S4(b)/S5 之后这里是**两遍**管线：
 ------------------
 「动作 P95 ≤ 300 ms」量的是**用户说完到动作下发**这一段，不是从开口算起。
 做法：Pass-1 预触发一响，就把 VAD 的静音挂起从 400 ms 压到 ``fast_silence_ms``
-（默认 120 ms），语音一停就切段复核下发；播报放到后台线程，不占用动作时间。
+（由 ``streaming.fast_silence_ms`` 配置，当前工程为 240 ms），语音一停就切段
+复核下发；播报放到后台线程，不占用动作时间。
 """
 from __future__ import annotations
 
@@ -133,6 +134,7 @@ class DialectEngine:
                  state_source=None,
                  decision_costs=None,
                  confusable_pairs=None,
+                 confirmation_pairs=None,
                  competitor_floor: float = 0.005,
                  prior_temperature: float = 0.3,
                  redundancy_weight: float = 0.25,
@@ -140,10 +142,16 @@ class DialectEngine:
                  consistency_margin: float = 0.15,
                  debounce_ms: int = 2000,
                  max_clarify: int = 1,
+                 red_soft_enabled: bool = False,
+                 red_soft_min_prob: float = 0.0,
+                 red_soft_min_margin: float = 0.0,
+                 red_soft_tolerances=None,
+                 force_confirm_commands=None,
+                 high_risk_min_ood=None,
                  window_ms: float = 1000.0,
                  hop_ms: float = 100.0,
                  pretrigger_threshold: float = 0.5,
-                 fast_silence_ms: float = 120.0,
+                 fast_silence_ms: float = 240.0,
                  fast_endpoint_threshold: Optional[float] = None,
                  bias: float = 0.3,
                  broadcast_async: bool = True,
@@ -169,6 +177,13 @@ class DialectEngine:
         self.redundancy_weight = float(redundancy_weight)
         self.prior_override_margin = float(prior_override_margin)
         self.consistency_margin = float(consistency_margin)
+        self.red_soft_enabled = bool(red_soft_enabled)
+        self.red_soft_min_prob = float(red_soft_min_prob)
+        self.red_soft_min_margin = float(red_soft_min_margin)
+        self.red_soft_tolerances = dict(red_soft_tolerances or {})
+        self.force_confirm_commands = [str(x) for x in (force_confirm_commands or [])]
+        self.high_risk_min_ood = {
+            str(k): float(v) for k, v in (high_risk_min_ood or {}).items()}
         self.window_ms = float(window_ms)
         self.hop_ms = float(hop_ms)
         self.pretrigger_threshold = float(pretrigger_threshold)
@@ -195,6 +210,9 @@ class DialectEngine:
         self.decision_costs = decision_costs or decision_mod.DecisionCosts()
         self.confusable_pairs = (list(confusable_pairs) if confusable_pairs is not None
                                  else list(decision_mod.CONFUSABLE_PAIRS))
+        self.confirmation_pairs = (
+            list(confirmation_pairs) if confirmation_pairs is not None
+            else list(self.confusable_pairs))
         self.debouncer = dialog_mod.Debouncer(window_ms=int(debounce_ms))
         self.dialog = dialog_mod.ClarifyDialog(max_clarify=int(max_clarify))
 
@@ -368,6 +386,25 @@ class DialectEngine:
             # 状态源不可达不该拖垮识别：先验没了，决策照常走（只是少一个信号）。
             return None
 
+    def _gate_near_miss(self, signals) -> bool:
+        """双信号门限是否只差一个信号，且差距在配置容差内。"""
+        if self.gate is None or not self.red_soft_enabled:
+            return False
+        fails = []
+        for name, threshold in self.gate.thresholds.items():
+            value = (signals or {}).get(name)
+            if value is None:
+                return False
+            value = float(value)
+            threshold = float(threshold)
+            if value < threshold:
+                fails.append((name, threshold - value))
+        if len(fails) != 1:
+            return False
+        name, deficit = fails[0]
+        tolerance = float(self.red_soft_tolerances.get(name, 0.0))
+        return bool(deficit <= tolerance + 1e-12)
+
     def process_segment(self, audio: np.ndarray, fs: int = 16000,
                         candidate: Optional[str] = None) -> UtteranceResult:
         """两遍路径：Pass-2 整句复核 -> 门限 -> 决策层 -> 执行 / 澄清 / 拒识。"""
@@ -390,6 +427,7 @@ class DialectEngine:
             gate_accepted = bool(g['accepted'])
             gate_rule = str(g['rule'])
             gate_reason = str(g['reason'])
+            gate_near_miss = self._gate_near_miss(g['signals'])
             signals = {k: float(val) for k, val in g['signals'].items()
                        if val is not None}
         else:
@@ -397,10 +435,15 @@ class DialectEngine:
             gate_accepted = bool(top >= self.threshold)
             gate_rule = 'single_threshold'
             gate_reason = '' if gate_accepted else f'below_threshold:{self.threshold:.2f}'
+            gate_near_miss = False
             signals = {'maxprob': top}
 
         retry_mode = self.dialog.awaiting_retry
         clarify_allowed = (not retry_mode) and (not self.dialog.exhausted)
+        pending = getattr(self.dialog, 'pending', None)
+        confirmation_retry = bool(
+            retry_mode and pending is not None
+            and v.top1 in list(getattr(pending, 'candidates', []) or []))
 
         decision = _runtime('decision').decide(
             v.probs, v.classes,
@@ -409,6 +452,7 @@ class DialectEngine:
             gate_reason=gate_reason,
             costs=self.decision_costs,
             confusable_pairs=self.confusable_pairs,
+            confirmation_pairs=self.confirmation_pairs,
             competitor_floor=self.competitor_floor,
             prior_temperature=self.prior_temperature,
             redundancy_weight=self.redundancy_weight,
@@ -418,6 +462,14 @@ class DialectEngine:
             consistency=v.consistency,
             consistency_margin=self.consistency_margin,
             clarify_allowed=clarify_allowed,
+            gate_near_miss=gate_near_miss,
+            red_soft_enabled=self.red_soft_enabled,
+            red_soft_min_prob=self.red_soft_min_prob,
+            red_soft_min_margin=self.red_soft_min_margin,
+            force_confirm_commands=self.force_confirm_commands,
+            confirmation_retry=confirmation_retry,
+            gate_ood=signals.get('ood'),
+            high_risk_min_ood=self.high_risk_min_ood,
         )
 
         result = UtteranceResult(
@@ -505,7 +557,7 @@ class DialectEngine:
             self._speak_reject(result)
             return
         result.action = 'clarify'
-        result.zone = 'yellow'
+        result.zone = decision.zone or 'yellow'
         result.reason = decision.reason
         result.clarify = prompt.as_dict()
         self._speak_clarify(result, prompt)

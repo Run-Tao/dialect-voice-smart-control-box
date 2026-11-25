@@ -1,0 +1,6 @@
+﻿# Name,    Type, SubType, Offset,   Size,     Flags
+# app 给 2 MB：当前 bin 约 700 KB（代码 + 339 KB int8 权重 + 124 KB mel 表），
+# 留足余量给后续接 I2S 麦克风和 VAD。
+nvs,       data, nvs,     0x9000,   0x6000,
+phy_init,  data, phy,     0xf000,   0x1000,
+factory,   app,  factory, 0x10000,  0x200000,

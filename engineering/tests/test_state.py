@@ -14,8 +14,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from runtime.state import (COMMAND_TABLE, DeviceState, HomeAssistantStateSource,
-                           MockStateSource, _map_ha_state, build_state_source)
-from src.commands import COMMANDS, INITIAL_STATE
+                           MockStateSource, _map_ha_state, _resulting_value,
+                           build_state_source)
+from runtime.decision import state_weight
+from src.commands import COMMANDS, INITIAL_STATE, resulting_state
 
 
 def test_command_table_matches_commands():
@@ -38,8 +40,27 @@ def test_mock_state_source_applies_actions():
     assert src.read().light == 'on'
     src.apply('CURTAIN_OPEN')
     assert src.read().curtain == 'open'
+    # 关窗帘的 action 是 'close'，但状态值必须是 'closed'：
+    # 否则 decision.state_weight 认不出「已关」，冗余先验判断失效。
+    src.apply('CURTAIN_CLOSE')
+    assert src.read().curtain == 'closed'
     src.apply('ALL_OFF')
     assert src.read().as_dict() == {'light': 'off', 'curtain': 'closed'}
+
+
+def test_resulting_value_matches_src_commands():
+    """runtime 就地映射必须与 src.commands.resulting_state 逐条一致（端侧自包含约束）。"""
+    for name, (actuator, action) in COMMAND_TABLE.items():
+        assert _resulting_value(actuator, action) == (resulting_state(name) or action), name
+
+
+def test_curtain_close_prior_redundancy_works():
+    """关窗帘后，状态先验应把同一命令判成冗余（0.25），而不是 1.0。"""
+    src = MockStateSource()
+    src.apply('CURTAIN_CLOSE')
+    assert state_weight('CURTAIN_CLOSE', src.read()) == pytest.approx(0.25)
+    src.apply('CURTAIN_OPEN')
+    assert state_weight('CURTAIN_OPEN', src.read()) == pytest.approx(0.25)
 
 
 def test_query_command_does_not_change_state():

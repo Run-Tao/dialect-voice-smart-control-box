@@ -36,11 +36,11 @@
 
 | 目录 | 是什么 | 状态 |
 |---|---|---|
-| `engineering/` | 运行时代码、部署模型、v5 方案 / 测试报告 / 交付清单 | **2026-11-06 快照**（199 tests） |
-| `research/` | 训练评测脚本、语料清单与划分、模型工件、v2 / v3 报告 | **2026-11-06 快照**（197 tests） |
-| `szpi/` | ESP32-S3 板卡端固件与后端占位 | 2026-11-20 起 |
+| `engineering/` | 运行时代码、部署模型、v5 方案 / 测试报告 / 交付清单、ESP32-S3 固件源码与整包 bin | 2026-11-25 同步（350 tests） |
+| `research/` | 训练评测脚本、语料清单与划分、模型工件、v2 / v3 报告 | 2026-11-25 同步（v32b 模型、v3.2 实验） |
+| `szpi/` | ESP32-S3 板卡端固件与后端占位（另一条硬件路线） | 2026-11-20 起 |
 
-注意：11-13 之后的最新工作（v32b 默认模型、C 内核固件、350 tests、新报告）还在本机 `D:\Run_Tao\DialectVoice_Engineering` 和 `..._Research`，没同步进这个仓库。这是目前最该补的一步。
+`engineering/` 和 `research/` 已按本机 2026-11-25 的状态同步进来；固件只放源码、配置、参考向量和 `dist/` 整包，编译产物 `build/`、`.pio/` 与本机工具链目录没进仓库。
 
 远程仓库还有两条没并进 `main` 的分支：`pc-dialect-engine`（PC / Web 版 DialectHome，SenseVoice + NLU）和 `esp32-dialect-voice`（另一版 ESP32 端 + 云端适配）。都是独立尝试，想看切过去就行。
 
@@ -69,26 +69,28 @@ cd szpi
 powershell -ExecutionPolicy Bypass -File .\flash.ps1 -BuildOnly
 ```
 
+说明：仓库里软件线的目录名是 `research/`，而部分脚本（`sync_runtime.py`、`run_demo.py` 等）默认找同级目录 `DialectVoice_Research/`。换机器跑这些脚本时，把 `research/` 复制或重命名为同级 `DialectVoice_Research`，或者用 `--manifest` 等参数显式传路径。工程测试里也有少数用例依赖完整语料和本机绝对路径：本仓库只带演示音频时实测 348 passed / 1 failed / 1 skipped（本机完整环境是 350 passed）。
+
 ## 数据说明
 
-仓库只放了清单 / 划分 / 模型 / 少量演示音频（canto、v2 test 111 条、unknown 72 条，约 27 MB）。
-完整合成语料（v3 / v3.1 / VAD 切段，约 360 MB）、原始 mp3、FLEURS 真人语料（约 478 MB，CC BY 4.0）都没放。
+仓库只放了清单 / 划分 / 模型 / 少量演示音频（canto、v2 test 111 条、unknown 72 条、unknown_v3_vad 72 条、v3.2 108 条，约 40 MB）。
+完整合成语料（v3 / v3.1 / 部署 VAD 切段，约 360 MB）、原始 mp3、FLEURS 真人语料（约 478 MB，CC BY 4.0）都没放。
 重建看 `research/docs/data_v3.md`、`data_v3_1.md`；FLEURS 从 HuggingFace 下，再用 `engineering/scripts/build_real_testset.py` 生成测试集。
 
 ## 下一步（按先后）
 
-1. 把本机最新的 engineering / research 同步进仓库（v32b 模型、350 tests、固件与新报告），不然仓库和实际进度对不上。
-2. 实板烧录，跑阶段一自检，确认 PSRAM / 四个 I2C 地址 / SD / 录音。
-3. 真人命令采集（2–3 人 × 30–50 次），先看真人命令的接受率和 FAR，再谈「可用」。
-4. 3 分钟演示视频和成本表。
-5. 决定端侧推理是否上 S3，或维持「PC 推理 + S3 执行」。
+1. 实板烧录，跑阶段一自检，确认 PSRAM / 四个 I2C 地址 / SD / 录音。
+2. 真人命令采集（2–3 人 × 30–50 次），先看真人命令的接受率和 FAR，再谈「可用」。
+3. 3 分钟演示视频和成本表。
+4. 决定端侧推理是否上 S3，或维持「PC 推理 + S3 执行」。
+5. 后续每次本机改动照这次的方式同步（先跑测试，再更新本文件日期）。
 
 ## 详细文档
 
 - 工程方案与评估：`engineering/docs/v5方案设计.md`、`测试报告.md`、`交付物清单.md`
 - 识别与数据：`research/docs/v3_report.md`、`v2_report.md`、`data_v3.md`
 - 板卡端：`szpi/README.md`、`szpi/PROGRESS.md`
-- 最近进度：本机 `DialectVoice_Engineering/PROGRESS.md`（还没进仓库）
+- 最近进度：`engineering/PROGRESS.md`（随 engineering 一起同步）
 
 ## 其他
 

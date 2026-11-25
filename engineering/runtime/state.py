@@ -34,6 +34,23 @@ COMMAND_TABLE: Dict[str, tuple] = {
 }
 
 
+def _resulting_value(actuator: str, action: str) -> str:
+    """把命令 action 归一成设备状态值，口径与 ``src.commands.resulting_state`` 一致。
+
+    灯 on/off、窗帘 open 的 action 与状态值同形；只有窗帘 ``close`` 的 action
+    是命令语义，状态值是 ``closed``。直接把 action 写进状态会产生 ``close``，
+    与 ``DeviceState`` / ``decision.state_weight`` / ``_map_ha_state`` 期望的
+    ``closed`` 失配，使状态先验的冗余判断与 ALL_OFF 的「窗帘已关」判断失效
+    （2026-11-19 结果角度审查发现；同日 P2 只修了 src.control 那一半）。
+
+    ``runtime/`` 要整体拷到端侧，不能 import ``src``，故就地定义而非复用
+    ``src.commands`` 的函数；两处口径必须保持一致（测试逐条钉死）。
+    """
+    if actuator == 'curtain' and action == 'close':
+        return 'closed'
+    return action
+
+
 @dataclass
 class DeviceState:
     """设备状态快照。"""
@@ -78,7 +95,7 @@ class MockStateSource(StateSource):
         if actuator == 'all':
             self.state = DeviceState(light='off', curtain='closed')
         elif actuator in ('light', 'curtain'):
-            setattr(self.state, actuator, action)
+            setattr(self.state, actuator, _resulting_value(actuator, action))
         return self.read()
 
 

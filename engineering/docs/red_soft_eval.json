@@ -1,0 +1,229 @@
+{
+  "gate_thresholds": {
+    "maxprob": 0.309193,
+    "ood": -0.022306
+  },
+  "pairs": [
+    [
+      "CURTAIN_OPEN",
+      "CURTAIN_CLOSE"
+    ],
+    [
+      "ALL_OFF",
+      "LIGHT_OFF"
+    ]
+  ],
+  "min_prob": 0.95,
+  "min_margin": 0.5,
+  "tolerances": {
+    "maxprob": 0.01,
+    "ood": 0.001
+  },
+  "groups": {
+    "syn_known": {
+      "n": 440,
+      "gate_accepted": 361,
+      "gate_acceptance": 0.8205,
+      "red_soft_triggered": 3,
+      "red_soft_trigger_rate": 0.0068,
+      "candidate_contains_truth": 3,
+      "candidate_hit_given_trigger": 1.0,
+      "examples": [
+        {
+          "i": 52,
+          "top1": "ALL_OFF",
+          "top2": "CURTAIN_CLOSE",
+          "label": "ALL_OFF",
+          "candidate_contains_truth": true,
+          "maxprob": 0.978,
+          "ood": -0.023,
+          "margin": 0.9653
+        },
+        {
+          "i": 61,
+          "top1": "ALL_OFF",
+          "top2": "CURTAIN_CLOSE",
+          "label": "ALL_OFF",
+          "candidate_contains_truth": true,
+          "maxprob": 0.9617,
+          "ood": -0.023,
+          "margin": 0.9447
+        },
+        {
+          "i": 252,
+          "top1": "LIGHT_OFF",
+          "top2": "LIGHT_ON",
+          "label": "LIGHT_OFF",
+          "candidate_contains_truth": true,
+          "maxprob": 0.9974,
+          "ood": -0.0229,
+          "margin": 0.9962
+        }
+      ]
+    },
+    "syn_unknown": {
+      "n": 72,
+      "gate_accepted": 4,
+      "gate_acceptance": 0.0556,
+      "red_soft_triggered": 0,
+      "red_soft_trigger_rate": 0.0,
+      "candidate_contains_truth": 0,
+      "candidate_hit_given_trigger": null,
+      "examples": []
+    },
+    "real": {
+      "n": 2637,
+      "gate_accepted": 214,
+      "gate_acceptance": 0.0812,
+      "red_soft_triggered": 14,
+      "red_soft_trigger_rate": 0.0053,
+      "candidate_contains_truth": 0,
+      "candidate_hit_given_trigger": 0.0,
+      "examples": [
+        {
+          "i": 78,
+          "top1": "ALL_OFF",
+          "top2": "CURTAIN_CLOSE",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9996,
+          "ood": -0.0232,
+          "margin": 0.9994
+        },
+        {
+          "i": 175,
+          "top1": "ALL_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9988,
+          "ood": -0.0224,
+          "margin": 0.9982
+        },
+        {
+          "i": 210,
+          "top1": "ALL_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9639,
+          "ood": -0.0232,
+          "margin": 0.9279
+        },
+        {
+          "i": 246,
+          "top1": "ALL_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9872,
+          "ood": -0.0229,
+          "margin": 0.9814
+        },
+        {
+          "i": 390,
+          "top1": "ALL_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9792,
+          "ood": -0.0228,
+          "margin": 0.9606
+        },
+        {
+          "i": 650,
+          "top1": "ALL_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9835,
+          "ood": -0.0226,
+          "margin": 0.9678
+        },
+        {
+          "i": 749,
+          "top1": "LIGHT_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9774,
+          "ood": -0.0227,
+          "margin": 0.9582
+        },
+        {
+          "i": 1084,
+          "top1": "ALL_OFF",
+          "top2": "STATUS_ALL",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9889,
+          "ood": -0.0232,
+          "margin": 0.9799
+        },
+        {
+          "i": 1161,
+          "top1": "ALL_OFF",
+          "top2": "LIGHT_OFF",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.9694,
+          "ood": -0.0225,
+          "margin": 0.9548
+        },
+        {
+          "i": 1355,
+          "top1": "ALL_OFF",
+          "top2": "LIGHT_ON",
+          "label": "",
+          "candidate_contains_truth": false,
+          "maxprob": 0.999,
+          "ood": -0.0228,
+          "margin": 0.9983
+        }
+      ]
+    }
+  },
+  "high_risk": {
+    "command": "ALL_OFF",
+    "min_ood": -0.014,
+    "groups": {
+      "syn_known": {
+        "n": 440,
+        "gate_accepted": 361,
+        "dangerous_direct": 300,
+        "dangerous_direct_rate": 0.6818,
+        "high_risk_accepted": 54,
+        "blocked_to_confirm": 7,
+        "effective_dangerous_direct": 293,
+        "effective_dangerous_rate": 0.6659
+      },
+      "syn_unknown": {
+        "n": 72,
+        "gate_accepted": 4,
+        "dangerous_direct": 4,
+        "dangerous_direct_rate": 0.0556,
+        "high_risk_accepted": 0,
+        "blocked_to_confirm": 0,
+        "effective_dangerous_direct": 4,
+        "effective_dangerous_rate": 0.0556
+      },
+      "real": {
+        "n": 2637,
+        "gate_accepted": 214,
+        "dangerous_direct": 56,
+        "dangerous_direct_rate": 0.0212,
+        "high_risk_accepted": 54,
+        "blocked_to_confirm": 54,
+        "effective_dangerous_direct": 2,
+        "effective_dangerous_rate": 0.0008
+      }
+    }
+  },
+  "decision": {
+    "known_recovery_rate": 0.0068,
+    "unknown_false_prompt_rate": 0.0,
+    "real_noncommand_false_prompt_rate": 0.0053,
+    "recommended": "需要同时看已知回收率与真人误澄清率，不能只追求前者"
+  },
+  "note": "误澄清只播报问句，不执行动作；但会打扰用户。syn_known 是已知命令验证组，real 是公开真人粤语非命令。"
+}

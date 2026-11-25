@@ -120,11 +120,30 @@ bullet_slide('系统总体方案', [
     '备用：串口 ESP32-S3 或继电器直接控制演示设备'
 ])
 bullet_slide('技术路线', [
-    '方言语音 → VAD → log-mel40+Δ → CNN 集成 → 置信度 → 拒识 → 普通话指令 → 智能音箱执行',
+    '两遍识别：Pass-1 流式预触发（1 s 滑窗 / 100 ms 步进）+ Pass-2 整句复核',
     '特征：40 维 log-mel 及一阶差分，整句 CMVN，插值到 256 帧',
     '模型：1D-CNN 三种子集成，纯 numpy 推理，约 1.35 MB',
-    '拒识：温度标定最大概率，阈值只在验证集与未知校准集上选取',
+    '拒识：双信号门限 maxprob ≥ 0.309193 AND ood ≥ −0.022306（k=5）',
+    'ood = 到 500 条 f16 参照池的嵌入 kNN 余弦距离取负；阈值与池成对下发',
+    '决策：设备状态先验 + 期望代价三态（执行 / 澄清 / 拒识）+ 去抖',
     '语义层映射：命令标签 → 普通话指令 → 预录音频播放'
+])
+bullet_slide('实测结果与口径声明', [
+    '口径声明：识别数字全部来自 edge-tts 合成粤语，真人命令正样本为 0，'
+    '不构成对真人可用性的性能承诺',
+    '测试集 483 条未见表达组：argmax 准确率 0.8799',
+    '双信号门限（当前部署）：接受率 0.7598 → 0.8592，'
+    '接受样本准确率 0.9319 → 0.9181（略降）',
+    '真实域 FAR（2744 段 FLEURS 真人粤语非命令语音，CC BY 4.0）：'
+    '0.3110 → 0.0812，危险误动作率 0.1437 → 0.0212',
+    '合成 unknown FAR 0.125 只有 72 条负样本，不可用作安全指标',
+    '感知延迟分两段口径：优化前（bench_perceived_latency.json，挂起 120 ms）动作 P95 142.7 ms；'
+    '当前已下发（config.yaml 挂起 240 ms，*_optimized.json）为 290.5 / 42.8 / 1090.5 ms，'
+    '三项仍全部达标（动作余量仅 9.5 ms）',
+    '如实说明两处未达成：截断 18/480 → 13/480（R-14 已缓解未关闭，其中 4 条仍执行错命令）；'
+    '会话成功率 0.7371 → 0.7702，仍 < 0.85 目标',
+    'S5 验收已达成：易混对增益 0.0000 → 0.0516'
+    '（dialog_eval_stream_optimized_v2.json，R-15 部分关闭）'
 ])
 bullet_slide('VAD 端点检测', [
     '帧能量转 dB，自适应噪声底（最小值统计）',
@@ -175,10 +194,19 @@ bullet_slide('进度安排', [
 ])
 bullet_slide('风险与应对', [
     '合成与真人存在域差距：补真人语料，报告区分合成与实测数字',
-    '未知指令误接受（最突出短板）：补采负样本、阈值仅在校准集选取、演示展示低置信度拒识',
+    '未知指令误接受（最突出短板）：双信号门限已把真实域 FAR 从 0.3110 压到 0.0812；'
+    '真人命令覆盖率仍未测，需补采难负样本',
+    '快速端点切早（R-14）：语料按 390 ms 挂起切、部署原按 120 ms 切，18/480 条被切早；'
+    '优化轮调到 240 ms 后降为 13/480（4 条仍执行错命令），动作 P95 290.5 ms 余量仅 9.5 ms；'
+    '根治仍需按部署端点重生成语料后重训',
+    '对话补救（R-15）：优化后部署口径增益 0.0000 → 0.0516，S5 验收已达成；'
+    '但一致性裕度与偏置幅度仍未重定标，补救 12 条 / 丢掉 51 条，净损失为正',
     '智能音箱识别不稳定：预录普通话音频，准备串口与继电器两条备用通道',
-    '真人语料不足：固定 6 条命令，2-3 位使用者反复采集，必要时用个性化注册模板补充',
-    '端侧实时性不足：优先树莓派 4B，模型已纯 numpy 推理且体积 1.35 MB',
+    '真人语料不足：固定 6 条命令，2-3 位使用者反复采集；'
+    '个性化注册模板尚未接线（src/enrollment.py 目前无调用点），不作为已有能力表述',
+    '端侧实时性不足：主控已定 ESP32-S3（不走树莓派）；纯 C + int8 内核已完成，'
+    '483 条与 numpy 决策 483/483 一致（argmax 0.8820 同 float 版）；'
+    '但未实机，板端单条耗时估 0.5-1 s，可能超 300 ms 预算',
     '现场演示失败：准备预录视频、备用音频与继电器演示'
 ])
 bullet_slide('预期成果', [
@@ -194,7 +222,11 @@ bullet_slide('参考文献', [
     'Davis S, Mermelstein P. Comparison of parametric representations for '
     'monosyllabic word recognition in continuously spoken sentences. '
     'IEEE Transactions on Acoustics, Speech, and Signal Processing, 1980.',
-    'MFCC、log-mel 特征、DTW、CNN 语音命令识别与智能家居语音交互相关文献'
+    'Conneau A, Ma M, Khanuja S, et al. FLEURS: Few-shot Learning Evaluation of '
+    'Universal Representations of Speech. arXiv:2205.12446, 2022.'
+    '（真实域测试集来源，102 语言，CC BY 4.0）',
+    'Sainath T N, Parada C. Convolutional neural networks for small-footprint '
+    'keyword spotting. Interspeech 2015: 1478-1482.（端侧 CNN 关键词识别一手依据）'
 ])
 
 prs.save(out)

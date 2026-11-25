@@ -1,14 +1,25 @@
-numpy
-scipy
+# 部署侧依赖（端侧 / 树莓派）—— 这是唯一需要装到设备上的表。
+#
+# 拆分依据（2026-11-13 逐模块核实 import，不是按感觉分的）：
+#   runtime/*.py        只有 numpy + 标准库；MQTT 状态源额外用 paho（见 requirements-hardware.txt）
+#   src/realtime.py     numpy
+#   src/vad.py          numpy
+#   src/config.py       yaml
+#   src/audio_capture.py numpy + sounddevice（麦克风入口）
+#   src/speaker_out.py  sounddevice + soundfile（普通话播报，惰性 import）
+#
+# 版本号 = 本机实测通过 204 条单测的版本（python -m pytest tests/ -q，2026-11-13）。
+# sounddevice 本机未安装，版本无从验证，故不钉死——装到设备上后请回填实测版本。
+numpy==2.3.5
+PyYAML==6.0.3
+soundfile==0.14.0
 sounddevice
-soundfile
-librosa
-scikit-learn
-joblib
-pandas
-matplotlib
-PyQt5
-pyqtgraph
-Flask
-luma.oled
-PyYAML
+
+# 训练依赖不在这里：见 DialectVoice_Research/requirements_v3.txt（torch / numba）。
+# 语料合成依赖见 DialectVoice_Research/requirements_tts.txt（edge-tts==7.3.1）。
+# 评估与测试见 requirements-dev.txt；文档构建见 requirements-docs.txt。
+#
+# 原表里的 librosa / scikit-learn / joblib / pandas / matplotlib /
+# PyQt5 / pyqtgraph / Flask 已移除：在 src/ runtime/ scripts/ tests/
+# 四处 grep 均为 0 命中（2026-11-13 核实）。它们在树莓派上安装昂贵且完全用不到。
+# 训练侧确实用 sklearn/librosa 的是 Research/src/v3_classifier.py，归 Research 的表管。

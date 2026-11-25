@@ -106,7 +106,8 @@ def feedback_texts() -> dict:
     # 澄清问句：按 runtime/dialog.py 的候选排序规则生成文件名，
     # 文本用同一套 COMMAND_ZH，两边必须一致（tests/test_dialog.py 有断言）。
     from runtime.dialog import COMMAND_ZH, clarify_asset
-    for pair in (('CURTAIN_CLOSE', 'CURTAIN_OPEN'),):
+    for pair in (('CURTAIN_CLOSE', 'CURTAIN_OPEN'),
+                 ('ALL_OFF', 'LIGHT_OFF')):
         names = [COMMAND_ZH.get(c, c) for c in pair]
         out[clarify_asset(pair).replace('.wav', '')] = f'你是要{names[0]}，还是{names[1]}？'
     return out

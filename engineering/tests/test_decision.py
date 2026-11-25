@@ -58,6 +58,84 @@ def test_gate_rejection_goes_red():
     assert d.reason == 'maxprob_below'
 
 
+def test_red_soft_near_miss_clarifies_without_executing():
+    """红区只在近门限 + 已知易混对时恢复，而且只能澄清、不能执行。"""
+    pairs = [('ALL_OFF', 'LIGHT_OFF')]
+    d = decide(probs(ALL_OFF=0.80, LIGHT_OFF=0.12, CURTAIN_OPEN=0.08),
+               CLASSES, gate_accepted=False, gate_reason='and_reject:ood',
+               gate_near_miss=True, red_soft_enabled=True,
+               confusable_pairs=pairs, red_soft_min_prob=0.45,
+               red_soft_min_margin=0.02)
+    assert d.action == 'clarify'
+    assert d.zone == 'red'
+    assert d.command == 'ALL_OFF'
+    assert d.candidates == ['ALL_OFF', 'LIGHT_OFF']
+    assert d.reason == 'gate_recoverable'
+    assert d.signals['red_soft'] == 1.0
+
+
+def test_red_soft_requires_near_miss():
+    """两个信号都远处门外时不得用红区澄清掩盖真实拒识。"""
+    d = decide(probs(ALL_OFF=0.80, LIGHT_OFF=0.12, CURTAIN_OPEN=0.08),
+               CLASSES, gate_accepted=False, gate_reason='and_reject:maxprob,ood',
+               gate_near_miss=False, red_soft_enabled=True,
+               confusable_pairs=[('ALL_OFF', 'LIGHT_OFF')])
+    assert d.action == 'reject'
+    assert d.zone == 'red'
+
+
+def test_red_soft_requires_evidence_floor():
+    d = decide(probs(ALL_OFF=0.36, LIGHT_OFF=0.34, CURTAIN_OPEN=0.30),
+               CLASSES, gate_accepted=False, gate_reason='and_reject:ood',
+               gate_near_miss=True, red_soft_enabled=True,
+               confusable_pairs=[('ALL_OFF', 'LIGHT_OFF')],
+               red_soft_min_prob=0.45, red_soft_min_margin=0.02)
+    assert d.action == 'reject'
+
+
+def test_high_risk_all_off_requires_confirmation():
+    """ALL_OFF 即使门限通过也先确认，重说轮次由 clarify_allowed 放行。"""
+    d = decide(probs(ALL_OFF=0.90, LIGHT_OFF=0.08, LIGHT_ON=0.02),
+               CLASSES, gate_accepted=True,
+               confusable_pairs=[('ALL_OFF', 'LIGHT_OFF')],
+               force_confirm_commands=['ALL_OFF'])
+    assert d.action == 'clarify'
+    assert d.zone == 'yellow'
+    assert d.reason == 'high_risk_confirm'
+    assert d.candidates == ['ALL_OFF', 'LIGHT_OFF']
+
+    retry = decide(probs(ALL_OFF=0.90, LIGHT_OFF=0.08, LIGHT_ON=0.02),
+                   CLASSES, gate_accepted=True,
+                   confusable_pairs=[('ALL_OFF', 'LIGHT_OFF')],
+                   force_confirm_commands=['ALL_OFF'],
+                   clarify_allowed=False, confirmation_retry=True)
+    assert retry.action == 'execute'
+    assert retry.command == 'ALL_OFF'
+
+
+def test_all_off_confirmation_is_ood_conditional():
+    """靠近参照池边界才确认；OOD 足够安全时直接执行，避免无条件打断。"""
+    kwargs = dict(
+        gate_accepted=True,
+        confirmation_pairs=[('ALL_OFF', 'LIGHT_OFF')],
+        high_risk_min_ood={'ALL_OFF': -0.014},
+    )
+    risky = decide(probs(ALL_OFF=0.90, LIGHT_OFF=0.08, LIGHT_ON=0.02),
+                   CLASSES, gate_ood=-0.020, **kwargs)
+    assert risky.action == 'clarify'
+    assert risky.reason == 'high_risk_confirm'
+
+    safe = decide(probs(ALL_OFF=0.90, LIGHT_OFF=0.08, LIGHT_ON=0.02),
+                  CLASSES, gate_ood=-0.010, **kwargs)
+    assert safe.action == 'execute'
+    assert safe.command == 'ALL_OFF'
+
+    no_ood = decide(probs(ALL_OFF=0.90, LIGHT_OFF=0.08, LIGHT_ON=0.02),
+                    CLASSES, gate_ood=None, **kwargs)
+    assert no_ood.action == 'clarify'
+    assert no_ood.reason == 'high_risk_confirm'
+
+
 def test_confusable_pair_enters_yellow():
     d = decide(probs(CURTAIN_OPEN=0.55, CURTAIN_CLOSE=0.45), CLASSES,
                gate_accepted=True)

@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated": "2026-11-01",
+  "generated": "2026-11-19",
   "rule": "and",
   "signals": [
     "maxprob",
     "ood"
   ],
   "thresholds": {
-    "maxprob": 0.309193,
-    "ood": -0.022306
+    "maxprob": 0.51863,
+    "ood": -0.026796
   },
   "ood": {
     "kind": "neg_knn_cosine",
@@ -21,14 +21,14 @@
     "pool_bytes_stored": 256000,
     "pool_source": "合成 train 分层子采样（按 6 个命令类别配额），size=500 seed=0",
     "pool_note": "池与阈值是一对工件：换池必须重跑本脚本重标定",
-    "pool_sha256": "73a2b24900139a95cb8e4ea1c1804a48c8b0442ec9e84cfe33e89825f1073ae4",
+    "pool_sha256": "76184b5d2da460575e003074223e81fa6e6c275cf408a39a4c4c2c9b11ae95aa",
     "pool_n_by_class": {
-      "ALL_OFF": 84,
+      "ALL_OFF": 83,
       "CURTAIN_CLOSE": 83,
       "CURTAIN_OPEN": 83,
       "LIGHT_OFF": 83,
-      "LIGHT_ON": 84,
-      "STATUS_ALL": 83
+      "LIGHT_ON": 83,
+      "STATUS_ALL": 85
     }
   },
   "fallback": {
@@ -44,12 +44,12 @@
     "n_positives": 440,
     "negatives_source": "真人粤语非命令语音（FLEURS yue_hant_hk，CC BY 4.0，data/real_domain_testset/manifest.csv）",
     "positives_source": "合成 val 已知命令（TTS，非真人）",
-    "n_distinct_thresholds_in_crossfit": 1,
+    "n_distinct_thresholds_in_crossfit": 2,
     "deployed_equals_crossfit_mode": true,
-    "out_of_sample_far": 0.0812,
+    "out_of_sample_far": 0.0702,
     "out_of_sample_far_range": [
-      0.0812,
-      0.0812
+      0.0702,
+      0.0702
     ],
     "out_of_sample_coverage": 0.8205,
     "note": "真人负样本参与了阈值搜索，因此本项目在标定环节**需要**真人数据；交叉拟合保证每条样本都由没见过它的阈值判定，FAR 是样本外估计。"
@@ -57,61 +57,61 @@
   "performance": {
     "shipped_thresholds_in_sample": {
       "thresholds": {
-        "maxprob": 0.309193,
-        "ood": -0.022306
+        "maxprob": 0.51863,
+        "ood": -0.026796
       },
-      "real_far": 0.0812,
+      "real_far": 0.0698,
       "real_ci95": [
-        0.0713,
-        0.0922
+        0.0607,
+        0.0801
       ],
-      "real_accepted": 214,
+      "real_accepted": 184,
       "real_n": 2637,
-      "dangerous_rate": 0.0212,
+      "dangerous_rate": 0.0326,
       "dangerous_ci95": [
-        0.0164,
-        0.0275
+        0.0265,
+        0.0401
       ],
-      "dangerous_accepted": 56,
-      "benign_rate": 0.0599,
+      "dangerous_accepted": 86,
+      "benign_rate": 0.0372,
       "syn_coverage": 0.8205,
       "false_accept_by_command": {
-        "STATUS_ALL": 158,
-        "ALL_OFF": 54,
-        "LIGHT_OFF": 2
+        "STATUS_ALL": 98,
+        "ALL_OFF": 85,
+        "LIGHT_OFF": 1
       }
     },
     "crossfit_mode_thresholds": {
       "thresholds": {
-        "maxprob": 0.309193,
-        "ood": -0.022306
+        "maxprob": 0.51863,
+        "ood": -0.026796
       },
-      "real_far": 0.0812,
+      "real_far": 0.0698,
       "real_ci95": [
-        0.0713,
-        0.0922
+        0.0607,
+        0.0801
       ],
-      "real_accepted": 214,
+      "real_accepted": 184,
       "real_n": 2637,
-      "dangerous_rate": 0.0212,
+      "dangerous_rate": 0.0326,
       "dangerous_ci95": [
-        0.0164,
-        0.0275
+        0.0265,
+        0.0401
       ],
-      "dangerous_accepted": 56,
-      "benign_rate": 0.0599,
+      "dangerous_accepted": 86,
+      "benign_rate": 0.0372,
       "syn_coverage": 0.8205,
       "false_accept_by_command": {
-        "STATUS_ALL": 158,
-        "ALL_OFF": 54,
-        "LIGHT_OFF": 2
+        "STATUS_ALL": 98,
+        "ALL_OFF": 85,
+        "LIGHT_OFF": 1
       }
     },
     "out_of_sample": {
-      "real_far": 0.0812,
+      "real_far": 0.0702,
       "real_far_range_over_splits": [
-        0.0812,
-        0.0812
+        0.0702,
+        0.0702
       ],
       "syn_coverage": 0.8205,
       "syn_coverage_min": 0.8205,

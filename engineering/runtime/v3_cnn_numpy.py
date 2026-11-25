@@ -60,8 +60,14 @@ def _maxpool2(x):
     return x[:, :, :T2 * 2].reshape(B, C, T2, 2).max(axis=3)
 
 
-def embed(params: Dict[str, np.ndarray], x: np.ndarray) -> np.ndarray:
-    """输入 [B,80,256] -> 256 维嵌入（mean+max 池化后，未过 dropout/FC）。"""
+def embed(params: Dict[str, np.ndarray], x: np.ndarray,
+          pool_alpha: float = 0.0) -> np.ndarray:
+    """输入 [B,80,256] -> 256 维嵌入（mean+max 池化后，未过 dropout/FC）。
+
+    ``pool_alpha > 0`` 时 mean 分支改为**指数尾部加权**：权重
+    ``exp(alpha * t/(T-1))`` 归一化，越靠句尾越大。动机见训练脚本
+    ``CmdCNN`` 文档；``pool_alpha == 0`` 时与原实现逐位等价。
+    """
     x = np.asarray(x, dtype=np.float64)
     if x.ndim != 3 or x.shape[1] != IN_DIM:
         raise ValueError(f'输入必须为 [B,{IN_DIM},T]，当前 {x.shape}')
@@ -72,7 +78,15 @@ def embed(params: Dict[str, np.ndarray], x: np.ndarray) -> np.ndarray:
         x = _relu(x)
         if name in ('conv0', 'conv1'):
             x = _maxpool2(x)
-    pooled = np.concatenate([x.mean(axis=2), x.max(axis=2)], axis=1)
+    if pool_alpha and pool_alpha > 0.0:
+        T = x.shape[2]
+        t = np.arange(T, dtype=np.float64) / max(T - 1, 1)
+        w = np.exp(float(pool_alpha) * t)
+        w = w / w.sum()
+        wm = (x * w[None, None, :]).sum(axis=2)
+        pooled = np.concatenate([wm, x.max(axis=2)], axis=1)
+    else:
+        pooled = np.concatenate([x.mean(axis=2), x.max(axis=2)], axis=1)
     return pooled
 
 

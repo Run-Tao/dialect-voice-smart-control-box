@@ -162,6 +162,7 @@ def build_engine(cfg, gate_enabled: bool) -> DialectEngine:
         state_source=state,
         decision_costs=cfg.decision_costs,
         confusable_pairs=cfg.confusable_pairs,
+        confirmation_pairs=cfg.confirmation_pairs,
         competitor_floor=cfg.competitor_floor,
         prior_temperature=cfg.prior_temperature,
         redundancy_weight=cfg.redundancy_weight,
@@ -169,6 +170,12 @@ def build_engine(cfg, gate_enabled: bool) -> DialectEngine:
         consistency_margin=cfg.consistency_margin,
         debounce_ms=cfg.debounce_ms,
         max_clarify=cfg.max_clarify,
+        red_soft_enabled=cfg.red_soft_enabled,
+        red_soft_min_prob=cfg.red_soft_min_prob,
+        red_soft_min_margin=cfg.red_soft_min_margin,
+        red_soft_tolerances=cfg.red_soft_tolerances,
+        force_confirm_commands=cfg.force_confirm_commands,
+        high_risk_min_ood=cfg.high_risk_min_ood,
         window_ms=cfg.streaming_window_ms,
         hop_ms=cfg.streaming_hop_ms,
         pretrigger_threshold=cfg.pretrigger_threshold,
@@ -234,9 +241,11 @@ class _EmptyResult:
     command = ''
     action = 'reject'
     zone = 'red'
+    reason = 'no_segment'
     rule = 'no_segment'
     consistency = 'no_candidate'
     debounced = False
+    signals: Dict[str, float] = {}
 
 
 def evaluate(rows: List[dict], cfg, gate_enabled: bool, retry_mode: str,
@@ -287,6 +296,7 @@ def evaluate(rows: List[dict], cfg, gate_enabled: bool, retry_mode: str,
         debounced_n += int(res.debounced)
 
         retry_id = ''
+        retry_detail = {}
         if clarified:
             retry = pick_retry(rows, i, retry_mode)
             if retry is not None:
@@ -296,6 +306,13 @@ def evaluate(rows: List[dict], cfg, gate_enabled: bool, retry_mode: str,
                 res2 = run_segment(engine, r_audio, r_sr, mode) or _EmptyResult()
                 executed = res2.executed
                 final_command = res2.command if executed else ''
+                retry_detail = {
+                    'action': res2.action,
+                    'zone': res2.zone,
+                    'reason': getattr(res2, 'reason', ''),
+                    'executed': bool(executed),
+                    'final_command': final_command,
+                }
 
         ok_c = bool(executed and final_command == truth)
         session_ok += int(ok_c)
@@ -323,10 +340,13 @@ def evaluate(rows: List[dict], cfg, gate_enabled: bool, retry_mode: str,
             'gate_rule': res.rule,
             'action_first': action_first,
             'zone': res.zone,
+            'reason': getattr(res, 'reason', ''),
+            'signals': dict(getattr(res, 'signals', {}) or {}),
             'consistency': res.consistency,
             'pass1_command': getattr(res, 'pass1_command', ''),
             'clarify': bool(clarified),
             'retry_utterance_id': retry_id,
+            'retry': retry_detail,
             'debounced': bool(res.debounced),
             'executed': bool(executed),
             'final_command': final_command,

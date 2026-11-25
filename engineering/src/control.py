@@ -28,7 +28,7 @@ import urllib.request
 from pathlib import Path
 from typing import Dict, Optional
 
-from .commands import COMMANDS, INITIAL_STATE
+from .commands import COMMANDS, INITIAL_STATE, resulting_state
 
 
 class CommandExecutor:
@@ -87,7 +87,11 @@ class LoggingExecutor(CommandExecutor):
             if entry['actuator'] == 'all':
                 self.state = dict(INITIAL_STATE)
             else:
-                self.state[entry['actuator']] = entry['action']
+                # 用状态值（open/closed、on/off）而非命令 action（close）：
+                # 直接写 action 会产生 'close'，与 INITIAL_STATE/decision.py 期望的
+                # 'closed' 失配，令状态先验冗余判断失效（2026-11-19 审查发现）。
+                value = resulting_state(command)
+                self.state[entry['actuator']] = value if value is not None else entry['action']
         self._write_log(command, 'OK', json.dumps(self.state, ensure_ascii=False))
         print(f'[执行] {command} -> {self.state}')
         return {'command': command, 'state': dict(self.state), 'ok': True,
@@ -127,7 +131,7 @@ class SerialExecutor(CommandExecutor):
     async_ack = True
 
     def __init__(self, port: str, baudrate: int = 115200, timeout: float = 1.0,
-                 log_path: Optional[str] = None):
+                 log_path: Optional[str] = None, seq_start: Optional[int] = None):
         super().__init__(log_path)
         import sys
         root = Path(__file__).resolve().parents[1]
@@ -140,11 +144,18 @@ class SerialExecutor(CommandExecutor):
             raise ImportError('需要安装 pyserial: pip install pyserial') from exc
         self.build_command = build_command
         self.ser = serial.Serial(port, baudrate=baudrate, timeout=timeout)
-        self.seq = 0
+        # 固件保留最近 64 个 seq 判 DUP。若 PC 进程重启后从 0 重新计数，
+        # 重发的 1,2,3… 会被固件当作重复命令静默丢弃（回 ACK,DUP 但动作不执行）。
+        # 用毫秒时间戳低 32 位作起点，跨进程不撞车；同进程内递增。
+        # seq_start 供离线测试注入确定值。
+        seed = int(time.time() * 1000) if seq_start is None else int(seq_start)
+        self.seq = seed & 0xFFFFFFFF
         self._default_timeout = float(timeout)
 
     def dispatch(self, command: str) -> Dict[str, object]:
-        self.seq += 1
+        # wait_ack 在另一个时刻被调用，必须记住本条命令，否则超时日志的命令名恒为空串
+        self.command = command
+        self.seq = (self.seq + 1) & 0xFFFFFFFF
         self.ser.reset_input_buffer()
         self.ser.write(self.build_command(self.seq, command).encode('ascii'))
         return {'command': command, 'seq': self.seq, 'ok': True, 'detail': 'sent'}
@@ -157,12 +168,20 @@ class SerialExecutor(CommandExecutor):
             line = self.ser.readline().decode('ascii', errors='replace').strip()
         finally:
             self.ser.timeout = old
+        command = getattr(self, 'command', '')
         if not line:
-            self._write_log(self.command if hasattr(self, 'command') else '', 'TIMEOUT')
+            self._write_log(command, 'TIMEOUT')
             raise TimeoutError('ESP32 未返回 ACK')
-        self._write_log(line.split(',')[2] if line.count(',') >= 2 else '', line)
-        print(f'[ESP32] ACK -> {line}')
-        return {'ok': True, 'detail': line}
+        # 固件回执有三种结果：ACK,seq,OK / ACK,seq,DUP / ERR,seq,CODE。
+        # 只有 OK 才代表动作真的执行；DUP 是 seq 撞车被静默丢弃，ERR 是拒绝。
+        # realtime.py 用 ok 决定是否播报「已完成」，误判会误导用户。
+        status = line.split(',')[2].strip() if line.count(',') >= 2 else ''
+        ok = line.startswith('ACK,') and status == 'OK'
+        log_status = 'ACK' if ok else ('DUP' if status == 'DUP' else 'ERR')
+        # 日志的 command 字段必须是命令本身；ACK 整行放 detail，别把状态字塞进命令位
+        self._write_log(command, log_status, line)
+        print(f'[ESP32] {log_status} -> {line}')
+        return {'ok': ok, 'detail': line, 'status': status or 'MALFORMED'}
 
     def close(self) -> None:
         if getattr(self, 'ser', None) is not None:
@@ -198,10 +217,12 @@ class RelayExecutor(CommandExecutor):
             self._write_log(command, 'QUERY', self.state)
             return {'command': command, 'state': self.state, 'ok': True,
                     'detail': 'query'}
-        target = entry['action'] if entry['actuator'] == 'light' else self.state
         if entry['actuator'] == 'light':
             self.state = entry['action']
-            target = self.state
+        elif entry['actuator'] == 'all':
+            # 「全部关闭」必须真的落到继电器上；原先 target 取的是旧状态，等于没执行
+            self.state = INITIAL_STATE['light']
+        target = self.state
         if self.mock:
             print('[mock relay]', target)
         else:

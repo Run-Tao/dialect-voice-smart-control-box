@@ -74,13 +74,19 @@ def main():
     if not research.is_dir():
         sys.exit(f'找不到 Research 目录: {research}')
 
-    (runtime / 'models').mkdir(parents=True, exist_ok=True)
-    (runtime / '__init__.py').write_text(
-        '# -*- coding: utf-8 -*-\n"""自包含推理运行时（由 scripts/sync_runtime.py 生成）。"""\n',
-        encoding='utf-8',
-    )
-
     problems = []
+    init_file = runtime / '__init__.py'
+    if args.check:
+        # --check 只校验、不写盘：此前会顺手建目录并覆盖 __init__.py，
+        # 让「只读校验」在 CI/评审里产生副作用。
+        if not init_file.exists():
+            problems.append(f'缺少: {init_file}')
+    else:
+        (runtime / 'models').mkdir(parents=True, exist_ok=True)
+        init_file.write_text(
+            '# -*- coding: utf-8 -*-\n"""自包含推理运行时（由 scripts/sync_runtime.py 生成）。"""\n',
+            encoding='utf-8',
+        )
     for src_rel, dst_rel in SOURCE_FILES:
         src = research / src_rel
         dst = runtime / dst_rel

@@ -1,0 +1,13 @@
+expression_id,command,text,register,expected_intent,direct_executable,distractor_terms,naturalness_morphemes,yue_naturalness_review,notes,text_verified_by,v3_source
+CURTAIN_OPEN_CORR_FIX_01,CURTAIN_OPEN,唔係將窗簾拉埋，係將窗簾拉開,correction,CURTAIN_OPEN,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_OPEN_CORR_FIX_02,CURTAIN_OPEN,唔係想收起窗簾，係想打開佢,correction,CURTAIN_OPEN,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_OPEN_CORR_FIX_03,CURTAIN_OPEN,唔好關簾呀，幫我攤開佢,correction,CURTAIN_OPEN,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_OPEN_CORR_FIX_04,CURTAIN_OPEN,搞錯啦，我要張簾開唔係埋,correction,CURTAIN_OPEN,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_CLOSE_CORR_FIX_01,CURTAIN_CLOSE,唔係將窗簾拉開，係將窗簾拉埋,correction,CURTAIN_CLOSE,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_CLOSE_CORR_FIX_02,CURTAIN_CLOSE,唔係想打開窗簾，係想收埋佢,correction,CURTAIN_CLOSE,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_CLOSE_CORR_FIX_03,CURTAIN_CLOSE,唔好攤開簾呀，幫我合上佢,correction,CURTAIN_CLOSE,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+CURTAIN_CLOSE_CORR_FIX_04,CURTAIN_CLOSE,搞錯啦，我要張簾埋唔係開,correction,CURTAIN_CLOSE,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+ALL_OFF_CORR_FIX_01,ALL_OFF,唔係單純熄燈，係要全部關晒,correction,ALL_OFF,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+ALL_OFF_CORR_FIX_02,ALL_OFF,唔好淨係關燈呀，所有嘢都熄晒佢,correction,ALL_OFF,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+ALL_OFF_CORR_FIX_03,ALL_OFF,搞錯啦，我要全部都關，唔係得盞燈,correction,ALL_OFF,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2
+ALL_OFF_CORR_FIX_04,ALL_OFF,唔係淨係關燈咁簡單，係全部都要熄,correction,ALL_OFF,false,,,RULE_REVIEWED,v3.2 correction 覆盖修复；同构不同字，未与冻结测试句重复,RULE_REVIEWED,new_v3_2

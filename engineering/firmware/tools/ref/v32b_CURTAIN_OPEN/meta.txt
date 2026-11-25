@@ -1,0 +1,4 @@
+n_samples=15840
+T=96
+command=CURTAIN_OPEN
+confidence=0.997499107

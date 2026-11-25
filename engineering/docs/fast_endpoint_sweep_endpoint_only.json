@@ -1,0 +1,231 @@
+{
+  "manifest": "..\\DialectVoice_Research\\data\\tts_corpus\\manifest_yue_v3_1.csv",
+  "subset": "test",
+  "gate_enabled": true,
+  "values": [
+    {
+      "fast_silence_ms": 120.0,
+      "endpoint": {
+        "n": 480,
+        "argmax_accuracy": 0.8479,
+        "executed": 379,
+        "executed_wrong": 33,
+        "executed_accuracy": 0.9129,
+        "truncated": 18,
+        "truncated_rate": 0.0375,
+        "truncated_executed": 8,
+        "truncated_wrong": 8,
+        "action_latency_ms": {
+          "p50": 160.6,
+          "p95": 220.0,
+          "mean": 175.5,
+          "max": 1086.2,
+          "n": 379
+        },
+        "pretrigger_cpu_ms": {
+          "p50": 34.7,
+          "p95": 82.6,
+          "mean": 67.9,
+          "max": 2112.3,
+          "n": 447
+        },
+        "wrong_pairs": {
+          "ALL_OFF->LIGHT_OFF": 3,
+          "CURTAIN_CLOSE->ALL_OFF": 5,
+          "CURTAIN_OPEN->CURTAIN_CLOSE": 18,
+          "LIGHT_OFF->LIGHT_ON": 1,
+          "LIGHT_OFF->ALL_OFF": 1,
+          "LIGHT_ON->LIGHT_OFF": 4,
+          "STATUS_ALL->ALL_OFF": 1
+        }
+      }
+    },
+    {
+      "fast_silence_ms": 180.0,
+      "endpoint": {
+        "n": 480,
+        "argmax_accuracy": 0.8479,
+        "executed": 379,
+        "executed_wrong": 33,
+        "executed_accuracy": 0.9129,
+        "truncated": 18,
+        "truncated_rate": 0.0375,
+        "truncated_executed": 8,
+        "truncated_wrong": 8,
+        "action_latency_ms": {
+          "p50": 217.6,
+          "p95": 236.5,
+          "mean": 220.3,
+          "max": 434.0,
+          "n": 379
+        },
+        "pretrigger_cpu_ms": {
+          "p50": 29.7,
+          "p95": 42.9,
+          "mean": 29.7,
+          "max": 116.6,
+          "n": 447
+        },
+        "wrong_pairs": {
+          "ALL_OFF->LIGHT_OFF": 3,
+          "CURTAIN_CLOSE->ALL_OFF": 5,
+          "CURTAIN_OPEN->CURTAIN_CLOSE": 18,
+          "LIGHT_OFF->LIGHT_ON": 1,
+          "LIGHT_OFF->ALL_OFF": 1,
+          "LIGHT_ON->LIGHT_OFF": 4,
+          "STATUS_ALL->ALL_OFF": 1
+        }
+      }
+    },
+    {
+      "fast_silence_ms": 240.0,
+      "endpoint": {
+        "n": 480,
+        "argmax_accuracy": 0.85,
+        "executed": 379,
+        "executed_wrong": 32,
+        "executed_accuracy": 0.9156,
+        "truncated": 13,
+        "truncated_rate": 0.0271,
+        "truncated_executed": 4,
+        "truncated_wrong": 4,
+        "action_latency_ms": {
+          "p50": 278.0,
+          "p95": 292.7,
+          "mean": 280.2,
+          "max": 428.3,
+          "n": 379
+        },
+        "pretrigger_cpu_ms": {
+          "p50": 30.0,
+          "p95": 43.6,
+          "mean": 31.6,
+          "max": 79.5,
+          "n": 447
+        },
+        "wrong_pairs": {
+          "ALL_OFF->LIGHT_OFF": 3,
+          "CURTAIN_CLOSE->ALL_OFF": 5,
+          "CURTAIN_OPEN->CURTAIN_CLOSE": 17,
+          "LIGHT_OFF->LIGHT_ON": 1,
+          "LIGHT_OFF->ALL_OFF": 1,
+          "LIGHT_ON->LIGHT_OFF": 4,
+          "STATUS_ALL->ALL_OFF": 1
+        }
+      }
+    },
+    {
+      "fast_silence_ms": 300.0,
+      "endpoint": {
+        "n": 480,
+        "argmax_accuracy": 0.8583,
+        "executed": 383,
+        "executed_wrong": 32,
+        "executed_accuracy": 0.9164,
+        "truncated": 8,
+        "truncated_rate": 0.0167,
+        "truncated_executed": 3,
+        "truncated_wrong": 3,
+        "action_latency_ms": {
+          "p50": 319.8,
+          "p95": 347.5,
+          "mean": 337.8,
+          "max": 3070.0,
+          "n": 383
+        },
+        "pretrigger_cpu_ms": {
+          "p50": 18.9,
+          "p95": 39.8,
+          "mean": 32.4,
+          "max": 3413.3,
+          "n": 447
+        },
+        "wrong_pairs": {
+          "ALL_OFF->LIGHT_OFF": 3,
+          "CURTAIN_CLOSE->ALL_OFF": 5,
+          "CURTAIN_OPEN->CURTAIN_CLOSE": 17,
+          "LIGHT_OFF->LIGHT_ON": 1,
+          "LIGHT_OFF->ALL_OFF": 1,
+          "LIGHT_ON->LIGHT_OFF": 4,
+          "STATUS_ALL->ALL_OFF": 1
+        }
+      }
+    },
+    {
+      "fast_silence_ms": 390.0,
+      "endpoint": {
+        "n": 480,
+        "argmax_accuracy": 0.8688,
+        "executed": 385,
+        "executed_wrong": 29,
+        "executed_accuracy": 0.9247,
+        "truncated": 0,
+        "truncated_rate": 0.0,
+        "truncated_executed": 0,
+        "truncated_wrong": 0,
+        "action_latency_ms": {
+          "p50": 408.4,
+          "p95": 419.4,
+          "mean": 408.7,
+          "max": 453.8,
+          "n": 385
+        },
+        "pretrigger_cpu_ms": {
+          "p50": 15.9,
+          "p95": 26.7,
+          "mean": 16.9,
+          "max": 34.4,
+          "n": 447
+        },
+        "wrong_pairs": {
+          "ALL_OFF->LIGHT_OFF": 3,
+          "CURTAIN_CLOSE->ALL_OFF": 5,
+          "CURTAIN_OPEN->CURTAIN_CLOSE": 14,
+          "LIGHT_OFF->LIGHT_ON": 1,
+          "LIGHT_OFF->ALL_OFF": 1,
+          "LIGHT_ON->LIGHT_OFF": 4,
+          "STATUS_ALL->ALL_OFF": 1
+        }
+      }
+    }
+  ],
+  "recommended_by_session_success": {
+    "fast_silence_ms": 240.0,
+    "endpoint": {
+      "n": 480,
+      "argmax_accuracy": 0.85,
+      "executed": 379,
+      "executed_wrong": 32,
+      "executed_accuracy": 0.9156,
+      "truncated": 13,
+      "truncated_rate": 0.0271,
+      "truncated_executed": 4,
+      "truncated_wrong": 4,
+      "action_latency_ms": {
+        "p50": 278.0,
+        "p95": 292.7,
+        "mean": 280.2,
+        "max": 428.3,
+        "n": 379
+      },
+      "pretrigger_cpu_ms": {
+        "p50": 30.0,
+        "p95": 43.6,
+        "mean": 31.6,
+        "max": 79.5,
+        "n": 447
+      },
+      "wrong_pairs": {
+        "ALL_OFF->LIGHT_OFF": 3,
+        "CURTAIN_CLOSE->ALL_OFF": 5,
+        "CURTAIN_OPEN->CURTAIN_CLOSE": 17,
+        "LIGHT_OFF->LIGHT_ON": 1,
+        "LIGHT_OFF->ALL_OFF": 1,
+        "LIGHT_ON->LIGHT_OFF": 4,
+        "STATUS_ALL->ALL_OFF": 1
+      }
+    }
+  },
+  "note": "仅扫描端点；未重训模型。选定值后仍需用同一切法重生成语料、重训并重新标定双信号门限与参照池，才能作为最终部署结论。",
+  "selection_rule": "先满足动作 P95 <= 300 ms，再比较 argmax、截断数和延迟。"
+}

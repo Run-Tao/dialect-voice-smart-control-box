@@ -1,0 +1,4 @@
+n_samples=38400
+T=237
+command=CURTAIN_CLOSE
+confidence=0.999524595

@@ -79,6 +79,8 @@ class V3Predictor:
         self.n_frames = int(meta.get('n_frames', N_FRAMES))
         self.feature_spec = FeatureSpec.from_dict(meta['feature_spec'])
         self.temperature = float(meta.get('temperature', 1.0))
+        # 时序池化的尾部加权系数：0 表示原全局 mean+max（向后兼容旧工件）
+        self.pool_alpha = float(meta.get('pool_alpha', 0.0))
         self._seed_params = seed_params
         self.tta_shifts = list(meta.get('tta_shifts', []))
         self.thresholds = dict(thresholds or {})
@@ -161,7 +163,8 @@ class V3Predictor:
         deployed, seed_rows, emb_rows = [], [], []
         for shift in variants:
             x = base if shift == 0 else np.roll(base, int(shift), axis=2)
-            embs = np.stack([cnn_embed(p, x)[0] for p in self._seed_params], axis=0)
+            embs = np.stack([cnn_embed(p, x, self.pool_alpha)[0]
+                             for p in self._seed_params], axis=0)
             zs = np.stack([embs[s] @ self._seed_params[s]['fc.weight'].T
                            + self._seed_params[s]['fc.bias']
                            for s in range(embs.shape[0])], axis=0)  # [S,C]
@@ -240,6 +243,7 @@ class V3Predictor:
             'feature_spec': self.feature_spec.to_dict(),
             'n_frames': self.n_frames,
             'tta_shifts': self.tta_shifts,
+            'pool_alpha': self.pool_alpha,
             'val': self.meta.get('val'),
             'data': self.meta.get('data'),
             'training': self.meta.get('training'),
@@ -250,5 +254,5 @@ class V3Predictor:
     def embed_features(self, seq: np.ndarray) -> np.ndarray:
         """返回多种子平均的 256 维嵌入（实验分析用，不改预测）。"""
         x = prepare_input(seq, self.n_frames)
-        embs = [cnn_embed(p, x) for p in self._seed_params]
+        embs = [cnn_embed(p, x, self.pool_alpha) for p in self._seed_params]
         return np.mean(np.stack(embs, 0), axis=0)[0]

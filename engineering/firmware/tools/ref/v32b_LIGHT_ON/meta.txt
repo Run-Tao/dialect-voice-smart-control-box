@@ -1,0 +1,4 @@
+n_samples=15840
+T=96
+command=LIGHT_ON
+confidence=0.998390519

@@ -558,3 +558,47 @@ def test_rejected_utterance_speaks_reject():
     assert res.zone == 'red'
     assert not res.executed
     assert 'REJECT_UNKNOWN' in engine.speaker.spoken
+
+
+class _NearMissGate:
+    thresholds = {'maxprob': 0.50, 'ood': -0.02}
+
+
+def test_gate_near_miss_requires_one_small_deficit():
+    pred = _StubPredictor(['LIGHT_ON', 'LIGHT_OFF'],
+                          {'LIGHT_ON': 0.60, 'LIGHT_OFF': 0.40})
+    engine = _build_engine(
+        pred, gate=_NearMissGate(), red_soft_enabled=True,
+        red_soft_tolerances={'maxprob': 0.05, 'ood': 0.01})
+
+    # maxprob 通过，ood 只差 0.005：允许进入红区澄清候选。
+    assert engine._gate_near_miss({'maxprob': 0.60, 'ood': -0.025})
+    # ood 差 0.02，超出容差：仍按真正拒识处理。
+    assert not engine._gate_near_miss({'maxprob': 0.60, 'ood': -0.04})
+    # 两信号同时失败：不是近门限，不得恢复。
+    assert not engine._gate_near_miss({'maxprob': 0.45, 'ood': -0.04})
+    # 缺信号时保持拒识，不能猜。
+    assert not engine._gate_near_miss({'maxprob': 0.60, 'ood': None})
+
+
+def test_high_risk_confirmation_is_end_to_end_and_executes_on_retry():
+    pred = _StubPredictor(
+        ['ALL_OFF', 'LIGHT_OFF'],
+        {'ALL_OFF': 0.92, 'LIGHT_OFF': 0.08})
+    engine = _build_engine(
+        pred, threshold=0.0,
+        confusable_pairs=[['ALL_OFF', 'LIGHT_OFF']],
+        force_confirm_commands=['ALL_OFF'])
+
+    first = engine.process_segment(_segment(engine), FS)
+    assert first.action == 'clarify'
+    assert first.zone == 'yellow'
+    assert first.reason == 'high_risk_confirm'
+    assert first.clarify['candidates'] == ['ALL_OFF', 'LIGHT_OFF']
+    assert not first.executed
+
+    retry = engine.process_segment(_segment(engine), FS)
+    assert retry.action == 'execute'
+    assert retry.reason == 'high_risk_confirmed'
+    assert retry.executed
+    assert engine.executor.dispatched == ['ALL_OFF']

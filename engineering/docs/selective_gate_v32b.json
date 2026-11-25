@@ -1,0 +1,201 @@
+{
+  "generated": "2026-11-19",
+  "built_by": "scripts/build_selective_gate.py",
+  "args": {
+    "raw_cache": "../DialectVoice_Research/data/real_domain_testset/selective_raw_v32b.npz",
+    "pool_size": 500,
+    "pool_seed": 0,
+    "pool_dtype": "float16",
+    "k": 5,
+    "target_risk": 0.1,
+    "xfit_folds": 2,
+    "xfit_seeds": "0,1,2",
+    "fallback_threshold": 0.945,
+    "fallback_mode": "single",
+    "out_dir": "../DialectVoice_Research/data/models",
+    "report": "docs/selective_gate_v32b.json",
+    "dry_run": false
+  },
+  "pool": {
+    "shape": [
+      500,
+      256
+    ],
+    "dtype_note": "float16 往返（标定与评估都用往返后的数值）",
+    "n_by_class": {
+      "ALL_OFF": 83,
+      "CURTAIN_CLOSE": 83,
+      "CURTAIN_OPEN": 83,
+      "LIGHT_OFF": 83,
+      "LIGHT_ON": 83,
+      "STATUS_ALL": 85
+    },
+    "source_indices_sha256": "91dbdc36be49b2dd",
+    "bytes_in_memory_f32": 512000
+  },
+  "groups": {
+    "pool": 2053,
+    "syn_known": 440,
+    "syn_unknown": 72,
+    "real": 2637
+  },
+  "deployed_fit": {
+    "thresholds": {
+      "maxprob": 0.51863,
+      "ood": -0.026796
+    },
+    "real_far": 0.0698,
+    "real_ci95": [
+      0.0607,
+      0.0801
+    ],
+    "real_accepted": 184,
+    "real_n": 2637,
+    "dangerous_rate": 0.0326,
+    "dangerous_ci95": [
+      0.0265,
+      0.0401
+    ],
+    "dangerous_accepted": 86,
+    "benign_rate": 0.0372,
+    "syn_coverage": 0.8205,
+    "false_accept_by_command": {
+      "STATUS_ALL": 98,
+      "ALL_OFF": 85,
+      "LIGHT_OFF": 1
+    }
+  },
+  "crossfit": {
+    "n_folds": 2,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "n_distinct_thresholds": 2,
+    "threshold_modes": [
+      {
+        "thresholds": {
+          "maxprob": 0.51863,
+          "ood": -0.026796
+        },
+        "count": 3
+      },
+      {
+        "thresholds": {
+          "maxprob": 0.30677,
+          "ood": -0.026796
+        },
+        "count": 3
+      }
+    ],
+    "pooled_far_mean": 0.0702,
+    "pooled_far_min": 0.0702,
+    "pooled_far_max": 0.0702,
+    "pos_coverage_mean": 0.8205,
+    "pos_coverage_min": 0.8205,
+    "folds": [
+      {
+        "seed": 0,
+        "fold": 0,
+        "reachable": true,
+        "n_calib": 1318,
+        "n_eval": 1319,
+        "thresholds": {
+          "maxprob": 0.51863,
+          "ood": -0.026796
+        },
+        "eval_accepted": 87,
+        "eval_far": 0.066,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0736
+      },
+      {
+        "seed": 0,
+        "fold": 1,
+        "reachable": true,
+        "n_calib": 1319,
+        "n_eval": 1318,
+        "thresholds": {
+          "maxprob": 0.30677,
+          "ood": -0.026796
+        },
+        "eval_accepted": 98,
+        "eval_far": 0.0744,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.066
+      },
+      {
+        "seed": 1,
+        "fold": 0,
+        "reachable": true,
+        "n_calib": 1318,
+        "n_eval": 1319,
+        "thresholds": {
+          "maxprob": 0.51863,
+          "ood": -0.026796
+        },
+        "eval_accepted": 88,
+        "eval_far": 0.0667,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0728
+      },
+      {
+        "seed": 1,
+        "fold": 1,
+        "reachable": true,
+        "n_calib": 1319,
+        "n_eval": 1318,
+        "thresholds": {
+          "maxprob": 0.30677,
+          "ood": -0.026796
+        },
+        "eval_accepted": 97,
+        "eval_far": 0.0736,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0667
+      },
+      {
+        "seed": 2,
+        "fold": 0,
+        "reachable": true,
+        "n_calib": 1318,
+        "n_eval": 1319,
+        "thresholds": {
+          "maxprob": 0.30677,
+          "ood": -0.026796
+        },
+        "eval_accepted": 92,
+        "eval_far": 0.0697,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.0706
+      },
+      {
+        "seed": 2,
+        "fold": 1,
+        "reachable": true,
+        "n_calib": 1319,
+        "n_eval": 1318,
+        "thresholds": {
+          "maxprob": 0.51863,
+          "ood": -0.026796
+        },
+        "eval_accepted": 93,
+        "eval_far": 0.0706,
+        "pos_coverage": 0.8205,
+        "calib_risk": 0.069
+      }
+    ]
+  },
+  "meets_target": true,
+  "problems": [
+    "交叉拟合在折间选出 2 组不同阈值，工作点不稳定；样本外 FAR 是这套流程的估计，不是某一对固定阈值的估计。（记录为警告，不阻断落盘）"
+  ],
+  "written": {
+    "pool": "..\\DialectVoice_Research\\data\\models\\v3_knn_pool.npz",
+    "pool_sha256": "76184b5d2da460575e003074223e81fa6e6c275cf408a39a4c4c2c9b11ae95aa",
+    "pool_bytes": 282514,
+    "gate": "..\\DialectVoice_Research\\data\\models\\v3_selective_gate.json",
+    "gate_sha256": "efb0461ad12ffb782bf6de1da03e651db1ec4204af928b9ab75fcac1a1becee7"
+  }
+}

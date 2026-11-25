@@ -39,7 +39,8 @@ class Config:
 
     @property
     def model_path(self) -> Path:
-        return self.path('recognition.model', 'runtime/models/v3_cnn_ensemble_vad.npz')
+        # 默认与出厂 config.yaml 保持一致（2026-11-19 切到纠错修复模型 v3.2b）。
+        return self.path('recognition.model', 'runtime/models/v3_cnn_ensemble_v32b.npz')
 
     @property
     def thresholds_path(self) -> Path:
@@ -146,12 +147,50 @@ class Config:
         return [list(p) for p in pairs]
 
     @property
+    def confirmation_pairs(self):
+        pairs = self.get('decision.confirmation_pairs')
+        if not pairs:
+            return self.confusable_pairs
+        return [list(p) for p in pairs]
+
+    @property
     def debounce_ms(self) -> int:
         return int(self.get('decision.debounce_ms', 2000))
 
     @property
     def max_clarify(self) -> int:
         return int(self.get('decision.max_clarify', 1))
+
+    @property
+    def red_soft_enabled(self) -> bool:
+        """是否允许红区近门限样本发起不执行动作的易混对澄清。"""
+        return bool(self.get('decision.red_soft.enabled', False))
+
+    @property
+    def red_soft_min_prob(self) -> float:
+        return float(self.get('decision.red_soft.min_prob', 0.0))
+
+    @property
+    def red_soft_min_margin(self) -> float:
+        return float(self.get('decision.red_soft.min_margin', 0.0))
+
+    @property
+    def red_soft_tolerances(self) -> Dict[str, float]:
+        d = self.get('decision.red_soft.tolerance', {}) or {}
+        return {
+            'maxprob': float(d.get('maxprob', 0.05)),
+            'ood': float(d.get('ood', 0.01)),
+        }
+
+    @property
+    def force_confirm_commands(self) -> list:
+        values = self.get('decision.force_confirm_commands', []) or []
+        return [str(v) for v in values]
+
+    @property
+    def high_risk_min_ood(self) -> Dict[str, float]:
+        values = self.get('decision.high_risk_min_ood', {}) or {}
+        return {str(k): float(v) for k, v in values.items()}
 
     # ------------------------------------------------------------------
     # S4(b)：流式两遍识别的参数。
@@ -174,7 +213,7 @@ class Config:
     @property
     def fast_silence_ms(self) -> float:
         """预触发之后的静音挂起；压得越短，动作延迟越低。"""
-        return float(self.get('streaming.fast_silence_ms', 120.0))
+        return float(self.get('streaming.fast_silence_ms', 240.0))
 
     @property
     def fast_endpoint_threshold(self) -> float:

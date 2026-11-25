@@ -50,3 +50,26 @@ engineering/logs/
 *.snm
 *.toc
 *.synctex.gz
+
+# ---- engineering 固件/工具链产物（只保留源码、参考向量与 dist 整包） ----
+engineering/.platformio_core/
+engineering/.venv_firmware/
+engineering/firmware/**/.pio/
+engineering/firmware/**/build*/
+engineering/firmware/tools/batch*/
+engineering/firmware/tools/*.exe
+engineering/runtime/models/_backup_*/
+engineering/firmware/main/model/_backup_*/
+
+# ---- research 大音频 / 原始数据 / 实验缓存 ----
+research/data/corpora/
+research/data/tts_corpus/wav16k_v3/
+research/data/tts_corpus/wav16k_v3_1/
+research/data/tts_corpus/wav16k_v3_1_vad/
+research/data/tts_corpus/raw*/
+research/data/tts_corpus/_archive_wrongplan/
+research/data/tts_corpus.zip
+research/data/real_domain_testset/*.npz
+research/data/models/_backup_*/
+research/data/models/_experiments_*/
+

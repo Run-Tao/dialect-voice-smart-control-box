@@ -145,10 +145,19 @@ def spec_output_dim(spec: FeatureSpec) -> int:
 
 
 class CmdCNN:
-    """延迟导入 PyTorch 的训练模型（避免推理环境依赖）。"""
+    """延迟导入 PyTorch 的训练模型（避免推理环境依赖）。
+
+    ``pool_alpha`` 控制时序池化的尾部加权：
+    - ``0.0``：退化为原实现（全局 mean + 全局 max，逐位等价）；
+    - ``>0``：mean 分支按 ``exp(alpha * t/(T-1))`` 归一化加权，越靠句尾权重越大。
+      动机是粤语家居命令的意图动词短语恒在句尾，纠错句「唔係A，係B」的意图
+      在 B（句尾）；全局 mean 把整句当词袋，无法利用该位置信息。
+    max 分支保持全局，保留"整句最强证据"的通道。
+    """
 
     @staticmethod
-    def build(in_dim: int, n_cls: int, dropout: float):
+    def build(in_dim: int, n_cls: int, dropout: float, pool_alpha: float = 0.0):
+        import torch
         import torch.nn as nn
 
         class _Net(nn.Module):
@@ -161,11 +170,19 @@ class CmdCNN:
                 )
                 self.drop = nn.Dropout(dropout)
                 self.fc = nn.Linear(256, n_cls)
+                self.pool_alpha = float(pool_alpha)
 
             def embed(self, x):
                 import torch
                 h = self.net(x)
-                return torch.cat([h.mean(-1), h.max(-1).values], dim=1)
+                if self.pool_alpha <= 0.0:
+                    return torch.cat([h.mean(-1), h.max(-1).values], dim=1)
+                T = h.shape[-1]
+                t = torch.arange(T, device=h.device, dtype=h.dtype) / max(T - 1, 1)
+                w = torch.exp(self.pool_alpha * t)
+                w = w / w.sum()
+                wm = (h * w.view(1, 1, T)).sum(-1)
+                return torch.cat([wm, h.max(-1).values], dim=1)
 
             def forward(self, x):
                 return self.fc(self.drop(self.embed(x)))
@@ -217,6 +234,30 @@ def confusion(y, p, n_cls=6):
     return cm.tolist()
 
 
+def apply_oversample(records, spec_str, log=print):
+    """按 ``register:command:mult`` 规则对 train 记录过采样（复制 mult-1 份）。
+
+    只对 ``subset == 'train'`` 生效，val/test 绝不复制，避免评估失真。
+    典型用途：纠错句某些方向样本偏少（如 CURTAIN_OPEN 的「唔係A係B」），
+    提高其损失权重，迫使模型学到方向而非只记住前半句。
+    """
+    rules = []
+    for part in spec_str.split(','):
+        et, cmd, mult = part.split(':')
+        rules.append((et.strip(), cmd.strip(), int(mult)))
+    extra = []
+    for r in records:
+        if r['subset'] != 'train':
+            continue
+        for et, cmd, mult in rules:
+            if r.get('register') == et and r['command'] == cmd:
+                extra.extend([dict(r) for _ in range(max(mult - 1, 0))])
+                break
+    if extra:
+        log(f'  过采样：新增 {len(extra)} 条 train 副本，规则={rules}')
+    return records + extra
+
+
 def train_one_seed(seed, Xtr, ytr, Xva, yva, cfg, log=print):
     import torch
     import torch.nn as nn
@@ -225,7 +266,8 @@ def train_one_seed(seed, Xtr, ytr, Xva, yva, cfg, log=print):
     torch.manual_seed(seed)
     np.random.seed(seed)
     model_cfg = cfg['model']
-    model = CmdCNN.build(Xtr.shape[1], len(INTENTS), float(model_cfg.get('dropout', 0.3)))
+    model = CmdCNN.build(Xtr.shape[1], len(INTENTS), float(model_cfg.get('dropout', 0.3)),
+                         float(model_cfg.get('pool_alpha', 0.0)))
     opt = torch.optim.AdamW(model.parameters(), lr=float(model_cfg['lr']),
                             weight_decay=float(model_cfg['weight_decay']))
     epochs = int(model_cfg['max_epochs'])
@@ -311,6 +353,10 @@ def main():
     ap.add_argument('--max-epochs', type=int, default=None)
     ap.add_argument('--patience', type=int, default=None)
     ap.add_argument('--threads', type=int, default=None)
+    ap.add_argument('--pool-alpha', type=float, default=None,
+                    help='时序池化尾部加权系数（0=原全局 mean+max；建议 1.0）')
+    ap.add_argument('--oversample', default=None,
+                    help='过采样规则 register:command:mult，逗号分隔，仅作用于 train')
     ap.add_argument('--smoke', action='store_true', help='冒烟：少量样本 + 2 epoch')
     args = ap.parse_args()
 
@@ -326,12 +372,16 @@ def main():
         cfg['model']['max_epochs'] = args.max_epochs
     if args.patience is not None:
         cfg['model']['patience'] = args.patience
+    if args.pool_alpha is not None:
+        cfg['model']['pool_alpha'] = float(args.pool_alpha)
     manifest, split = resolve_data_paths(cfg)
     if args.manifest:
         manifest = Path(args.manifest)
     if args.split:
         split = Path(args.split)
     records = load_records(cfg, manifest, split)
+    if args.oversample:
+        records = apply_oversample(records, args.oversample, log=log)
     counts = {s: sum(1 for r in records if r['subset'] == s) for s in ('train', 'val', 'test')}
     log(f'数据：{manifest.name} + {split.name}，共 {len(records)} 条，split={counts}')
     spec = feature_spec_from_config(cfg)
@@ -400,6 +450,7 @@ def main():
         'n_seeds': len(models),
         'feature_spec': spec.to_dict(),
         'n_frames': n_frames,
+        'pool_alpha': float(cfg['model'].get('pool_alpha', 0.0)),
         'in_dim': int(X.shape[1]),
         'temperature': float(temperature),
         'temperature_grid': [float(Tgrid[0]), float(Tgrid[-1]), len(Tgrid)],
@@ -421,6 +472,7 @@ def main():
             'lr': float(cfg['model']['lr']),
             'weight_decay': float(cfg['model']['weight_decay']),
             'dropout': float(cfg['model'].get('dropout', 0.3)),
+            'pool_alpha': float(cfg['model'].get('pool_alpha', 0.0)),
             'augment': cfg['model']['augment'],
             'torch_version': _torch.__version__,
             'python': platform.python_version(),

@@ -1,0 +1,17 @@
+# 可选：真实硬件与网络执行通道。
+# 这三个原来被代码 import 但根本没列进 requirements.txt —— 树莓派上按旧表装完，
+# 串口 / 继电器 / MQTT 三条真通道全部 ImportError（2026-11-13 核实）。
+#
+#   src/control.py:138   import serial        -> SerialExecutor（ESP32 串口）
+#   src/control.py:184   import RPi.GPIO      -> RelayExecutor（继电器直控，仅树莓派）
+#   src/control.py:277   import paho.mqtt     -> MqttExecutor
+#   runtime/state.py:150 import paho.mqtt     -> MqttStateSource（S5 状态先验）
+#
+# 全部是惰性 import：不装也能跑 mock / log 通道，装上才解锁真硬件。
+# 本机均未安装，版本无从验证，故不钉死；上设备后请回填实测版本。
+pyserial
+paho-mqtt
+
+# RPi.GPIO 只在树莓派上有意义，且在新版 Raspberry Pi OS 上可能需要
+# rpi-lgpio 替代。默认注释掉，接继电器时再按实际系统解开。
+# RPi.GPIO

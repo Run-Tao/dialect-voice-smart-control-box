@@ -1,0 +1,179 @@
+{
+  "generated_by": "scripts/sweep_high_risk_tau.py",
+  "model": "v3_cnn_ensemble_v32b.npz",
+  "gate_thresholds": {
+    "maxprob": 0.51863,
+    "ood": -0.026796
+  },
+  "k": 5,
+  "classes": [
+    "LIGHT_ON",
+    "LIGHT_OFF",
+    "CURTAIN_OPEN",
+    "CURTAIN_CLOSE",
+    "ALL_OFF",
+    "STATUS_ALL"
+  ],
+  "pool_shape": [
+    500,
+    256
+  ],
+  "old_tau": -0.014,
+  "real_top1_alloff": 1214,
+  "real_passing_main": 85,
+  "real_oods_stats": {
+    "min": -0.026757668781421228,
+    "p10": -0.026441097611079066,
+    "median": -0.0251542392400818,
+    "max": -0.019163247580740526
+  },
+  "syn_top1_alloff": 80,
+  "syn_passing_main": 55,
+  "sweep": [
+    {
+      "tau": -0.027,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 0,
+      "real_remaining_direct": 85,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 0,
+      "syn_remaining_direct": 55
+    },
+    {
+      "tau": -0.026,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 20,
+      "real_remaining_direct": 65,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 0,
+      "syn_remaining_direct": 55
+    },
+    {
+      "tau": -0.025,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 46,
+      "real_remaining_direct": 39,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 2,
+      "syn_remaining_direct": 53
+    },
+    {
+      "tau": -0.024,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 57,
+      "real_remaining_direct": 28,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 7,
+      "syn_remaining_direct": 48
+    },
+    {
+      "tau": -0.023,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 69,
+      "real_remaining_direct": 16,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 7,
+      "syn_remaining_direct": 48
+    },
+    {
+      "tau": -0.022,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 78,
+      "real_remaining_direct": 7,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 7,
+      "syn_remaining_direct": 48
+    },
+    {
+      "tau": -0.021,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 81,
+      "real_remaining_direct": 4,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 8,
+      "syn_remaining_direct": 47
+    },
+    {
+      "tau": -0.02,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 83,
+      "real_remaining_direct": 2,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 8,
+      "syn_remaining_direct": 47
+    },
+    {
+      "tau": -0.019,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 8,
+      "syn_remaining_direct": 47
+    },
+    {
+      "tau": -0.018,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 8,
+      "syn_remaining_direct": 47
+    },
+    {
+      "tau": -0.017,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 9,
+      "syn_remaining_direct": 46
+    },
+    {
+      "tau": -0.016,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 9,
+      "syn_remaining_direct": 46
+    },
+    {
+      "tau": -0.015,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 10,
+      "syn_remaining_direct": 45
+    },
+    {
+      "tau": -0.014,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 14,
+      "syn_remaining_direct": 41
+    },
+    {
+      "tau": -0.013,
+      "real_all_off_wrong_passing_main": 85,
+      "real_blocked": 85,
+      "real_remaining_direct": 0,
+      "syn_all_off_correct_passing_main": 55,
+      "syn_blocked_cost": 25,
+      "syn_remaining_direct": 30
+    }
+  ],
+  "recommendation": {
+    "tau": -0.013,
+    "real_all_off_wrong_passing_main": 85,
+    "real_blocked": 85,
+    "real_remaining_direct": 0,
+    "syn_all_off_correct_passing_main": 55,
+    "syn_blocked_cost": 25,
+    "syn_remaining_direct": 30
+  },
+  "note": "real=真人非命令误动作(越低越安全); syn=合成已知正确执行(被拦是代价)。tau 越大拦得越多。口径与 runtime/selective.py + decision.py 一致。"
+}
